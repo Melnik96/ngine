@@ -17,19 +17,5 @@
  *
  */
 
-/* inclusion guard */
-#ifndef __ENGINE_H__
-#define __ENGINE_H__
+#include "viewport.h"
 
-struct engine {
-  struct GLFWwindow* window;
-  struct viewport* viewport;
-};
-
-int neng_init(struct engine* _self, char* _win_name);
-int neng_shutdown(struct engine* _self);
-int neng_frame(struct engine* _self, float _elapsed);
-
-int neng_load_shader(char* );
-
-#endif /* __ENGINE_H__ */

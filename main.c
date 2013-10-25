@@ -118,11 +118,14 @@
 
 #include "engine.h"
 #include <stdio.h>
+#include <malloc.h>
 
 int main() {
   struct engine* engine;
-  if(!engine_init(engine, "Nutty Engine Test")) {
+  engine = malloc(sizeof(struct engine));
+  if(!neng_init(engine, "Nutty Engine Test")) {
     printf("engine init fail\n");
   }
-  while(engine_frame(engine, .3f));
+  while(neng_frame(engine, .3f));
+  neng_shutdown(engine);
 }

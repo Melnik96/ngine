@@ -37,6 +37,7 @@ struct scene_object {
 //   char* script;
   struct scene_object_listener* listener;
   
+  struct scene_object* parent;
 //   uint8_t num_childs;
   struct scene_object* childs;
 };

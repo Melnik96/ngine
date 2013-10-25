@@ -73,6 +73,6 @@ typedef union {
 
 // typedef float[4][4] mat4;
 
-int mat_mul(float* _new_matrix, float* _first, float* _second);
+int mat4_mul(float* _mat, float* _first, float* _second);
 
 #endif /* __MATH_H__ */

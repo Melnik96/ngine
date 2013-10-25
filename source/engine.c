@@ -24,16 +24,20 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 
+#include "viewport.h"
+
 #include "engine.h"
-int engine_init(struct engine* _self, char* _win_name) {
+#include "camera.h"
+
+int neng_init(struct engine* _self, char* _win_name) {
   //init GL
   // Initialise GLFW
   if(!glfwInit())
     return -1;
   /* Create a windowed mode window and its OpenGL context */
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+//   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+//   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   _self->window = glfwCreateWindow(640, 480, _win_name, NULL, NULL);
   if(!_self->window) {
     glfwTerminate();
@@ -54,9 +58,9 @@ static const GLfloat g_vertex_buffer_data[] = {
    1.0f, -1.0f, 0.0f,
    0.0f,  1.0f, 0.0f,
 };
-int engine_frame(struct engine* _self, float _elapsed) {
-  glfwMakeContextCurrent(_self->window);
-  if(glfwWindowShouldClose(_self->window)) { engine_shutdown(_self); }
+int neng_frame(struct engine* _self, float _elapsed) {
+//   glfwMakeContextCurrent(_self->window);
+  if(glfwWindowShouldClose(_self->window)) { return 0; }
   /* Render here */
   glClear(GL_COLOR_BUFFER_BIT);
   // This will identify our vertex buffer
@@ -86,11 +90,17 @@ int engine_frame(struct engine* _self, float _elapsed) {
 
   glDisableVertexAttribArray(0);
 
+  // calc view_projection matrix
+  float vp_matrix[4][4];
+  if(!mat4_mul(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->view_matrix)) { exit(); }
+  // for each object calc model_view_proj
+  
   glfwSwapBuffers(_self->window);
   glfwPollEvents();
+  printf("frame\n");
   return 1;
 }
 
-int engine_shutdown(struct engine* _self) {
+int neng_shutdown(struct engine* _self) {
   glfwTerminate();
 }

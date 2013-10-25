@@ -18,18 +18,14 @@
  */
 
 /* inclusion guard */
-#ifndef __ENGINE_H__
-#define __ENGINE_H__
+#ifndef __VIEWPORT_H__
+#define __VIEWPORT_H__
 
-struct engine {
-  struct GLFWwindow* window;
-  struct viewport* viewport;
+#include "math.h"
+
+struct viewport {
+  float proj_matrix[4][4];
+  struct camera* camera;
 };
 
-int neng_init(struct engine* _self, char* _win_name);
-int neng_shutdown(struct engine* _self);
-int neng_frame(struct engine* _self, float _elapsed);
-
-int neng_load_shader(char* );
-
-#endif /* __ENGINE_H__ */
+#endif /* __VIEWPORT_H__ */

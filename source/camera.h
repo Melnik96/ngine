@@ -24,7 +24,7 @@
 #include "math.h"
 
 struct camera {
-  mat4 view_matrix;//матрица позиции наблюдения
+  float view_matrix[4][4];//матрица позиции наблюдения
 };
 
 int camera_look_at(struct camera* _self, struct scene_object* _target);
