@@ -33,4 +33,5 @@ CMakeFiles/nuttyengine.dir/source/scene_object.o: ../source/scene_object.c
 CMakeFiles/nuttyengine.dir/source/scene_object.o: ../source/scene_object.h
 
 CMakeFiles/nuttyengine.dir/source/serialization.o: ../source/serialization.c
+CMakeFiles/nuttyengine.dir/source/serialization.o: ../source/serialization.h
 

@@ -9,6 +9,7 @@ aux_source_directory("source/" engine_sources)
 add_library(nuttyengine SHARED ${engine_sources})
 target_link_libraries(nuttyengine
   "GL"
+  "GLEW"
   "glfw"
 )
 

@@ -1,7 +1,7 @@
 set(CMAKE_C_COMPILER "/usr/bin/cc")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "4.8.1")
+set(CMAKE_C_COMPILER_VERSION "4.8.0")
 set(CMAKE_C_PLATFORM_ID "Linux")
 
 set(CMAKE_AR "/usr/bin/ar")
@@ -29,7 +29,7 @@ set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)
 set(CMAKE_C_LINKER_PREFERENCE 10)
 
 # Save compiler ABI information.
-set(CMAKE_C_SIZEOF_DATA_PTR "8")
+set(CMAKE_C_SIZEOF_DATA_PTR "4")
 set(CMAKE_C_COMPILER_ABI "ELF")
 set(CMAKE_C_LIBRARY_ARCHITECTURE "")
 
@@ -49,7 +49,7 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.1;/usr/lib;/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/i686-pc-linux-gnu/4.8.0;/usr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 
 
