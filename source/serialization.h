@@ -23,6 +23,7 @@
 
 #include <string.h>
 #include <malloc.h>
+#include <stdint.h>
 
 /**
  * |total_size|po_count|ptr_offset|base_data_size|base_data|data_from_ptrs|
@@ -33,15 +34,15 @@
  */
 
 struct sdna {
-  uint total_size;
-  uint po_len;
-  uint base_data_size;
+  uint32_t total_size;
+  uint32_t po_len;
+  uint32_t base_data_size;
   uint32_t* ptr_offset;
   void* base_data;
   void* data_from_ptrs;
 };
 
-void* serialize(void* _data, uint _data_size, uint32_t* _ptr_offset, uint _po_len);
+void* serialize(void* _data, uint32_t _data_size, uint32_t* _ptr_offset, uint32_t _po_len);
 void* deserialize(void* _sdata);
 
 #endif /* __SERIALIZATION_H__ */

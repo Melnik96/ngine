@@ -31,8 +31,8 @@ struct scene_object_listener {
 struct scene_object {
   char name[32];
   char type[32];
-  vector3 pos,rot;
-  matrix4x4 model_matrix;
+  vec3 pos,rot;
+  mat4 model_matrix;
   void* ptr_to_typed_obj;//ptr to entity or camera
 //   char* script;
   struct scene_object_listener* listener;
@@ -41,6 +41,6 @@ struct scene_object {
   struct scene_object* childs;
 };
 
-void scene_object_translate(vector3 _pos);
+void scene_object_translate(vec3 _pos);
 
 #endif /* __SCENE_OBJECT_H__ */

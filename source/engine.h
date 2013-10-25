@@ -17,5 +17,16 @@
  *
  */
 
-#include "mesh.h"
+/* inclusion guard */
+#ifndef __ENGINE_H__
+#define __ENGINE_H__
 
+struct engine {
+  struct GLFWwindow* window;
+};
+
+int engine_init(struct engine* _self, char* _win_name);
+int engine_frame(struct engine* _self, float _elapsed);
+int engine_shutdown(struct engine* _self);
+
+#endif /* __ENGINE_H__ */

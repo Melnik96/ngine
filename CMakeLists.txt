@@ -2,8 +2,19 @@ project(nuttyengine)
 
 include_directories("source")
 
-add_executable(nuttyengine source/scene.c source/serialization.c source/physics_mgr.c source/dynlib.c source/math.c source/camera.c source/scene_object.c source/entity.c source/mesh.c main.cpp)
+set(CMAKE_C_FLAGS "-std=c11")
 
-install(TARGETS nuttyengine RUNTIME DESTINATION bin)
+aux_source_directory("source/" engine_sources)
+
+add_library(nuttyengine SHARED ${engine_sources})
+target_link_libraries(nuttyengine
+  "GL"
+  "glfw"
+)
+
+add_executable(test main.c)
+target_link_libraries(test nuttyengine)
+
+install(TARGETS nuttyengine LIBRARY DESTINATION lib)
 
 add_subdirectory(source)

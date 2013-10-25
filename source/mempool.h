@@ -1,6 +1,8 @@
 #ifndef __MEMPOOL_H__
 #define __MEMPOOL_H__
 
+#include <stdlib.h>
+
 struct mempools {
   struct mempool* scene_object_pool;
   struct mempool* entity_pool;
@@ -8,7 +10,7 @@ struct mempools {
   struct mempool* dynlib_pool;
   struct mempool* camera_pool;
 };
-static mempools* mempools;
+static struct mempools* mempools;
 
 struct mempool {
   void* head;

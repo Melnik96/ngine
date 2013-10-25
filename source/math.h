@@ -61,15 +61,17 @@ typedef union {
   float values[4];
 } vec4;
 
-typedef union {
-  float values[3][3];
-  float values[9];
-} mat3;
+// typedef union {
+//   float values[3][3];
+//   float values[9];
+// } mat3;
 
 typedef union {
-  float values[4][4];
-  float values[16];
+  float tvalues[4][4];
+  float svalues[16];
 } mat4;
+
+// typedef float[4][4] mat4;
 
 int mat_mul(float* _new_matrix, float* _first, float* _second);
 

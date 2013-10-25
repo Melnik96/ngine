@@ -22,20 +22,21 @@
 #include "mempool.h"
 
 #include <dlfcn.h>
+#include <string.h>
 
 static struct mempool* dynlib_pool;
 
-dynlib* dynlib_open(char* _name) {
+struct dynlib* dynlib_open(char* _name) {
   struct dynlib* module;
   module = mempool_alloc(dynlib_pool);
   module->intense = dlopen(_name, RTLD_LAZY);
   module->type = so_module;
-  module->name= _name;
+  strcpy(module->name, _name);
 }
-int dynlib_close(dynlib* _module) {
+int dynlib_close(struct dynlib* _module) {
 
 }
-void* dynlib_getsym(dynlib* _module, char* _symname) {
+void* dynlib_getsym(struct dynlib* _module, char* _symname) {
 
 }
 

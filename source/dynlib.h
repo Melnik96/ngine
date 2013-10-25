@@ -21,6 +21,8 @@
 #ifndef __DYNLIB_H__
 #define __DYNLIB_H__
 
+#include <stdint.h>
+
 //need support .so and .py modules
 
 enum dynlib_type {
