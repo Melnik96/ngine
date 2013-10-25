@@ -6,19 +6,5 @@
 
 #IncludeRegexTransform: 
 
-/home/melnik/projects/nuttyengine/source/engine.c
-stdio.h
--
-GL/glew.h
--
-GL/gl.h
--
-GLFW/glfw3.h
--
-stdlib.h
--
-engine.h
-/home/melnik/projects/nuttyengine/source/engine.h
-
-/home/melnik/projects/nuttyengine/source/engine.h
+/home/melnik/projects/nuttyengine/source/serialization.c
 
