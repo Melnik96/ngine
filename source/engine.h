@@ -21,14 +21,21 @@
 #ifndef __ENGINE_H__
 #define __ENGINE_H__
 
+#include <stdint.h>
+
 struct engine {
   struct GLFWwindow* window;
   struct viewport* viewport;
+  char* gl_ver;
+  uint8_t num_scenes;
+  struct scene* scenes;
 };
 
 int neng_init(struct engine* _self, char* _win_name);
 int neng_shutdown(struct engine* _self);
 int neng_frame(struct engine* _self, float _elapsed);
+
+void neng_get_opengl_version(char* _ver);
 
 int neng_load_shader(char* );
 

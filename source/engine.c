@@ -18,16 +18,19 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <memory.h>
 
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
-#include <stdlib.h>
 
 #include "viewport.h"
 
 #include "engine.h"
 #include "camera.h"
+#include "scene.h"
+#include "scene_object.h"
 
 int neng_init(struct engine* _self, char* _win_name) {
   //init GL
@@ -48,6 +51,11 @@ int neng_init(struct engine* _self, char* _win_name) {
   glewExperimental = GL_TRUE;
 //   glewInit();
   if(glewInit() != GLEW_OK) { return 0; }
+  
+//   _self->gl_ver = malloc(6);
+//   neng_get_opengl_version(_self->gl_ver);
+//   printf("OpenGL version %s\n", _self->gl_ver);
+  
   return 1;
 }
 
@@ -91,16 +99,43 @@ int neng_frame(struct engine* _self, float _elapsed) {
   glDisableVertexAttribArray(0);
 
   // calc view_projection matrix
-  float vp_matrix[4][4];
-  if(!mat4_mul(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->view_matrix)) { exit(); }
+//   float vp_matrix[4][4];
+//   if(!mat4_mul(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->view_matrix)) { exit(1); }
   // for each object calc model_view_proj
+//   float parents_matrix[4][4];
+//   struct scene_object* cur_obj;
+//   while(1) {
+//     cur_obj = _self->scenes->root_object->childs;
+//     
+//   }
+//   glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
   
   glfwSwapBuffers(_self->window);
   glfwPollEvents();
-  printf("frame\n");
+//   printf("frame\n");
   return 1;
 }
 
 int neng_shutdown(struct engine* _self) {
   glfwTerminate();
+}
+
+void neng_get_opengl_version(char* _ver) {
+  if(GLEW_VERSION_4_3) { memcpy(_ver, "4.3", 4); }
+  else if(GLEW_VERSION_4_2) { memcpy(_ver, "4.2", 4); }
+  else if(GLEW_VERSION_4_1) { memcpy(_ver, "4.1", 4); }
+  else if(GLEW_VERSION_4_0) { memcpy(_ver, "4.0", 4); }
+  else if(GLEW_VERSION_3_3) { memcpy(_ver, "3.3", 4); }
+  else if(GLEW_VERSION_3_2) { memcpy(_ver, "3.2", 4); }
+  else if(GLEW_VERSION_3_1) { memcpy(_ver, "3.1", 4); }
+  else if(GLEW_VERSION_3_0) { memcpy(_ver, "3.0", 4); }
+  else if(GLEW_VERSION_2_1) { memcpy(_ver, "2.1", 4); }
+  else if(GLEW_VERSION_2_0) { memcpy(_ver, "2.0", 4); }
+  else if(GLEW_VERSION_1_5) { memcpy(_ver, "1.5", 4); }
+  else if(GLEW_VERSION_1_4) { memcpy(_ver, "1.4", 4); }
+  else if(GLEW_VERSION_1_3) { memcpy(_ver, "1.3", 4); }
+  else if(GLEW_VERSION_1_2_1) { memcpy(_ver, "1.2.1", 6); }
+  else if(GLEW_VERSION_1_2) { memcpy(_ver, "1.2", 4); }
+  else if(GLEW_VERSION_1_1) { memcpy(_ver, "1.1", 4); }
+  else { memcpy(_ver, "0.0", 4); }
 }

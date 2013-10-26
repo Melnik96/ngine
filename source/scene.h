@@ -22,7 +22,7 @@
 #define __SCENE_H__
 
 struct scene {
-  struct scene_object* root_objects;
+  struct scene_object* root_object;
 };
 
 #endif /* __SCENE_H__ */

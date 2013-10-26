@@ -3,6 +3,8 @@ project(nuttyengine)
 include_directories("source")
 
 set(CMAKE_C_FLAGS "-std=c11")
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin CACHE INTERNAL "" FORCE)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin CACHE INTERNAL "" FORCE)
 
 aux_source_directory("source/" engine_sources)
 
