@@ -24,8 +24,8 @@
 #include "math.h"
 
 struct viewport {
-  float proj_matrix[4][4];
-  struct camera* camera;
+  mat4 proj_matrix;
+  struct sc_obj* camera;
 };
 
 #endif /* __VIEWPORT_H__ */

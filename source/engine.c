@@ -30,7 +30,9 @@
 #include "engine.h"
 #include "camera.h"
 #include "scene.h"
-#include "scene_object.h"
+#include "sc_obj.h"
+#include "entity.h"
+#include "mesh.h"
 
 int neng_init(struct engine* _self, char* _win_name) {
   //init GL
@@ -52,9 +54,9 @@ int neng_init(struct engine* _self, char* _win_name) {
 //   glewInit();
   if(glewInit() != GLEW_OK) { return 0; }
   
-//   _self->gl_ver = malloc(6);
-//   neng_get_opengl_version(_self->gl_ver);
-//   printf("OpenGL version %s\n", _self->gl_ver);
+  _self->gl_ver = malloc(6);
+  neng_get_opengl_version(_self->gl_ver);
+  printf("OpenGL version %s\n", _self->gl_ver);
   
   return 1;
 }
@@ -98,17 +100,40 @@ int neng_frame(struct engine* _self, float _elapsed) {
 
   glDisableVertexAttribArray(0);
 
+  //if need geomery update
   // calc view_projection matrix
-//   float vp_matrix[4][4];
-//   if(!mat4_mul(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->view_matrix)) { exit(1); }
-  // for each object calc model_view_proj
-//   float parents_matrix[4][4];
-//   struct scene_object* cur_obj;
-//   while(1) {
-//     cur_obj = _self->scenes->root_object->childs;
-//     
-//   }
-//   glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+  mat4* vp_matrix;
+  vp_matrix = malloc(sizeof(mat4));
+  _self->viewport = malloc(sizeof(struct viewport));
+  _self->viewport->camera = malloc(sizeof(struct camera));
+  _self->viewport->proj_matrix = identitymatrix;
+  _self->viewport->camera->view_matrix = identitymatrix;
+  if(!mat4_mul(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->view_matrix)) { exit(1); }
+  //for each object calc model_view_proj
+  mat4* parents_matrix;
+  mat4* model_parent_matrix;
+  mat4* mpvp_matrix;//model_parent_view_proj_matrix
+  struct sc_obj* cur_obj;
+  uint8_t i = 0;
+  while(1) {
+    if(&_self->scenes->root_object->childs != NULL) {
+      cur_obj = &_self->scenes->root_object->childs[i];
+      sc_obj_update_matrix(cur_obj);
+      mat4_mul(model_parent_matrix, &cur_obj->model_matrix, parents_matrix);
+      mat4_mul(mpvp_matrix, model_parent_matrix, vp_matrix);
+//       glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+//       glDrawElements(GL_TRIANGLES, 48, GL_UNSIGNED_BYTE, (GLvoid*)0);
+      
+      uint IBO;
+      glGenBuffers(1, &IBO);
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+      glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), ((struct entity*)(cur_obj->typed_obj))->meshes->indices, GL_STATIC_DRAW);
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+      glDrawElements(GL_TRIANGLES, ((struct entity*)(cur_obj->typed_obj))->meshes->num_vertices, GL_UNSIGNED_INT, 0);
+      
+      ++i;
+    }
+  }
   
   glfwSwapBuffers(_self->window);
   glfwPollEvents();

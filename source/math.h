@@ -21,7 +21,7 @@
 #ifndef __MATH_H__
 #define __MATH_H__
 
-#include <sys/types.h>
+#include <stdint.h>
 
 typedef enum {
   FAR_LEFT_BOTTOM = 0,
@@ -67,12 +67,13 @@ typedef union {
 // } mat3;
 
 typedef union {
-  float tvalues[4][4];
-  float svalues[16];
+  float m[4][4];
+  float _m[16];
 } mat4;
 
-// typedef float[4][4] mat4;
+// typedef float mat4[4][4];
+const mat4 identitymatrix;
 
-int mat4_mul(float* _mat, float* _first, float* _second);
+int mat4_mul(mat4* _mat, mat4* _f, mat4* _s);
 
 #endif /* __MATH_H__ */

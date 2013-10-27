@@ -117,8 +117,65 @@
 // }
 
 #include "engine.h"
+#include "scene.h"
+#include "viewport.h"
+#include "camera.h"
+#include "entity.h"
+#include "mesh.h"
+#include "math.h"
+#include "sc_obj.h"
 #include <stdio.h>
 #include <malloc.h>
+
+#include <GL/gl.h>
+
+vec4 Vertices[] =
+{
+    { { 0.0f, 0.0f, 0.0f, 1.0f }, { 1.0f, 1.0f, 1.0f, 1.0f } },
+    // Top
+    { { -0.2f, 0.8f, 0.0f, 1.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
+    { { 0.2f, 0.8f, 0.0f, 1.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } },
+    { { 0.0f, 0.8f, 0.0f, 1.0f }, { 0.0f, 1.0f, 1.0f, 1.0f } },
+    { { 0.0f, 1.0f, 0.0f, 1.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
+    // Bottom
+    { { -0.2f, -0.8f, 0.0f, 1.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } },
+    { { 0.2f, -0.8f, 0.0f, 1.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
+    { { 0.0f, -0.8f, 0.0f, 1.0f }, { 0.0f, 1.0f, 1.0f, 1.0f } },
+    { { 0.0f, -1.0f, 0.0f, 1.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
+    // Left
+    { { -0.8f, -0.2f, 0.0f, 1.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
+    { { -0.8f, 0.2f, 0.0f, 1.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } },
+    { { -0.8f, 0.0f, 0.0f, 1.0f }, { 0.0f, 1.0f, 1.0f, 1.0f } },
+    { { -1.0f, 0.0f, 0.0f, 1.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
+    // Right
+    { { 0.8f, -0.2f, 0.0f, 1.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } },
+    { { 0.8f, 0.2f, 0.0f, 1.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
+    { { 0.8f, 0.0f, 0.0f, 1.0f }, { 0.0f, 1.0f, 1.0f, 1.0f } },
+    { { 1.0f, 0.0f, 0.0f, 1.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } }
+};
+unsigned char Indices[] = {
+    // Top
+    0, 1, 3,
+    0, 3, 2,
+    3, 1, 4,
+    3, 4, 2,
+    // Bottom
+    0, 5, 7,
+    0, 7, 6,
+    7, 5, 8,
+    7, 8, 6,
+    // Left
+    0, 9, 11,
+    0, 11, 10,
+    11, 9, 12,
+    11, 12, 10,
+    // Right
+    0, 13, 15,
+    0, 15, 14,
+    15, 13, 16,
+    15, 16, 14
+};
+
 
 int main() {
   struct engine* engine;
@@ -126,6 +183,32 @@ int main() {
   if(!neng_init(engine, "Nutty Engine Test")) {
     printf("engine init fail\n");
   }
+  //create scene
+  //  create objects
+  //  set viewport and camera
+  struct scene* sc = scene_create("scene0", 1);
+  engine->scenes = sc;
+  
+  struct sc_obj* sc_cam0 = sc_obj_create("cam0", "camera");
+  struct sc_obj* sc_obj0 = sc_obj_create("obj0", "entity");
+  
+  struct camera* cam0 = malloc(sizeof(struct camera));
+  struct entity* ent0 = malloc(sizeof(struct entity));
+  
+  struct mesh* mesh0 = malloc(sizeof(struct mesh));
+  mesh0->num_vertices = 9;
+  mesh0->num_indices = 3;
+  mesh0->vertices = &Vertices;
+  mesh0->indices = &Indices;
+  
+  ent0->meshes;
+  
+  sc_cam0->typed_obj = cam0;
+  sc_obj0->typed_obj = ent0;
+  
+  sc_obj_add_child(sc->root_object, sc_cam0);
+  sc_obj_add_child(sc->root_object, sc_obj0);
+  
   while(neng_frame(engine, .3f));
   neng_shutdown(engine);
 }

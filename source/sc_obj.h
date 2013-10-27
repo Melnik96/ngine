@@ -17,5 +17,33 @@
  *
  */
 
-#include "scene_object.h"
+/* inclusion guard */
+#ifndef __SCENE_OBJECT_H__
+#define __SCENE_OBJECT_H__
 
+#include "math.h"
+
+struct sc_obj_listener {
+  void(*on_colide)();
+};
+
+struct sc_obj {
+  char name[32];
+  char type[32];
+  vec3 pos,rot;
+  mat4 model_matrix;
+  void* typed_obj;//ptr to entity or camera
+//   char* script;
+  struct sc_obj_listener* listener;
+  
+  struct scene_object* parent;
+  uint8_t num_childs;
+  struct scene_object** childs;
+};
+
+struct sc_obj* sc_obj_create(char* _name, char* _type);
+int sc_obj_add_child(struct sc_obj* _self, struct sc_obj* _child);
+void sc_obj_translate(vec3 _pos);
+void sc_obj_update_matrix(struct sc_obj* _self);
+
+#endif /* __SCENE_OBJECT_H__ */

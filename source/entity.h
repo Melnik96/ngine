@@ -33,7 +33,7 @@ struct entity {
   
   char name[32];
   struct physics* phys;
-  struct mesh *meshes;
+  struct mesh* meshes;
   struct material* material;
   
   struct entity* childs;

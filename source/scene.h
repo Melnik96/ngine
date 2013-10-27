@@ -22,7 +22,10 @@
 #define __SCENE_H__
 
 struct scene {
-  struct scene_object* root_object;
+  char name[32];
+  struct sc_obj* root_object;
 };
+
+struct scene* scene_create(char* _name, char auto_create_root_obj);
 
 #endif /* __SCENE_H__ */
