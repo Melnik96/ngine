@@ -32,9 +32,11 @@ struct entity {
 //   struct scene_object* childs;
   
   char name[32];
-  struct physics* phys;
+//   struct physics* phys;
   struct mesh* meshes;
   struct material* material;
+  
+  struct hw_buffer* hw;
   
   struct entity* childs;
 };

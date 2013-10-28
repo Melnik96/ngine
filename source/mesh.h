@@ -22,12 +22,14 @@
 #define __MESH_H__
 
 #include <stdint.h>
-#include "math.h"
+#include "math/vector.h"
 
 struct mesh {
   long num_indices, num_vertices;
-  long *indices;
-  vec3 *vertices;
+  long* indices;
+  vec3* vertices;
+  vec3* color;
+  vec2* uv;
   aabb aabb;
   //TODO add half-edged
 };

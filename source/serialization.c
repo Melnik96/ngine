@@ -29,7 +29,7 @@ void* serialize(void* _data, uint32_t _data_size, uint32_t* _ptr_offset, uint32_
   uint32_t ptrs_data_size;
   
   for(uint8_t i = 0; i<= _po_len; i+=3) {//gcc вроді оптимізує
-    ptrs_data_size += _ptr_offset[i];
+    ptrs_data_size += _ptr_offset[i+3];
   }
   
   total_size = uint_size*3+po_size+_data_size+ptrs_data_size;

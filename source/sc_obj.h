@@ -21,8 +21,8 @@
 #ifndef __SCENE_OBJECT_H__
 #define __SCENE_OBJECT_H__
 
-#include "math.h"
-#include "array.h"
+#include "math/matrix.h"
+#include "math/vector.h"
 
 struct sc_obj_listener {
   void(*on_colide)();
@@ -39,7 +39,7 @@ struct sc_obj {
   struct sc_obj_listener* listener;
   
   struct scene_object* parent;
-  array childs;
+  struct array* childs;
 };
 
 struct sc_obj* sc_obj_create(char* _name, char* _type);

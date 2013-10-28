@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c11    CMakeFiles/ne_test.dir/main.c.o  -o ../bin/ne_test -rdynamic ../bin/lib/x86/libnuttyengine.so -lGL -lGLEW -lglfw -l../bin/lib/x86/libSIMDx86.a -Wl,-rpath,/home/melnik/projects/nuttyengine/bin/lib/x86 

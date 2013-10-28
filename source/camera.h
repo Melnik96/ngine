@@ -21,7 +21,7 @@
 #ifndef __CAMERA_H__
 #define __CAMERA_H__
 
-#include "math.h"
+#include "math/matrix.h"
 
 struct camera {
 //   mat4 view_matrix;//матрица позиции наблюдения//матриця позиції береться з sc_obj->model_matrix

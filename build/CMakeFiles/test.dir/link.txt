@@ -1,1 +1,0 @@
-/usr/bin/cc  -std=c11 -g    CMakeFiles/test.dir/main.o  -o ../bin/test  -L/home/melnik/projects/nuttyengine/bin -rdynamic ../bin/libnuttyengine.so -lGL -lGLEW -lglfw -Wl,-rpath,/home/melnik/projects/nuttyengine/bin 

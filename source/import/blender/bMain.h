@@ -18,7 +18,7 @@ subject to the following restrictions:
 
 #include "bCommon.h"
 #include "bChunk.h"
-#include "LinearMath/btHashMap.h"
+#include "bullet/LinearMath/btHashMap.h"
 
 
 namespace bParse

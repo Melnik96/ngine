@@ -37,6 +37,6 @@ struct array {
 void array_init(struct array *array);
 void array_release(struct array *array);
 void *array_add(struct array *array, size_t size);
-int array_copy(struct array *array, struct array *source);
+void array_copy(struct array *array, struct array *source);
 
 #endif /* __ARRAY_H__ */

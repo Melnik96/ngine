@@ -30,7 +30,7 @@ void array_release(struct array *array) {
     free(array->data);
 }
 
-void* array_add(struct array *array, int size) {
+void* array_add(struct array *array, size_t size) {
     int alloc;
     void *data, *p;
 

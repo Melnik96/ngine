@@ -21,7 +21,7 @@
 #ifndef __VIEWPORT_H__
 #define __VIEWPORT_H__
 
-#include "math.h"
+#include "math/matrix.h"
 
 struct viewport {
   mat4 proj_matrix;

@@ -1,0 +1,24 @@
+# Makefile.Linux.x86_64
+# GNU makefile for Linux running on 64-bit x86 systems
+
+# Use GCC compiler
+CC = gcc -I../include
+
+# Archiving tools
+AR = ar
+RANLIB = ranlib
+
+# NASM 2.0-compatible assembler. x86 doesn't use GNU as
+NASM = nasm -I../include/SIMDx86/ -DELF=1 -DPLATFORM_X64=1 -f elf 
+
+# Libraries
+CFLAGS = -O3 -Wall
+
+# Get corresponding platform- and architecture-specific source code files
+include arch_generic.mk
+include plat_posix.mk
+
+# Get main rule set
+include build.mk
+
+

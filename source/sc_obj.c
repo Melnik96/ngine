@@ -38,9 +38,9 @@ struct sc_obj* sc_obj_create(char* _name, char* _type) {
 }
 
 int sc_obj_add_child(struct sc_obj* _self, struct sc_obj* _child) {
-  _self->childs = realloc(_self->childs, sizeof(void*));
-  _self->childs[_self->num_childs+1] = _child;
-  _self->num_childs += 1;
+//   _self->childs = realloc(_self->childs, sizeof(void*));
+//   _self->childs[_self->num_childs+1] = _child;
+//   _self->num_childs += 1;
 }
 
 void sc_obj_update_matrix(struct sc_obj* _self) {

@@ -19,8 +19,8 @@ subject to the following restrictions:
 
 #include <assert.h>
 //#include "bLog.h"
-#include "LinearMath/btAlignedObjectArray.h"
-#include "LinearMath/btHashMap.h"
+#include "bullet/LinearMath/btAlignedObjectArray.h"
+#include "bullet/LinearMath/btHashMap.h"
 
 namespace bParse {
 

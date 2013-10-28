@@ -52,307 +52,359 @@ include CMakeFiles/nuttyengine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/nuttyengine.dir/flags.make
 
-CMakeFiles/nuttyengine.dir/source/camera.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/camera.o: ../source/camera.c
+CMakeFiles/nuttyengine.dir/source/dynlib.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/dynlib.c.o: ../source/dynlib.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/camera.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/camera.o   -c /home/melnik/projects/nuttyengine/source/camera.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/dynlib.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/dynlib.c.o   -c /home/melnik/projects/nuttyengine/source/dynlib.c
 
-CMakeFiles/nuttyengine.dir/source/camera.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/camera.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/camera.c > CMakeFiles/nuttyengine.dir/source/camera.i
+CMakeFiles/nuttyengine.dir/source/dynlib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/dynlib.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/dynlib.c > CMakeFiles/nuttyengine.dir/source/dynlib.c.i
 
-CMakeFiles/nuttyengine.dir/source/camera.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/camera.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/camera.c -o CMakeFiles/nuttyengine.dir/source/camera.s
+CMakeFiles/nuttyengine.dir/source/dynlib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/dynlib.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/dynlib.c -o CMakeFiles/nuttyengine.dir/source/dynlib.c.s
 
-CMakeFiles/nuttyengine.dir/source/camera.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/camera.o.requires
+CMakeFiles/nuttyengine.dir/source/dynlib.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/dynlib.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/camera.o.provides: CMakeFiles/nuttyengine.dir/source/camera.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/camera.o.provides
+CMakeFiles/nuttyengine.dir/source/dynlib.c.o.provides: CMakeFiles/nuttyengine.dir/source/dynlib.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/dynlib.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/camera.o.provides.build: CMakeFiles/nuttyengine.dir/source/camera.o
+CMakeFiles/nuttyengine.dir/source/dynlib.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/dynlib.c.o
 
-CMakeFiles/nuttyengine.dir/source/physics_mgr.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/physics_mgr.o: ../source/physics_mgr.c
+CMakeFiles/nuttyengine.dir/source/engine.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/engine.c.o: ../source/engine.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/physics_mgr.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/physics_mgr.o   -c /home/melnik/projects/nuttyengine/source/physics_mgr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/engine.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/engine.c.o   -c /home/melnik/projects/nuttyengine/source/engine.c
 
-CMakeFiles/nuttyengine.dir/source/physics_mgr.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/physics_mgr.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/physics_mgr.c > CMakeFiles/nuttyengine.dir/source/physics_mgr.i
+CMakeFiles/nuttyengine.dir/source/engine.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/engine.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/engine.c > CMakeFiles/nuttyengine.dir/source/engine.c.i
 
-CMakeFiles/nuttyengine.dir/source/physics_mgr.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/physics_mgr.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/physics_mgr.c -o CMakeFiles/nuttyengine.dir/source/physics_mgr.s
+CMakeFiles/nuttyengine.dir/source/engine.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/engine.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/engine.c -o CMakeFiles/nuttyengine.dir/source/engine.c.s
 
-CMakeFiles/nuttyengine.dir/source/physics_mgr.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/physics_mgr.o.requires
+CMakeFiles/nuttyengine.dir/source/engine.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/engine.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/physics_mgr.o.provides: CMakeFiles/nuttyengine.dir/source/physics_mgr.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/physics_mgr.o.provides
+CMakeFiles/nuttyengine.dir/source/engine.c.o.provides: CMakeFiles/nuttyengine.dir/source/engine.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/engine.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/physics_mgr.o.provides.build: CMakeFiles/nuttyengine.dir/source/physics_mgr.o
+CMakeFiles/nuttyengine.dir/source/engine.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/engine.c.o
 
-CMakeFiles/nuttyengine.dir/source/engine.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/engine.o: ../source/engine.c
+CMakeFiles/nuttyengine.dir/source/entity.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/entity.c.o: ../source/entity.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/engine.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/engine.o   -c /home/melnik/projects/nuttyengine/source/engine.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/entity.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/entity.c.o   -c /home/melnik/projects/nuttyengine/source/entity.c
 
-CMakeFiles/nuttyengine.dir/source/engine.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/engine.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/engine.c > CMakeFiles/nuttyengine.dir/source/engine.i
+CMakeFiles/nuttyengine.dir/source/entity.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/entity.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/entity.c > CMakeFiles/nuttyengine.dir/source/entity.c.i
 
-CMakeFiles/nuttyengine.dir/source/engine.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/engine.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/engine.c -o CMakeFiles/nuttyengine.dir/source/engine.s
+CMakeFiles/nuttyengine.dir/source/entity.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/entity.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/entity.c -o CMakeFiles/nuttyengine.dir/source/entity.c.s
 
-CMakeFiles/nuttyengine.dir/source/engine.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/engine.o.requires
+CMakeFiles/nuttyengine.dir/source/entity.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/entity.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/engine.o.provides: CMakeFiles/nuttyengine.dir/source/engine.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/engine.o.provides
+CMakeFiles/nuttyengine.dir/source/entity.c.o.provides: CMakeFiles/nuttyengine.dir/source/entity.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/entity.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/engine.o.provides.build: CMakeFiles/nuttyengine.dir/source/engine.o
+CMakeFiles/nuttyengine.dir/source/entity.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/entity.c.o
 
-CMakeFiles/nuttyengine.dir/source/viewport.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/viewport.o: ../source/viewport.c
+CMakeFiles/nuttyengine.dir/source/scene.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/scene.c.o: ../source/scene.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/viewport.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/viewport.o   -c /home/melnik/projects/nuttyengine/source/viewport.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/scene.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/scene.c.o   -c /home/melnik/projects/nuttyengine/source/scene.c
 
-CMakeFiles/nuttyengine.dir/source/viewport.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/viewport.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/viewport.c > CMakeFiles/nuttyengine.dir/source/viewport.i
+CMakeFiles/nuttyengine.dir/source/scene.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/scene.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/scene.c > CMakeFiles/nuttyengine.dir/source/scene.c.i
 
-CMakeFiles/nuttyengine.dir/source/viewport.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/viewport.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/viewport.c -o CMakeFiles/nuttyengine.dir/source/viewport.s
+CMakeFiles/nuttyengine.dir/source/scene.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/scene.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/scene.c -o CMakeFiles/nuttyengine.dir/source/scene.c.s
 
-CMakeFiles/nuttyengine.dir/source/viewport.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/viewport.o.requires
+CMakeFiles/nuttyengine.dir/source/scene.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/scene.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/viewport.o.provides: CMakeFiles/nuttyengine.dir/source/viewport.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/viewport.o.provides
+CMakeFiles/nuttyengine.dir/source/scene.c.o.provides: CMakeFiles/nuttyengine.dir/source/scene.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/scene.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/viewport.o.provides.build: CMakeFiles/nuttyengine.dir/source/viewport.o
+CMakeFiles/nuttyengine.dir/source/scene.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/scene.c.o
 
-CMakeFiles/nuttyengine.dir/source/sc_obj.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/sc_obj.o: ../source/sc_obj.c
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o: ../source/physics_mgr.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/sc_obj.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/sc_obj.o   -c /home/melnik/projects/nuttyengine/source/sc_obj.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o   -c /home/melnik/projects/nuttyengine/source/physics_mgr.c
 
-CMakeFiles/nuttyengine.dir/source/sc_obj.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/sc_obj.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/sc_obj.c > CMakeFiles/nuttyengine.dir/source/sc_obj.i
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/physics_mgr.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/physics_mgr.c > CMakeFiles/nuttyengine.dir/source/physics_mgr.c.i
 
-CMakeFiles/nuttyengine.dir/source/sc_obj.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/sc_obj.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/sc_obj.c -o CMakeFiles/nuttyengine.dir/source/sc_obj.s
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/physics_mgr.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/physics_mgr.c -o CMakeFiles/nuttyengine.dir/source/physics_mgr.c.s
 
-CMakeFiles/nuttyengine.dir/source/sc_obj.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/sc_obj.o.requires
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/sc_obj.o.provides: CMakeFiles/nuttyengine.dir/source/sc_obj.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/sc_obj.o.provides
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.provides: CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/sc_obj.o.provides.build: CMakeFiles/nuttyengine.dir/source/sc_obj.o
+CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o
 
-CMakeFiles/nuttyengine.dir/source/scene.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/scene.o: ../source/scene.c
+CMakeFiles/nuttyengine.dir/source/material.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/material.c.o: ../source/material.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/scene.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/scene.o   -c /home/melnik/projects/nuttyengine/source/scene.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/material.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/material.c.o   -c /home/melnik/projects/nuttyengine/source/material.c
 
-CMakeFiles/nuttyengine.dir/source/scene.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/scene.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/scene.c > CMakeFiles/nuttyengine.dir/source/scene.i
+CMakeFiles/nuttyengine.dir/source/material.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/material.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/material.c > CMakeFiles/nuttyengine.dir/source/material.c.i
 
-CMakeFiles/nuttyengine.dir/source/scene.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/scene.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/scene.c -o CMakeFiles/nuttyengine.dir/source/scene.s
+CMakeFiles/nuttyengine.dir/source/material.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/material.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/material.c -o CMakeFiles/nuttyengine.dir/source/material.c.s
 
-CMakeFiles/nuttyengine.dir/source/scene.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/scene.o.requires
+CMakeFiles/nuttyengine.dir/source/material.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/material.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/scene.o.provides: CMakeFiles/nuttyengine.dir/source/scene.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/scene.o.provides
+CMakeFiles/nuttyengine.dir/source/material.c.o.provides: CMakeFiles/nuttyengine.dir/source/material.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/material.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/material.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/scene.o.provides.build: CMakeFiles/nuttyengine.dir/source/scene.o
+CMakeFiles/nuttyengine.dir/source/material.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/material.c.o
 
-CMakeFiles/nuttyengine.dir/source/entity.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/entity.o: ../source/entity.c
+CMakeFiles/nuttyengine.dir/source/serialization.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/serialization.c.o: ../source/serialization.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/entity.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/entity.o   -c /home/melnik/projects/nuttyengine/source/entity.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/serialization.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/serialization.c.o   -c /home/melnik/projects/nuttyengine/source/serialization.c
 
-CMakeFiles/nuttyengine.dir/source/entity.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/entity.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/entity.c > CMakeFiles/nuttyengine.dir/source/entity.i
+CMakeFiles/nuttyengine.dir/source/serialization.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/serialization.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/serialization.c > CMakeFiles/nuttyengine.dir/source/serialization.c.i
 
-CMakeFiles/nuttyengine.dir/source/entity.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/entity.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/entity.c -o CMakeFiles/nuttyengine.dir/source/entity.s
+CMakeFiles/nuttyengine.dir/source/serialization.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/serialization.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/serialization.c -o CMakeFiles/nuttyengine.dir/source/serialization.c.s
 
-CMakeFiles/nuttyengine.dir/source/entity.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/entity.o.requires
+CMakeFiles/nuttyengine.dir/source/serialization.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/serialization.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/entity.o.provides: CMakeFiles/nuttyengine.dir/source/entity.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/entity.o.provides
+CMakeFiles/nuttyengine.dir/source/serialization.c.o.provides: CMakeFiles/nuttyengine.dir/source/serialization.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/serialization.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/entity.o.provides.build: CMakeFiles/nuttyengine.dir/source/entity.o
+CMakeFiles/nuttyengine.dir/source/serialization.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/serialization.c.o
 
-CMakeFiles/nuttyengine.dir/source/mesh.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/mesh.o: ../source/mesh.c
+CMakeFiles/nuttyengine.dir/source/mesh.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/mesh.c.o: ../source/mesh.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/mesh.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/mesh.o   -c /home/melnik/projects/nuttyengine/source/mesh.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/mesh.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/mesh.c.o   -c /home/melnik/projects/nuttyengine/source/mesh.c
 
-CMakeFiles/nuttyengine.dir/source/mesh.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/mesh.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/mesh.c > CMakeFiles/nuttyengine.dir/source/mesh.i
+CMakeFiles/nuttyengine.dir/source/mesh.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/mesh.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/mesh.c > CMakeFiles/nuttyengine.dir/source/mesh.c.i
 
-CMakeFiles/nuttyengine.dir/source/mesh.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/mesh.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/mesh.c -o CMakeFiles/nuttyengine.dir/source/mesh.s
+CMakeFiles/nuttyengine.dir/source/mesh.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/mesh.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/mesh.c -o CMakeFiles/nuttyengine.dir/source/mesh.c.s
 
-CMakeFiles/nuttyengine.dir/source/mesh.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/mesh.o.requires
+CMakeFiles/nuttyengine.dir/source/mesh.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/mesh.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/mesh.o.provides: CMakeFiles/nuttyengine.dir/source/mesh.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/mesh.o.provides
+CMakeFiles/nuttyengine.dir/source/mesh.c.o.provides: CMakeFiles/nuttyengine.dir/source/mesh.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/mesh.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/mesh.o.provides.build: CMakeFiles/nuttyengine.dir/source/mesh.o
+CMakeFiles/nuttyengine.dir/source/mesh.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/mesh.c.o
 
-CMakeFiles/nuttyengine.dir/source/math.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/math.o: ../source/math.c
+CMakeFiles/nuttyengine.dir/source/camera.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/camera.c.o: ../source/camera.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/math.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/math.o   -c /home/melnik/projects/nuttyengine/source/math.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/camera.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/camera.c.o   -c /home/melnik/projects/nuttyengine/source/camera.c
 
-CMakeFiles/nuttyengine.dir/source/math.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/math.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/math.c > CMakeFiles/nuttyengine.dir/source/math.i
+CMakeFiles/nuttyengine.dir/source/camera.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/camera.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/camera.c > CMakeFiles/nuttyengine.dir/source/camera.c.i
 
-CMakeFiles/nuttyengine.dir/source/math.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/math.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/math.c -o CMakeFiles/nuttyengine.dir/source/math.s
+CMakeFiles/nuttyengine.dir/source/camera.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/camera.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/camera.c -o CMakeFiles/nuttyengine.dir/source/camera.c.s
 
-CMakeFiles/nuttyengine.dir/source/math.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/math.o.requires
+CMakeFiles/nuttyengine.dir/source/camera.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/camera.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/math.o.provides: CMakeFiles/nuttyengine.dir/source/math.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/math.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/math.o.provides
+CMakeFiles/nuttyengine.dir/source/camera.c.o.provides: CMakeFiles/nuttyengine.dir/source/camera.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/camera.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/math.o.provides.build: CMakeFiles/nuttyengine.dir/source/math.o
+CMakeFiles/nuttyengine.dir/source/camera.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/camera.c.o
 
-CMakeFiles/nuttyengine.dir/source/dynlib.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/dynlib.o: ../source/dynlib.c
+CMakeFiles/nuttyengine.dir/source/engine.cpp.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/engine.cpp.o: ../source/engine.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/dynlib.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/dynlib.o   -c /home/melnik/projects/nuttyengine/source/dynlib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/nuttyengine.dir/source/engine.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/nuttyengine.dir/source/engine.cpp.o -c /home/melnik/projects/nuttyengine/source/engine.cpp
 
-CMakeFiles/nuttyengine.dir/source/dynlib.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/dynlib.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/dynlib.c > CMakeFiles/nuttyengine.dir/source/dynlib.i
+CMakeFiles/nuttyengine.dir/source/engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nuttyengine.dir/source/engine.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/melnik/projects/nuttyengine/source/engine.cpp > CMakeFiles/nuttyengine.dir/source/engine.cpp.i
 
-CMakeFiles/nuttyengine.dir/source/dynlib.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/dynlib.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/dynlib.c -o CMakeFiles/nuttyengine.dir/source/dynlib.s
+CMakeFiles/nuttyengine.dir/source/engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nuttyengine.dir/source/engine.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/melnik/projects/nuttyengine/source/engine.cpp -o CMakeFiles/nuttyengine.dir/source/engine.cpp.s
 
-CMakeFiles/nuttyengine.dir/source/dynlib.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/dynlib.o.requires
+CMakeFiles/nuttyengine.dir/source/engine.cpp.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/engine.cpp.o.requires
 
-CMakeFiles/nuttyengine.dir/source/dynlib.o.provides: CMakeFiles/nuttyengine.dir/source/dynlib.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/dynlib.o.provides
+CMakeFiles/nuttyengine.dir/source/engine.cpp.o.provides: CMakeFiles/nuttyengine.dir/source/engine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.cpp.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/engine.cpp.o.provides
 
-CMakeFiles/nuttyengine.dir/source/dynlib.o.provides.build: CMakeFiles/nuttyengine.dir/source/dynlib.o
+CMakeFiles/nuttyengine.dir/source/engine.cpp.o.provides.build: CMakeFiles/nuttyengine.dir/source/engine.cpp.o
 
-CMakeFiles/nuttyengine.dir/source/serialization.o: CMakeFiles/nuttyengine.dir/flags.make
-CMakeFiles/nuttyengine.dir/source/serialization.o: ../source/serialization.c
+CMakeFiles/nuttyengine.dir/source/array.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/array.c.o: ../source/array.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/serialization.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/serialization.o   -c /home/melnik/projects/nuttyengine/source/serialization.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/array.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/array.c.o   -c /home/melnik/projects/nuttyengine/source/array.c
 
-CMakeFiles/nuttyengine.dir/source/serialization.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/serialization.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/serialization.c > CMakeFiles/nuttyengine.dir/source/serialization.i
+CMakeFiles/nuttyengine.dir/source/array.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/array.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/array.c > CMakeFiles/nuttyengine.dir/source/array.c.i
 
-CMakeFiles/nuttyengine.dir/source/serialization.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/serialization.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/serialization.c -o CMakeFiles/nuttyengine.dir/source/serialization.s
+CMakeFiles/nuttyengine.dir/source/array.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/array.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/array.c -o CMakeFiles/nuttyengine.dir/source/array.c.s
 
-CMakeFiles/nuttyengine.dir/source/serialization.o.requires:
-.PHONY : CMakeFiles/nuttyengine.dir/source/serialization.o.requires
+CMakeFiles/nuttyengine.dir/source/array.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/array.c.o.requires
 
-CMakeFiles/nuttyengine.dir/source/serialization.o.provides: CMakeFiles/nuttyengine.dir/source/serialization.o.requires
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.o.provides.build
-.PHONY : CMakeFiles/nuttyengine.dir/source/serialization.o.provides
+CMakeFiles/nuttyengine.dir/source/array.c.o.provides: CMakeFiles/nuttyengine.dir/source/array.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/array.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/array.c.o.provides
 
-CMakeFiles/nuttyengine.dir/source/serialization.o.provides.build: CMakeFiles/nuttyengine.dir/source/serialization.o
+CMakeFiles/nuttyengine.dir/source/array.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/array.c.o
+
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.o: ../source/sc_obj.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_12)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/sc_obj.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/sc_obj.c.o   -c /home/melnik/projects/nuttyengine/source/sc_obj.c
+
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/sc_obj.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/sc_obj.c > CMakeFiles/nuttyengine.dir/source/sc_obj.c.i
+
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/sc_obj.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/sc_obj.c -o CMakeFiles/nuttyengine.dir/source/sc_obj.c.s
+
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.requires
+
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.provides: CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.provides
+
+CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/sc_obj.c.o
+
+CMakeFiles/nuttyengine.dir/source/viewport.c.o: CMakeFiles/nuttyengine.dir/flags.make
+CMakeFiles/nuttyengine.dir/source/viewport.c.o: ../source/viewport.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/nuttyengine.dir/source/viewport.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/nuttyengine.dir/source/viewport.c.o   -c /home/melnik/projects/nuttyengine/source/viewport.c
+
+CMakeFiles/nuttyengine.dir/source/viewport.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nuttyengine.dir/source/viewport.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nuttyengine/source/viewport.c > CMakeFiles/nuttyengine.dir/source/viewport.c.i
+
+CMakeFiles/nuttyengine.dir/source/viewport.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nuttyengine.dir/source/viewport.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nuttyengine/source/viewport.c -o CMakeFiles/nuttyengine.dir/source/viewport.c.s
+
+CMakeFiles/nuttyengine.dir/source/viewport.c.o.requires:
+.PHONY : CMakeFiles/nuttyengine.dir/source/viewport.c.o.requires
+
+CMakeFiles/nuttyengine.dir/source/viewport.c.o.provides: CMakeFiles/nuttyengine.dir/source/viewport.c.o.requires
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.c.o.provides.build
+.PHONY : CMakeFiles/nuttyengine.dir/source/viewport.c.o.provides
+
+CMakeFiles/nuttyengine.dir/source/viewport.c.o.provides.build: CMakeFiles/nuttyengine.dir/source/viewport.c.o
 
 # Object files for target nuttyengine
 nuttyengine_OBJECTS = \
-"CMakeFiles/nuttyengine.dir/source/camera.o" \
-"CMakeFiles/nuttyengine.dir/source/physics_mgr.o" \
-"CMakeFiles/nuttyengine.dir/source/engine.o" \
-"CMakeFiles/nuttyengine.dir/source/viewport.o" \
-"CMakeFiles/nuttyengine.dir/source/sc_obj.o" \
-"CMakeFiles/nuttyengine.dir/source/scene.o" \
-"CMakeFiles/nuttyengine.dir/source/entity.o" \
-"CMakeFiles/nuttyengine.dir/source/mesh.o" \
-"CMakeFiles/nuttyengine.dir/source/math.o" \
-"CMakeFiles/nuttyengine.dir/source/dynlib.o" \
-"CMakeFiles/nuttyengine.dir/source/serialization.o"
+"CMakeFiles/nuttyengine.dir/source/dynlib.c.o" \
+"CMakeFiles/nuttyengine.dir/source/engine.c.o" \
+"CMakeFiles/nuttyengine.dir/source/entity.c.o" \
+"CMakeFiles/nuttyengine.dir/source/scene.c.o" \
+"CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o" \
+"CMakeFiles/nuttyengine.dir/source/material.c.o" \
+"CMakeFiles/nuttyengine.dir/source/serialization.c.o" \
+"CMakeFiles/nuttyengine.dir/source/mesh.c.o" \
+"CMakeFiles/nuttyengine.dir/source/camera.c.o" \
+"CMakeFiles/nuttyengine.dir/source/engine.cpp.o" \
+"CMakeFiles/nuttyengine.dir/source/array.c.o" \
+"CMakeFiles/nuttyengine.dir/source/sc_obj.c.o" \
+"CMakeFiles/nuttyengine.dir/source/viewport.c.o"
 
 # External object files for target nuttyengine
 nuttyengine_EXTERNAL_OBJECTS =
 
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/camera.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/physics_mgr.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/engine.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/viewport.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/sc_obj.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/scene.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/entity.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/mesh.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/math.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/dynlib.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/serialization.o
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/build.make
-../bin/libnuttyengine.so: CMakeFiles/nuttyengine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../bin/libnuttyengine.so"
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/dynlib.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/engine.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/entity.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/scene.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/material.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/serialization.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/mesh.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/camera.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/engine.cpp.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/array.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/sc_obj.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/viewport.c.o
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/build.make
+../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../bin/lib/x86/libnuttyengine.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nuttyengine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/nuttyengine.dir/build: ../bin/libnuttyengine.so
+CMakeFiles/nuttyengine.dir/build: ../bin/lib/x86/libnuttyengine.so
 .PHONY : CMakeFiles/nuttyengine.dir/build
 
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/camera.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/physics_mgr.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/engine.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/viewport.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/sc_obj.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/scene.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/entity.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/mesh.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/math.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/dynlib.o.requires
-CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/serialization.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/dynlib.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/engine.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/entity.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/scene.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/material.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/serialization.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/mesh.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/camera.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/engine.cpp.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/array.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/sc_obj.c.o.requires
+CMakeFiles/nuttyengine.dir/requires: CMakeFiles/nuttyengine.dir/source/viewport.c.o.requires
 .PHONY : CMakeFiles/nuttyengine.dir/requires
 
 CMakeFiles/nuttyengine.dir/clean:

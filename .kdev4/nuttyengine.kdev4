@@ -40,4 +40,4 @@ isExecutable=false
 VersionControlSupport=kdevgit
 
 [SourceFileTemplates]
-LastUsedTemplate=/home/melnik/.kde4/share/apps/kdevfiletemplates/template_descriptions/c_gobject_properties.desktop
+LastUsedTemplate=/home/melnik/.kde4/share/apps/kdevfiletemplates/template_descriptions/c_gobject.desktop

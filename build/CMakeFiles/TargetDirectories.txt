@@ -1,2 +1,2 @@
+/home/melnik/projects/nuttyengine/build/CMakeFiles/ne_test.dir
 /home/melnik/projects/nuttyengine/build/CMakeFiles/nuttyengine.dir
-/home/melnik/projects/nuttyengine/build/CMakeFiles/test.dir

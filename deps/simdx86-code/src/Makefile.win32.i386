@@ -1,0 +1,24 @@
+# Makefile.win32.i386
+# GNU makefile for Win32
+
+# GNU C compiler
+CC = gcc -I../include
+
+# Archiving tools
+AR = ar
+RANLIB = ranlib
+
+# NASM-compatible assembler. x86 doesn't use GNU as
+NASM = nasm
+
+# Libraries
+CFLAGS = -O3
+
+# Get corresponding platform- and architecture-specific source code files
+include arch_x86.mk
+include plat_win32.mk
+
+# Get main rule set
+include build.mk
+
+

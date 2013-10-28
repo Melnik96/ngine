@@ -25,7 +25,7 @@
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
-#include "import/blender/bBlenderFile.h"
+#include "array.h"
 
 #include "viewport.h"
 #include "engine.h"
@@ -34,6 +34,7 @@
 #include "sc_obj.h"
 #include "entity.h"
 #include "mesh.h"
+
 
 int neng_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
@@ -67,25 +68,25 @@ int neng_frame(struct engine* _self, float _elapsed) {
   if(glfwWindowShouldClose(_self->window)) { return 0; }
   
   /* Render here */
-  struct scene* cur_scene;
-  struct sc_obj* cur_obj;
-  struct sc_obj* root_obj;
-  array_for_each(cur_scene, _self->scenes) {
-    root_obj = cur_scene->root_object;
-    array_for_each(cur_obj, root_obj->childs) {
-      if(cur_obj->updated) {
-	//update matrix
-      }
-      if(cur_obj->childs.size != 0) {
-	array_for_each(cur_obj, cur_obj->childs) {
-	  if(cur_obj->updated) {
-	    //update matrix
-	  }
-	}
-	cur_obj = cur_obj->parent;
-      }
-    }
-  }
+//   struct scene* cur_scene;
+//   struct sc_obj* cur_obj;
+//   struct sc_obj* root_obj;
+//   array_for_each(cur_scene, _self->scenes) {
+//     root_obj = cur_scene->root_object;
+//     array_for_each(cur_obj, &root_obj->childs) {
+//       if(cur_obj->updated) {
+// 	//update matrix
+//       }
+//       if(cur_obj->childs.size != 0) {
+// 	array_for_each(cur_obj, &cur_obj->childs) {
+// 	  if(cur_obj->updated) {
+// 	    //update matrix
+// 	  }
+// 	}
+// 	cur_obj = cur_obj->parent;
+//       }
+//     }
+//   }
   
   glfwSwapBuffers(_self->window);
   glfwPollEvents();
@@ -98,8 +99,8 @@ int neng_shutdown(struct engine* _self) {
 }
 
 void neng_get_opengl_version(char* _ver) {
-  if(GLEW_VERSION_4_4) { memcpy(_ver, "4.4", 4); }
-  else if(GLEW_VERSION_4_3) { memcpy(_ver, "4.3", 4); }
+  /*if(GLEW_VERSION_4_4) { memcpy(_ver, "4.4", 4); }
+  else */if(GLEW_VERSION_4_3) { memcpy(_ver, "4.3", 4); }
   else if(GLEW_VERSION_4_2) { memcpy(_ver, "4.2", 4); }
   else if(GLEW_VERSION_4_1) { memcpy(_ver, "4.1", 4); }
   else if(GLEW_VERSION_4_0) { memcpy(_ver, "4.0", 4); }

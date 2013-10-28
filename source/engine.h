@@ -22,7 +22,7 @@
 #define __ENGINE_H__
 
 #include <stdint.h>
-#include "array.h"
+
 
 struct engine {
   struct GLFWwindow* window;
@@ -30,7 +30,7 @@ struct engine {
   char* gl_ver;
 //   uint8_t num_scenes;
 //   struct scene* scenes;
-  array* scenes;
+  struct array* scenes;
 };
 
 int neng_init(struct engine* _self, char* _win_name);

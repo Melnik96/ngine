@@ -2,6 +2,8 @@
 #define _Blender_h_
 // Generated from a Blender(264) file.
 
+#include <stdint.h>
+
 #ifdef near
 #undef near
 #endif

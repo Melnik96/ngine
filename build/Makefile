@@ -143,6 +143,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ne_test
+
+# Build rule for target.
+ne_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ne_test
+.PHONY : ne_test
+
+# fast build rule for target.
+ne_test/fast:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/build
+.PHONY : ne_test/fast
+
+#=============================================================================
 # Target rules for targets named nuttyengine
 
 # Build rule for target.
@@ -155,198 +168,341 @@ nuttyengine/fast:
 	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/build
 .PHONY : nuttyengine/fast
 
-#=============================================================================
-# Target rules for targets named test
-
-# Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
-
-# fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
-
-# target to build an object file
-main.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.o
+main.o: main.c.o
 .PHONY : main.o
 
-# target to preprocess a source file
-main.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.i
+# target to build an object file
+main.c.o:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
 .PHONY : main.i
 
-# target to generate assembly for a file
-main.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.s
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
 .PHONY : main.s
 
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/main.c.s
+.PHONY : main.c.s
+
+source/array.o: source/array.c.o
+.PHONY : source/array.o
+
 # target to build an object file
-source/camera.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.o
+source/array.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/array.c.o
+.PHONY : source/array.c.o
+
+source/array.i: source/array.c.i
+.PHONY : source/array.i
+
+# target to preprocess a source file
+source/array.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/array.c.i
+.PHONY : source/array.c.i
+
+source/array.s: source/array.c.s
+.PHONY : source/array.s
+
+# target to generate assembly for a file
+source/array.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/array.c.s
+.PHONY : source/array.c.s
+
+source/camera.o: source/camera.c.o
 .PHONY : source/camera.o
 
-# target to preprocess a source file
-source/camera.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.i
+# target to build an object file
+source/camera.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.c.o
+.PHONY : source/camera.c.o
+
+source/camera.i: source/camera.c.i
 .PHONY : source/camera.i
 
-# target to generate assembly for a file
-source/camera.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.s
+# target to preprocess a source file
+source/camera.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.c.i
+.PHONY : source/camera.c.i
+
+source/camera.s: source/camera.c.s
 .PHONY : source/camera.s
 
-# target to build an object file
-source/dynlib.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.o
+# target to generate assembly for a file
+source/camera.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/camera.c.s
+.PHONY : source/camera.c.s
+
+source/dynlib.o: source/dynlib.c.o
 .PHONY : source/dynlib.o
 
-# target to preprocess a source file
-source/dynlib.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.i
+# target to build an object file
+source/dynlib.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.c.o
+.PHONY : source/dynlib.c.o
+
+source/dynlib.i: source/dynlib.c.i
 .PHONY : source/dynlib.i
 
-# target to generate assembly for a file
-source/dynlib.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.s
+# target to preprocess a source file
+source/dynlib.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.c.i
+.PHONY : source/dynlib.c.i
+
+source/dynlib.s: source/dynlib.c.s
 .PHONY : source/dynlib.s
 
-# target to build an object file
-source/engine.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.o
+# target to generate assembly for a file
+source/dynlib.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/dynlib.c.s
+.PHONY : source/dynlib.c.s
+
+source/engine.o: source/engine.c.o
 .PHONY : source/engine.o
 
-# target to preprocess a source file
-source/engine.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.i
+# target to build an object file
+source/engine.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.c.o
+.PHONY : source/engine.c.o
+
+source/engine.i: source/engine.c.i
 .PHONY : source/engine.i
 
-# target to generate assembly for a file
-source/engine.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.s
+# target to preprocess a source file
+source/engine.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.c.i
+.PHONY : source/engine.c.i
+
+source/engine.s: source/engine.c.s
 .PHONY : source/engine.s
 
+# target to generate assembly for a file
+source/engine.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.c.s
+.PHONY : source/engine.c.s
+
+source/engine.o: source/engine.cpp.o
+.PHONY : source/engine.o
+
 # target to build an object file
-source/entity.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.o
+source/engine.cpp.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.cpp.o
+.PHONY : source/engine.cpp.o
+
+source/engine.i: source/engine.cpp.i
+.PHONY : source/engine.i
+
+# target to preprocess a source file
+source/engine.cpp.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.cpp.i
+.PHONY : source/engine.cpp.i
+
+source/engine.s: source/engine.cpp.s
+.PHONY : source/engine.s
+
+# target to generate assembly for a file
+source/engine.cpp.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/engine.cpp.s
+.PHONY : source/engine.cpp.s
+
+source/entity.o: source/entity.c.o
 .PHONY : source/entity.o
 
-# target to preprocess a source file
-source/entity.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.i
+# target to build an object file
+source/entity.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.c.o
+.PHONY : source/entity.c.o
+
+source/entity.i: source/entity.c.i
 .PHONY : source/entity.i
 
-# target to generate assembly for a file
-source/entity.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.s
+# target to preprocess a source file
+source/entity.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.c.i
+.PHONY : source/entity.c.i
+
+source/entity.s: source/entity.c.s
 .PHONY : source/entity.s
 
+# target to generate assembly for a file
+source/entity.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/entity.c.s
+.PHONY : source/entity.c.s
+
+source/material.o: source/material.c.o
+.PHONY : source/material.o
+
 # target to build an object file
-source/math.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/math.o
-.PHONY : source/math.o
+source/material.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/material.c.o
+.PHONY : source/material.c.o
+
+source/material.i: source/material.c.i
+.PHONY : source/material.i
 
 # target to preprocess a source file
-source/math.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/math.i
-.PHONY : source/math.i
+source/material.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/material.c.i
+.PHONY : source/material.c.i
+
+source/material.s: source/material.c.s
+.PHONY : source/material.s
 
 # target to generate assembly for a file
-source/math.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/math.s
-.PHONY : source/math.s
+source/material.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/material.c.s
+.PHONY : source/material.c.s
 
-# target to build an object file
-source/mesh.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.o
+source/mesh.o: source/mesh.c.o
 .PHONY : source/mesh.o
 
-# target to preprocess a source file
-source/mesh.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.i
+# target to build an object file
+source/mesh.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.c.o
+.PHONY : source/mesh.c.o
+
+source/mesh.i: source/mesh.c.i
 .PHONY : source/mesh.i
 
-# target to generate assembly for a file
-source/mesh.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.s
+# target to preprocess a source file
+source/mesh.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.c.i
+.PHONY : source/mesh.c.i
+
+source/mesh.s: source/mesh.c.s
 .PHONY : source/mesh.s
 
-# target to build an object file
-source/physics_mgr.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.o
+# target to generate assembly for a file
+source/mesh.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/mesh.c.s
+.PHONY : source/mesh.c.s
+
+source/physics_mgr.o: source/physics_mgr.c.o
 .PHONY : source/physics_mgr.o
 
-# target to preprocess a source file
-source/physics_mgr.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.i
+# target to build an object file
+source/physics_mgr.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.c.o
+.PHONY : source/physics_mgr.c.o
+
+source/physics_mgr.i: source/physics_mgr.c.i
 .PHONY : source/physics_mgr.i
 
-# target to generate assembly for a file
-source/physics_mgr.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.s
+# target to preprocess a source file
+source/physics_mgr.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.c.i
+.PHONY : source/physics_mgr.c.i
+
+source/physics_mgr.s: source/physics_mgr.c.s
 .PHONY : source/physics_mgr.s
 
-# target to build an object file
-source/sc_obj.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.o
+# target to generate assembly for a file
+source/physics_mgr.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/physics_mgr.c.s
+.PHONY : source/physics_mgr.c.s
+
+source/sc_obj.o: source/sc_obj.c.o
 .PHONY : source/sc_obj.o
 
-# target to preprocess a source file
-source/sc_obj.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.i
+# target to build an object file
+source/sc_obj.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.c.o
+.PHONY : source/sc_obj.c.o
+
+source/sc_obj.i: source/sc_obj.c.i
 .PHONY : source/sc_obj.i
 
-# target to generate assembly for a file
-source/sc_obj.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.s
+# target to preprocess a source file
+source/sc_obj.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.c.i
+.PHONY : source/sc_obj.c.i
+
+source/sc_obj.s: source/sc_obj.c.s
 .PHONY : source/sc_obj.s
 
-# target to build an object file
-source/scene.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.o
+# target to generate assembly for a file
+source/sc_obj.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/sc_obj.c.s
+.PHONY : source/sc_obj.c.s
+
+source/scene.o: source/scene.c.o
 .PHONY : source/scene.o
 
-# target to preprocess a source file
-source/scene.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.i
+# target to build an object file
+source/scene.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.c.o
+.PHONY : source/scene.c.o
+
+source/scene.i: source/scene.c.i
 .PHONY : source/scene.i
 
-# target to generate assembly for a file
-source/scene.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.s
+# target to preprocess a source file
+source/scene.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.c.i
+.PHONY : source/scene.c.i
+
+source/scene.s: source/scene.c.s
 .PHONY : source/scene.s
 
-# target to build an object file
-source/serialization.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.o
+# target to generate assembly for a file
+source/scene.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/scene.c.s
+.PHONY : source/scene.c.s
+
+source/serialization.o: source/serialization.c.o
 .PHONY : source/serialization.o
 
-# target to preprocess a source file
-source/serialization.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.i
+# target to build an object file
+source/serialization.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.c.o
+.PHONY : source/serialization.c.o
+
+source/serialization.i: source/serialization.c.i
 .PHONY : source/serialization.i
 
-# target to generate assembly for a file
-source/serialization.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.s
+# target to preprocess a source file
+source/serialization.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.c.i
+.PHONY : source/serialization.c.i
+
+source/serialization.s: source/serialization.c.s
 .PHONY : source/serialization.s
 
-# target to build an object file
-source/viewport.o:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.o
+# target to generate assembly for a file
+source/serialization.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/serialization.c.s
+.PHONY : source/serialization.c.s
+
+source/viewport.o: source/viewport.c.o
 .PHONY : source/viewport.o
 
-# target to preprocess a source file
-source/viewport.i:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.i
+# target to build an object file
+source/viewport.c.o:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.c.o
+.PHONY : source/viewport.c.o
+
+source/viewport.i: source/viewport.c.i
 .PHONY : source/viewport.i
 
-# target to generate assembly for a file
-source/viewport.s:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.s
+# target to preprocess a source file
+source/viewport.c.i:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.c.i
+.PHONY : source/viewport.c.i
+
+source/viewport.s: source/viewport.c.s
 .PHONY : source/viewport.s
+
+# target to generate assembly for a file
+source/viewport.c.s:
+	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/source/viewport.c.s
+.PHONY : source/viewport.c.s
 
 # Help Target
 help:
@@ -359,12 +515,15 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... ne_test"
 	@echo "... nuttyengine"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... source/array.o"
+	@echo "... source/array.i"
+	@echo "... source/array.s"
 	@echo "... source/camera.o"
 	@echo "... source/camera.i"
 	@echo "... source/camera.s"
@@ -374,12 +533,15 @@ help:
 	@echo "... source/engine.o"
 	@echo "... source/engine.i"
 	@echo "... source/engine.s"
+	@echo "... source/engine.o"
+	@echo "... source/engine.i"
+	@echo "... source/engine.s"
 	@echo "... source/entity.o"
 	@echo "... source/entity.i"
 	@echo "... source/entity.s"
-	@echo "... source/math.o"
-	@echo "... source/math.i"
-	@echo "... source/math.s"
+	@echo "... source/material.o"
+	@echo "... source/material.i"
+	@echo "... source/material.s"
 	@echo "... source/mesh.o"
 	@echo "... source/mesh.i"
 	@echo "... source/mesh.s"

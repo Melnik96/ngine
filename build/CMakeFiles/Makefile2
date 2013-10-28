@@ -56,13 +56,48 @@ CMAKE_SOURCE_DIR = /home/melnik/projects/nuttyengine
 CMAKE_BINARY_DIR = /home/melnik/projects/nuttyengine/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/ne_test.dir
+
+# All Build rule for target.
+CMakeFiles/ne_test.dir/all: CMakeFiles/nuttyengine.dir/all
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/depend
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles  1
+	@echo "Built target ne_test"
+.PHONY : CMakeFiles/ne_test.dir/all
+
+# Include target in all.
+all: CMakeFiles/ne_test.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ne_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 14
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ne_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 0
+.PHONY : CMakeFiles/ne_test.dir/rule
+
+# Convenience name for target.
+ne_test: CMakeFiles/ne_test.dir/rule
+.PHONY : ne_test
+
+# clean rule for target.
+CMakeFiles/ne_test.dir/clean:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/clean
+.PHONY : CMakeFiles/ne_test.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/ne_test.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/nuttyengine.dir
 
 # All Build rule for target.
 CMakeFiles/nuttyengine.dir/all:
 	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/depend
 	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14
 	@echo "Built target nuttyengine"
 .PHONY : CMakeFiles/nuttyengine.dir/all
 
@@ -72,7 +107,7 @@ all: CMakeFiles/nuttyengine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/nuttyengine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/nuttyengine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 0
 .PHONY : CMakeFiles/nuttyengine.dir/rule
@@ -91,56 +126,24 @@ clean: CMakeFiles/nuttyengine.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test.dir
-
-# All Build rule for target.
-CMakeFiles/test.dir/all: CMakeFiles/nuttyengine.dir/all
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nuttyengine/build/CMakeFiles  12
-	@echo "Built target test"
-.PHONY : CMakeFiles/test.dir/all
-
-# Include target in all.
-all: CMakeFiles/test.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 12
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nuttyengine/build/CMakeFiles 0
-.PHONY : CMakeFiles/test.dir/rule
-
-# Convenience name for target.
-test: CMakeFiles/test.dir/rule
-.PHONY : test
-
-# clean rule for target.
-CMakeFiles/test.dir/clean:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
-.PHONY : CMakeFiles/test.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/test.dir/clean
-.PHONY : clean
-
-#=============================================================================
 # Directory level rules for directory source
 
 # Convenience name for "all" pass in the directory.
 source/all: source/render/all
 source/all: source/import/all
+source/all: source/math/all
 .PHONY : source/all
 
 # Convenience name for "clean" pass in the directory.
 source/clean: source/render/clean
 source/clean: source/import/clean
+source/clean: source/math/clean
 .PHONY : source/clean
 
 # Convenience name for "preinstall" pass in the directory.
 source/preinstall: source/render/preinstall
 source/preinstall: source/import/preinstall
+source/preinstall: source/math/preinstall
 .PHONY : source/preinstall
 
 #=============================================================================
@@ -172,6 +175,21 @@ source/import/clean:
 # Convenience name for "preinstall" pass in the directory.
 source/import/preinstall:
 .PHONY : source/import/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/math
+
+# Convenience name for "all" pass in the directory.
+source/math/all:
+.PHONY : source/math/all
+
+# Convenience name for "clean" pass in the directory.
+source/math/clean:
+.PHONY : source/math/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/math/preinstall:
+.PHONY : source/math/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.
