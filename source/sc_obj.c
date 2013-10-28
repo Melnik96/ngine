@@ -25,11 +25,15 @@
 
 struct sc_obj* sc_obj_create(char* _name, char* _type) {
   struct sc_obj* new_obj = malloc(sizeof(struct sc_obj));
+//   strcpy(new_obj->name, _name);
+//   strcpy(new_obj->type, _type);
+//   memset(new_obj->pos, 0, 
+// 	 offsetof(new_obj, new_obj->rot) - offsetof(new_obj, new_obj->childs)
+// 	 +sizeof(void*));
+  memset(new_obj, 0, sizeof(struct sc_obj));
   strcpy(new_obj->name, _name);
   strcpy(new_obj->type, _type);
-  memset(new_obj->pos, 0, 
-	 offsetof(new_obj, new_obj->rot) - offsetof(new_obj, new_obj->childs)
-	 +sizeof(void*));
+  
   return new_obj;
 }
 
@@ -59,4 +63,6 @@ void sc_obj_update_matrix(struct sc_obj* _self) {
   _self->model_matrix.m[3][1] = 0;
   _self->model_matrix.m[3][2] = 0;
   _self->model_matrix.m[3][3] = 1;
+  
+  _self->updated = 1;
 }

@@ -18,29 +18,25 @@
  */
 
 /* inclusion guard */
-#ifndef __ENGINE_H__
-#define __ENGINE_H__
+#ifndef __ARRAY_H__
+#define __ARRAY_H__
 
-#include <stdint.h>
-#include "array.h"
+#include <sys/types.h>
 
-struct engine {
-  struct GLFWwindow* window;
-  struct viewport* viewport;
-  char* gl_ver;
-//   uint8_t num_scenes;
-//   struct scene* scenes;
-  array* scenes;
+struct array {
+	size_t size;
+	size_t alloc;
+	void* data;
 };
 
-int neng_init(struct engine* _self, char* _win_name);
-int neng_shutdown(struct engine* _self);
-int neng_frame(struct engine* _self, float _elapsed);
+#define array_for_each(pos, array)					\
+	for (pos = (array)->data;					\
+	     (const char *) pos < ((const char *) (array)->data + (array)->size); \
+	     (pos)++)
 
-void neng_get_opengl_version(char* _ver);
+void array_init(struct array *array);
+void array_release(struct array *array);
+void *array_add(struct array *array, size_t size);
+int array_copy(struct array *array, struct array *source);
 
-int neng_load_shader(char* );
-
-int neng_deserialize_blend(struct sc_obj* _top_obj, void* _blend);
-
-#endif /* __ENGINE_H__ */
+#endif /* __ARRAY_H__ */

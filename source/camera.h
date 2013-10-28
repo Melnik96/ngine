@@ -28,6 +28,6 @@ struct camera {
   mat4 proj_matrix;
 };
 
-int camera_look_at(struct camera* _self, struct scene_object* _target);
+// int camera_look_at(struct camera* _self, struct scene_object* _target);
 
 #endif /* __CAMERA_H__ */
