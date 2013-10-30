@@ -17,30 +17,4 @@
  *
  */
 
-/* inclusion guard */
-#ifndef __ENGINE_H__
-#define __ENGINE_H__
-
-#include <stdint.h>
-
-
-struct engine {
-  struct GLFWwindow* window;
-  struct viewport* viewport;
-  char* gl_ver;
-//   uint8_t num_scenes;
-//   struct scene* scenes;
-  struct scene* scenes;//list
-};//TODO multiple contexts
-
-int neng_init(struct engine* _self, char* _win_name);
-int neng_shutdown(struct engine* _self);
-int neng_frame(struct engine* _self, float _elapsed);
-
-void neng_get_opengl_version(char* _ver);
-
-int neng_load_shader(char* );
-
-int neng_deserialize_blend(struct sc_obj* _top_obj, void* _blend);
-
-#endif /* __ENGINE_H__ */
+#include "tree.h"

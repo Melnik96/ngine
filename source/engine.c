@@ -27,6 +27,8 @@
 
 #include "array.h"
 
+#include "math/matrix.h"
+
 #include "viewport.h"
 #include "engine.h"
 #include "camera.h"
@@ -63,30 +65,22 @@ int neng_init(struct engine* _self, char* _win_name) {
   return 1;
 }
 
+mat4* vp_matrix;
 int neng_frame(struct engine* _self, float _elapsed) {
-//   glfwMakeContextCurrent(_self->window);
   if(glfwWindowShouldClose(_self->window)) { return 0; }
   
   /* Render here */
-//   struct scene* cur_scene;
-//   struct sc_obj* cur_obj;
-//   struct sc_obj* root_obj;
-//   array_for_each(cur_scene, _self->scenes) {
-//     root_obj = cur_scene->root_object;
-//     array_for_each(cur_obj, &root_obj->childs) {
-//       if(cur_obj->updated) {
-// 	//update matrix
-//       }
-//       if(cur_obj->childs.size != 0) {
-// 	array_for_each(cur_obj, &cur_obj->childs) {
-// 	  if(cur_obj->updated) {
-// 	    //update matrix
-// 	  }
-// 	}
-// 	cur_obj = cur_obj->parent;
-//       }
-//     }
-//   }
+  /**
+   * mul view(camera)_matrix and proj(viewport)_matrix = view_proj_mat
+   * for each obj mul model_matrix and view_proj_mat = model_view_proj_mat;
+   * 	render one obj
+   */
+  
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  
+  mat4_mul_of(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->model_matrix);
+  
+  tree_for_each(_self->scenes->root_object, update_obj);
   
   glfwSwapBuffers(_self->window);
   glfwPollEvents();
@@ -98,9 +92,12 @@ int neng_shutdown(struct engine* _self) {
   glfwTerminate();
 }
 
+#ifndef GLEW_VERSION_4_4
+#define GLEW_VERSION_4_4 0
+#endif
 void neng_get_opengl_version(char* _ver) {
-  /*if(GLEW_VERSION_4_4) { memcpy(_ver, "4.4", 4); }
-  else */if(GLEW_VERSION_4_3) { memcpy(_ver, "4.3", 4); }
+  if(GLEW_VERSION_4_4) { memcpy(_ver, "4.4", 4); }
+  else if(GLEW_VERSION_4_3) { memcpy(_ver, "4.3", 4); }
   else if(GLEW_VERSION_4_2) { memcpy(_ver, "4.2", 4); }
   else if(GLEW_VERSION_4_1) { memcpy(_ver, "4.1", 4); }
   else if(GLEW_VERSION_4_0) { memcpy(_ver, "4.0", 4); }
@@ -117,4 +114,31 @@ void neng_get_opengl_version(char* _ver) {
   else if(GLEW_VERSION_1_2) { memcpy(_ver, "1.2", 4); }
   else if(GLEW_VERSION_1_1) { memcpy(_ver, "1.1", 4); }
   else { memcpy(_ver, "0.0", 4); }
+}
+
+//intern
+void update_obj(void* _node) {
+  struct sc_obj* _node = _node;
+  
+  if(_node->updated) {
+    if(memcmp(_node->type, "entity", 6) && sc_obj_check_visible(_node, cur_cam)) {
+      //http://www.flipcode.com/archives/Frustum_Culling.shtml
+      //http://blog.makingartstudios.com/?p=155
+      //update model_view_proj_mat
+      mat4* mvp_matrix;
+      mat4_mul_of(mvp_matrix, &_node->model_matrix, vp_matrix);//need mul parent model_matrix
+      struct sc_obj* tmp_node;
+      mat4* parent_matrix;
+      for(;tmp_node != NULL; tmp_node = tmp_node->parent) {
+	mat4_mul_of(mvp_matrix, mvp_matrix, tmp_node->model_matrix);
+      }
+      //draw
+      draw(((struct entity*)_node->typed_obj), mvp_matrix);//need frustum optimization
+    }
+    else if(memcmp(_node->type, "camera", 6)) {}
+  }
+}
+
+void draw(struct entity* _entity, mat4* _mvp_mat) {
+  _entity->meshes->;
 }

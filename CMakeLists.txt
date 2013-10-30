@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(nuttyengine)
+project(ngine)
 
 include_directories("source")
 include_directories("source/math/")
@@ -18,7 +18,9 @@ target_link_libraries(nuttyengine
   "GL"
   "GLEW"
   "glfw"
-  "../bin/lib/${ARCH}/libSIMDx86.a"
+)
+target_link_libraries(nuttyengine 
+  "${CMAKE_SOURCE_DIR}/bin/lib/${ARCH}/libSIMDx86.a"
 )
 
 add_executable(ne_test main.c)

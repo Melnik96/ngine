@@ -159,7 +159,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 nuttyengine_BINARY_DIR:STATIC=/home/melnik/projects/nuttyengine/build
 
 //Dependencies for the target
-nuttyengine_LIB_DEPENDS:STATIC=general;GL;general;GLEW;general;glfw;general;../bin/lib/x86/libSIMDx86.a;
+nuttyengine_LIB_DEPENDS:STATIC=general;GL;general;GLEW;general;glfw;general;/home/melnik/projects/nuttyengine/bin/lib/x86/libSIMDx86.a;
 
 //Value Computed by CMake
 nuttyengine_SOURCE_DIR:STATIC=/home/melnik/projects/nuttyengine

@@ -384,6 +384,7 @@ nuttyengine_EXTERNAL_OBJECTS =
 ../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/sc_obj.c.o
 ../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/source/viewport.c.o
 ../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/build.make
+../bin/lib/x86/libnuttyengine.so: ../bin/lib/x86/libSIMDx86.a
 ../bin/lib/x86/libnuttyengine.so: CMakeFiles/nuttyengine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../bin/lib/x86/libnuttyengine.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nuttyengine.dir/link.txt --verbose=$(VERBOSE)

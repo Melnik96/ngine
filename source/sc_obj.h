@@ -29,17 +29,21 @@ struct sc_obj_listener {
 };
 
 struct sc_obj {
+  //scene node tree
+  tree* parent;
+  tree* next;
+  tree* childs;
+  
+  struct engine* engine;
+  
   char name[32];
   char type[32];
   vec3 pos,rot;
   mat4 model_matrix;
-  char updated;//need update gpu buffer
+  int updated;//need update gpu buffer
   void* typed_obj;//ptr to entity or camera
 //   char* script;
   struct sc_obj_listener* listener;
-  
-  struct scene_object* parent;
-  struct array* childs;
 };
 
 struct sc_obj* sc_obj_create(char* _name, char* _type);
