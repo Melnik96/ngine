@@ -1,4 +1,3 @@
 [Project]
-Name=nuttyengine
 Manager=KDevCMakeManager
-VersionControl=
+Name=ngine

@@ -26,6 +26,7 @@
 #include <GLFW/glfw3.h>
 
 #include "array.h"
+#include "tree.h"
 
 #include "math/matrix.h"
 
@@ -80,7 +81,7 @@ int neng_frame(struct engine* _self, float _elapsed) {
   
   mat4_mul_of(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->model_matrix);
   
-  tree_for_each(_self->scenes->root_object, update_obj);
+  tree_for_each(_self->scenes->root_object, update_obj_handler);
   
   glfwSwapBuffers(_self->window);
   glfwPollEvents();
@@ -117,8 +118,10 @@ void neng_get_opengl_version(char* _ver) {
 }
 
 //intern
-void update_obj(void* _node) {
+void update_obj_handler(void* _node) {
   struct sc_obj* _node = _node;
+  
+  if(_node->engine->viewport->camera->updated) {}
   
   if(_node->updated) {
     if(memcmp(_node->type, "entity", 6) && sc_obj_check_visible(_node, cur_cam)) {
@@ -135,7 +138,10 @@ void update_obj(void* _node) {
       //draw
       draw(((struct entity*)_node->typed_obj), mvp_matrix);//need frustum optimization
     }
-    else if(memcmp(_node->type, "camera", 6)) {}
+    else if(memcmp(_node->type, "camera", 6)) {
+      
+    }
+    else if(memcmp(_node->type, "light", 6)) {}
   }
 }
 
