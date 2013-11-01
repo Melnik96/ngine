@@ -17,3 +17,6 @@ Install Directory=
 
 [Project]
 VersionControlSupport=kdevgit
+
+[SourceFileTemplates]
+LastUsedTemplate=/home/melnik/.kde4/share/apps/kdevfiletemplates/template_descriptions/cpp_basic.desktop

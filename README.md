@@ -15,9 +15,12 @@ TODO
 -   module system
 -     C dynamic linking and python support
 -   multi-threaded
+-     ^binary thread priority(поток виконується один раз на кожні n\\2 фрейми,
+-       але рендер виконується в кожному вреймі)
 -   data structure serialization
 -   SIMD math
 -   costom memory alocators
+-   fixed fps
 - scene management
 -   tree-based scene graph
 - rendering
@@ -32,6 +35,7 @@ TODO
 -     lightmap
 -     scattering
 -     shape lighting
+-     god rays
 -   shadows
 -   tessellation with displacement mapping
 -   depth of field
@@ -49,6 +53,6 @@ TODO
 - tools
 -   blender3d plugin
 -     in blender render window
--   costom assimp file format
+-   costom asset file format
 - weather system
 - Wayland display protocol support

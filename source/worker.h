@@ -17,39 +17,15 @@
  *
  */
 
-/* inclusion guard */
-#ifndef __ENGINE_H__
-#define __ENGINE_H__
+#ifndef WORKER_H
+#define WORKER_H
 
-#include <stdint.h>
 #include <pthread.h>
+#include "list.h"
 
-struct engine {
-  struct GLFWwindow* window;
-  struct viewport* viewport;
-//   uint8_t num_scenes;
-  struct scene* scenes;//list
-  
-  char* gl_ver;
-  uint8_t fixed_fps;//60fps
-  
-  //threads
-  pthread_t thr_input;//60fps
-  pthread_t thr_physics;//30fps
-  pthread_t thr_sound;
-  pthread_t* thr_workers;//one worker per free core
-  
+struct worker {
+  pthread_t thr;
   struct list* jobs;
-};//TODO multiple contexts
+};
 
-int neng_init(struct engine* _self, char* _win_name);
-int neng_shutdown(struct engine* _self);
-int neng_frame(struct engine* _self, float _elapsed);
-
-void neng_get_opengl_version(char* _ver);
-
-int neng_load_shader(char* );
-
-int neng_deserialize_blend(struct sc_obj* _top_obj, void* _blend);
-
-#endif /* __ENGINE_H__ */
+#endif // WORKER_H

@@ -41,14 +41,9 @@
 
 int neng_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
-  //init GL
-  // Initialise GLFW
   if(!glfwInit())
     return -1;
-  /* Create a windowed mode window and its OpenGL context */
-//   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-//   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-//   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  
   _self->window = glfwCreateWindow(640, 480, _win_name, NULL, NULL);
   if(!_self->window) {
     glfwTerminate();
@@ -68,24 +63,18 @@ int neng_init(struct engine* _self, char* _win_name) {
 
 mat4* vp_matrix;
 int neng_frame(struct engine* _self, float _elapsed) {
-  if(glfwWindowShouldClose(_self->window)) { return 0; }
+  if(_self->rendering) {
+    if(glfwWindowShouldClose(_self->window)) { return 0; }
   
-  /* Render here */
-  /**
-   * mul view(camera)_matrix and proj(viewport)_matrix = view_proj_mat
-   * for each obj mul model_matrix and view_proj_mat = model_view_proj_mat;
-   * 	render one obj
-   */
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    mat4_mul_of(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->model_matrix);
   
-  mat4_mul_of(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->model_matrix);
+    tree_for_each(_self->scenes->root_object, update_obj_handler);
   
-  tree_for_each(_self->scenes->root_object, update_obj_handler);
-  
-  glfwSwapBuffers(_self->window);
-  glfwPollEvents();
-//   printf("frame\n");
+    glfwSwapBuffers(_self->window);
+    glfwPollEvents();
+  }
   return 1;
 }
 
@@ -148,3 +137,5 @@ void update_obj_handler(void* _node) {
 void draw(struct entity* _entity, mat4* _mvp_mat) {
   _entity->meshes->;
 }
+
+void worker(struct worker_queue* _queue) {}
