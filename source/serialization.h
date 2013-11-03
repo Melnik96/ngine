@@ -29,9 +29,10 @@
 /**
  * dna - struct of host machine info(byte endian, cpu arch)
  * 
- * |dna      |total_size|po_count |ptr_offset           |base_data_size|base_data     |data_from_ptrs      |
- * |2char(2) |uint64(8) |ushort(2)|uint64(8*3*ptr_count)|uint64(8)     |base_data_size|sum(ptr_offset[n+3])|	64bit
- * |ushort(4)|uint32(4) |ushort(2)|uint32(4*3*ptr_count)|uint32(4)     |base_data_size|sum(ptr_offset[n+3])|	32bit
+ *                                               |                    total_size                           |
+ * |dna      |total_size|base_data_size|po_count |ptr_offset           |base_data     |data_from_ptrs      |
+ * |2char(2) |uint64(8) |uint64(8)     |ushort(2)|uint64(8*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	64bit
+ * |2char(2) |uint32(4) |uint32(4)     |ushort(2)|uint32(4*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	32bit
  * 
  * some_ptr_offset[] = {
  *   ptr->aptr, 40, sizeof(ptr->aptr)
@@ -39,21 +40,28 @@
  * }
  */
 
+struct ptr_offset {
+  void* ptr;
+  uint32_t offset;
+  uint32_t size;
+};
+
+enum {
+  ENDIAN_BIG,
+  ENDIAN_LITTLE
+};
+
+enum {
+  ARCH_X86,
+  ARCH_X64
+};
+
 struct dna {
   char endian;
   char arch;//64bit or 32bit
 };
 
-struct sdna {
-  uint32_t total_size;
-  uint32_t po_len;
-  uint32_t base_data_size;
-  uint32_t* ptr_offset;
-  void* base_data;
-  void* data_from_ptrs;
-};
-
-void* serialize(void* _data, uint32_t _data_size, uint32_t* _ptr_offset, uint32_t _po_len);
+void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, struct ptr_offset* _ptr_offset, uint32_t _po_len);
 void* deserialize(void* _sdata);
 
 #endif /* __SERIALIZATION_H__ */

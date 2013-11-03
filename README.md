@@ -21,6 +21,7 @@ TODO
 -   SIMD math
 -   costom memory alocators
 -   fixed fps
+-   scons build system
 - scene management
 -   tree-based scene graph
 - rendering
@@ -47,7 +48,7 @@ TODO
 - sound(OpenAL)
 -   virtually unlimited number of 3D sound sources
 -   zone sound effects
-- physics(bullet3d based)
+- physics(bullet3d or ODE based)
 - logic
 - animation
 - tools

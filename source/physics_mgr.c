@@ -17,5 +17,12 @@
  *
  */
 
+// #include <bullet/btBulletCollisionCommon.h>
+// #include <bullet/btBulletDynamicsCommon.h>
+
 #include "physics_mgr.h"
 
+void test() {
+//   btTriangleMesh* tmesh = malloc(sizeof(btTriangleMesh));
+//   
+}

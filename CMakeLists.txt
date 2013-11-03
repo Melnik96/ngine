@@ -12,6 +12,9 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin CACHE INTERNAL "" FORCE)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/lib/${ARCH}/ CACHE INTERNAL "" FORCE)
 
 aux_source_directory("source/" engine_sources)
+aux_source_directory("source/cntr" engine_sources_cntr)
+aux_source_directory("source/math" engine_sources_math)
+set(engine_sources ${engine_sources} ${engine_sources_cntr} ${engine_sources_math})
 
 add_library(nuttyengine SHARED ${engine_sources})
 target_link_libraries(nuttyengine
@@ -19,9 +22,8 @@ target_link_libraries(nuttyengine
   "GLEW"
   "glfw"
 )
-target_link_libraries(nuttyengine 
-  "${CMAKE_SOURCE_DIR}/bin/lib/${ARCH}/libSIMDx86.a"
-)
+# target_link_libraries(nuttyengine 
+# )
 
 add_executable(ne_test main.c)
 target_link_libraries(ne_test nuttyengine)

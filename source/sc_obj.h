@@ -30,9 +30,9 @@ struct sc_obj_listener {
 
 struct sc_obj {
   //scene node tree
-  tree* parent;
-  tree* next;
-  tree* childs;
+  struct tree* parent;
+  struct tree* next;
+  struct tree* childs;
   
   struct engine* engine;
   

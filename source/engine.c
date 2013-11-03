@@ -19,16 +19,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <memory.h>
 
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
-#include "array.h"
-#include "tree.h"
+#include "cntr/array.h"
+#include "cntr/tree.h"
+#include "cntr/list.h"
 
 #include "math/matrix.h"
+#include "math/vector.h"
+#include "math/SIMDx86/SIMDx86.h"
 
 #include "viewport.h"
 #include "engine.h"
@@ -38,6 +42,9 @@
 #include "entity.h"
 #include "mesh.h"
 
+//predef intern
+void worker_handler(void* _self);
+void update_obj_handler(void* _node);
 
 int neng_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
@@ -54,21 +61,51 @@ int neng_init(struct engine* _self, char* _win_name) {
   glewExperimental = GL_TRUE;
   if(glewInit() != GLEW_OK) { return 0; }
   
+//   if(!SIMDx86_Initialize(SIMDX86ISA_USE_SSE2, SIMDx86FLAGS_OPTINTEL)) { exit(0); }
+  
   _self->gl_ver = malloc(6);
   neng_get_opengl_version(_self->gl_ver);
   printf("OpenGL version %s\n", _self->gl_ver);
+  
+  //create threads
+//   pthread_attr_t* thr_physics_attr;
+//   pthread_attr_init(thr_physics_attr);
+//   pthread_create(&_self->thr_physics, thr_physics_attr, (void*)0, 0);
+// 
+//   //workers
+// //   list_init(&_self->jobs);
+//   
+//   uint8_t max_workers = 4;
+// //   max_workers = get_num_cpu_cores() - 2;
+//   
+//   pthread_mutexattr_t* mut_worker_attr;
+//   pthread_mutexattr_init(mut_worker_attr);
+//   pthread_mutex_init(&_self->mutex_workers, mut_worker_attr);
+//   
+//   _self->thr_workers = malloc(max_workers*sizeof(pthread_t));
+// 
+//   for(uint8_t i = 0; i != max_workers; ++i) {
+//     pthread_attr_t* thr_worker_attr;
+//     pthread_attr_init(thr_worker_attr);
+//     pthread_create(&_self->thr_workers[i], thr_physics_attr, worker_handler, _self);
+//   }
+//   
+//   for(uint8_t i = 0; i != max_workers; ++i) {
+//     pthread_join(_self->thr_workers[i], 0);
+//   }
+//   pthread_join(_self->thr_physics, 0);
   
   return 1;
 }
 
 mat4* vp_matrix;
 int neng_frame(struct engine* _self, float _elapsed) {
-  if(_self->rendering) {
+  if(_self->active_render) {
     if(glfwWindowShouldClose(_self->window)) { return 0; }
   
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   
-    mat4_mul_of(vp_matrix, _self->viewport->proj_matrix, _self->viewport->camera->model_matrix);
+    mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
     tree_for_each(_self->scenes->root_object, update_obj_handler);
   
@@ -108,34 +145,61 @@ void neng_get_opengl_version(char* _ver) {
 
 //intern
 void update_obj_handler(void* _node) {
-  struct sc_obj* _node = _node;
+  struct sc_obj* _obj = _node;
   
-  if(_node->engine->viewport->camera->updated) {}
+  if(_obj->engine->viewport->camera->updated) {}
   
-  if(_node->updated) {
-    if(memcmp(_node->type, "entity", 6) && sc_obj_check_visible(_node, cur_cam)) {
+  if(_obj->updated) {
+    if(memcmp(_obj->type, "entity", 6) && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
       //http://www.flipcode.com/archives/Frustum_Culling.shtml
       //http://blog.makingartstudios.com/?p=155
       //update model_view_proj_mat
       mat4* mvp_matrix;
-      mat4_mul_of(mvp_matrix, &_node->model_matrix, vp_matrix);//need mul parent model_matrix
+      mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
       struct sc_obj* tmp_node;
       mat4* parent_matrix;
       for(;tmp_node != NULL; tmp_node = tmp_node->parent) {
-	mat4_mul_of(mvp_matrix, mvp_matrix, tmp_node->model_matrix);
+	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
       }
       //draw
-      draw(((struct entity*)_node->typed_obj), mvp_matrix);//need frustum optimization
+      draw(((struct entity*)_obj->typed_obj), mvp_matrix);//need frustum optimization
     }
-    else if(memcmp(_node->type, "camera", 6)) {
+    else if(memcmp(_obj->type, "camera", 7)) {
       
     }
-    else if(memcmp(_node->type, "light", 6)) {}
+    else if(memcmp(_obj->type, "light", 6)) {}
   }
 }
 
 void draw(struct entity* _entity, mat4* _mvp_mat) {
-  _entity->meshes->;
+//   _entity->meshes->;
 }
 
-void worker(struct worker_queue* _queue) {}
+int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
+//   vec3 projected[8];
+//   
+//   for(uint8_t i = 0; i != 8; ++i) {
+//     vec3_mat4_mul_of(&projected[i], &_aabb->val[i], _proj_mat);
+//     if(projected[i].x > 1.f || projected[i].x < -1.f ||
+//        projected[i].y > 1.f || projected[i].y < -1.f ||
+//        projected[i].z > 1.f || projected[i].z < -1.f) { return 0; } else { return 1; }
+//   }
+}
+
+void worker_handler(void* _self) {
+  struct engine* _engine = (struct engine*)_self;
+  struct list* _jobs = (struct list*)&_engine->jobs;
+  struct job* item;
+  while(1) {
+    while(!list_empty(_jobs)) {
+      pthread_mutex_lock(&_engine->mutex_workers);
+      list_for_each(item, _jobs, link) {
+	pthread_mutex_unlock(&_engine->mutex_workers);
+	item->handler(item->args);
+	pthread_mutex_lock(&_engine->mutex_workers);
+	list_remove(item);
+      }
+    }
+    usleep(3600/ _engine->fixed_fps);//wait for new jobs
+  }
+}

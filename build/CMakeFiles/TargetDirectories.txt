@@ -1,0 +1,2 @@
+/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir
+/home/melnik/projects/ngine/build/CMakeFiles/nuttyengine.dir

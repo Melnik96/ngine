@@ -23,6 +23,13 @@
 
 #include <stdint.h>
 #include <pthread.h>
+#include "cntr/list.h"
+
+struct job {
+  struct list link;
+  void*(*handler)(void*);
+  void* args;
+};
 
 struct engine {
   struct GLFWwindow* window;
@@ -31,15 +38,18 @@ struct engine {
   struct scene* scenes;//list
   
   char* gl_ver;
+  int active_render;
   uint8_t fixed_fps;//60fps
   
   //threads
-  pthread_t thr_input;//60fps
+//   pthread_t thr_input;//60fps
   pthread_t thr_physics;//30fps
   pthread_t thr_sound;
   pthread_t* thr_workers;//one worker per free core
+  pthread_mutex_t mutex_workers;
+  pthread_cond_t cond_workers;
   
-  struct list* jobs;
+  struct list jobs;//list
 };//TODO multiple contexts
 
 int neng_init(struct engine* _self, char* _win_name);

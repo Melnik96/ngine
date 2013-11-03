@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/melnik/projects/ngine/source/serialization.c
+serialization.h
+/home/melnik/projects/ngine/source/serialization.h
+
+/home/melnik/projects/ngine/source/serialization.h
+stdint.h
+-
+string.h
+-
+malloc.h
+-
+stdint.h
+-
+
