@@ -31,3 +31,4 @@ target_link_libraries(ne_test nuttyengine)
 install(TARGETS nuttyengine LIBRARY DESTINATION lib)
 
 add_subdirectory(source)
+add_subdirectory(bin/media/models)
