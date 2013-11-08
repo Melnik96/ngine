@@ -25,10 +25,12 @@
 #include "math/vector.h"
 
 struct mesh {
-  long num_indices, num_vertices;
-  long* indices;
+  uint16_t num_indices;
+  uint32_t num_vertices;
+  uint16_t* indices;
+  uint16_t* normals;
   vec3* vertices;
-  vec3* color;
+  vec3* colors;
   vec2* uv;
   aabb aabb;
   //TODO add half-edged

@@ -41,6 +41,7 @@
 #include "sc_obj.h"
 #include "entity.h"
 #include "mesh.h"
+#include "render/hw_buffers.h"
 
 //predef intern
 void worker_handler(void* _self);
@@ -107,7 +108,7 @@ int neng_frame(struct engine* _self, float _elapsed) {
   
     mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
-    tree_for_each(_self->scenes->root_object, update_obj_handler);
+    tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
     glfwSwapBuffers(_self->window);
     glfwPollEvents();
@@ -158,7 +159,10 @@ void update_obj_handler(void* _node) {
       mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
       struct sc_obj* tmp_node;
       mat4* parent_matrix;
-      for(;tmp_node != NULL; tmp_node = tmp_node->parent) {
+      for(;;) {
+	parent_matrix *= sum_of_all_parents_matrixes;
+      }
+      for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->parent) {
 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
       }
       //draw
@@ -172,7 +176,27 @@ void update_obj_handler(void* _node) {
 }
 
 void draw(struct entity* _entity, mat4* _mvp_mat) {
-//   _entity->meshes->;
+  glUseProgram(program);
+  glEnable(GL_DEPTH_TEST);
+  hw_bind_vao(_entity->hws[i].vao);
+    
+    for (unsigned int i = 0 ; i < _entity->num_meshes ; ++i) {
+        const unsigned int MaterialIndex = _entity->material[i];
+
+//         assert(MaterialIndex < m_Textures.size());
+        
+//         if (m_Textures[MaterialIndex]) {
+//             m_Textures[MaterialIndex]->Bind(GL_TEXTURE0);
+//         }
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _entity->hws[i].index);
+	glDrawElements(GL_TRIANGLES, 
+                               _entity->meshes[i].num_indices, 
+                               GL_UNSIGNED_SHORT,
+                               (void*)(0);
+    }
+
+  hw_unbind_vao();
 }
 
 int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
@@ -197,9 +221,9 @@ void worker_handler(void* _self) {
 	pthread_mutex_unlock(&_engine->mutex_workers);
 	item->handler(item->args);
 	pthread_mutex_lock(&_engine->mutex_workers);
-	list_remove(item);
+	list_remove((struct list*)item);
       }
     }
-    usleep(3600/ _engine->fixed_fps);//wait for new jobs
+    usleep(3600/_engine->fixed_fps);//wait for new jobs
   }
 }

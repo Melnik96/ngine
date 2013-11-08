@@ -41,7 +41,7 @@ struct sc_obj {
   vec3 pos,rot;
   mat4 model_matrix;
   int updated;//need update gpu buffer
-  void* typed_obj;//ptr to entity or camera
+  struct list* typed_objs;//ptr to list of entities or cameras
 //   char* script;
   struct sc_obj_listener* listener;
 };

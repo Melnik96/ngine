@@ -84,7 +84,7 @@ ne_test_EXTERNAL_OBJECTS =
 
 ../bin/ne_test: CMakeFiles/ne_test.dir/main.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/build.make
-../bin/ne_test: ../bin/lib/x86/libnuttyengine.so
+../bin/ne_test: ../bin/lib/x86/libngine.so
 ../bin/ne_test: CMakeFiles/ne_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../bin/ne_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ne_test.dir/link.txt --verbose=$(VERBOSE)

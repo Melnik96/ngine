@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/melnik/projects/ngine/build
 # Target rules for target CMakeFiles/ne_test.dir
 
 # All Build rule for target.
-CMakeFiles/ne_test.dir/all: CMakeFiles/nuttyengine.dir/all
+CMakeFiles/ne_test.dir/all: CMakeFiles/ngine.dir/all
 	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/depend
 	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  1
@@ -91,54 +91,39 @@ clean: CMakeFiles/ne_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/nuttyengine.dir
+# Target rules for target CMakeFiles/ngine.dir
 
 # All Build rule for target.
-CMakeFiles/nuttyengine.dir/all:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/depend
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/build
+CMakeFiles/ngine.dir/all:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/depend
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
-	@echo "Built target nuttyengine"
-.PHONY : CMakeFiles/nuttyengine.dir/all
+	@echo "Built target ngine"
+.PHONY : CMakeFiles/ngine.dir/all
 
 # Include target in all.
-all: CMakeFiles/nuttyengine.dir/all
+all: CMakeFiles/ngine.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/nuttyengine.dir/rule: cmake_check_build_system
+CMakeFiles/ngine.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 17
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/nuttyengine.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ngine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
-.PHONY : CMakeFiles/nuttyengine.dir/rule
+.PHONY : CMakeFiles/ngine.dir/rule
 
 # Convenience name for target.
-nuttyengine: CMakeFiles/nuttyengine.dir/rule
-.PHONY : nuttyengine
+ngine: CMakeFiles/ngine.dir/rule
+.PHONY : ngine
 
 # clean rule for target.
-CMakeFiles/nuttyengine.dir/clean:
-	$(MAKE) -f CMakeFiles/nuttyengine.dir/build.make CMakeFiles/nuttyengine.dir/clean
-.PHONY : CMakeFiles/nuttyengine.dir/clean
+CMakeFiles/ngine.dir/clean:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/clean
+.PHONY : CMakeFiles/ngine.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/nuttyengine.dir/clean
+clean: CMakeFiles/ngine.dir/clean
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory source
-
-# Convenience name for "all" pass in the directory.
-source/all:
-.PHONY : source/all
-
-# Convenience name for "clean" pass in the directory.
-source/clean:
-.PHONY : source/clean
-
-# Convenience name for "preinstall" pass in the directory.
-source/preinstall:
-.PHONY : source/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

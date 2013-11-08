@@ -31,8 +31,8 @@
  * 
  *                                               |                    total_size                           |
  * |dna      |total_size|base_data_size|po_count |ptr_offset           |base_data     |data_from_ptrs      |
- * |2char(2) |uint64(8) |uint64(8)     |ushort(2)|uint64(8*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	64bit
- * |2char(2) |uint32(4) |uint32(4)     |ushort(2)|uint32(4*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	32bit
+ * |2char(1) |uint64(8) |uint32(4)     |ushort(2)|uint64(8*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	64bit
+ * |2char(1) |uint32(4) |uint32(4)     |ushort(2)|uint32(4*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	32bit
  * 
  * some_ptr_offset[] = {
  *   ptr->aptr, 40, sizeof(ptr->aptr)
@@ -40,10 +40,28 @@
  * }
  */
 
-struct ptr_offset {
-  void* ptr;
+enum meta_offset {
+  MO_DNA = 0,
+  MO_TOTAL_SIZE = 2,
+  MO_BDATA_SIZE = 2+sizeof(uint32_t),
+  MO_PO_COUNT = 2+sizeof(uint32_t)*2,
+  MO_PTR_OFFSET = 2+sizeof(uint32_t)*2+2,
+  MO_BDATA_SIZE_64 = 2+sizeof(uint64_t),
+  MO_PO_COUNT_64 = 2+sizeof(uint64_t)*2,
+  MO_PTR_OFFSET_64 = 2+sizeof(uint64_t)*2+2
+};
+
+struct ptr_offset_32 {
+  uint32_t ptr;
   uint32_t offset;
+  uint32_t sdata_offset;//fuck incapsulation
   uint32_t size;
+};
+struct ptr_offset_64 {
+  uint64_t ptr;
+  uint64_t offset;
+  uint64_t sdata_offset;
+  uint64_t size;
 };
 
 enum {
@@ -61,7 +79,8 @@ struct dna {
   char arch;//64bit or 32bit
 };
 
-void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, struct ptr_offset* _ptr_offset, uint32_t _po_len);
+//це не баг, це фіча
+void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, void* _ptr_offset, uint32_t _po_len);
 void* deserialize(void* _sdata);
 
 #endif /* __SERIALIZATION_H__ */

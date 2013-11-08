@@ -17,25 +17,22 @@
  *
  */
 
-/* inclusion guard */
-#ifndef __ENTITY_H__
-#define __ENTITY_H__
+#ifndef SHADER_PROG_H
+#define SHADER_PROG_H
+#include <stdint.h>
 
-struct entity {
-  struct list* link;
-  
-  char name[32];
-//   struct physics* phys;
-//   uint num_meshes;
-//   uint num_materials;
-  int updated;
-  struct mesh* mesh;
-  struct material* material;
-  
-  struct hw_buffers* hw;
+enum gl_shader_types {
+  GLST_VERTEX = 0,
+  GLST_FRAGMENT = 1
 };
 
-int entity_init(struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material);
-int entity_update(struct entity* _ent);//call in engine.c if entity.updated == 1
+struct shader_prog {
+  char 		name[32];
+  uint32_t 	prog;
+  uint32_t* 	uniforms;
+  uint32_t* 	attribs;
+};
 
-#endif /* __ENTITY_H__ */
+int shader_prog_init(struct shader_prog* _prog, const char* _name, char** _shaders);
+
+#endif // SHADER_PROG_H

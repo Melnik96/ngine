@@ -11,7 +11,6 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.11/CMakeCCompiler.cmake"
   "CMakeFiles/2.8.11/CMakeCXXCompiler.cmake"
   "CMakeFiles/2.8.11/CMakeSystem.cmake"
-  "../source/CMakeLists.txt"
   "/usr/share/cmake-2.8/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake"
@@ -36,11 +35,10 @@ SET(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "source/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ne_test.dir/DependInfo.cmake"
-  "CMakeFiles/nuttyengine.dir/DependInfo.cmake"
+  "CMakeFiles/ngine.dir/DependInfo.cmake"
   )

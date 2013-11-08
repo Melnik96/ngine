@@ -16,19 +16,16 @@ aux_source_directory("source/cntr" engine_sources_cntr)
 aux_source_directory("source/math" engine_sources_math)
 set(engine_sources ${engine_sources} ${engine_sources_cntr} ${engine_sources_math})
 
-add_library(nuttyengine SHARED ${engine_sources})
-target_link_libraries(nuttyengine
+add_library(ngine SHARED ${engine_sources})
+target_link_libraries(ngine
   "GL"
   "GLEW"
   "glfw"
 )
-# target_link_libraries(nuttyengine 
+# target_link_libraries(ngine 
 # )
 
 add_executable(ne_test main.c)
-target_link_libraries(ne_test nuttyengine)
+target_link_libraries(ne_test ngine)
 
-install(TARGETS nuttyengine LIBRARY DESTINATION lib)
-
-add_subdirectory(source)
-add_subdirectory(bin/media/models)
+install(TARGETS ngine LIBRARY DESTINATION lib)
