@@ -42,6 +42,7 @@
 #include "entity.h"
 #include "mesh.h"
 #include "render/hw_buffers.h"
+#include "python/python_console.h"
 
 //predef intern
 void worker_handler(void* _self);
@@ -67,6 +68,8 @@ int neng_init(struct engine* _self, char* _win_name) {
   _self->gl_ver = malloc(6);
   neng_get_opengl_version(_self->gl_ver);
   printf("OpenGL version %s\n", _self->gl_ver);
+  
+  py_console_enter(0,0);
   
   //create threads
 //   pthread_attr_t* thr_physics_attr;
@@ -151,31 +154,31 @@ void update_obj_handler(void* _node) {
   if(_obj->engine->viewport->camera->updated) {}
   
   if(_obj->updated) {
-    if(memcmp(_obj->type, "entity", 6) && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
-      //http://www.flipcode.com/archives/Frustum_Culling.shtml
-      //http://blog.makingartstudios.com/?p=155
-      //update model_view_proj_mat
-      mat4* mvp_matrix;
-      mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
-      struct sc_obj* tmp_node;
-      mat4* parent_matrix;
-      for(;;) {
-	parent_matrix *= sum_of_all_parents_matrixes;
-      }
-      for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->parent) {
-	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
-      }
-      //draw
-      draw(((struct entity*)_obj->typed_obj), mvp_matrix);//need frustum optimization
-    }
-    else if(memcmp(_obj->type, "camera", 7)) {
-      
-    }
-    else if(memcmp(_obj->type, "light", 6)) {}
+//     if(memcmp(_obj->type, "entity", 6) && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
+//       //http://www.flipcode.com/archives/Frustum_Culling.shtml
+//       //http://blog.makingartstudios.com/?p=155
+//       //update model_view_proj_mat
+//       mat4* mvp_matrix;
+//       mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
+//       struct sc_obj* tmp_node;
+//       mat4* parent_matrix;
+// //       for(;;) {
+// // 	parent_matrix *= sum_of_all_parents_matrixes;
+// //       }
+//       for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->parent) {
+// 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
+//       }
+//       //draw
+//       draw(((struct entity*)_obj->typed_obj), mvp_matrix);//need frustum optimization
+//     }
+//     else if(memcmp(_obj->type, "camera", 7)) {
+//       
+//     }
+//     else if(memcmp(_obj->type, "light", 6)) {}
   }
 }
 
-void draw(struct entity* _entity, mat4* _mvp_mat) {
+void draw(struct entity* _entity, mat4* _mvp_mat) {/*
   glUseProgram(program);
   glEnable(GL_DEPTH_TEST);
   hw_bind_vao(_entity->hws[i].vao);
@@ -196,7 +199,7 @@ void draw(struct entity* _entity, mat4* _mvp_mat) {
                                (void*)(0);
     }
 
-  hw_unbind_vao();
+  hw_unbind_vao();*/
 }
 
 int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {

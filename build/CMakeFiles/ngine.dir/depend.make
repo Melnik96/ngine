@@ -40,12 +40,17 @@ CMakeFiles/ngine.dir/source/engine.c.o: ../source/math/SIMDx86/SIMDx86.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/mesh.h
+CMakeFiles/ngine.dir/source/engine.c.o: ../source/python/python_console.h
+CMakeFiles/ngine.dir/source/engine.c.o: ../source/render/hw_buffers.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/sc_obj.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/scene.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/viewport.h
 
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/entity.c
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/entity.h
+CMakeFiles/ngine.dir/source/entity.c.o: ../source/math/vector.h
+CMakeFiles/ngine.dir/source/entity.c.o: ../source/mesh.h
+CMakeFiles/ngine.dir/source/entity.c.o: ../source/render/hw_buffers.h
 
 CMakeFiles/ngine.dir/source/material.c.o: ../source/material.c
 CMakeFiles/ngine.dir/source/material.c.o: ../source/material.h
@@ -61,8 +66,14 @@ CMakeFiles/ngine.dir/source/mesh.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/mesh.c
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/mesh.h
 
+CMakeFiles/ngine.dir/source/node.c.o: ../source/node.c
+CMakeFiles/ngine.dir/source/node.c.o: ../source/node.h
+
 CMakeFiles/ngine.dir/source/physics_mgr.c.o: ../source/physics_mgr.c
 CMakeFiles/ngine.dir/source/physics_mgr.c.o: ../source/physics_mgr.h
+
+CMakeFiles/ngine.dir/source/python/python_console.c.o: ../source/python/python_console.h
+CMakeFiles/ngine.dir/source/python/python_console.c.o: ../source/python/python_console.c
 
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/vector.h
@@ -77,6 +88,9 @@ CMakeFiles/ngine.dir/source/scene.c.o: ../source/scene.h
 
 CMakeFiles/ngine.dir/source/serialization.c.o: ../source/serialization.c
 CMakeFiles/ngine.dir/source/serialization.c.o: ../source/serialization.h
+
+CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/shader_prog.c
+CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/shader_prog.h
 
 CMakeFiles/ngine.dir/source/viewport.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/viewport.c.o: ../source/viewport.c

@@ -41,12 +41,17 @@ CMakeFiles/ngine.dir/source/engine.c.o
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
  /home/melnik/projects/ngine/source/mesh.h
+ /home/melnik/projects/ngine/source/python/python_console.h
+ /home/melnik/projects/ngine/source/render/hw_buffers.h
  /home/melnik/projects/ngine/source/sc_obj.h
  /home/melnik/projects/ngine/source/scene.h
  /home/melnik/projects/ngine/source/viewport.h
 CMakeFiles/ngine.dir/source/entity.c.o
  /home/melnik/projects/ngine/source/entity.c
  /home/melnik/projects/ngine/source/entity.h
+ /home/melnik/projects/ngine/source/math/vector.h
+ /home/melnik/projects/ngine/source/mesh.h
+ /home/melnik/projects/ngine/source/render/hw_buffers.h
 CMakeFiles/ngine.dir/source/material.c.o
  /home/melnik/projects/ngine/source/material.c
  /home/melnik/projects/ngine/source/material.h
@@ -61,9 +66,15 @@ CMakeFiles/ngine.dir/source/mesh.c.o
  /home/melnik/projects/ngine/source/math/vector.h
  /home/melnik/projects/ngine/source/mesh.c
  /home/melnik/projects/ngine/source/mesh.h
+CMakeFiles/ngine.dir/source/node.c.o
+ /home/melnik/projects/ngine/source/node.c
+ /home/melnik/projects/ngine/source/node.h
 CMakeFiles/ngine.dir/source/physics_mgr.c.o
  /home/melnik/projects/ngine/source/physics_mgr.c
  /home/melnik/projects/ngine/source/physics_mgr.h
+CMakeFiles/ngine.dir/source/python/python_console.c.o
+ ../source/python/python_console.h
+ /home/melnik/projects/ngine/source/python/python_console.c
 CMakeFiles/ngine.dir/source/sc_obj.c.o
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
@@ -78,6 +89,9 @@ CMakeFiles/ngine.dir/source/scene.c.o
 CMakeFiles/ngine.dir/source/serialization.c.o
  /home/melnik/projects/ngine/source/serialization.c
  /home/melnik/projects/ngine/source/serialization.h
+CMakeFiles/ngine.dir/source/shader_prog.c.o
+ /home/melnik/projects/ngine/source/shader_prog.c
+ /home/melnik/projects/ngine/source/shader_prog.h
 CMakeFiles/ngine.dir/source/viewport.c.o
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/viewport.c

@@ -17,9 +17,10 @@
  *
  */
 
-#include <GL/gl.h>
 #include <GL/glew.h>
+#include <GL/gl.h>
 #include <malloc.h>
+#include <string.h>
 
 #include "entity.h"
 #include "render/hw_buffers.h"
@@ -30,7 +31,8 @@ int entity_init(struct entity* _ent, char* _name, struct mesh* _mesh, struct mat
 //   _ent->name = NULL;
 //   _ent->mesh = NULL;
 //   _ent->material = NULL;
-  _ent->name = _name;
+  strcpy(_ent->name, _name);
+//   _ent->name = _name;
   _ent->mesh = _mesh;
   _ent->material = _material;
   _ent->hw = malloc(sizeof(struct hw_buffers));

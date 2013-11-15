@@ -17,8 +17,8 @@
  *
  */
 
-#include <GL/gl.h>
 #include <GL/glew.h>
+#include <GL/gl.h>
 
 #include "shader_prog.h"
 
@@ -26,7 +26,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, char** _shade
   _prog->prog  = glCreateProgram();
   if(_shaders[GLST_VERTEX]) {
     uint32_t vert_shad = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vert_shad, 1, (const GLchar**)&_shaders[GLST_VERTEX], (const GLint*)&sizeof(_shaders[GLST_VERTEX]));
+//     glShaderSource(vert_shad, 1, (const GLchar**)&_shaders[GLST_VERTEX], (const GLint*)&sizeof(_shaders[GLST_VERTEX]));
     glCompileShader(vert_shad);
     
     if (ShaderStatus(vert_shad, GL_COMPILE_STATUS) != GL_TRUE)
@@ -36,7 +36,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, char** _shade
     glLinkProgram(_prog->prog);
     
     if (ShaderProgramStatus(_prog->prog, GL_LINK_STATUS) != GL_TRUE)
-        return false;
+        return 0;
   }
   else if(_shaders[GLST_FRAGMENT]) {
     _shaders[GLST_FRAGMENT] = glCreateShader(GL_FRAGMENT_SHADER);

@@ -20,3 +20,8 @@
 #include <python3.3m/Python.h>
 
 #include "python/python_console.h"
+
+int py_console_enter(struct py_console* _self, const char* _command) {
+  Py_Initialize();
+  PyRun_InteractiveLoop(stdin, "ngine_py_console");
+}

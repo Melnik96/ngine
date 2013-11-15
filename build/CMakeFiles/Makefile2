@@ -72,7 +72,7 @@ all: CMakeFiles/ne_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ne_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 21
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ne_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/ne_test.dir/rule
@@ -97,7 +97,7 @@ clean: CMakeFiles/ne_test.dir/clean
 CMakeFiles/ngine.dir/all:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/depend
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
 	@echo "Built target ngine"
 .PHONY : CMakeFiles/ngine.dir/all
 
@@ -107,7 +107,7 @@ all: CMakeFiles/ngine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ngine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 20
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ngine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/ngine.dir/rule

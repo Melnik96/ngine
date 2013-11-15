@@ -16,10 +16,13 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/ngine/source/math/consts.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/math/consts.c.o"
   "/home/melnik/projects/ngine/source/math/matrix.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/math/matrix.c.o"
   "/home/melnik/projects/ngine/source/mesh.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/mesh.c.o"
+  "/home/melnik/projects/ngine/source/node.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/node.c.o"
   "/home/melnik/projects/ngine/source/physics_mgr.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/physics_mgr.c.o"
+  "/home/melnik/projects/ngine/source/python/python_console.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/python/python_console.c.o"
   "/home/melnik/projects/ngine/source/sc_obj.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/sc_obj.c.o"
   "/home/melnik/projects/ngine/source/scene.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/scene.c.o"
   "/home/melnik/projects/ngine/source/serialization.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/serialization.c.o"
+  "/home/melnik/projects/ngine/source/shader_prog.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/shader_prog.c.o"
   "/home/melnik/projects/ngine/source/viewport.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/viewport.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")

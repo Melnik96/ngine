@@ -20,6 +20,11 @@
 #ifndef PYTHON_CONSOLE_H
 #define PYTHON_CONSOLE_H
 
-int py_console_enter(struct py_console* _self);
+struct py_console {
+  char 	name[64];
+  char* last_out;
+};
+
+int py_console_enter(struct py_console* _self, const char* _command);
 
 #endif // PYTHON_CONSOLE_H

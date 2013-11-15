@@ -159,7 +159,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 ngine_BINARY_DIR:STATIC=/home/melnik/projects/ngine/build
 
 //Dependencies for the target
-ngine_LIB_DEPENDS:STATIC=general;GL;general;GLEW;general;glfw;
+ngine_LIB_DEPENDS:STATIC=general;GL;general;GLEW;general;glfw;general;python3.3m;
 
 //Value Computed by CMake
 ngine_SOURCE_DIR:STATIC=/home/melnik/projects/ngine

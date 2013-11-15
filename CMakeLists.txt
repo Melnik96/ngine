@@ -14,13 +14,20 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/lib/${ARCH}/ CACHE INTERNAL "" F
 aux_source_directory("source/" engine_sources)
 aux_source_directory("source/cntr" engine_sources_cntr)
 aux_source_directory("source/math" engine_sources_math)
-set(engine_sources ${engine_sources} ${engine_sources_cntr} ${engine_sources_math})
+aux_source_directory("source/python" engine_sources_py)
+set(engine_sources 
+  ${engine_sources} 
+  ${engine_sources_cntr} 
+  ${engine_sources_math} 
+  ${engine_sources_py}
+)
 
 add_library(ngine SHARED ${engine_sources})
 target_link_libraries(ngine
   "GL"
   "GLEW"
   "glfw"
+  "python3.3m"
 )
 # target_link_libraries(ngine 
 # )

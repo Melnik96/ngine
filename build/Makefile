@@ -480,6 +480,30 @@ source/mesh.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh.c.s
 .PHONY : source/mesh.c.s
 
+source/node.o: source/node.c.o
+.PHONY : source/node.o
+
+# target to build an object file
+source/node.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.o
+.PHONY : source/node.c.o
+
+source/node.i: source/node.c.i
+.PHONY : source/node.i
+
+# target to preprocess a source file
+source/node.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.i
+.PHONY : source/node.c.i
+
+source/node.s: source/node.c.s
+.PHONY : source/node.s
+
+# target to generate assembly for a file
+source/node.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.s
+.PHONY : source/node.c.s
+
 source/physics_mgr.o: source/physics_mgr.c.o
 .PHONY : source/physics_mgr.o
 
@@ -503,6 +527,30 @@ source/physics_mgr.s: source/physics_mgr.c.s
 source/physics_mgr.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.s
 .PHONY : source/physics_mgr.c.s
+
+source/python/python_console.o: source/python/python_console.c.o
+.PHONY : source/python/python_console.o
+
+# target to build an object file
+source/python/python_console.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/python/python_console.c.o
+.PHONY : source/python/python_console.c.o
+
+source/python/python_console.i: source/python/python_console.c.i
+.PHONY : source/python/python_console.i
+
+# target to preprocess a source file
+source/python/python_console.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/python/python_console.c.i
+.PHONY : source/python/python_console.c.i
+
+source/python/python_console.s: source/python/python_console.c.s
+.PHONY : source/python/python_console.s
+
+# target to generate assembly for a file
+source/python/python_console.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/python/python_console.c.s
+.PHONY : source/python/python_console.c.s
 
 source/sc_obj.o: source/sc_obj.c.o
 .PHONY : source/sc_obj.o
@@ -575,6 +623,30 @@ source/serialization.s: source/serialization.c.s
 source/serialization.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/serialization.c.s
 .PHONY : source/serialization.c.s
+
+source/shader_prog.o: source/shader_prog.c.o
+.PHONY : source/shader_prog.o
+
+# target to build an object file
+source/shader_prog.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.o
+.PHONY : source/shader_prog.c.o
+
+source/shader_prog.i: source/shader_prog.c.i
+.PHONY : source/shader_prog.i
+
+# target to preprocess a source file
+source/shader_prog.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.i
+.PHONY : source/shader_prog.c.i
+
+source/shader_prog.s: source/shader_prog.c.s
+.PHONY : source/shader_prog.s
+
+# target to generate assembly for a file
+source/shader_prog.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.s
+.PHONY : source/shader_prog.c.s
 
 source/viewport.o: source/viewport.c.o
 .PHONY : source/viewport.o
@@ -653,9 +725,15 @@ help:
 	@echo "... source/mesh.o"
 	@echo "... source/mesh.i"
 	@echo "... source/mesh.s"
+	@echo "... source/node.o"
+	@echo "... source/node.i"
+	@echo "... source/node.s"
 	@echo "... source/physics_mgr.o"
 	@echo "... source/physics_mgr.i"
 	@echo "... source/physics_mgr.s"
+	@echo "... source/python/python_console.o"
+	@echo "... source/python/python_console.i"
+	@echo "... source/python/python_console.s"
 	@echo "... source/sc_obj.o"
 	@echo "... source/sc_obj.i"
 	@echo "... source/sc_obj.s"
@@ -665,6 +743,9 @@ help:
 	@echo "... source/serialization.o"
 	@echo "... source/serialization.i"
 	@echo "... source/serialization.s"
+	@echo "... source/shader_prog.o"
+	@echo "... source/shader_prog.i"
+	@echo "... source/shader_prog.s"
 	@echo "... source/viewport.o"
 	@echo "... source/viewport.i"
 	@echo "... source/viewport.s"

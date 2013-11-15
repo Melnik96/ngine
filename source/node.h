@@ -21,13 +21,13 @@
 #define NODE_H
 
 struct socket {
-  char name[32];
-  struct node* node;
-  void* value;
+  char 		name[32];
+  struct node* 	node;
+  void* 	value;
 };
 
 struct node {
-  char type[64];
+  char 		 type[64];
   
   struct socket* inputs;
   struct socket* outputs;
