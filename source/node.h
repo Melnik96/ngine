@@ -20,19 +20,28 @@
 #ifndef NODE_H
 #define NODE_H
 
-struct socket {
-  char 		name[32];
-  struct node* 	node;
-  void* 	value;
-};
-
 struct node {
   char 		 type[64];
   
-  struct socket* inputs;
   struct socket* outputs;
+  struct socket* inputs;
   
-  void(*process)(void*);
+  int(*process)(struct node*);
 };
 
+struct socket {
+  char 		name[64];
+  struct node* 	node_out;
+  struct node* 	node_in;
+  void* 	value;
+};
+
+enum sock_type {
+  ST_IN,
+  ST_OUT
+};
+
+//some args can be NULL(0)
+int node_create(struct node* _self, char* _type, uint8_t _num_in, uint8_t _num_out, int(*_handler)(struct node*));
+struct socket* node_get_sock_by_name(struct node* _self, char* _name, enum sock_type _sctype);
 #endif // NODE_H
