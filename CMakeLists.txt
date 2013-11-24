@@ -36,3 +36,5 @@ add_executable(ne_test main.c)
 target_link_libraries(ne_test ngine)
 
 install(TARGETS ngine LIBRARY DESTINATION lib)
+
+add_subdirectory(examples)

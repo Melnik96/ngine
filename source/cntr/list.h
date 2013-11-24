@@ -19,11 +19,14 @@
 
 #ifndef LIST_H
 #define LIST_H
+#include <serialize.h>
 
 struct list {
   struct list *prev;
   struct list *next;
 };
+
+struct ptr_offset_32 list_meta;
 
 void list_init(struct list *list);
 void list_insert(struct list *list, struct list *elm);

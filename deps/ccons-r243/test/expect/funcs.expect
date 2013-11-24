@@ -1,0 +1,36 @@
+#!/usr/bin/expect -f
+log_user 0
+set timeout 2
+
+proc check {input output} {
+    send "$input\n"
+    expect timeout {
+	send_user "Failed: input \"$input\" did not result in \"$output\" \n"
+	exit
+    } "$output"
+}
+
+spawn ../../ccons
+send "int fib(int n) {\n"
+send   "if (n <= 1) {\n"
+send     "return n;\n"
+send   "} else {\n"
+send     "return fib(n-1)+fib(n-2);\n"
+send   "}\n"
+send "}\n"
+
+check "fib(7);" "=> (int) 13"
+
+send "int Lucas(int n)\n"
+send "{\n"
+send   "return fib(n-1)+fib(n+1);\n"
+send "}\n"
+
+check "Lucas(6);" "=> (int) 18"
+
+send "int a() {return 1;} int b() {return 2;}\n"
+check "a();" "=> (int) 1"
+check "b();" "=> (int) 2"
+
+send "static int foo() {return 3;}\n"
+check "foo();" "=> (int) 3"

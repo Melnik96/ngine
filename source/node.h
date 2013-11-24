@@ -31,6 +31,7 @@ struct node {
 
 struct socket {
   char 		name[64];
+  uint8_t	num_in, num_out;
   struct node* 	node_out;
   struct node* 	node_in;
   void* 	value;

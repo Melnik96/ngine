@@ -49,6 +49,7 @@ TODO
 -   virtually unlimited number of 3D sound sources
 -   zone sound effects
 - physics(bullet3d or ODE based)
+-   aircraft simulation
 - logic
 - animation
 - tools
