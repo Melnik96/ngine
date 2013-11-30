@@ -26,122 +26,285 @@
 #include "shader_prog.h"
 
 int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources) {
-  uint32_t vert_shad;
-  uint32_t frag_shad;
-  
-  printf("compiling shader program '%s'", _name);
-  printf("  thread %u", pthread_self());
-  
-    if(_sources->vertex) {
-      printf("step\n");
-      vert_shad = glCreateShader(GL_VERTEX_SHADER);
-      printf("step 1\n");
-      glShaderSource(vert_shad, 1, (const GLchar**)&_sources->vertex, NULL);
-      printf("step 2\n");
-      glCompileShader(vert_shad);
-      printf("step 3\n");
+  uint32_t vert_shad = 0;
+  uint32_t geom_shad = 0;
+  uint32_t frag_shad = 0;
+  uint32_t comp_shad = 0;
+  uint32_t tess_ctrl_shad = 0;
+  uint32_t tess_eval_shad = 0;
 
-      printLog(vert_shad);
-      if(ShaderStatus(vert_shad, GL_COMPILE_STATUS) != GL_TRUE)
-        return 0;
-    }
-    if(_sources->fragment) {
-      printf("step 4\n");
-      frag_shad = glCreateShader(GL_FRAGMENT_SHADER);
-      printf("step 5\n");
-      glShaderSource(frag_shad, 1, (const GLchar**)&_sources->fragment, NULL);
-      printf("step 6\n");
-      glCompileShader(frag_shad);
-      printf("step 7\n");
+  int compiled;
 
-      printLog(frag_shad);
-      if(ShaderStatus(frag_shad, GL_COMPILE_STATUS) != GL_TRUE)
-        return 0;
-    }
-    printf("step 8\n");
-    _prog->id = glCreateProgram();
-    printf("step 9\n");
-    glAttachShader(_prog->id, vert_shad);
-    printf("step 10\n");
-    glAttachShader(_prog->id, frag_shad);
-    printf("step 11\n");
-    glLinkProgram(_prog->id);
-    printf("step 12\n");
+  int logLength, charsWritten;
 
-    if(ShaderProgramStatus(_prog->id, GL_LINK_STATUS) != GL_TRUE) {
-      return 0;
-      printf("step error 13\n");
-    }
-    printf("step 13\n");
-    
-    printf("    compiled id = %s\n", _prog->id);
-    
-//   } else {
-//     printf("error: create program\n");
-//     return 0;
+  char* log;
+
+//   if(!shaderProgram || !vertexSource || !fragmentSource) {
+//     return GLUS_FALSE;
 //   }
+// 
+//   shaderProgram->program = 0;
+//   shaderProgram->compute = 0;
+//   shaderProgram->vertex = 0;
+//   shaderProgram->control = 0;
+//   shaderProgram->evaluation = 0;
+//   shaderProgram->geometry = 0;
+//   shaderProgram->fragment = 0;
+
+  #define GLUS_OK 0
+#define GLUS_TRUE   1
+#define GLUS_FALSE  0
+#define GLUS_BACKWARD_COMPATIBLE_BIT    0x0000
+#define GLUS_FORWARD_COMPATIBLE_BIT     0x0002
+#define GLUS_VERTEX_SHADER              0x8B31
+#define GLUS_FRAGMENT_SHADER            0x8B30
+#define GLUS_TESS_EVALUATION_SHADER     0x8E87
+#define GLUS_TESS_CONTROL_SHADER        0x8E88
+#define GLUS_GEOMETRY_SHADER            0x8DD9
+#define GLUS_COMPUTE_SHADER 		0x91B9
   
-  return 1;
+  vert_shad = glCreateShader(GLUS_VERTEX_SHADER);
+
+  glShaderSource(vert_shad, 1, (const char**) _sources->vertex, 0);
+
+  glCompileShader(vert_shad);
+
+  glGetShaderiv(vert_shad, GL_COMPILE_STATUS, &compiled);
+
+  if(!compiled) {
+    glGetShaderiv(vert_shad, GL_INFO_LOG_LENGTH, &logLength);
+
+    log = (char*) malloc((size_t)logLength);
+
+    if(!log) {
+      return GLUS_FALSE;
+    }
+
+    glGetShaderInfoLog(vert_shad, logLength, &charsWritten, log);
+
+    printf("Vertex shader compile error:");
+    printf("%s", log);
+
+    free(log);
+
+    vert_shad = 0;
+
+    return GLUS_FALSE;
+  }
+
+//   if(controlSource) {
+//     shaderProgram->control = glCreateShader(GLUS_TESS_CONTROL_SHADER);
+// 
+//     glShaderSource(shaderProgram->control, 1, (const char**) controlSource, 0);
+// 
+//     glCompileShader(shaderProgram->control);
+// 
+//     glGetShaderiv(shaderProgram->control, GL_COMPILE_STATUS, &compiled);
+// 
+//     if(!compiled) {
+//       glGetShaderiv(shaderProgram->control, GL_INFO_LOG_LENGTH, &logLength);
+// 
+//       log = (char*) malloc((size_t)logLength);
+// 
+//       if(!log) {
+//         glusDestroyProgram(shaderProgram);
+// 
+//         return GLUS_FALSE;
+//       }
+// 
+//       glGetShaderInfoLog(shaderProgram->control, logLength, &charsWritten, log);
+// 
+//       glusLogPrint(GLUS_LOG_ERROR, "Control shader compile error:");
+//       glusLogPrint(GLUS_LOG_ERROR, "%s", log);
+// 
+//       free(log);
+// 
+//       shaderProgram->control = 0;
+// 
+//       glusDestroyProgram(shaderProgram);
+// 
+//       return GLUS_FALSE;
+//     }
+//   }
+// 
+//   if(evaluationSource) {
+//     shaderProgram->evaluation = glCreateShader(GLUS_TESS_EVALUATION_SHADER);
+// 
+//     glShaderSource(shaderProgram->evaluation, 1, (const char**) evaluationSource, 0);
+// 
+//     glCompileShader(shaderProgram->evaluation);
+// 
+//     glGetShaderiv(shaderProgram->evaluation, GL_COMPILE_STATUS, &compiled);
+// 
+//     if(!compiled) {
+//       glGetShaderiv(shaderProgram->evaluation, GL_INFO_LOG_LENGTH, &logLength);
+// 
+//       log = (char*) malloc((size_t)logLength);
+// 
+//       if(!log) {
+//         glusDestroyProgram(shaderProgram);
+// 
+//         return GLUS_FALSE;
+//       }
+// 
+//       glGetShaderInfoLog(shaderProgram->evaluation, logLength, &charsWritten, log);
+// 
+//       glusLogPrint(GLUS_LOG_ERROR, "Evaluation shader compile error:");
+//       glusLogPrint(GLUS_LOG_ERROR, "%s", log);
+// 
+//       free(log);
+// 
+//       shaderProgram->evaluation = 0;
+// 
+//       glusDestroyProgram(shaderProgram);
+// 
+//       return GLUS_FALSE;
+//     }
+//   }
+// 
+//   if(geometrySource) {
+//     shaderProgram->geometry = glCreateShader(GLUS_GEOMETRY_SHADER);
+// 
+//     glShaderSource(shaderProgram->geometry, 1, (const char**) geometrySource, 0);
+// 
+//     glCompileShader(shaderProgram->geometry);
+// 
+//     glGetShaderiv(shaderProgram->geometry, GL_COMPILE_STATUS, &compiled);
+// 
+//     if(!compiled) {
+//       glGetShaderiv(shaderProgram->geometry, GL_INFO_LOG_LENGTH, &logLength);
+// 
+//       log = (char*) malloc((size_t)logLength);
+// 
+//       if(!log) {
+//         glusDestroyProgram(shaderProgram);
+// 
+//         return GLUS_FALSE;
+//       }
+// 
+//       glGetShaderInfoLog(shaderProgram->geometry, logLength, &charsWritten, log);
+// 
+//       glusLogPrint(GLUS_LOG_ERROR, "Geometry shader compile error:");
+//       glusLogPrint(GLUS_LOG_ERROR, "%s", log);
+// 
+//       free(log);
+// 
+//       shaderProgram->geometry = 0;
+// 
+//       glusDestroyProgram(shaderProgram);
+// 
+//       return GLUS_FALSE;
+//     }
+//   }
+
+  frag_shad = glCreateShader(GLUS_FRAGMENT_SHADER);
+
+  glShaderSource(frag_shad , 1, (const char**) _sources->fragment, 0);
+
+  glCompileShader(frag_shad);
+
+  glGetShaderiv(frag_shad, GL_COMPILE_STATUS, &compiled);
+
+  if(!compiled) {
+    glGetShaderiv(frag_shad, GL_INFO_LOG_LENGTH, &logLength);
+
+    log = (char*) malloc((size_t)logLength);
+
+    if(!log) {
+//       glusDestroyProgram(shaderProgram);
+
+      return GLUS_FALSE;
+    }
+
+    glGetShaderInfoLog(frag_shad, logLength, &charsWritten, log);
+
+    printf("Fragment shader compile error:");
+    printf("%s", log);
+
+    free(log);
+
+    frag_shad = 0;
+
+//     glusDestroyProgram(shaderProgram);
+
+    return GLUS_FALSE;
+  }
+
+  _prog->id = glCreateProgram();
+
+  glAttachShader(_prog->id, vert_shad);
+
+//   if(shaderProgram->control) {
+//     glAttachShader(shaderProgram->program, shaderProgram->control);
+//   }
+// 
+//   if(shaderProgram->evaluation) {
+//     glAttachShader(shaderProgram->program, shaderProgram->evaluation);
+//   }
+// 
+//   if(shaderProgram->geometry) {
+//     glAttachShader(shaderProgram->program, shaderProgram->geometry);
+//   }
+
+  glAttachShader(_prog->id, frag_shad);
+
+  return GLUS_TRUE;
 }
 
-void printLog(GLuint obj)
-{
-    int infologLength = 0;
-    char infoLog[1024];
- 
+void printLog(GLuint obj) {
+  int infologLength = 0;
+  char infoLog[1024];
+
 // 	if (glIsShader(obj))
-		glGetShaderInfoLog(obj, 1024, &infologLength, infoLog);
+  glGetShaderInfoLog(obj, 1024, &infologLength, infoLog);
 // 	else
 // 		glGetProgramInfoLog(obj, 1024, &infologLength, infoLog);
- 
+
 //     if (infologLength > 0)
-		printf("%s\n", infoLog);
+  printf("%s\n", infoLog);
 }
 
 // проверка статуса param шейдера shader
-GLint ShaderStatus(GLuint shader, GLenum param)
-{
-        GLint status, length;
-        GLchar buffer[1024];
+GLint ShaderStatus(GLuint shader, GLenum param) {
+  GLint status, length;
+  GLchar buffer[1024];
 
-        // получим статус шейдера
-        glGetShaderiv(shader, param, &status);
-	printf("shad id = %i", shader);
+  // получим статус шейдера
+  glGetShaderiv(shader, param, &status);
+  printf("shad id = %i", shader);
 
 //         в случае ошибки запишем ее в лог-файл
-        if (status != GL_TRUE)
-        {
-                glGetShaderInfoLog(shader, 1024, &length, buffer);
-                printf("Shader: %s\n", (const char*)buffer);
-        }
+  if(status != GL_TRUE) {
+    glGetShaderInfoLog(shader, 1024, &length, buffer);
+    printf("Shader: %s\n", (const char*)buffer);
+  }
 
-        // проверим не было ли ошибок OpenGL
+  // проверим не было ли ошибок OpenGL
 //         OPENGL_CHECK_FOR_ERRORS();
-	printf("gl error: %i", glGetError());
+  printf("gl error: %i", glGetError());
 
-        // вернем статус
-        return status;
+  // вернем статус
+  return status;
 }
 
 // проверка статуса param шейдерной программы program
-GLint ShaderProgramStatus(GLuint program, GLenum param)
-{
-        GLint status, length;
-        GLchar buffer[1024];
+GLint ShaderProgramStatus(GLuint program, GLenum param) {
+  GLint status, length;
+  GLchar buffer[1024];
 
-        // получим статус шейдерной программы
-        glGetProgramiv(program, param, &status);
+  // получим статус шейдерной программы
+  glGetProgramiv(program, param, &status);
 
-        // в случае ошибки запишем ее в лог-файл
+  // в случае ошибки запишем ее в лог-файл
 //         if (status != GL_TRUE)
 //         {
 //                 glGetProgramInfoLog(program, 1024, &length, buffer);
 //                 LOG_ERROR("Shader program: %s\n", (const char*)buffer);
 //         }
-// 
+//
 //         // проверим не было ли ошибок OpenGL
 //         OPENGL_CHECK_FOR_ERRORS();
 
-        // вернем статус
-        return status;
+  // вернем статус
+  return status;
 }
