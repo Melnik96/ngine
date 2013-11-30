@@ -6,11 +6,21 @@
 
 #IncludeRegexTransform: 
 
-../source/python/python_console.h
-
-/home/melnik/projects/ngine/source/python/python_console.c
-python3.3m/Python.h
+../source/string.h
+stddef.h
 -
-python/python_console.h
-/home/melnik/projects/ngine/source/python/python/python_console.h
+
+/home/melnik/projects/ngine/source/shader_prog.c
+string.h
+-
+GL/glew.h
+-
+GL/gl.h
+-
+shader_prog.h
+/home/melnik/projects/ngine/source/shader_prog.h
+
+/home/melnik/projects/ngine/source/shader_prog.h
+stdint.h
+-
 

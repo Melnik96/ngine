@@ -14,4 +14,6 @@ typedef union mat4 {
 void mat4_mul(mat4* _f, mat4* _s);
 void mat4_mul_of(mat4* _mat, mat4* _f, mat4* _s);
 
+void mat_perspective(float angle, float imageAspectRatio, float n, float f, mat4* mat);
+
 #endif

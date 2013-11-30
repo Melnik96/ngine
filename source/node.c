@@ -17,24 +17,26 @@
  *
  */
 
-#include "node.h"
 #include <malloc.h>
+#include <string.h>
 
-int node_create(struct node* _self, char* _type, uint8_t _num_in, uint8_t _num_out, int(*_handler)(node*)) {
+#include "node.h"
+
+int node_create(struct node* _self, char* _type, uint8_t _num_in, uint8_t _num_out, int(*_handler)(struct node*)) {
   if(_self == 0) { return 0; }
   
-  if(_type!=0) { _self->type = _type; }
+  if(_type!=0) { strcpy(_self->type, _type); }
   if(_num_in!=0) { _self->inputs = malloc(_num_in*sizeof(struct socket)); }
   if(_num_out!=0) { _self->outputs = malloc(_num_in*sizeof(struct socket)); }
   if(_handler!=0) { _self->process = _handler; }
   return 1;
 }
-socket* node_get_sock_by_name(node* _self, char* _name, sock_type _sctype) {
-  struct socket* cur_sock;
-  while(1) {
-    _self->->inputs->
-    if(_self->inputs->name == _name) {
-      return cur_sock;
-    }
-  }
+struct socket* node_get_sock_by_name(struct node* _self, char* _name, enum sock_type _sctype) {
+//   struct socket* cur_sock;
+//   while(1) {
+//     _self->inputs->
+//     if(_self->inputs->name == _name) {
+//       return cur_sock;
+//     }
+//   }
 }

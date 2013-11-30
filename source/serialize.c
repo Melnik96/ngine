@@ -17,7 +17,7 @@
  *
  */
 
-#include "serialization.h"
+#include "serialize.h"
 
 void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, void* _ptr_offset, uint32_t _po_len) {
   void* sdata;

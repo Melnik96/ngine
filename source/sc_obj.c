@@ -21,26 +21,20 @@
 #include <string.h>
 #include <stddef.h>
 
+#include "engine.h"
+
 #include "sc_obj.h"
 
-struct sc_obj* sc_obj_create(char* _name, char* _type) {
+struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
   struct sc_obj* new_obj = malloc(sizeof(struct sc_obj));
 //   strcpy(new_obj->name, _name);
 //   strcpy(new_obj->type, _type);
-//   memset(new_obj->pos, 0, 
-// 	 offsetof(new_obj, new_obj->rot) - offsetof(new_obj, new_obj->childs)
-// 	 +sizeof(void*));
   memset(new_obj, 0, sizeof(struct sc_obj));
   strcpy(new_obj->name, _name);
   strcpy(new_obj->type, _type);
+  new_obj->engine = _eng;
   
   return new_obj;
-}
-
-int sc_obj_add_child(struct sc_obj* _self, struct sc_obj* _child) {
-//   _self->childs = realloc(_self->childs, sizeof(void*));
-//   _self->childs[_self->num_childs+1] = _child;
-//   _self->num_childs += 1;
 }
 
 void sc_obj_update_matrix(struct sc_obj* _self) {

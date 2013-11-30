@@ -31,3 +31,15 @@ void tree_for_each(struct tree* _node, void(*_fun)(void* _node)) {
       tree_for_each(_node->parent->next, _fun);
   }
 }
+
+int tree_add_child(struct tree* _self, struct tree* _child) {
+  struct tree* cur_tree = _self->childs;
+  for(;;) {
+    if(cur_tree == 0) {
+      cur_tree = _child;
+      break;
+    } else {
+      cur_tree = cur_tree->next;
+    }
+  }
+}

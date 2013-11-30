@@ -30,5 +30,6 @@ struct tree {
 };
 
 void tree_for_each(struct tree* _node, void(*_fun)(void* _node));
+int tree_add_child(struct tree* _self, struct tree* _child);
 
 #endif /* __TREE_H__ */

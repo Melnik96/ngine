@@ -60,47 +60,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -155,19 +114,6 @@ ne_test/fast:
 	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/build
 .PHONY : ne_test/fast
 
-#=============================================================================
-# Target rules for targets named ngine
-
-# Build rule for target.
-ngine: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ngine
-.PHONY : ngine
-
-# fast build rule for target.
-ngine/fast:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
-.PHONY : ngine/fast
-
 main.o: main.c.o
 .PHONY : main.o
 
@@ -197,7 +143,7 @@ source/camera.o: source/camera.c.o
 
 # target to build an object file
 source/camera.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/camera.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/camera.c.o
 .PHONY : source/camera.c.o
 
 source/camera.i: source/camera.c.i
@@ -205,7 +151,7 @@ source/camera.i: source/camera.c.i
 
 # target to preprocess a source file
 source/camera.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/camera.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/camera.c.i
 .PHONY : source/camera.c.i
 
 source/camera.s: source/camera.c.s
@@ -213,7 +159,7 @@ source/camera.s: source/camera.c.s
 
 # target to generate assembly for a file
 source/camera.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/camera.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/camera.c.s
 .PHONY : source/camera.c.s
 
 source/cntr/array.o: source/cntr/array.c.o
@@ -221,7 +167,7 @@ source/cntr/array.o: source/cntr/array.c.o
 
 # target to build an object file
 source/cntr/array.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/array.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/array.c.o
 .PHONY : source/cntr/array.c.o
 
 source/cntr/array.i: source/cntr/array.c.i
@@ -229,7 +175,7 @@ source/cntr/array.i: source/cntr/array.c.i
 
 # target to preprocess a source file
 source/cntr/array.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/array.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/array.c.i
 .PHONY : source/cntr/array.c.i
 
 source/cntr/array.s: source/cntr/array.c.s
@@ -237,7 +183,7 @@ source/cntr/array.s: source/cntr/array.c.s
 
 # target to generate assembly for a file
 source/cntr/array.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/array.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/array.c.s
 .PHONY : source/cntr/array.c.s
 
 source/cntr/list.o: source/cntr/list.c.o
@@ -245,7 +191,7 @@ source/cntr/list.o: source/cntr/list.c.o
 
 # target to build an object file
 source/cntr/list.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/list.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/list.c.o
 .PHONY : source/cntr/list.c.o
 
 source/cntr/list.i: source/cntr/list.c.i
@@ -253,7 +199,7 @@ source/cntr/list.i: source/cntr/list.c.i
 
 # target to preprocess a source file
 source/cntr/list.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/list.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/list.c.i
 .PHONY : source/cntr/list.c.i
 
 source/cntr/list.s: source/cntr/list.c.s
@@ -261,7 +207,7 @@ source/cntr/list.s: source/cntr/list.c.s
 
 # target to generate assembly for a file
 source/cntr/list.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/list.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/list.c.s
 .PHONY : source/cntr/list.c.s
 
 source/cntr/tree.o: source/cntr/tree.c.o
@@ -269,7 +215,7 @@ source/cntr/tree.o: source/cntr/tree.c.o
 
 # target to build an object file
 source/cntr/tree.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/tree.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/tree.c.o
 .PHONY : source/cntr/tree.c.o
 
 source/cntr/tree.i: source/cntr/tree.c.i
@@ -277,7 +223,7 @@ source/cntr/tree.i: source/cntr/tree.c.i
 
 # target to preprocess a source file
 source/cntr/tree.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/tree.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/tree.c.i
 .PHONY : source/cntr/tree.c.i
 
 source/cntr/tree.s: source/cntr/tree.c.s
@@ -285,7 +231,7 @@ source/cntr/tree.s: source/cntr/tree.c.s
 
 # target to generate assembly for a file
 source/cntr/tree.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/cntr/tree.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/tree.c.s
 .PHONY : source/cntr/tree.c.s
 
 source/dynlib.o: source/dynlib.c.o
@@ -293,7 +239,7 @@ source/dynlib.o: source/dynlib.c.o
 
 # target to build an object file
 source/dynlib.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/dynlib.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/dynlib.c.o
 .PHONY : source/dynlib.c.o
 
 source/dynlib.i: source/dynlib.c.i
@@ -301,7 +247,7 @@ source/dynlib.i: source/dynlib.c.i
 
 # target to preprocess a source file
 source/dynlib.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/dynlib.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/dynlib.c.i
 .PHONY : source/dynlib.c.i
 
 source/dynlib.s: source/dynlib.c.s
@@ -309,7 +255,7 @@ source/dynlib.s: source/dynlib.c.s
 
 # target to generate assembly for a file
 source/dynlib.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/dynlib.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/dynlib.c.s
 .PHONY : source/dynlib.c.s
 
 source/engine.o: source/engine.c.o
@@ -317,7 +263,7 @@ source/engine.o: source/engine.c.o
 
 # target to build an object file
 source/engine.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.c.o
 .PHONY : source/engine.c.o
 
 source/engine.i: source/engine.c.i
@@ -325,7 +271,7 @@ source/engine.i: source/engine.c.i
 
 # target to preprocess a source file
 source/engine.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.c.i
 .PHONY : source/engine.c.i
 
 source/engine.s: source/engine.c.s
@@ -333,7 +279,7 @@ source/engine.s: source/engine.c.s
 
 # target to generate assembly for a file
 source/engine.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.c.s
 .PHONY : source/engine.c.s
 
 source/engine.o: source/engine.cpp.o
@@ -341,7 +287,7 @@ source/engine.o: source/engine.cpp.o
 
 # target to build an object file
 source/engine.cpp.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.cpp.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.cpp.o
 .PHONY : source/engine.cpp.o
 
 source/engine.i: source/engine.cpp.i
@@ -349,7 +295,7 @@ source/engine.i: source/engine.cpp.i
 
 # target to preprocess a source file
 source/engine.cpp.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.cpp.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.cpp.i
 .PHONY : source/engine.cpp.i
 
 source/engine.s: source/engine.cpp.s
@@ -357,7 +303,7 @@ source/engine.s: source/engine.cpp.s
 
 # target to generate assembly for a file
 source/engine.cpp.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.cpp.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.cpp.s
 .PHONY : source/engine.cpp.s
 
 source/entity.o: source/entity.c.o
@@ -365,7 +311,7 @@ source/entity.o: source/entity.c.o
 
 # target to build an object file
 source/entity.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/entity.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/entity.c.o
 .PHONY : source/entity.c.o
 
 source/entity.i: source/entity.c.i
@@ -373,7 +319,7 @@ source/entity.i: source/entity.c.i
 
 # target to preprocess a source file
 source/entity.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/entity.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/entity.c.i
 .PHONY : source/entity.c.i
 
 source/entity.s: source/entity.c.s
@@ -381,15 +327,39 @@ source/entity.s: source/entity.c.s
 
 # target to generate assembly for a file
 source/entity.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/entity.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/entity.c.s
 .PHONY : source/entity.c.s
+
+source/iofile.o: source/iofile.c.o
+.PHONY : source/iofile.o
+
+# target to build an object file
+source/iofile.c.o:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/iofile.c.o
+.PHONY : source/iofile.c.o
+
+source/iofile.i: source/iofile.c.i
+.PHONY : source/iofile.i
+
+# target to preprocess a source file
+source/iofile.c.i:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/iofile.c.i
+.PHONY : source/iofile.c.i
+
+source/iofile.s: source/iofile.c.s
+.PHONY : source/iofile.s
+
+# target to generate assembly for a file
+source/iofile.c.s:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/iofile.c.s
+.PHONY : source/iofile.c.s
 
 source/material.o: source/material.c.o
 .PHONY : source/material.o
 
 # target to build an object file
 source/material.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/material.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/material.c.o
 .PHONY : source/material.c.o
 
 source/material.i: source/material.c.i
@@ -397,7 +367,7 @@ source/material.i: source/material.c.i
 
 # target to preprocess a source file
 source/material.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/material.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/material.c.i
 .PHONY : source/material.c.i
 
 source/material.s: source/material.c.s
@@ -405,7 +375,7 @@ source/material.s: source/material.c.s
 
 # target to generate assembly for a file
 source/material.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/material.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/material.c.s
 .PHONY : source/material.c.s
 
 source/math/consts.o: source/math/consts.c.o
@@ -413,7 +383,7 @@ source/math/consts.o: source/math/consts.c.o
 
 # target to build an object file
 source/math/consts.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/math/consts.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/consts.c.o
 .PHONY : source/math/consts.c.o
 
 source/math/consts.i: source/math/consts.c.i
@@ -421,7 +391,7 @@ source/math/consts.i: source/math/consts.c.i
 
 # target to preprocess a source file
 source/math/consts.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/math/consts.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/consts.c.i
 .PHONY : source/math/consts.c.i
 
 source/math/consts.s: source/math/consts.c.s
@@ -429,7 +399,7 @@ source/math/consts.s: source/math/consts.c.s
 
 # target to generate assembly for a file
 source/math/consts.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/math/consts.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/consts.c.s
 .PHONY : source/math/consts.c.s
 
 source/math/matrix.o: source/math/matrix.c.o
@@ -437,7 +407,7 @@ source/math/matrix.o: source/math/matrix.c.o
 
 # target to build an object file
 source/math/matrix.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/math/matrix.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/matrix.c.o
 .PHONY : source/math/matrix.c.o
 
 source/math/matrix.i: source/math/matrix.c.i
@@ -445,7 +415,7 @@ source/math/matrix.i: source/math/matrix.c.i
 
 # target to preprocess a source file
 source/math/matrix.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/math/matrix.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/matrix.c.i
 .PHONY : source/math/matrix.c.i
 
 source/math/matrix.s: source/math/matrix.c.s
@@ -453,15 +423,39 @@ source/math/matrix.s: source/math/matrix.c.s
 
 # target to generate assembly for a file
 source/math/matrix.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/math/matrix.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/matrix.c.s
 .PHONY : source/math/matrix.c.s
+
+source/math/vector.o: source/math/vector.c.o
+.PHONY : source/math/vector.o
+
+# target to build an object file
+source/math/vector.c.o:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/vector.c.o
+.PHONY : source/math/vector.c.o
+
+source/math/vector.i: source/math/vector.c.i
+.PHONY : source/math/vector.i
+
+# target to preprocess a source file
+source/math/vector.c.i:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/vector.c.i
+.PHONY : source/math/vector.c.i
+
+source/math/vector.s: source/math/vector.c.s
+.PHONY : source/math/vector.s
+
+# target to generate assembly for a file
+source/math/vector.c.s:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/math/vector.c.s
+.PHONY : source/math/vector.c.s
 
 source/mesh.o: source/mesh.c.o
 .PHONY : source/mesh.o
 
 # target to build an object file
 source/mesh.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/mesh.c.o
 .PHONY : source/mesh.c.o
 
 source/mesh.i: source/mesh.c.i
@@ -469,7 +463,7 @@ source/mesh.i: source/mesh.c.i
 
 # target to preprocess a source file
 source/mesh.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/mesh.c.i
 .PHONY : source/mesh.c.i
 
 source/mesh.s: source/mesh.c.s
@@ -477,7 +471,7 @@ source/mesh.s: source/mesh.c.s
 
 # target to generate assembly for a file
 source/mesh.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/mesh.c.s
 .PHONY : source/mesh.c.s
 
 source/node.o: source/node.c.o
@@ -485,7 +479,7 @@ source/node.o: source/node.c.o
 
 # target to build an object file
 source/node.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/node.c.o
 .PHONY : source/node.c.o
 
 source/node.i: source/node.c.i
@@ -493,7 +487,7 @@ source/node.i: source/node.c.i
 
 # target to preprocess a source file
 source/node.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/node.c.i
 .PHONY : source/node.c.i
 
 source/node.s: source/node.c.s
@@ -501,7 +495,7 @@ source/node.s: source/node.c.s
 
 # target to generate assembly for a file
 source/node.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/node.c.s
 .PHONY : source/node.c.s
 
 source/physics_mgr.o: source/physics_mgr.c.o
@@ -509,7 +503,7 @@ source/physics_mgr.o: source/physics_mgr.c.o
 
 # target to build an object file
 source/physics_mgr.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/physics_mgr.c.o
 .PHONY : source/physics_mgr.c.o
 
 source/physics_mgr.i: source/physics_mgr.c.i
@@ -517,7 +511,7 @@ source/physics_mgr.i: source/physics_mgr.c.i
 
 # target to preprocess a source file
 source/physics_mgr.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/physics_mgr.c.i
 .PHONY : source/physics_mgr.c.i
 
 source/physics_mgr.s: source/physics_mgr.c.s
@@ -525,39 +519,15 @@ source/physics_mgr.s: source/physics_mgr.c.s
 
 # target to generate assembly for a file
 source/physics_mgr.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/physics_mgr.c.s
 .PHONY : source/physics_mgr.c.s
-
-source/python/python_console.o: source/python/python_console.c.o
-.PHONY : source/python/python_console.o
-
-# target to build an object file
-source/python/python_console.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/python/python_console.c.o
-.PHONY : source/python/python_console.c.o
-
-source/python/python_console.i: source/python/python_console.c.i
-.PHONY : source/python/python_console.i
-
-# target to preprocess a source file
-source/python/python_console.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/python/python_console.c.i
-.PHONY : source/python/python_console.c.i
-
-source/python/python_console.s: source/python/python_console.c.s
-.PHONY : source/python/python_console.s
-
-# target to generate assembly for a file
-source/python/python_console.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/python/python_console.c.s
-.PHONY : source/python/python_console.c.s
 
 source/sc_obj.o: source/sc_obj.c.o
 .PHONY : source/sc_obj.o
 
 # target to build an object file
 source/sc_obj.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sc_obj.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/sc_obj.c.o
 .PHONY : source/sc_obj.c.o
 
 source/sc_obj.i: source/sc_obj.c.i
@@ -565,7 +535,7 @@ source/sc_obj.i: source/sc_obj.c.i
 
 # target to preprocess a source file
 source/sc_obj.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sc_obj.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/sc_obj.c.i
 .PHONY : source/sc_obj.c.i
 
 source/sc_obj.s: source/sc_obj.c.s
@@ -573,7 +543,7 @@ source/sc_obj.s: source/sc_obj.c.s
 
 # target to generate assembly for a file
 source/sc_obj.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sc_obj.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/sc_obj.c.s
 .PHONY : source/sc_obj.c.s
 
 source/scene.o: source/scene.c.o
@@ -581,7 +551,7 @@ source/scene.o: source/scene.c.o
 
 # target to build an object file
 source/scene.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/scene.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/scene.c.o
 .PHONY : source/scene.c.o
 
 source/scene.i: source/scene.c.i
@@ -589,7 +559,7 @@ source/scene.i: source/scene.c.i
 
 # target to preprocess a source file
 source/scene.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/scene.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/scene.c.i
 .PHONY : source/scene.c.i
 
 source/scene.s: source/scene.c.s
@@ -597,39 +567,39 @@ source/scene.s: source/scene.c.s
 
 # target to generate assembly for a file
 source/scene.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/scene.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/scene.c.s
 .PHONY : source/scene.c.s
 
-source/serialization.o: source/serialization.c.o
-.PHONY : source/serialization.o
+source/serialize.o: source/serialize.c.o
+.PHONY : source/serialize.o
 
 # target to build an object file
-source/serialization.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/serialization.c.o
-.PHONY : source/serialization.c.o
+source/serialize.c.o:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/serialize.c.o
+.PHONY : source/serialize.c.o
 
-source/serialization.i: source/serialization.c.i
-.PHONY : source/serialization.i
+source/serialize.i: source/serialize.c.i
+.PHONY : source/serialize.i
 
 # target to preprocess a source file
-source/serialization.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/serialization.c.i
-.PHONY : source/serialization.c.i
+source/serialize.c.i:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/serialize.c.i
+.PHONY : source/serialize.c.i
 
-source/serialization.s: source/serialization.c.s
-.PHONY : source/serialization.s
+source/serialize.s: source/serialize.c.s
+.PHONY : source/serialize.s
 
 # target to generate assembly for a file
-source/serialization.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/serialization.c.s
-.PHONY : source/serialization.c.s
+source/serialize.c.s:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/serialize.c.s
+.PHONY : source/serialize.c.s
 
 source/shader_prog.o: source/shader_prog.c.o
 .PHONY : source/shader_prog.o
 
 # target to build an object file
 source/shader_prog.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/shader_prog.c.o
 .PHONY : source/shader_prog.c.o
 
 source/shader_prog.i: source/shader_prog.c.i
@@ -637,7 +607,7 @@ source/shader_prog.i: source/shader_prog.c.i
 
 # target to preprocess a source file
 source/shader_prog.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/shader_prog.c.i
 .PHONY : source/shader_prog.c.i
 
 source/shader_prog.s: source/shader_prog.c.s
@@ -645,15 +615,39 @@ source/shader_prog.s: source/shader_prog.c.s
 
 # target to generate assembly for a file
 source/shader_prog.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/shader_prog.c.s
 .PHONY : source/shader_prog.c.s
+
+source/string.o: source/string.c.o
+.PHONY : source/string.o
+
+# target to build an object file
+source/string.c.o:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/string.c.o
+.PHONY : source/string.c.o
+
+source/string.i: source/string.c.i
+.PHONY : source/string.i
+
+# target to preprocess a source file
+source/string.c.i:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/string.c.i
+.PHONY : source/string.c.i
+
+source/string.s: source/string.c.s
+.PHONY : source/string.s
+
+# target to generate assembly for a file
+source/string.c.s:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/string.c.s
+.PHONY : source/string.c.s
 
 source/viewport.o: source/viewport.c.o
 .PHONY : source/viewport.o
 
 # target to build an object file
 source/viewport.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.o
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/viewport.c.o
 .PHONY : source/viewport.c.o
 
 source/viewport.i: source/viewport.c.i
@@ -661,7 +655,7 @@ source/viewport.i: source/viewport.c.i
 
 # target to preprocess a source file
 source/viewport.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.i
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/viewport.c.i
 .PHONY : source/viewport.c.i
 
 source/viewport.s: source/viewport.c.s
@@ -669,7 +663,7 @@ source/viewport.s: source/viewport.c.s
 
 # target to generate assembly for a file
 source/viewport.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.s
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/viewport.c.s
 .PHONY : source/viewport.c.s
 
 # Help Target
@@ -679,12 +673,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... ne_test"
-	@echo "... ngine"
 	@echo "... rebuild_cache"
 	@echo "... main.o"
 	@echo "... main.i"
@@ -713,6 +702,9 @@ help:
 	@echo "... source/entity.o"
 	@echo "... source/entity.i"
 	@echo "... source/entity.s"
+	@echo "... source/iofile.o"
+	@echo "... source/iofile.i"
+	@echo "... source/iofile.s"
 	@echo "... source/material.o"
 	@echo "... source/material.i"
 	@echo "... source/material.s"
@@ -722,6 +714,9 @@ help:
 	@echo "... source/math/matrix.o"
 	@echo "... source/math/matrix.i"
 	@echo "... source/math/matrix.s"
+	@echo "... source/math/vector.o"
+	@echo "... source/math/vector.i"
+	@echo "... source/math/vector.s"
 	@echo "... source/mesh.o"
 	@echo "... source/mesh.i"
 	@echo "... source/mesh.s"
@@ -731,21 +726,21 @@ help:
 	@echo "... source/physics_mgr.o"
 	@echo "... source/physics_mgr.i"
 	@echo "... source/physics_mgr.s"
-	@echo "... source/python/python_console.o"
-	@echo "... source/python/python_console.i"
-	@echo "... source/python/python_console.s"
 	@echo "... source/sc_obj.o"
 	@echo "... source/sc_obj.i"
 	@echo "... source/sc_obj.s"
 	@echo "... source/scene.o"
 	@echo "... source/scene.i"
 	@echo "... source/scene.s"
-	@echo "... source/serialization.o"
-	@echo "... source/serialization.i"
-	@echo "... source/serialization.s"
+	@echo "... source/serialize.o"
+	@echo "... source/serialize.i"
+	@echo "... source/serialize.s"
 	@echo "... source/shader_prog.o"
 	@echo "... source/shader_prog.i"
 	@echo "... source/shader_prog.s"
+	@echo "... source/string.o"
+	@echo "... source/string.i"
+	@echo "... source/string.s"
 	@echo "... source/viewport.o"
 	@echo "... source/viewport.i"
 	@echo "... source/viewport.s"

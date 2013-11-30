@@ -20,16 +20,17 @@
 #include <string.h>
 #include <malloc.h>
 
+#include "engine.h"
 #include "sc_obj.h"
 
 #include "scene.h"
 
-struct scene* scene_create(char* _name, char _auto_create_root_obj) {
+struct scene* scene_create(struct engine* _eng, char* _name, char _auto_create_root_obj) {
   struct scene* new_scene = malloc(sizeof(struct scene));
   strcpy(new_scene->name, _name);
   new_scene->root_object;
   if(_auto_create_root_obj) {
-    new_scene->root_object = sc_obj_create("root_object", "null");
+    new_scene->root_object = sc_obj_create(_eng, "root_object", "null");
   } else {
     new_scene->root_object = NULL;
   }

@@ -23,16 +23,16 @@
 
 #include "math/matrix.h"
 #include "math/vector.h"
+#include "cntr/tree.h"
 
 struct sc_obj_listener {
+  void(*on_update)();
   void(*on_colide)();
 };
 
 struct sc_obj {
   //scene node tree
-  struct tree* parent;
-  struct tree* next;
-  struct tree* childs;
+  struct tree link;
   
   struct engine* engine;
   
@@ -46,8 +46,7 @@ struct sc_obj {
   struct sc_obj_listener* listener;
 };
 
-struct sc_obj* sc_obj_create(char* _name, char* _type);
-int sc_obj_add_child(struct sc_obj* _self, struct sc_obj* _child);
+struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type);
 // void sc_obj_translate(vec3 _pos);
 void sc_obj_update_matrix(struct sc_obj* _self);
 

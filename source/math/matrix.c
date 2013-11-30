@@ -1,6 +1,8 @@
 #include <memory.h>
+#include <math.h>
 
 #include "math/matrix.h"
+#include "math/deg2rad.h"
 
 void mat4_mul(mat4* _f, mat4* _s) {
 #if defined(USE_SSE)
@@ -312,4 +314,35 @@ void mat4_mul_of(mat4* _mat, mat4* _f, mat4* _s) {
   _mat->_m[14] = _s->_m[2] * _f->_m[12] + _s->_m[6] * _f->_m[13] + _s->_m[10] * _f->_m[14] + _s->_m[14] * _f->_m[15];
   _mat->_m[15] = _s->_m[3] * _f->_m[12] + _s->_m[7] * _f->_m[13] + _s->_m[11] * _f->_m[14] + _s->_m[15] * _f->_m[15];
 #endif
+}
+
+
+void OpenGlFrustum(float l, float r, float b, float t, float n, float f, mat4* mat)
+{
+    mat->m[0][0] = 2 * n / (r - l);
+    mat->m[0][1] = 0;
+    mat->m[0][2] = 0;
+    mat->m[0][3] = 0;
+ 
+    mat->m[1][0] = 0;
+    mat->m[1][1] = 2 * n / (t - b);
+    mat->m[1][2] = 0;
+    mat->m[1][3] = 0;
+ 
+    mat->m[2][0] = (r + l) / (r - l);
+    mat->m[2][1] = (t + b) / (t - b);
+    mat->m[2][2] = -(f + n) / (f - n);
+    mat->m[2][3] = -1;
+ 
+    mat->m[3][0] = 0;
+    mat->m[3][1] = 0;
+    mat->m[3][2] = -2 * f * n / (f - n);
+    mat->m[3][3] = 0;
+}
+void mat_perspective(float angle, float imageAspectRatio, float n, float f, mat4* mat)
+{
+    float scale = tan(deg2rad(angle * 0.5)) * n;
+    float r = imageAspectRatio * scale, l = -r;
+    float t = scale, b = -t;
+    OpenGlFrustum(l, r, b, t, n, f, mat);
 }

@@ -26,13 +26,23 @@ enum gl_shader_types {
   GLST_FRAGMENT = 1
 };
 
-struct shader_prog {
-  char 		name[32];
-  uint32_t 	prog;
-  uint32_t* 	uniforms;
-  uint32_t* 	attribs;
+struct shader_source {
+  char* vertex;
+  char* geometry;
+  char* fragment;
 };
 
-int shader_prog_init(struct shader_prog* _prog, const char* _name, char** _shaders);
+struct shader_uniform {
+  char     name[32];
+  uint32_t id;
+};
+
+struct shader_prog {
+  char 			 name[32];
+  uint32_t 		 id;
+  struct shader_uniform* uniforms;
+};
+
+int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources);
 
 #endif // SHADER_PROG_H

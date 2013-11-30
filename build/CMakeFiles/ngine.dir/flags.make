@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_FLAGS = -std=c11 -g -fPIC -I/home/melnik/projects/ngine/source -I/home/melnik/projects/ngine/source/math -I/home/melnik/projects/ngine/source/import/blender   
+C_FLAGS = -std=c11 -g -I/home/melnik/projects/ngine/source -I/home/melnik/projects/ngine/source/math -I/home/melnik/projects/ngine/source/import/blender   
 
-C_DEFINES = -Dngine_EXPORTS
+C_DEFINES = 
 
-CXX_FLAGS = -g -fPIC -I/home/melnik/projects/ngine/source -I/home/melnik/projects/ngine/source/math -I/home/melnik/projects/ngine/source/import/blender   
+CXX_FLAGS = -g -I/home/melnik/projects/ngine/source -I/home/melnik/projects/ngine/source/math -I/home/melnik/projects/ngine/source/import/blender   
 
-CXX_DEFINES = -Dngine_EXPORTS
+CXX_DEFINES = 
 

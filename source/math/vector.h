@@ -22,6 +22,9 @@ typedef union {
   };
   float val[4];
 } vec4;
+
+void vec3_mat4_mul_of(float* pOut4D, const float* pIn4D, const union mat4* pMat);
+
 /*
 vec_mul() {
   SIMDx86Vector_Cross();

@@ -42,7 +42,11 @@
 #include "entity.h"
 #include "mesh.h"
 #include "render/hw_buffers.h"
-#include "python/python_console.h"
+#include "shader_prog.h"
+#include "iofile.h"
+
+mat4* vp_matrix;
+struct scene* cur_scene;
 
 //predef intern
 void worker_handler(void* _self);
@@ -60,16 +64,37 @@ int neng_init(struct engine* _self, char* _win_name) {
   }
   glfwMakeContextCurrent(_self->window);
   
-  glewExperimental = GL_TRUE;
-  if(glewInit() != GLEW_OK) { return 0; }
   
-//   if(!SIMDx86_Initialize(SIMDX86ISA_USE_SSE2, SIMDx86FLAGS_OPTINTEL)) { exit(0); }
+  glewExperimental = GL_TRUE;
+  int glew_err = glewInit();
+  if(glew_err != GLEW_OK) {
+    printf("ERROR: %s\n",glewGetErrorString(glew_err));
+    return 0;
+  }
+  printf("  thread %u\n", pthread_self());
   
   _self->gl_ver = malloc(6);
   neng_get_opengl_version(_self->gl_ver);
   printf("OpenGL version %s\n", _self->gl_ver);
   
-  py_console_enter(0,0);
+  //compile shaders
+  printf("load shaders\n");
+  struct shader_source sh_source;
+  memset(&sh_source, 0, sizeof(sh_source));
+  sh_source.vertex = file_rdbufp("media/materials/shaders/base_vert.glsl");
+  sh_source.fragment = file_rdbufp("media/materials/shaders/base_frag.glsl");  
+  sh_source.geometry = 0;
+  
+  printf("init shaders\n");
+  ///TODO optimization, copy source of file in memory
+  _self->shaders = malloc(sizeof(struct shader_prog));
+  memset(_self->shaders, 0, sizeof(struct shader_prog));
+  if(shader_prog_init(_self->shaders, "base", &sh_source)) {
+    printf("base shader compilation succesfull\n");
+  }
+  //init shader uniforms, id
+  
+  vp_matrix = malloc(sizeof(mat4));
   
   //create threads
 //   pthread_attr_t* thr_physics_attr;
@@ -102,20 +127,27 @@ int neng_init(struct engine* _self, char* _win_name) {
   return 1;
 }
 
-mat4* vp_matrix;
 int neng_frame(struct engine* _self, float _elapsed) {
   if(_self->active_render) {
-    if(glfwWindowShouldClose(_self->window)) { return 0; }
+    //for evry scene
+    _self->scenes;
+    
+    for(uint8_t i = 0; i < _self->num_scenes; ++i) {
+      cur_scene = &_self->scenes[i];
+      
+      if(glfwWindowShouldClose(_self->window)) { return 0; }
+      
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+      mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
-    mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
+      tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
-    tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
-  
-    glfwSwapBuffers(_self->window);
-    glfwPollEvents();
+      glfwSwapBuffers(_self->window);
+      glfwPollEvents();
+    }
   }
+  
   return 1;
 }
 
@@ -154,63 +186,64 @@ void update_obj_handler(void* _node) {
   if(_obj->engine->viewport->camera->updated) {}
   
   if(_obj->updated) {
-//     if(memcmp(_obj->type, "entity", 6) && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
-//       //http://www.flipcode.com/archives/Frustum_Culling.shtml
-//       //http://blog.makingartstudios.com/?p=155
-//       //update model_view_proj_mat
-//       mat4* mvp_matrix;
-//       mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
-//       struct sc_obj* tmp_node;
-//       mat4* parent_matrix;
-// //       for(;;) {
-// // 	parent_matrix *= sum_of_all_parents_matrixes;
-// //       }
-//       for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->parent) {
-// 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
-//       }
-//       //draw
-//       draw(((struct entity*)_obj->typed_obj), mvp_matrix);//need frustum optimization
-//     }
-//     else if(memcmp(_obj->type, "camera", 7)) {
-//       
-//     }
-//     else if(memcmp(_obj->type, "light", 6)) {}
+    if(memcmp(_obj->type, "entity", 6) && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
+      //http://www.flipcode.com/archives/Frustum_Culling.shtml
+      //http://blog.makingartstudios.com/?p=155
+      //update model_view_proj_mat
+      mat4* mvp_matrix;
+      sc_obj_update_matrix(_obj);
+      mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
+      struct sc_obj* tmp_node;
+      
+      for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
+	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
+      }
+      //draw
+      draw(((struct entity*)_obj->typed_objs), mvp_matrix);//need frustum optimization
+    }
+    else if(memcmp(_obj->type, "camera", 7)) {}
+    else if(memcmp(_obj->type, "light", 6)) {}
+    else if(memcmp(_obj->type, "null", 6)) {}
   }
 }
 
-void draw(struct entity* _entity, mat4* _mvp_mat) {/*
-  glUseProgram(program);
+void draw(struct scene _scene, struct entity* _entity, mat4* _mvp_mat) {
+  int _u_mvp = glGetUniformLocation(cur_scene->cur_shader, "MVP");
+  glUniformMatrix4fv(_u_mvp, 1, 0, _mvp_mat);
+  glUseProgram(cur_scene->cur_shader->id);
+  
+  //push uniforms to shader
+  //use shader
+  
   glEnable(GL_DEPTH_TEST);
-  hw_bind_vao(_entity->hws[i].vao);
-    
-    for (unsigned int i = 0 ; i < _entity->num_meshes ; ++i) {
-        const unsigned int MaterialIndex = _entity->material[i];
-
+  glBindVertexArray(_entity->hw->vao);
+  
+//         const unsigned int MaterialIndex = _entity->material[i];
+// 
 //         assert(MaterialIndex < m_Textures.size());
-        
+//         
 //         if (m_Textures[MaterialIndex]) {
 //             m_Textures[MaterialIndex]->Bind(GL_TEXTURE0);
 //         }
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _entity->hws[i].index);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _entity->hw->index);
 	glDrawElements(GL_TRIANGLES, 
-                               _entity->meshes[i].num_indices, 
+                               _entity->mesh->num_indices, 
                                GL_UNSIGNED_SHORT,
-                               (void*)(0);
-    }
-
-  hw_unbind_vao();*/
+                               (void*)(0));
+  
+  glBindVertexArray(NULL);
 }
 
 int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
-//   vec3 projected[8];
-//   
-//   for(uint8_t i = 0; i != 8; ++i) {
-//     vec3_mat4_mul_of(&projected[i], &_aabb->val[i], _proj_mat);
-//     if(projected[i].x > 1.f || projected[i].x < -1.f ||
-//        projected[i].y > 1.f || projected[i].y < -1.f ||
-//        projected[i].z > 1.f || projected[i].z < -1.f) { return 0; } else { return 1; }
-//   }
+  vec3 projected[8];
+  
+  for(uint8_t i = 0; i != 8; ++i) {
+    vec3_mat4_mul_of(&projected[i], &_aabb->val[i], _proj_mat);
+    if(projected[i].x > 1.f || projected[i].x < -1.f ||
+       projected[i].y > 1.f || projected[i].y < -1.f ||
+       projected[i].z > 1.f || projected[i].z < -1.f) { return 0; } else { return 1; }
+  }
 }
 
 void worker_handler(void* _self) {

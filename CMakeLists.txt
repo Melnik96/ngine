@@ -22,19 +22,23 @@ set(engine_sources
   ${engine_sources_py}
 )
 
-add_library(ngine SHARED ${engine_sources})
-target_link_libraries(ngine
-  "GL"
-  "GLEW"
-  "glfw"
-  "python3.3m"
-)
+# add_library(ngine SHARED ${engine_sources})
+# target_link_libraries(ngine
+#   "GL"
+#   "GLEW"
+#   "glfw"
+# )
 # target_link_libraries(ngine 
 # )
 
-add_executable(ne_test main.c)
-target_link_libraries(ne_test ngine)
+add_executable(ne_test main.c ${engine_sources})
+target_link_libraries(ne_test 
+#   ngine
+  "dl"
+  "GL"
+  "GLEW"
+  "glfw")
 
-install(TARGETS ngine LIBRARY DESTINATION lib)
+# install(TARGETS ngine LIBRARY DESTINATION lib)
 
 add_subdirectory(examples)

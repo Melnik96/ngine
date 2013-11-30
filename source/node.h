@@ -20,6 +20,8 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <stdint.h>
+
 struct node {
   char 		 type[64];
   

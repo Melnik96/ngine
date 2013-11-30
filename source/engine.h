@@ -34,8 +34,9 @@ struct job {
 struct engine {
   struct GLFWwindow* window;
   struct viewport* viewport;
-//   uint8_t num_scenes;
+  uint8_t num_scenes;
   struct scene* scenes;//list
+  struct shader_prog* shaders;
   
   char* gl_ver;
   int active_render;
