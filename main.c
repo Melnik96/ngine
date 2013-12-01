@@ -68,32 +68,27 @@ int main() {
   vert[2].y = -1.;
   vert[2].z = 0;
   
-  vert[0].x = 0;
-  vert[0].y = 1.;
-  vert[0].z = 0;
+  vert[3].x = 0;
+  vert[3].y = 1.;
+  vert[3].z = 0;
   
-  struct mesh mh = {
-    12, 12,
-    
+  struct mesh mh;
+  memset(&mh, 0, sizeof(mh));
+  mh.num_indices = 12;
+  mh.num_vertices = 12;
+  uint16_t indices[] = 
     { 0, 3, 1,
       1, 3, 2,
       2, 3, 0,
-      0, 2, 1 },
-      
-    0,
-    
-    vert,
-    
-    0,
-    0,
-    
-    0
-  };
+      0, 2, 1 };
+  mh.indices = indices;
+  mh.vertices = vert;
+  
   struct entity ent;
   memset(&ent, 0, sizeof(ent));
-  entity_init(&ent, "model_ent", &mh, &mat);
+  entity_init(engine0, &ent, "model_ent", &mh, &mat);
   
-  model->engine = engine0;
+  model->typed_objs = &ent;
   model->listener = 0;
   sc_obj_update_matrix(model);
   
@@ -101,11 +96,9 @@ int main() {
   struct sc_obj* cam = sc_obj_create(engine0, "cam0", "camera");
   tree_add_child(&sc->root_object->link, &cam->link);
   
-  sc_obj_update_matrix(cam);
   engine0->viewport = malloc(sizeof(struct viewport));
   engine0->viewport->camera = cam;
-  engine0->viewport->proj_matrix;
-  mat_perspective(30.0f, 1.0f, 0.5f, 0.5f,  &engine0->viewport->proj_matrix);
+  mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
   
   engine0->active_render = 1;
   

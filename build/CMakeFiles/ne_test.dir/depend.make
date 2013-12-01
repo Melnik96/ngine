@@ -68,12 +68,17 @@ CMakeFiles/ne_test.dir/source/engine.c.o: ../source/scene.h
 CMakeFiles/ne_test.dir/source/engine.c.o: ../source/shader_prog.h
 CMakeFiles/ne_test.dir/source/engine.c.o: ../source/viewport.h
 
+CMakeFiles/ne_test.dir/source/entity.c.o: ../source/serialize.h
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/string.h
+CMakeFiles/ne_test.dir/source/entity.c.o: ../source/cntr/list.h
+CMakeFiles/ne_test.dir/source/entity.c.o: ../source/engine.h
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/entity.c
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/entity.h
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/math/vector.h
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/mesh.h
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/render/hw_buffers.h
+CMakeFiles/ne_test.dir/source/entity.c.o: ../source/scene.h
+CMakeFiles/ne_test.dir/source/entity.c.o: ../source/shader_prog.h
 
 CMakeFiles/ne_test.dir/source/iofile.c.o: ../source/iofile.c
 CMakeFiles/ne_test.dir/source/iofile.c.o: ../source/iofile.h

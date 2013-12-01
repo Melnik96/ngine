@@ -22,6 +22,8 @@
 
 #include <GL/glew.h>
 #include <GL/gl.h>
+#include <string.h>
+#include <string.h>
 
 #include "shader_prog.h"
 
@@ -65,7 +67,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   
   vert_shad = glCreateShader(GLUS_VERTEX_SHADER);
 
-  glShaderSource(vert_shad, 1, (const char**) _sources->vertex, 0);
+  glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
 
   glCompileShader(vert_shad);
 
@@ -199,7 +201,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 
   frag_shad = glCreateShader(GLUS_FRAGMENT_SHADER);
 
-  glShaderSource(frag_shad , 1, (const char**) _sources->fragment, 0);
+  glShaderSource(frag_shad , 1, (const char**) &_sources->fragment, 0);
 
   glCompileShader(frag_shad);
 
@@ -233,6 +235,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   _prog->id = glCreateProgram();
 
   glAttachShader(_prog->id, vert_shad);
+  glAttachShader(_prog->id, frag_shad);
 
 //   if(shaderProgram->control) {
 //     glAttachShader(shaderProgram->program, shaderProgram->control);
@@ -245,8 +248,52 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 //   if(shaderProgram->geometry) {
 //     glAttachShader(shaderProgram->program, shaderProgram->geometry);
 //   }
+  
+  
+    int linked;
+//     int logLength, charsWritten;
+//     char* log;
 
-  glAttachShader(_prog->id, frag_shad);
+    if(!_prog->id) {
+        return GLUS_FALSE;
+    }
+
+    glLinkProgram(_prog->id);
+    glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);
+
+    if(!linked) {
+        glGetProgramiv(_prog->id, GL_INFO_LOG_LENGTH, &logLength);
+        log = (char*) malloc((size_t)logLength);
+        if (!log) {
+//             glusDestroyProgram(shaderProgram);
+            return GLUS_FALSE;
+        }
+
+        glGetProgramInfoLog(_prog->id, logLength, &charsWritten, log);
+
+        printf("Shader program link error:");
+        printf("%s", log);
+
+        free(log);
+
+//         glusDestroyProgram(shaderProgram);
+
+        return GLUS_FALSE;
+    }
+    
+  int _a_vpm = glGetAttribLocation(_prog->id, "vertexPosition_modelspace");
+  if(!_a_vpm) {printf("error: int _a_vpm = glGetAttribLocation(_prog->id, 'vertexPosition_modelspace');\n");}
+  _prog->attribs = malloc(sizeof(struct shader_param));
+  memcpy(_prog->attribs->name, "vertexPosition_modelspace", sizeof "vertexPosition_modelspace");
+//    = ;
+  _prog->attribs->id = _a_vpm;
+  
+  int _u_mvp = glGetUniformLocation(_prog->id, "MVP");
+  if(!_u_mvp) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
+  _prog->uniforms = malloc(sizeof(struct shader_param));
+  memcpy(_prog->uniforms->name, "MVP", sizeof "MVP");
+//   _prog->uniforms->name = "MVP";
+  _prog->id = _u_mvp;
 
   return GLUS_TRUE;
 }

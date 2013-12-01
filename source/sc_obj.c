@@ -33,6 +33,7 @@ struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
   strcpy(new_obj->name, _name);
   strcpy(new_obj->type, _type);
   new_obj->engine = _eng;
+  new_obj->updated = 1;
   
   return new_obj;
 }

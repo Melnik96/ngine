@@ -32,7 +32,7 @@ struct shader_source {
   char* fragment;
 };
 
-struct shader_uniform {
+struct shader_param {
   char     name[32];
   uint32_t id;
 };
@@ -40,7 +40,8 @@ struct shader_uniform {
 struct shader_prog {
   char 			 name[32];
   uint32_t 		 id;
-  struct shader_uniform* uniforms;
+  struct shader_param* uniforms;
+  struct shader_param* attribs;
 };
 
 int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources);

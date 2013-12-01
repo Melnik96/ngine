@@ -35,7 +35,7 @@ struct entity {
   struct hw_buffers* hw;
 };
 
-int entity_init(struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material);
+int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material);
 int entity_update(struct entity* _ent);//call in engine.c if entity.updated == 1
 
 #endif /* __ENTITY_H__ */

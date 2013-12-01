@@ -130,10 +130,9 @@ int neng_init(struct engine* _self, char* _win_name) {
 int neng_frame(struct engine* _self, float _elapsed) {
   if(_self->active_render) {
     //for evry scene
-    _self->scenes;
     
     for(uint8_t i = 0; i < _self->num_scenes; ++i) {
-      cur_scene = &_self->scenes[i];
+      cur_scene = _self->scenes;
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
@@ -186,29 +185,39 @@ void update_obj_handler(void* _node) {
   if(_obj->engine->viewport->camera->updated) {}
   
   if(_obj->updated) {
-    if(memcmp(_obj->type, "entity", 6) && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
+    sc_obj_update_matrix(_obj);
+    if(memcmp(_obj->type, "entity", 6)==0 && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
       //http://www.flipcode.com/archives/Frustum_Culling.shtml
       //http://blog.makingartstudios.com/?p=155
       //update model_view_proj_mat
+      printf("procces entity obj\n");
+      
       mat4* mvp_matrix;
-      sc_obj_update_matrix(_obj);
-      mat4_mul_of(mvp_matrix, &_obj->model_matrix, vp_matrix);//need mul parent model_matrix
       struct sc_obj* tmp_node;
+      
+      mvp_matrix = &_obj->model_matrix;
       
       for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
       }
+      
+      mat4_mul(mvp_matrix, vp_matrix);
+   
       //draw
       draw(((struct entity*)_obj->typed_objs), mvp_matrix);//need frustum optimization
     }
-    else if(memcmp(_obj->type, "camera", 7)) {}
-    else if(memcmp(_obj->type, "light", 6)) {}
-    else if(memcmp(_obj->type, "null", 6)) {}
+    else if(memcmp(_obj->type, "camera", 7)) {printf("procces camera obj\n");}
+    else if(memcmp(_obj->type, "light", 6)) {printf("procces light obj\n");}
+    else if(memcmp(_obj->type, "null", 6)) {printf("procces null obj\n");}
   }
+  
+  _obj->updated = 0;
 }
 
 void draw(struct scene _scene, struct entity* _entity, mat4* _mvp_mat) {
-  int _u_mvp = glGetUniformLocation(cur_scene->cur_shader, "MVP");
+  int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, "MVP");
+  if(!_u_mvp) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
+  int _u_asd = glGetUniformLocation(cur_scene->cur_shader->id, "asd");
   glUniformMatrix4fv(_u_mvp, 1, 0, _mvp_mat);
   glUseProgram(cur_scene->cur_shader->id);
   
@@ -236,14 +245,15 @@ void draw(struct scene _scene, struct entity* _entity, mat4* _mvp_mat) {
 }
 
 int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
-  vec3 projected[8];
-  
-  for(uint8_t i = 0; i != 8; ++i) {
-    vec3_mat4_mul_of(&projected[i], &_aabb->val[i], _proj_mat);
-    if(projected[i].x > 1.f || projected[i].x < -1.f ||
-       projected[i].y > 1.f || projected[i].y < -1.f ||
-       projected[i].z > 1.f || projected[i].z < -1.f) { return 0; } else { return 1; }
-  }
+//   vec3 projected[8];
+//   
+//   for(uint8_t i = 0; i != 8; ++i) {
+//     vec3_mat4_mul_of(&projected[i], &_aabb->val[i], _proj_mat);
+//     if(projected[i].x > 1.f || projected[i].x < -1.f ||
+//        projected[i].y > 1.f || projected[i].y < -1.f ||
+//        projected[i].z > 1.f || projected[i].z < -1.f) { return 0; } else { return 1; }
+//   }
+  return 1;
 }
 
 void worker_handler(void* _self) {

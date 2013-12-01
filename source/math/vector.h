@@ -12,8 +12,7 @@ typedef union {
 typedef union {
   struct {
     float x,y,z;
-    float __simd_pad;
-  } __attribute__((aligned(16)));
+  };
   float val[3];
 } vec3;
 typedef union {
