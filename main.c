@@ -90,11 +90,13 @@ int main() {
   
   model->typed_objs = &ent;
   model->listener = 0;
+  model->pos.z = -2.f;
   sc_obj_update_matrix(model);
   
   //add camera
   struct sc_obj* cam = sc_obj_create(engine0, "cam0", "camera");
   tree_add_child(&sc->root_object->link, &cam->link);
+  mat4_identity(&cam->model_matrix);
   
   engine0->viewport = malloc(sizeof(struct viewport));
   engine0->viewport->camera = cam;

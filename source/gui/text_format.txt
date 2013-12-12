@@ -1,0 +1,4 @@
+//c -- color
+//b -- bold
+//{} -- end formating
+"{c:0x43534;b}hello{} %s"

@@ -75,78 +75,32 @@ CMakeFiles/ne_test.dir/main.c.o.provides: CMakeFiles/ne_test.dir/main.c.o.requir
 
 CMakeFiles/ne_test.dir/main.c.o.provides.build: CMakeFiles/ne_test.dir/main.c.o
 
-CMakeFiles/ne_test.dir/source/string.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/string.c.o: ../source/string.c
+CMakeFiles/ne_test.dir/source/dynlib.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/dynlib.c.o: ../source/dynlib.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/string.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/string.c.o   -c /home/melnik/projects/ngine/source/string.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/dynlib.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/dynlib.c.o   -c /home/melnik/projects/ngine/source/dynlib.c
 
-CMakeFiles/ne_test.dir/source/string.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/string.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/string.c > CMakeFiles/ne_test.dir/source/string.c.i
+CMakeFiles/ne_test.dir/source/dynlib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/dynlib.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/dynlib.c > CMakeFiles/ne_test.dir/source/dynlib.c.i
 
-CMakeFiles/ne_test.dir/source/string.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/string.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/string.c -o CMakeFiles/ne_test.dir/source/string.c.s
+CMakeFiles/ne_test.dir/source/dynlib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/dynlib.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/dynlib.c -o CMakeFiles/ne_test.dir/source/dynlib.c.s
 
-CMakeFiles/ne_test.dir/source/string.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/string.c.o.requires
+CMakeFiles/ne_test.dir/source/dynlib.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/dynlib.c.o.requires
 
-CMakeFiles/ne_test.dir/source/string.c.o.provides: CMakeFiles/ne_test.dir/source/string.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/string.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/string.c.o.provides
+CMakeFiles/ne_test.dir/source/dynlib.c.o.provides: CMakeFiles/ne_test.dir/source/dynlib.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/dynlib.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/dynlib.c.o.provides
 
-CMakeFiles/ne_test.dir/source/string.c.o.provides.build: CMakeFiles/ne_test.dir/source/string.c.o
-
-CMakeFiles/ne_test.dir/source/camera.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/camera.c.o: ../source/camera.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/camera.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/camera.c.o   -c /home/melnik/projects/ngine/source/camera.c
-
-CMakeFiles/ne_test.dir/source/camera.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/camera.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/camera.c > CMakeFiles/ne_test.dir/source/camera.c.i
-
-CMakeFiles/ne_test.dir/source/camera.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/camera.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/camera.c -o CMakeFiles/ne_test.dir/source/camera.c.s
-
-CMakeFiles/ne_test.dir/source/camera.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/camera.c.o.requires
-
-CMakeFiles/ne_test.dir/source/camera.c.o.provides: CMakeFiles/ne_test.dir/source/camera.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/camera.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/camera.c.o.provides
-
-CMakeFiles/ne_test.dir/source/camera.c.o.provides.build: CMakeFiles/ne_test.dir/source/camera.c.o
-
-CMakeFiles/ne_test.dir/source/physics_mgr.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/physics_mgr.c.o: ../source/physics_mgr.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/physics_mgr.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/physics_mgr.c.o   -c /home/melnik/projects/ngine/source/physics_mgr.c
-
-CMakeFiles/ne_test.dir/source/physics_mgr.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/physics_mgr.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/physics_mgr.c > CMakeFiles/ne_test.dir/source/physics_mgr.c.i
-
-CMakeFiles/ne_test.dir/source/physics_mgr.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/physics_mgr.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/physics_mgr.c -o CMakeFiles/ne_test.dir/source/physics_mgr.c.s
-
-CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires
-
-CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides: CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides
-
-CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides.build: CMakeFiles/ne_test.dir/source/physics_mgr.c.o
+CMakeFiles/ne_test.dir/source/dynlib.c.o.provides.build: CMakeFiles/ne_test.dir/source/dynlib.c.o
 
 CMakeFiles/ne_test.dir/source/engine.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/engine.c.o: ../source/engine.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/engine.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/engine.c.o   -c /home/melnik/projects/ngine/source/engine.c
 
@@ -167,147 +121,9 @@ CMakeFiles/ne_test.dir/source/engine.c.o.provides: CMakeFiles/ne_test.dir/source
 
 CMakeFiles/ne_test.dir/source/engine.c.o.provides.build: CMakeFiles/ne_test.dir/source/engine.c.o
 
-CMakeFiles/ne_test.dir/source/viewport.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/viewport.c.o: ../source/viewport.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/viewport.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/viewport.c.o   -c /home/melnik/projects/ngine/source/viewport.c
-
-CMakeFiles/ne_test.dir/source/viewport.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/viewport.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/viewport.c > CMakeFiles/ne_test.dir/source/viewport.c.i
-
-CMakeFiles/ne_test.dir/source/viewport.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/viewport.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/viewport.c -o CMakeFiles/ne_test.dir/source/viewport.c.s
-
-CMakeFiles/ne_test.dir/source/viewport.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/viewport.c.o.requires
-
-CMakeFiles/ne_test.dir/source/viewport.c.o.provides: CMakeFiles/ne_test.dir/source/viewport.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/viewport.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/viewport.c.o.provides
-
-CMakeFiles/ne_test.dir/source/viewport.c.o.provides.build: CMakeFiles/ne_test.dir/source/viewport.c.o
-
-CMakeFiles/ne_test.dir/source/sc_obj.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/sc_obj.c.o: ../source/sc_obj.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/sc_obj.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/sc_obj.c.o   -c /home/melnik/projects/ngine/source/sc_obj.c
-
-CMakeFiles/ne_test.dir/source/sc_obj.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/sc_obj.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/sc_obj.c > CMakeFiles/ne_test.dir/source/sc_obj.c.i
-
-CMakeFiles/ne_test.dir/source/sc_obj.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/sc_obj.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/sc_obj.c -o CMakeFiles/ne_test.dir/source/sc_obj.c.s
-
-CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires
-
-CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides: CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides
-
-CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides.build: CMakeFiles/ne_test.dir/source/sc_obj.c.o
-
-CMakeFiles/ne_test.dir/source/shader_prog.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/shader_prog.c.o: ../source/shader_prog.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/shader_prog.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/shader_prog.c.o   -c /home/melnik/projects/ngine/source/shader_prog.c
-
-CMakeFiles/ne_test.dir/source/shader_prog.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/shader_prog.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/shader_prog.c > CMakeFiles/ne_test.dir/source/shader_prog.c.i
-
-CMakeFiles/ne_test.dir/source/shader_prog.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/shader_prog.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/shader_prog.c -o CMakeFiles/ne_test.dir/source/shader_prog.c.s
-
-CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires
-
-CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides: CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides
-
-CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides.build: CMakeFiles/ne_test.dir/source/shader_prog.c.o
-
-CMakeFiles/ne_test.dir/source/material.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/material.c.o: ../source/material.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/material.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/material.c.o   -c /home/melnik/projects/ngine/source/material.c
-
-CMakeFiles/ne_test.dir/source/material.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/material.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/material.c > CMakeFiles/ne_test.dir/source/material.c.i
-
-CMakeFiles/ne_test.dir/source/material.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/material.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/material.c -o CMakeFiles/ne_test.dir/source/material.c.s
-
-CMakeFiles/ne_test.dir/source/material.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/material.c.o.requires
-
-CMakeFiles/ne_test.dir/source/material.c.o.provides: CMakeFiles/ne_test.dir/source/material.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/material.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/material.c.o.provides
-
-CMakeFiles/ne_test.dir/source/material.c.o.provides.build: CMakeFiles/ne_test.dir/source/material.c.o
-
-CMakeFiles/ne_test.dir/source/node.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/node.c.o: ../source/node.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/node.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/node.c.o   -c /home/melnik/projects/ngine/source/node.c
-
-CMakeFiles/ne_test.dir/source/node.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/node.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/node.c > CMakeFiles/ne_test.dir/source/node.c.i
-
-CMakeFiles/ne_test.dir/source/node.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/node.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/node.c -o CMakeFiles/ne_test.dir/source/node.c.s
-
-CMakeFiles/ne_test.dir/source/node.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/node.c.o.requires
-
-CMakeFiles/ne_test.dir/source/node.c.o.provides: CMakeFiles/ne_test.dir/source/node.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/node.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/node.c.o.provides
-
-CMakeFiles/ne_test.dir/source/node.c.o.provides.build: CMakeFiles/ne_test.dir/source/node.c.o
-
-CMakeFiles/ne_test.dir/source/scene.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/scene.c.o: ../source/scene.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/scene.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/scene.c.o   -c /home/melnik/projects/ngine/source/scene.c
-
-CMakeFiles/ne_test.dir/source/scene.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/scene.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/scene.c > CMakeFiles/ne_test.dir/source/scene.c.i
-
-CMakeFiles/ne_test.dir/source/scene.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/scene.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/scene.c -o CMakeFiles/ne_test.dir/source/scene.c.s
-
-CMakeFiles/ne_test.dir/source/scene.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/scene.c.o.requires
-
-CMakeFiles/ne_test.dir/source/scene.c.o.provides: CMakeFiles/ne_test.dir/source/scene.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/scene.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/scene.c.o.provides
-
-CMakeFiles/ne_test.dir/source/scene.c.o.provides.build: CMakeFiles/ne_test.dir/source/scene.c.o
-
 CMakeFiles/ne_test.dir/source/entity.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/entity.c.o: ../source/entity.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/entity.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/entity.c.o   -c /home/melnik/projects/ngine/source/entity.c
 
@@ -328,28 +144,212 @@ CMakeFiles/ne_test.dir/source/entity.c.o.provides: CMakeFiles/ne_test.dir/source
 
 CMakeFiles/ne_test.dir/source/entity.c.o.provides.build: CMakeFiles/ne_test.dir/source/entity.c.o
 
-CMakeFiles/ne_test.dir/source/engine.cpp.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/engine.cpp.o: ../source/engine.cpp
+CMakeFiles/ne_test.dir/source/iofile.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/iofile.c.o: ../source/iofile.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/iofile.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/iofile.c.o   -c /home/melnik/projects/ngine/source/iofile.c
+
+CMakeFiles/ne_test.dir/source/iofile.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/iofile.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/iofile.c > CMakeFiles/ne_test.dir/source/iofile.c.i
+
+CMakeFiles/ne_test.dir/source/iofile.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/iofile.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/iofile.c -o CMakeFiles/ne_test.dir/source/iofile.c.s
+
+CMakeFiles/ne_test.dir/source/iofile.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/iofile.c.o.requires
+
+CMakeFiles/ne_test.dir/source/iofile.c.o.provides: CMakeFiles/ne_test.dir/source/iofile.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/iofile.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/iofile.c.o.provides
+
+CMakeFiles/ne_test.dir/source/iofile.c.o.provides.build: CMakeFiles/ne_test.dir/source/iofile.c.o
+
+CMakeFiles/ne_test.dir/source/log.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/log.c.o: ../source/log.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/log.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/log.c.o   -c /home/melnik/projects/ngine/source/log.c
+
+CMakeFiles/ne_test.dir/source/log.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/log.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/log.c > CMakeFiles/ne_test.dir/source/log.c.i
+
+CMakeFiles/ne_test.dir/source/log.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/log.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/log.c -o CMakeFiles/ne_test.dir/source/log.c.s
+
+CMakeFiles/ne_test.dir/source/log.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/log.c.o.requires
+
+CMakeFiles/ne_test.dir/source/log.c.o.provides: CMakeFiles/ne_test.dir/source/log.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/log.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/log.c.o.provides
+
+CMakeFiles/ne_test.dir/source/log.c.o.provides.build: CMakeFiles/ne_test.dir/source/log.c.o
+
+CMakeFiles/ne_test.dir/source/scene.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/scene.c.o: ../source/scene.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/scene.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/scene.c.o   -c /home/melnik/projects/ngine/source/scene.c
+
+CMakeFiles/ne_test.dir/source/scene.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/scene.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/scene.c > CMakeFiles/ne_test.dir/source/scene.c.i
+
+CMakeFiles/ne_test.dir/source/scene.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/scene.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/scene.c -o CMakeFiles/ne_test.dir/source/scene.c.s
+
+CMakeFiles/ne_test.dir/source/scene.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/scene.c.o.requires
+
+CMakeFiles/ne_test.dir/source/scene.c.o.provides: CMakeFiles/ne_test.dir/source/scene.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/scene.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/scene.c.o.provides
+
+CMakeFiles/ne_test.dir/source/scene.c.o.provides.build: CMakeFiles/ne_test.dir/source/scene.c.o
+
+CMakeFiles/ne_test.dir/source/node.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/node.c.o: ../source/node.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/node.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/node.c.o   -c /home/melnik/projects/ngine/source/node.c
+
+CMakeFiles/ne_test.dir/source/node.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/node.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/node.c > CMakeFiles/ne_test.dir/source/node.c.i
+
+CMakeFiles/ne_test.dir/source/node.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/node.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/node.c -o CMakeFiles/ne_test.dir/source/node.c.s
+
+CMakeFiles/ne_test.dir/source/node.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/node.c.o.requires
+
+CMakeFiles/ne_test.dir/source/node.c.o.provides: CMakeFiles/ne_test.dir/source/node.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/node.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/node.c.o.provides
+
+CMakeFiles/ne_test.dir/source/node.c.o.provides.build: CMakeFiles/ne_test.dir/source/node.c.o
+
+CMakeFiles/ne_test.dir/source/physics_mgr.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/physics_mgr.c.o: ../source/physics_mgr.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/physics_mgr.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/physics_mgr.c.o   -c /home/melnik/projects/ngine/source/physics_mgr.c
+
+CMakeFiles/ne_test.dir/source/physics_mgr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/physics_mgr.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/physics_mgr.c > CMakeFiles/ne_test.dir/source/physics_mgr.c.i
+
+CMakeFiles/ne_test.dir/source/physics_mgr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/physics_mgr.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/physics_mgr.c -o CMakeFiles/ne_test.dir/source/physics_mgr.c.s
+
+CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires
+
+CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides: CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides
+
+CMakeFiles/ne_test.dir/source/physics_mgr.c.o.provides.build: CMakeFiles/ne_test.dir/source/physics_mgr.c.o
+
+CMakeFiles/ne_test.dir/source/material.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/material.c.o: ../source/material.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/material.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/material.c.o   -c /home/melnik/projects/ngine/source/material.c
+
+CMakeFiles/ne_test.dir/source/material.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/material.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/material.c > CMakeFiles/ne_test.dir/source/material.c.i
+
+CMakeFiles/ne_test.dir/source/material.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/material.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/material.c -o CMakeFiles/ne_test.dir/source/material.c.s
+
+CMakeFiles/ne_test.dir/source/material.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/material.c.o.requires
+
+CMakeFiles/ne_test.dir/source/material.c.o.provides: CMakeFiles/ne_test.dir/source/material.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/material.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/material.c.o.provides
+
+CMakeFiles/ne_test.dir/source/material.c.o.provides.build: CMakeFiles/ne_test.dir/source/material.c.o
+
+CMakeFiles/ne_test.dir/source/serialize.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/serialize.c.o: ../source/serialize.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_11)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/serialize.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/serialize.c.o   -c /home/melnik/projects/ngine/source/serialize.c
+
+CMakeFiles/ne_test.dir/source/serialize.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/serialize.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/serialize.c > CMakeFiles/ne_test.dir/source/serialize.c.i
+
+CMakeFiles/ne_test.dir/source/serialize.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/serialize.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/serialize.c -o CMakeFiles/ne_test.dir/source/serialize.c.s
+
+CMakeFiles/ne_test.dir/source/serialize.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/serialize.c.o.requires
+
+CMakeFiles/ne_test.dir/source/serialize.c.o.provides: CMakeFiles/ne_test.dir/source/serialize.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/serialize.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/serialize.c.o.provides
+
+CMakeFiles/ne_test.dir/source/serialize.c.o.provides.build: CMakeFiles/ne_test.dir/source/serialize.c.o
+
+CMakeFiles/ne_test.dir/source/string.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/string.c.o: ../source/string.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_12)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/string.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/string.c.o   -c /home/melnik/projects/ngine/source/string.c
+
+CMakeFiles/ne_test.dir/source/string.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/string.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/string.c > CMakeFiles/ne_test.dir/source/string.c.i
+
+CMakeFiles/ne_test.dir/source/string.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/string.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/string.c -o CMakeFiles/ne_test.dir/source/string.c.s
+
+CMakeFiles/ne_test.dir/source/string.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/string.c.o.requires
+
+CMakeFiles/ne_test.dir/source/string.c.o.provides: CMakeFiles/ne_test.dir/source/string.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/string.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/string.c.o.provides
+
+CMakeFiles/ne_test.dir/source/string.c.o.provides.build: CMakeFiles/ne_test.dir/source/string.c.o
+
+CMakeFiles/ne_test.dir/source/shader_prog.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/shader_prog.c.o: ../source/shader_prog.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ne_test.dir/source/engine.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ne_test.dir/source/engine.cpp.o -c /home/melnik/projects/ngine/source/engine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/shader_prog.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/shader_prog.c.o   -c /home/melnik/projects/ngine/source/shader_prog.c
 
-CMakeFiles/ne_test.dir/source/engine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ne_test.dir/source/engine.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/melnik/projects/ngine/source/engine.cpp > CMakeFiles/ne_test.dir/source/engine.cpp.i
+CMakeFiles/ne_test.dir/source/shader_prog.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/shader_prog.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/shader_prog.c > CMakeFiles/ne_test.dir/source/shader_prog.c.i
 
-CMakeFiles/ne_test.dir/source/engine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ne_test.dir/source/engine.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/melnik/projects/ngine/source/engine.cpp -o CMakeFiles/ne_test.dir/source/engine.cpp.s
+CMakeFiles/ne_test.dir/source/shader_prog.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/shader_prog.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/shader_prog.c -o CMakeFiles/ne_test.dir/source/shader_prog.c.s
 
-CMakeFiles/ne_test.dir/source/engine.cpp.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/engine.cpp.o.requires
+CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires
 
-CMakeFiles/ne_test.dir/source/engine.cpp.o.provides: CMakeFiles/ne_test.dir/source/engine.cpp.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.cpp.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/engine.cpp.o.provides
+CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides: CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides
 
-CMakeFiles/ne_test.dir/source/engine.cpp.o.provides.build: CMakeFiles/ne_test.dir/source/engine.cpp.o
+CMakeFiles/ne_test.dir/source/shader_prog.c.o.provides.build: CMakeFiles/ne_test.dir/source/shader_prog.c.o
 
 CMakeFiles/ne_test.dir/source/mesh.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/mesh.c.o: ../source/mesh.c
@@ -374,124 +374,101 @@ CMakeFiles/ne_test.dir/source/mesh.c.o.provides: CMakeFiles/ne_test.dir/source/m
 
 CMakeFiles/ne_test.dir/source/mesh.c.o.provides.build: CMakeFiles/ne_test.dir/source/mesh.c.o
 
-CMakeFiles/ne_test.dir/source/serialize.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/serialize.c.o: ../source/serialize.c
+CMakeFiles/ne_test.dir/source/camera.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/camera.c.o: ../source/camera.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_15)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/serialize.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/serialize.c.o   -c /home/melnik/projects/ngine/source/serialize.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/camera.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/camera.c.o   -c /home/melnik/projects/ngine/source/camera.c
 
-CMakeFiles/ne_test.dir/source/serialize.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/serialize.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/serialize.c > CMakeFiles/ne_test.dir/source/serialize.c.i
+CMakeFiles/ne_test.dir/source/camera.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/camera.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/camera.c > CMakeFiles/ne_test.dir/source/camera.c.i
 
-CMakeFiles/ne_test.dir/source/serialize.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/serialize.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/serialize.c -o CMakeFiles/ne_test.dir/source/serialize.c.s
+CMakeFiles/ne_test.dir/source/camera.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/camera.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/camera.c -o CMakeFiles/ne_test.dir/source/camera.c.s
 
-CMakeFiles/ne_test.dir/source/serialize.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/serialize.c.o.requires
+CMakeFiles/ne_test.dir/source/camera.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/camera.c.o.requires
 
-CMakeFiles/ne_test.dir/source/serialize.c.o.provides: CMakeFiles/ne_test.dir/source/serialize.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/serialize.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/serialize.c.o.provides
+CMakeFiles/ne_test.dir/source/camera.c.o.provides: CMakeFiles/ne_test.dir/source/camera.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/camera.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/camera.c.o.provides
 
-CMakeFiles/ne_test.dir/source/serialize.c.o.provides.build: CMakeFiles/ne_test.dir/source/serialize.c.o
+CMakeFiles/ne_test.dir/source/camera.c.o.provides.build: CMakeFiles/ne_test.dir/source/camera.c.o
 
-CMakeFiles/ne_test.dir/source/dynlib.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/dynlib.c.o: ../source/dynlib.c
+CMakeFiles/ne_test.dir/source/engine.cpp.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/engine.cpp.o: ../source/engine.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_16)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/dynlib.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/dynlib.c.o   -c /home/melnik/projects/ngine/source/dynlib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ne_test.dir/source/engine.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ne_test.dir/source/engine.cpp.o -c /home/melnik/projects/ngine/source/engine.cpp
 
-CMakeFiles/ne_test.dir/source/dynlib.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/dynlib.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/dynlib.c > CMakeFiles/ne_test.dir/source/dynlib.c.i
+CMakeFiles/ne_test.dir/source/engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ne_test.dir/source/engine.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/melnik/projects/ngine/source/engine.cpp > CMakeFiles/ne_test.dir/source/engine.cpp.i
 
-CMakeFiles/ne_test.dir/source/dynlib.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/dynlib.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/dynlib.c -o CMakeFiles/ne_test.dir/source/dynlib.c.s
+CMakeFiles/ne_test.dir/source/engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ne_test.dir/source/engine.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/melnik/projects/ngine/source/engine.cpp -o CMakeFiles/ne_test.dir/source/engine.cpp.s
 
-CMakeFiles/ne_test.dir/source/dynlib.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/dynlib.c.o.requires
+CMakeFiles/ne_test.dir/source/engine.cpp.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/engine.cpp.o.requires
 
-CMakeFiles/ne_test.dir/source/dynlib.c.o.provides: CMakeFiles/ne_test.dir/source/dynlib.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/dynlib.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/dynlib.c.o.provides
+CMakeFiles/ne_test.dir/source/engine.cpp.o.provides: CMakeFiles/ne_test.dir/source/engine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/engine.cpp.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/engine.cpp.o.provides
 
-CMakeFiles/ne_test.dir/source/dynlib.c.o.provides.build: CMakeFiles/ne_test.dir/source/dynlib.c.o
+CMakeFiles/ne_test.dir/source/engine.cpp.o.provides.build: CMakeFiles/ne_test.dir/source/engine.cpp.o
 
-CMakeFiles/ne_test.dir/source/iofile.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/iofile.c.o: ../source/iofile.c
+CMakeFiles/ne_test.dir/source/sc_obj.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/sc_obj.c.o: ../source/sc_obj.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_17)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/iofile.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/iofile.c.o   -c /home/melnik/projects/ngine/source/iofile.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/sc_obj.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/sc_obj.c.o   -c /home/melnik/projects/ngine/source/sc_obj.c
 
-CMakeFiles/ne_test.dir/source/iofile.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/iofile.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/iofile.c > CMakeFiles/ne_test.dir/source/iofile.c.i
+CMakeFiles/ne_test.dir/source/sc_obj.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/sc_obj.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/sc_obj.c > CMakeFiles/ne_test.dir/source/sc_obj.c.i
 
-CMakeFiles/ne_test.dir/source/iofile.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/iofile.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/iofile.c -o CMakeFiles/ne_test.dir/source/iofile.c.s
+CMakeFiles/ne_test.dir/source/sc_obj.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/sc_obj.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/sc_obj.c -o CMakeFiles/ne_test.dir/source/sc_obj.c.s
 
-CMakeFiles/ne_test.dir/source/iofile.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/iofile.c.o.requires
+CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires
 
-CMakeFiles/ne_test.dir/source/iofile.c.o.provides: CMakeFiles/ne_test.dir/source/iofile.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/iofile.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/iofile.c.o.provides
+CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides: CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides
 
-CMakeFiles/ne_test.dir/source/iofile.c.o.provides.build: CMakeFiles/ne_test.dir/source/iofile.c.o
+CMakeFiles/ne_test.dir/source/sc_obj.c.o.provides.build: CMakeFiles/ne_test.dir/source/sc_obj.c.o
 
-CMakeFiles/ne_test.dir/source/cntr/array.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/cntr/array.c.o: ../source/cntr/array.c
+CMakeFiles/ne_test.dir/source/viewport.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/viewport.c.o: ../source/viewport.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_18)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/cntr/array.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/cntr/array.c.o   -c /home/melnik/projects/ngine/source/cntr/array.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/viewport.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/viewport.c.o   -c /home/melnik/projects/ngine/source/viewport.c
 
-CMakeFiles/ne_test.dir/source/cntr/array.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/cntr/array.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/cntr/array.c > CMakeFiles/ne_test.dir/source/cntr/array.c.i
+CMakeFiles/ne_test.dir/source/viewport.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/viewport.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/viewport.c > CMakeFiles/ne_test.dir/source/viewport.c.i
 
-CMakeFiles/ne_test.dir/source/cntr/array.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/cntr/array.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/cntr/array.c -o CMakeFiles/ne_test.dir/source/cntr/array.c.s
+CMakeFiles/ne_test.dir/source/viewport.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/viewport.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/viewport.c -o CMakeFiles/ne_test.dir/source/viewport.c.s
 
-CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires
+CMakeFiles/ne_test.dir/source/viewport.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/viewport.c.o.requires
 
-CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides: CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides
+CMakeFiles/ne_test.dir/source/viewport.c.o.provides: CMakeFiles/ne_test.dir/source/viewport.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/viewport.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/viewport.c.o.provides
 
-CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides.build: CMakeFiles/ne_test.dir/source/cntr/array.c.o
-
-CMakeFiles/ne_test.dir/source/cntr/tree.c.o: CMakeFiles/ne_test.dir/flags.make
-CMakeFiles/ne_test.dir/source/cntr/tree.c.o: ../source/cntr/tree.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_19)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/cntr/tree.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/cntr/tree.c.o   -c /home/melnik/projects/ngine/source/cntr/tree.c
-
-CMakeFiles/ne_test.dir/source/cntr/tree.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/cntr/tree.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/cntr/tree.c > CMakeFiles/ne_test.dir/source/cntr/tree.c.i
-
-CMakeFiles/ne_test.dir/source/cntr/tree.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/cntr/tree.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/cntr/tree.c -o CMakeFiles/ne_test.dir/source/cntr/tree.c.s
-
-CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires:
-.PHONY : CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires
-
-CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides: CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires
-	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides.build
-.PHONY : CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides
-
-CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides.build: CMakeFiles/ne_test.dir/source/cntr/tree.c.o
+CMakeFiles/ne_test.dir/source/viewport.c.o.provides.build: CMakeFiles/ne_test.dir/source/viewport.c.o
 
 CMakeFiles/ne_test.dir/source/cntr/list.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/cntr/list.c.o: ../source/cntr/list.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/cntr/list.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/cntr/list.c.o   -c /home/melnik/projects/ngine/source/cntr/list.c
 
@@ -512,9 +489,55 @@ CMakeFiles/ne_test.dir/source/cntr/list.c.o.provides: CMakeFiles/ne_test.dir/sou
 
 CMakeFiles/ne_test.dir/source/cntr/list.c.o.provides.build: CMakeFiles/ne_test.dir/source/cntr/list.c.o
 
+CMakeFiles/ne_test.dir/source/cntr/tree.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/cntr/tree.c.o: ../source/cntr/tree.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_20)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/cntr/tree.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/cntr/tree.c.o   -c /home/melnik/projects/ngine/source/cntr/tree.c
+
+CMakeFiles/ne_test.dir/source/cntr/tree.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/cntr/tree.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/cntr/tree.c > CMakeFiles/ne_test.dir/source/cntr/tree.c.i
+
+CMakeFiles/ne_test.dir/source/cntr/tree.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/cntr/tree.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/cntr/tree.c -o CMakeFiles/ne_test.dir/source/cntr/tree.c.s
+
+CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires
+
+CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides: CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides
+
+CMakeFiles/ne_test.dir/source/cntr/tree.c.o.provides.build: CMakeFiles/ne_test.dir/source/cntr/tree.c.o
+
+CMakeFiles/ne_test.dir/source/cntr/array.c.o: CMakeFiles/ne_test.dir/flags.make
+CMakeFiles/ne_test.dir/source/cntr/array.c.o: ../source/cntr/array.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_21)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/cntr/array.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/cntr/array.c.o   -c /home/melnik/projects/ngine/source/cntr/array.c
+
+CMakeFiles/ne_test.dir/source/cntr/array.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ne_test.dir/source/cntr/array.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/cntr/array.c > CMakeFiles/ne_test.dir/source/cntr/array.c.i
+
+CMakeFiles/ne_test.dir/source/cntr/array.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ne_test.dir/source/cntr/array.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/cntr/array.c -o CMakeFiles/ne_test.dir/source/cntr/array.c.s
+
+CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires:
+.PHONY : CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires
+
+CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides: CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides.build
+.PHONY : CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides
+
+CMakeFiles/ne_test.dir/source/cntr/array.c.o.provides.build: CMakeFiles/ne_test.dir/source/cntr/array.c.o
+
 CMakeFiles/ne_test.dir/source/math/matrix.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/math/matrix.c.o: ../source/math/matrix.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_22)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/math/matrix.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/math/matrix.c.o   -c /home/melnik/projects/ngine/source/math/matrix.c
 
@@ -537,7 +560,7 @@ CMakeFiles/ne_test.dir/source/math/matrix.c.o.provides.build: CMakeFiles/ne_test
 
 CMakeFiles/ne_test.dir/source/math/vector.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/math/vector.c.o: ../source/math/vector.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_23)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/math/vector.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/math/vector.c.o   -c /home/melnik/projects/ngine/source/math/vector.c
 
@@ -560,7 +583,7 @@ CMakeFiles/ne_test.dir/source/math/vector.c.o.provides.build: CMakeFiles/ne_test
 
 CMakeFiles/ne_test.dir/source/math/consts.c.o: CMakeFiles/ne_test.dir/flags.make
 CMakeFiles/ne_test.dir/source/math/consts.c.o: ../source/math/consts.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ne_test.dir/source/math/consts.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ne_test.dir/source/math/consts.c.o   -c /home/melnik/projects/ngine/source/math/consts.c
 
@@ -584,25 +607,26 @@ CMakeFiles/ne_test.dir/source/math/consts.c.o.provides.build: CMakeFiles/ne_test
 # Object files for target ne_test
 ne_test_OBJECTS = \
 "CMakeFiles/ne_test.dir/main.c.o" \
-"CMakeFiles/ne_test.dir/source/string.c.o" \
-"CMakeFiles/ne_test.dir/source/camera.c.o" \
-"CMakeFiles/ne_test.dir/source/physics_mgr.c.o" \
-"CMakeFiles/ne_test.dir/source/engine.c.o" \
-"CMakeFiles/ne_test.dir/source/viewport.c.o" \
-"CMakeFiles/ne_test.dir/source/sc_obj.c.o" \
-"CMakeFiles/ne_test.dir/source/shader_prog.c.o" \
-"CMakeFiles/ne_test.dir/source/material.c.o" \
-"CMakeFiles/ne_test.dir/source/node.c.o" \
-"CMakeFiles/ne_test.dir/source/scene.c.o" \
-"CMakeFiles/ne_test.dir/source/entity.c.o" \
-"CMakeFiles/ne_test.dir/source/engine.cpp.o" \
-"CMakeFiles/ne_test.dir/source/mesh.c.o" \
-"CMakeFiles/ne_test.dir/source/serialize.c.o" \
 "CMakeFiles/ne_test.dir/source/dynlib.c.o" \
+"CMakeFiles/ne_test.dir/source/engine.c.o" \
+"CMakeFiles/ne_test.dir/source/entity.c.o" \
 "CMakeFiles/ne_test.dir/source/iofile.c.o" \
-"CMakeFiles/ne_test.dir/source/cntr/array.c.o" \
-"CMakeFiles/ne_test.dir/source/cntr/tree.c.o" \
+"CMakeFiles/ne_test.dir/source/log.c.o" \
+"CMakeFiles/ne_test.dir/source/scene.c.o" \
+"CMakeFiles/ne_test.dir/source/node.c.o" \
+"CMakeFiles/ne_test.dir/source/physics_mgr.c.o" \
+"CMakeFiles/ne_test.dir/source/material.c.o" \
+"CMakeFiles/ne_test.dir/source/serialize.c.o" \
+"CMakeFiles/ne_test.dir/source/string.c.o" \
+"CMakeFiles/ne_test.dir/source/shader_prog.c.o" \
+"CMakeFiles/ne_test.dir/source/mesh.c.o" \
+"CMakeFiles/ne_test.dir/source/camera.c.o" \
+"CMakeFiles/ne_test.dir/source/engine.cpp.o" \
+"CMakeFiles/ne_test.dir/source/sc_obj.c.o" \
+"CMakeFiles/ne_test.dir/source/viewport.c.o" \
 "CMakeFiles/ne_test.dir/source/cntr/list.c.o" \
+"CMakeFiles/ne_test.dir/source/cntr/tree.c.o" \
+"CMakeFiles/ne_test.dir/source/cntr/array.c.o" \
 "CMakeFiles/ne_test.dir/source/math/matrix.c.o" \
 "CMakeFiles/ne_test.dir/source/math/vector.c.o" \
 "CMakeFiles/ne_test.dir/source/math/consts.c.o"
@@ -611,25 +635,26 @@ ne_test_OBJECTS = \
 ne_test_EXTERNAL_OBJECTS =
 
 ../bin/ne_test: CMakeFiles/ne_test.dir/main.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/string.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/camera.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/physics_mgr.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/engine.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/viewport.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/sc_obj.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/shader_prog.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/material.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/node.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/scene.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/entity.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/engine.cpp.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/mesh.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/serialize.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/source/dynlib.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/engine.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/entity.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/source/iofile.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/cntr/array.c.o
-../bin/ne_test: CMakeFiles/ne_test.dir/source/cntr/tree.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/log.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/scene.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/node.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/physics_mgr.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/material.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/serialize.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/string.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/shader_prog.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/mesh.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/camera.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/engine.cpp.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/sc_obj.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/viewport.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/source/cntr/list.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/cntr/tree.c.o
+../bin/ne_test: CMakeFiles/ne_test.dir/source/cntr/array.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/source/math/matrix.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/source/math/vector.c.o
 ../bin/ne_test: CMakeFiles/ne_test.dir/source/math/consts.c.o
@@ -643,25 +668,26 @@ CMakeFiles/ne_test.dir/build: ../bin/ne_test
 .PHONY : CMakeFiles/ne_test.dir/build
 
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/main.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/string.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/camera.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/engine.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/viewport.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/material.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/node.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/scene.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/entity.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/engine.cpp.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/mesh.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/serialize.c.o.requires
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/dynlib.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/engine.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/entity.c.o.requires
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/iofile.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires
-CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/log.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/scene.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/node.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/physics_mgr.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/material.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/serialize.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/string.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/shader_prog.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/mesh.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/camera.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/engine.cpp.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/sc_obj.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/viewport.c.o.requires
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/cntr/list.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/cntr/tree.c.o.requires
+CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/cntr/array.c.o.requires
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/math/matrix.c.o.requires
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/math/vector.c.o.requires
 CMakeFiles/ne_test.dir/requires: CMakeFiles/ne_test.dir/source/math/consts.c.o.requires

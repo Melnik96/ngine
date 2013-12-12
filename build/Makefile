@@ -354,6 +354,30 @@ source/iofile.c.s:
 	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/iofile.c.s
 .PHONY : source/iofile.c.s
 
+source/log.o: source/log.c.o
+.PHONY : source/log.o
+
+# target to build an object file
+source/log.c.o:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/log.c.o
+.PHONY : source/log.c.o
+
+source/log.i: source/log.c.i
+.PHONY : source/log.i
+
+# target to preprocess a source file
+source/log.c.i:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/log.c.i
+.PHONY : source/log.c.i
+
+source/log.s: source/log.c.s
+.PHONY : source/log.s
+
+# target to generate assembly for a file
+source/log.c.s:
+	$(MAKE) -f CMakeFiles/ne_test.dir/build.make CMakeFiles/ne_test.dir/source/log.c.s
+.PHONY : source/log.c.s
+
 source/material.o: source/material.c.o
 .PHONY : source/material.o
 
@@ -705,6 +729,9 @@ help:
 	@echo "... source/iofile.o"
 	@echo "... source/iofile.i"
 	@echo "... source/iofile.s"
+	@echo "... source/log.o"
+	@echo "... source/log.i"
+	@echo "... source/log.s"
 	@echo "... source/material.o"
 	@echo "... source/material.i"
 	@echo "... source/material.s"

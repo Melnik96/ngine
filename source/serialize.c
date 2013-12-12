@@ -19,10 +19,10 @@
 
 #include "serialize.h"
 
-void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, void* _ptr_offset, uint32_t _po_len) {
+void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, uint32_t _po_len) {
   void* sdata;
   void* end_used;
-  
+  void* _ptr_offset = _data+64;
   
 #if __x86_64__
   uint64_t po_size = _po_len * sizeof(struct ptr_offset_64);
@@ -58,7 +58,7 @@ void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, void* _ptr_o
   uint32_t cur_ptr_size;
   for(uint8_t i = 0; i < _po_len; i+=1) {
     cur_ptr_size = ((struct ptr_offset_32*)_ptr_offset)[i].size;
-    memcpy(end_used, (void*)(((struct ptr_offset_32*)_ptr_offset)[i].ptr), cur_ptr_size);
+    memcpy(end_used, *(void**)((_data+((struct ptr_offset_32*)_ptr_offset)[i].offset)), cur_ptr_size);
     end_used += cur_ptr_size;
   }
 #else 

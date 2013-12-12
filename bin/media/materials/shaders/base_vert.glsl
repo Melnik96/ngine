@@ -1,6 +1,5 @@
-in vec3 vertexPosition_modelspace;
+in vec3 vertex;
 uniform mat4 MVP;
-uniform mat4 asd;
  
 void main() {
   // Output position of the vertex, in clip space : MVP * position

@@ -83,6 +83,9 @@ CMakeFiles/ne_test.dir/source/entity.c.o: ../source/shader_prog.h
 CMakeFiles/ne_test.dir/source/iofile.c.o: ../source/iofile.c
 CMakeFiles/ne_test.dir/source/iofile.c.o: ../source/iofile.h
 
+CMakeFiles/ne_test.dir/source/log.c.o: ../source/log.c
+CMakeFiles/ne_test.dir/source/log.c.o: ../source/log.h
+
 CMakeFiles/ne_test.dir/source/material.c.o: ../source/material.c
 CMakeFiles/ne_test.dir/source/material.c.o: ../source/material.h
 CMakeFiles/ne_test.dir/source/material.c.o: ../source/math/vector.h

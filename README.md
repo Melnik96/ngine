@@ -13,7 +13,7 @@ TODO
 -     cluster system support
 -     remote console control
 -   module system
--     C dynamic linking and python support
+-     C dynamic linking
 -   multi-threaded
 -     ^binary thread priority(поток виконується один раз на кожні n\\2 фрейми,
 -       але рендер виконується в кожному вреймі)
@@ -51,6 +51,8 @@ TODO
 - physics(bullet3d or ODE based)
 -   aircraft simulation
 - logic
+-   C scripting using ccons or cling
+-   interactive C console
 - animation
 - tools
 -   blender3d plugin
@@ -58,3 +60,4 @@ TODO
 -   costom asset file format
 - weather system
 - Wayland display protocol support
+- voxel

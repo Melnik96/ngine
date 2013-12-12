@@ -18,13 +18,12 @@
  */
 
 /* inclusion guard */
-#ifndef __SERIALIZATION_H__
-#define __SERIALIZATION_H__
+#ifndef __SERIALIZE_H__
+#define __SERIALIZE_H__
 
 #include <stdint.h>
 #include <string.h>
 #include <malloc.h>
-#include <stdint.h>
 
 /**
  * dna - struct of host machine info(byte endian, cpu arch)
@@ -52,7 +51,7 @@ enum meta_offset {
 };
 
 struct ptr_offset_32 {
-  uint32_t ptr;
+//   uint32_t ptr;
   uint32_t offset;
   uint32_t sdata_offset;//fuck incapsulation
   uint32_t size;
@@ -79,8 +78,34 @@ struct dna {
   char arch;//64bit or 32bit
 };
 
+struct meta {
+  uint32_t type_id;
+  uint32_t type_size;
+  //ptrs
+  struct ptr_offset_32* ptrs;
+};
+
+/**
+ * base C type ids
+ *   not C type -- 0
+ *   void*      -- 1
+ *   char 	-- 2
+ *   int8 	-- 3
+ *   int16 	-- 4
+ *   int32 	-- 5
+ *   int64 	-- 6
+ *   float 	-- 7
+ *   double 	-- 8
+ */
+
+#define num_types 9
+
+static struct meta* smetas[num_types];
+
 //це не баг, це фіча
-void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, void* _ptr_offset, uint32_t _po_len);
+struct meta* smeta_init(uint32_t _type_id, uint32_t _type_size);
+
+void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, uint32_t _po_len);
 void* deserialize(void* _sdata);
 
-#endif /* __SERIALIZATION_H__ */
+#endif /* __SERIALIZE_H__ */

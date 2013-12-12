@@ -50,20 +50,20 @@ int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct me
   // Generate and populate the buffers with vertex attributes and the indices
   glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->vertex);
   glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_vertices, _ent->mesh->vertices, GL_STATIC_DRAW);
-  glEnableVertexAttribArray(_eng->scenes->cur_shader->attribs->id);
+  glEnableVertexAttribArray(GLSA_VERTEX);
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
   if(_mesh->uv) {
     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _ent->mesh->num_vertices, _ent->mesh->uv, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(GLSA_UV);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
   }
 
   if(_mesh->normals) {
     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_indices/3, _ent->mesh->normals, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(2);
+    glEnableVertexAttribArray(GLSA_NORMAL);
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
   }
 
@@ -75,22 +75,27 @@ int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct me
   gl_get_error();
 #endif
 }
-int entity_update(struct entity* _ent) {
+int entity_update_hw(struct entity* _ent) {
   //redata hw_buffers
+  // Generate and populate the buffers with vertex attributes and the indices
   glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->vertex);
   glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_vertices, _ent->mesh->vertices, GL_STATIC_DRAW);
-  glEnableVertexAttribArray(0);
+  glEnableVertexAttribArray(GLSA_VERTEX);
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-  glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _ent->mesh->num_vertices, _ent->mesh->uv, GL_STATIC_DRAW);
-  glEnableVertexAttribArray(1);
-  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
-
-  glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_indices/3, _ent->mesh->normals, GL_STATIC_DRAW);
-  glEnableVertexAttribArray(2);
-  glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+//   if(_mesh->uv) {
+//     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);
+//     glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _ent->mesh->num_vertices, _ent->mesh->uv, GL_STATIC_DRAW);
+//     glEnableVertexAttribArray(GLSA_UV);
+//     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
+//   }
+// 
+//   if(_mesh->normals) {
+//     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
+//     glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_indices/3, _ent->mesh->normals, GL_STATIC_DRAW);
+//     glEnableVertexAttribArray(GLSA_NORMAL);
+//     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+//   }
 
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ent->hw->index);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint32_t) * _ent->mesh->num_indices, _ent->mesh->indices, GL_STATIC_DRAW);

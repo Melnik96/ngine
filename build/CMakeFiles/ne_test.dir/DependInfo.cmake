@@ -14,6 +14,7 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/ngine/source/engine.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/engine.c.o"
   "/home/melnik/projects/ngine/source/entity.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/entity.c.o"
   "/home/melnik/projects/ngine/source/iofile.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/iofile.c.o"
+  "/home/melnik/projects/ngine/source/log.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/log.c.o"
   "/home/melnik/projects/ngine/source/material.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/material.c.o"
   "/home/melnik/projects/ngine/source/math/consts.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/math/consts.c.o"
   "/home/melnik/projects/ngine/source/math/matrix.c" "/home/melnik/projects/ngine/build/CMakeFiles/ne_test.dir/source/math/matrix.c.o"

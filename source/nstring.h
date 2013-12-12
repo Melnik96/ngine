@@ -19,4 +19,10 @@ int nstr_cmp(struct string* _f, struct string* _s) {
 //   return memcmp(_f, _s, _len);
 // }
 
+//alloc for serialize 
+struct salloc {
+  struct meta meta;
+  void* data;
+};
+
 #endif

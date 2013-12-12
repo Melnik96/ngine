@@ -58,4 +58,6 @@ void mempool_init(struct mempool* buf, uint8_t* mem, uint32_t size, uint32_t chu
   return;
 }
 
+void* salloc(size_t _size, uint32_t _type_id);//alloc for serialization
+
 #endif

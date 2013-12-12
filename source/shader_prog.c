@@ -65,7 +65,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 #define GLUS_GEOMETRY_SHADER            0x8DD9
 #define GLUS_COMPUTE_SHADER 		0x91B9
   
-  vert_shad = glCreateShader(GLUS_VERTEX_SHADER);
+  vert_shad = glCreateShader(GL_VERTEX_SHADER);
 
   glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
 
@@ -258,6 +258,20 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
         return GLUS_FALSE;
     }
 
+    
+    
+  _prog->attribs = malloc(3*sizeof(struct shader_param));
+  
+  glBindAttribLocation(_prog->id, GLSA_VERTEX, "vertex");
+  memcpy(_prog->attribs[GLSA_VERTEX].name, "vertex", sizeof "vertex");
+  _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
+  
+  _prog->uniforms = malloc(sizeof(struct shader_param));
+  memcpy(_prog->uniforms->name, "MVP", 4);
+  _prog->uniforms->id = glGetUniformLocation(_prog->id, "MVP");
+  if(_prog->uniforms->id) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
+
+    
     glLinkProgram(_prog->id);
     glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);
 
@@ -281,19 +295,19 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
         return GLUS_FALSE;
     }
     
-  int _a_vpm = glGetAttribLocation(_prog->id, "vertexPosition_modelspace");
-  if(!_a_vpm) {printf("error: int _a_vpm = glGetAttribLocation(_prog->id, 'vertexPosition_modelspace');\n");}
-  _prog->attribs = malloc(sizeof(struct shader_param));
-  memcpy(_prog->attribs->name, "vertexPosition_modelspace", sizeof "vertexPosition_modelspace");
-//    = ;
-  _prog->attribs->id = _a_vpm;
+//   int a_vertex = glGetAttribLocation(_prog->id, "vertex");
+//   if(!a_vertex) {printf("error: int _a_vpm = glGetAttribLocation(_prog->id, 'vertex');\n");}
   
-  int _u_mvp = glGetUniformLocation(_prog->id, "MVP");
-  if(!_u_mvp) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
-  _prog->uniforms = malloc(sizeof(struct shader_param));
-  memcpy(_prog->uniforms->name, "MVP", sizeof "MVP");
-//   _prog->uniforms->name = "MVP";
-  _prog->id = _u_mvp;
+//   glBindAttribLocation(_prog->id, GLSA_NORMAL, "normal");
+//   glBindAttribLocation(_prog->id, GLSA_UV, "uv");
+  
+//   int _u_mvp = glGetUniformLocation(_prog->id, "MVP");
+//   if(!_u_mvp) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
+//   _prog->uniforms = malloc(sizeof(struct shader_param));
+//   memcpy(_prog->uniforms->name, "MVP", sizeof "MVP");
+// //   _prog->uniforms->name = "MVP";
+//   _prog->id = _u_mvp;
+
 
   return GLUS_TRUE;
 }

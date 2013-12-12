@@ -6,32 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../source/camera.h
-math/matrix.h
-../source/math/matrix.h
-
-../source/cntr/list.h
-serialize.h
--
-
-../source/cntr/tree.h
-stdlib.h
--
-
-../source/engine.h
-stdint.h
--
-pthread.h
--
-cntr/list.h
-../source/cntr/list.h
-
-../source/entity.h
-
-../source/material.h
-math/vector.h
-../source/math/vector.h
-
 ../source/math/SIMDx86/align.h
 malloc.h
 -
@@ -84,28 +58,6 @@ SIMDx86/align.h
 
 ../source/math/SIMDx86/version.h
 
-../source/math/matrix.h
-
-../source/math/vector.h
-stdint.h
--
-
-../source/mesh.h
-stdint.h
--
-math/vector.h
-../source/math/vector.h
-
-../source/sc_obj.h
-math/matrix.h
-../source/math/matrix.h
-math/vector.h
-../source/math/vector.h
-cntr/tree.h
-../source/cntr/tree.h
-
-../source/scene.h
-
 ../source/serialize.h
 stdint.h
 -
@@ -113,43 +65,9 @@ string.h
 -
 malloc.h
 -
-stdint.h
--
 
 ../source/string.h
 stddef.h
--
-
-../source/viewport.h
-math/matrix.h
-../source/math/matrix.h
-
-/home/melnik/projects/ngine/main.c
-engine.h
-/home/melnik/projects/ngine/engine.h
-scene.h
-/home/melnik/projects/ngine/scene.h
-viewport.h
-/home/melnik/projects/ngine/viewport.h
-camera.h
-/home/melnik/projects/ngine/camera.h
-entity.h
-/home/melnik/projects/ngine/entity.h
-material.h
-/home/melnik/projects/ngine/material.h
-mesh.h
-/home/melnik/projects/ngine/mesh.h
-math.h
-/home/melnik/projects/ngine/math.h
-sc_obj.h
-/home/melnik/projects/ngine/sc_obj.h
-stdio.h
--
-malloc.h
--
-serialize.h
-/home/melnik/projects/ngine/serialize.h
-cntr/tree.h
 -
 
 /home/melnik/projects/ngine/source/camera.h
@@ -163,6 +81,10 @@ sys/types.h
 /home/melnik/projects/ngine/source/cntr/list.h
 serialize.h
 -
+
+/home/melnik/projects/ngine/source/cntr/tree.c
+tree.h
+/home/melnik/projects/ngine/source/cntr/tree.h
 
 /home/melnik/projects/ngine/source/cntr/tree.h
 stdlib.h
@@ -223,28 +145,6 @@ pthread.h
 -
 cntr/list.h
 /home/melnik/projects/ngine/source/cntr/list.h
-
-/home/melnik/projects/ngine/source/entity.c
-GL/glew.h
--
-GL/gl.h
--
-malloc.h
--
-string.h
--
-render/hw_buffers.h
-/home/melnik/projects/ngine/source/render/hw_buffers.h
-mesh.h
-/home/melnik/projects/ngine/source/mesh.h
-engine.h
-/home/melnik/projects/ngine/source/engine.h
-scene.h
-/home/melnik/projects/ngine/source/scene.h
-shader_prog.h
-/home/melnik/projects/ngine/source/shader_prog.h
-entity.h
-/home/melnik/projects/ngine/source/entity.h
 
 /home/melnik/projects/ngine/source/entity.h
 

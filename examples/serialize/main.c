@@ -9,9 +9,11 @@ enum t_type {
   TT_REDWOOD,
   TT_ALDER
 };
-
-struct guitar {
-  struct owner* owner;
+//http://habrahabr.ru/company/pvs-studio/blog/83117/
+struct guitar {//0xff432222
+  struct meta* meta;//
+  
+  struct owner* owner;//0xff43524
   g_type type;
   char model[64];
   t_type tree;
@@ -20,6 +22,8 @@ struct guitar {
 };
 
 struct owner {
+  struct meta* meta;
+  
   char name[64];
 };
 
@@ -28,9 +32,9 @@ int main() {
   struct owner Dima;
   struct owner Andriy;
   Dima.name = "Dmitro Melnichuk";
-  Dima.name = "Andriy Moroz";
+  Andriy.name = "Andriy Moroz";
   
-  struct guitar SX = {Dima,GT_ACUSTIC,"SX ...",TT_ALDER,6,"red"};
+  struct guitar SX = 	 {Dima,  GT_ACUSTIC,"SX ...",    TT_ALDER,  6,"red"};
   struct guitar Ibanez = {Andriy,GT_ELECTRO,"Ibanez ...",TT_REDWOOD,6,"orange"};
   
   

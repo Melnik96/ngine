@@ -136,7 +136,7 @@ int neng_frame(struct engine* _self, float _elapsed) {
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
   
       mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
@@ -193,11 +193,10 @@ void update_obj_handler(void* _node) {
       printf("procces entity obj\n");
       
       mat4* mvp_matrix;
-      struct sc_obj* tmp_node;
       
       mvp_matrix = &_obj->model_matrix;
       
-      for(;tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
+      for(struct sc_obj* tmp_node = _obj; tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
       }
       
@@ -215,10 +214,7 @@ void update_obj_handler(void* _node) {
 }
 
 void draw(struct scene _scene, struct entity* _entity, mat4* _mvp_mat) {
-  int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, "MVP");
-  if(!_u_mvp) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
-  int _u_asd = glGetUniformLocation(cur_scene->cur_shader->id, "asd");
-  glUniformMatrix4fv(_u_mvp, 1, 0, _mvp_mat);
+  glUniformMatrix4fv(_scene.cur_shader->uniforms->id, 1, 0, _mvp_mat);
   glUseProgram(cur_scene->cur_shader->id);
   
   //push uniforms to shader

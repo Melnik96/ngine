@@ -29,6 +29,7 @@ struct mesh {
   uint32_t num_vertices;
   uint16_t* indices;
   uint16_t* normals;
+  vec3* tangent;
   vec3* vertices;
   vec3* colors;
   vec2* uv;

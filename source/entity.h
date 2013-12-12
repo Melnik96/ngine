@@ -36,6 +36,6 @@ struct entity {
 };
 
 int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material);
-int entity_update(struct entity* _ent);//call in engine.c if entity.updated == 1
+int entity_update_hw(struct entity* _ent);//call in engine.c if entity.updated == 1
 
 #endif /* __ENTITY_H__ */

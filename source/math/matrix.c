@@ -4,6 +4,11 @@
 #include "math/matrix.h"
 #include "math/deg2rad.h"
 
+void mat4_identity(mat4* pMat) {
+	memset(pMat, 0, sizeof(mat4));
+	pMat->_m[0] = pMat->_m[5] = pMat->_m[10] = pMat->_m[15] = 1.0f;
+}
+
 void mat4_mul(mat4* _f, mat4* _s) {
 #if defined(USE_SSE)
   asm(

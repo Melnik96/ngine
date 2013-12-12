@@ -17,15 +17,21 @@
  *
  */
 
-#ifndef __SCENE_H__
-#define __SCENE_H__
+#ifndef LOG_H
+#define LOG_H
 
-struct scene {
-  char name[32];
-  struct sc_obj* root_object;
-  struct shader_prog* cur_shader;//bred
-};
+#include <stdio.h>
 
-struct scene* scene_create(struct engine* _eng, char* _name, char auto_create_root_obj);
+extern FILE* error_stream;
+extern FILE* warning_stream;
+extern FILE* debug_stream;
 
-#endif /* __SCENE_H__ */
+void(*on_error)(void);
+void(*on_warning)(void);
+void(*on_debug)(void);
+
+#define error(MSG, ...) { printf("[ERROR] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf("\n"); fflush(stdout); on_error(); }
+#define warning(MSG, ...) { printf("[WARNING] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf("\n"); fflush(stdout); on_warning(); }
+#define debug(MSG, ...) { printf("[DEBUG] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf("\n"); fflush(stdout); on_debug(); }
+
+#endif // LOG_H

@@ -83,6 +83,9 @@ CMakeFiles/ne_test.dir/source/entity.c.o
 CMakeFiles/ne_test.dir/source/iofile.c.o
  /home/melnik/projects/ngine/source/iofile.c
  /home/melnik/projects/ngine/source/iofile.h
+CMakeFiles/ne_test.dir/source/log.c.o
+ /home/melnik/projects/ngine/source/log.c
+ /home/melnik/projects/ngine/source/log.h
 CMakeFiles/ne_test.dir/source/material.c.o
  /home/melnik/projects/ngine/source/material.c
  /home/melnik/projects/ngine/source/material.h

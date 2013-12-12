@@ -32,6 +32,7 @@ struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
   memset(new_obj, 0, sizeof(struct sc_obj));
   strcpy(new_obj->name, _name);
   strcpy(new_obj->type, _type);
+  mat4_identity(&new_obj->model_matrix);
   new_obj->engine = _eng;
   new_obj->updated = 1;
   
@@ -59,5 +60,5 @@ void sc_obj_update_matrix(struct sc_obj* _self) {
   _self->model_matrix.m[3][2] = 0;
   _self->model_matrix.m[3][3] = 1;
   
-  _self->updated = 1;
+//   _self->updated = ;
 }

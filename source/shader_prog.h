@@ -19,11 +19,24 @@
 
 #ifndef SHADER_PROG_H
 #define SHADER_PROG_H
+
 #include <stdint.h>
 
 enum gl_shader_types {
   GLST_VERTEX = 0,
-  GLST_FRAGMENT = 1
+  GLST_GEOMETRY = 1,
+  GLST_FRAGMENT = 2
+};
+
+enum gl_shader_attribs {
+  GLSA_VERTEX = 0,
+  GLSA_UV = 1,
+  GLSA_NORMAL = 3
+//   GLSA_
+};
+
+enum gl_shader_uniforms {
+  GLSU_MVP = 0
 };
 
 struct shader_source {
