@@ -33,6 +33,7 @@ int main(int argc, char *argv[]) {
   if(pthread_create(&thread, NULL, rconsole_init, NULL) < 0) {
       warning("could not create thread: rconsole");
   }
+  debug("continue executing main thread");
   
 //   struct ptr_offset_32 ptr_offset1[] = {
 // //     {engine->viewport, offsetof(struct engine, viewport), sizeof(struct viewport)},
@@ -116,8 +117,11 @@ int main(int argc, char *argv[]) {
   engine0->viewport->camera = cam;
   mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
   
-  if(argc > 1 && memcmp(argv[1], "-norender", 5))
+  if(argc > 1 && memcmp(argv[1], "-norender", 5)) {
+    engine0->active_render = 0;
+  } else {
     engine0->active_render = 1;
+  }
   
   while(neng_frame(engine0, .3f));
   neng_shutdown(engine0);

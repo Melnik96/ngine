@@ -44,7 +44,7 @@ void(*on_warning)(void);
 void(*on_debug)(void);
 
 #define error(MSG, ...) { printf(KRED"[ERROR] (%s:%i) ", /*__FILE__, */__func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_error();*/ }
-#define warning(MSG, ...) { printf(KYEL"[WARNING] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_warning();*/ }
-#define debug(MSG, ...) { printf(KGRN"[DEBUG] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_debug();*/ }
+#define warning(MSG, ...) { printf(KYEL"[WARNING] (%s:%i) ", __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_warning();*/ }
+#define debug(MSG, ...) { printf(KGRN"[DEBUG] (%s:%i) ", __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_debug();*/ }
 
 #endif // LOG_H

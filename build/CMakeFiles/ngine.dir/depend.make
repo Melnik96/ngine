@@ -110,6 +110,7 @@ CMakeFiles/ngine.dir/source/serialize.c.o: ../source/serialize.c
 CMakeFiles/ngine.dir/source/serialize.c.o: ../source/serialize.h
 
 CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/string.h
+CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/log.h
 CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/shader_prog.c
 CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/shader_prog.h
 

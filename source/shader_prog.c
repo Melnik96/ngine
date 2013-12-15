@@ -25,6 +25,8 @@
 #include <string.h>
 #include <string.h>
 
+#include "log.h"
+
 #include "shader_prog.h"
 
 int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources) {
@@ -68,6 +70,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   vert_shad = glCreateShader(GL_VERTEX_SHADER);
 
   glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
+//   debug(_sources->vertex);
+//   debug(_sources->fragment);
 
   glCompileShader(vert_shad);
 
@@ -84,8 +88,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 
     glGetShaderInfoLog(vert_shad, logLength, &charsWritten, log);
 
-    printf("Vertex shader compile error:");
-    printf("%s", log);
+    debug("Vertex shader compile error:");
+    debug("%s", log);
 
     free(log);
 
@@ -220,8 +224,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 
     glGetShaderInfoLog(frag_shad, logLength, &charsWritten, log);
 
-    printf("Fragment shader compile error:");
-    printf("%s", log);
+    debug("Fragment shader compile error:");
+    debug("%s", log);
 
     free(log);
 
@@ -266,13 +270,14 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   memcpy(_prog->attribs[GLSA_VERTEX].name, "vertex", sizeof "vertex");
   _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
   
+    glLinkProgram(_prog->id);
+    
   _prog->uniforms = malloc(sizeof(struct shader_param));
   memcpy(_prog->uniforms->name, "MVP", 4);
   _prog->uniforms->id = glGetUniformLocation(_prog->id, "MVP");
-  if(_prog->uniforms->id) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
+  if(!_prog->uniforms->id) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
 
     
-    glLinkProgram(_prog->id);
     glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);
 
     if(!linked) {

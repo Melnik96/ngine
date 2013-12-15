@@ -141,6 +141,21 @@ examples/preinstall:
 .PHONY : examples/preinstall
 
 #=============================================================================
+# Directory level rules for directory source/physics
+
+# Convenience name for "all" pass in the directory.
+source/physics/all:
+.PHONY : source/physics/all
+
+# Convenience name for "clean" pass in the directory.
+source/physics/clean:
+.PHONY : source/physics/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/physics/preinstall:
+.PHONY : source/physics/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.
