@@ -22,6 +22,19 @@
 
 #include <stdio.h>
 
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+
+#define BLINK  "\x1B[5m"
+
+#define POS(l,c)   ("\x1B[##l;##c")
+
 extern FILE* error_stream;
 extern FILE* warning_stream;
 extern FILE* debug_stream;
@@ -30,8 +43,8 @@ void(*on_error)(void);
 void(*on_warning)(void);
 void(*on_debug)(void);
 
-#define error(MSG, ...) { printf("[ERROR] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf("\n"); fflush(stdout); on_error(); }
-#define warning(MSG, ...) { printf("[WARNING] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf("\n"); fflush(stdout); on_warning(); }
-#define debug(MSG, ...) { printf("[DEBUG] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf("\n"); fflush(stdout); on_debug(); }
+#define error(MSG, ...) { printf(KRED"[ERROR] (%s:%i) ", /*__FILE__, */__func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_error();*/ }
+#define warning(MSG, ...) { printf(KYEL"[WARNING] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_warning();*/ }
+#define debug(MSG, ...) { printf(KGRN"[DEBUG] (%s:%s:%i) ", __FILE__, __func__, __LINE__); printf(MSG, ##__VA_ARGS__); printf(KNRM"\n"); fflush(stdout); /*on_debug();*/ }
 
 #endif // LOG_H

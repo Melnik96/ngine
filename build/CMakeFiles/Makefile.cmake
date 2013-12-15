@@ -41,5 +41,6 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ne_test.dir/DependInfo.cmake"
+  "CMakeFiles/neditor.dir/DependInfo.cmake"
+  "CMakeFiles/ngine.dir/DependInfo.cmake"
   )

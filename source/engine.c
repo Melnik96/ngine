@@ -32,7 +32,6 @@
 
 #include "math/matrix.h"
 #include "math/vector.h"
-#include "math/SIMDx86/SIMDx86.h"
 
 #include "viewport.h"
 #include "engine.h"
@@ -44,6 +43,7 @@
 #include "render/hw_buffers.h"
 #include "shader_prog.h"
 #include "iofile.h"
+#include "log.h"
 
 mat4* vp_matrix;
 struct scene* cur_scene;
@@ -68,29 +68,29 @@ int neng_init(struct engine* _self, char* _win_name) {
   glewExperimental = GL_TRUE;
   int glew_err = glewInit();
   if(glew_err != GLEW_OK) {
-    printf("ERROR: %s\n",glewGetErrorString(glew_err));
+    error(glewGetErrorString(glew_err));
     return 0;
   }
-  printf("  thread %u\n", pthread_self());
+  debug("  thread %u", pthread_self());
   
   _self->gl_ver = malloc(6);
   neng_get_opengl_version(_self->gl_ver);
-  printf("OpenGL version %s\n", _self->gl_ver);
+  debug("OpenGL version %s", _self->gl_ver);
   
   //compile shaders
-  printf("load shaders\n");
+  debug("load shaders");
   struct shader_source sh_source;
   memset(&sh_source, 0, sizeof(sh_source));
   sh_source.vertex = file_rdbufp("media/materials/shaders/base_vert.glsl");
   sh_source.fragment = file_rdbufp("media/materials/shaders/base_frag.glsl");  
   sh_source.geometry = 0;
   
-  printf("init shaders\n");
+  debug("init shaders");
   ///TODO optimization, copy source of file in memory
   _self->shaders = malloc(sizeof(struct shader_prog));
   memset(_self->shaders, 0, sizeof(struct shader_prog));
   if(shader_prog_init(_self->shaders, "base", &sh_source)) {
-    printf("base shader compilation succesfull\n");
+    debug("base shader compilation succesfull");
   }
   //init shader uniforms, id
   
@@ -130,7 +130,6 @@ int neng_init(struct engine* _self, char* _win_name) {
 int neng_frame(struct engine* _self, float _elapsed) {
   if(_self->active_render) {
     //for evry scene
-    
     for(uint8_t i = 0; i < _self->num_scenes; ++i) {
       cur_scene = _self->scenes;
       
@@ -203,7 +202,7 @@ void update_obj_handler(void* _node) {
       mat4_mul(mvp_matrix, vp_matrix);
    
       //draw
-      draw(((struct entity*)_obj->typed_objs), mvp_matrix);//need frustum optimization
+      draw(cur_scene, ((struct entity*)_obj->typed_objs), mvp_matrix);//need frustum optimization
     }
     else if(memcmp(_obj->type, "camera", 7)) {printf("procces camera obj\n");}
     else if(memcmp(_obj->type, "light", 6)) {printf("procces light obj\n");}
@@ -213,8 +212,8 @@ void update_obj_handler(void* _node) {
   _obj->updated = 0;
 }
 
-void draw(struct scene _scene, struct entity* _entity, mat4* _mvp_mat) {
-  glUniformMatrix4fv(_scene.cur_shader->uniforms->id, 1, 0, _mvp_mat);
+void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
+  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, 0, _mvp_mat);
   glUseProgram(cur_scene->cur_shader->id);
   
   //push uniforms to shader

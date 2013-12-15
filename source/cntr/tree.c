@@ -35,7 +35,7 @@ void tree_for_each(struct tree* _node, void(*_fun)(void* _node)) {
 int tree_add_child(struct tree* _self, struct tree* _child) {
   if(_self->childs == 0) {
     _self->childs = _child;
-    _child->parent = _self->parent;
+    _child->parent = _self;
   } else {
     tree_add_child2(_self->childs, _child);
   }
@@ -44,7 +44,7 @@ int tree_add_child(struct tree* _self, struct tree* _child) {
 int tree_add_child2(struct tree* _self, struct tree* _child) {
   if(_self->next == 0) {
     _self->next = _child;
-    _child->parent = _self;
+    _child->parent = _self->parent;
   } else {
     tree_add_child2(_self->next, _child);
   }

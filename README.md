@@ -5,6 +5,8 @@ Nutty Engine
 
 Features
 --------
+- scene management
+-   tree-based scene graph
 
 TODO
 ----
@@ -22,8 +24,6 @@ TODO
 -   costom memory alocators
 -   fixed fps
 -   scons build system
-- scene management
--   tree-based scene graph
 - rendering
 -   multi-monitor and multi-window output
 -   frustum culling
