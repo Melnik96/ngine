@@ -18,6 +18,8 @@ Architecture
 ||opengl 1x||OpenGL 3x|||OpenAL|||		|
 |----------------------|------------------------|
 
+Matrix mul order: pers_proj * (cam_rot * cam_trans) * (trans * rot * scale)
+
 TODO
 ----
 - core

@@ -26,6 +26,91 @@
 
 #include "sc_obj.h"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# define M_PI		3.14159265358979323846	/* pi */
+
+#define ToRadian(x) (float)(((x) * M_PI / 180.0f))
+#define ToDegree(x) (float)(((x) * 180.0f / M_PI))
+
+
+mat4* mat_scale(float ScaleX, float ScaleY, float ScaleZ) {
+  mat4* m = malloc(sizeof(mat4));
+  m->m[0][0] = ScaleX; m->m[0][1] = 0.0f;   m->m[0][2] = 0.0f;   m->m[0][3] = 0.0f;
+  m->m[1][0] = 0.0f;   m->m[1][1] = ScaleY; m->m[1][2] = 0.0f;   m->m[1][3] = 0.0f;
+  m->m[2][0] = 0.0f;   m->m[2][1] = 0.0f;   m->m[2][2] = ScaleZ; m->m[2][3] = 0.0f;
+  m->m[3][0] = 0.0f;   m->m[3][1] = 0.0f;   m->m[3][2] = 0.0f;   m->m[3][3] = 1.0f;
+  
+  return (mat4*)m;
+}
+
+mat4* mat_rotation(float _rot_x, float _rot_y, float _rot_z)
+{
+    mat4 rx, ry, rz;
+    mat4* sum_mat = malloc(sizeof(mat4));
+
+    const float x = ToRadian(_rot_x);
+    const float y = ToRadian(_rot_y);
+    const float z = ToRadian(_rot_z);
+
+    rx.m[0][0] = 1.0f; rx.m[0][1] = 0.0f   ; rx.m[0][2] = 0.0f    ; rx.m[0][3] = 0.0f;
+    rx.m[1][0] = 0.0f; rx.m[1][1] = cosf(x); rx.m[1][2] = -sinf(x); rx.m[1][3] = 0.0f;
+    rx.m[2][0] = 0.0f; rx.m[2][1] = sinf(x); rx.m[2][2] = cosf(x) ; rx.m[2][3] = 0.0f;
+    rx.m[3][0] = 0.0f; rx.m[3][1] = 0.0f   ; rx.m[3][2] = 0.0f    ; rx.m[3][3] = 1.0f;
+
+    ry.m[0][0] = cosf(y); ry.m[0][1] = 0.0f; ry.m[0][2] = -sinf(y); ry.m[0][3] = 0.0f;
+    ry.m[1][0] = 0.0f   ; ry.m[1][1] = 1.0f; ry.m[1][2] = 0.0f    ; ry.m[1][3] = 0.0f;
+    ry.m[2][0] = sinf(y); ry.m[2][1] = 0.0f; ry.m[2][2] = cosf(y) ; ry.m[2][3] = 0.0f;
+    ry.m[3][0] = 0.0f   ; ry.m[3][1] = 0.0f; ry.m[3][2] = 0.0f    ; ry.m[3][3] = 1.0f;
+
+    rz.m[0][0] = cosf(z); rz.m[0][1] = -sinf(z); rz.m[0][2] = 0.0f; rz.m[0][3] = 0.0f;
+    rz.m[1][0] = sinf(z); rz.m[1][1] = cosf(z) ; rz.m[1][2] = 0.0f; rz.m[1][3] = 0.0f;
+    rz.m[2][0] = 0.0f   ; rz.m[2][1] = 0.0f    ; rz.m[2][2] = 1.0f; rz.m[2][3] = 0.0f;
+    rz.m[3][0] = 0.0f   ; rz.m[3][1] = 0.0f    ; rz.m[3][2] = 0.0f; rz.m[3][3] = 1.0f;
+
+    mat4_mul_of(sum_mat, &rz, &ry);
+    mat4_mul(sum_mat, &rx);
+    
+    return sum_mat;
+}
+
+mat4* mat_translation(float x, float y, float z) {
+  mat4* m = malloc(sizeof(mat4));
+  m->m[0][0] = 1.0f; m->m[0][1] = 0.0f; m->m[0][2] = 0.0f; m->m[0][3] = x;
+  m->m[1][0] = 0.0f; m->m[1][1] = 1.0f; m->m[1][2] = 0.0f; m->m[1][3] = y;
+  m->m[2][0] = 0.0f; m->m[2][1] = 0.0f; m->m[2][2] = 1.0f; m->m[2][3] = z;
+  m->m[3][0] = 0.0f; m->m[3][1] = 0.0f; m->m[3][2] = 0.0f; m->m[3][3] = 1.0f;
+  
+  return (mat4*)m;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
   struct sc_obj* new_obj = malloc(sizeof(struct sc_obj));
 //   strcpy(new_obj->name, _name);
@@ -41,44 +126,8 @@ struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
 }
 
 void sc_obj_update_matrix(struct sc_obj* _self) {
-  _self->model_matrix.m[0][0] = 1;
-  _self->model_matrix.m[0][1] = 0;
-  _self->model_matrix.m[0][2] = 0;
-  _self->model_matrix.m[0][3] = _self->pos.x;
-  
-  _self->model_matrix.m[1][0] = 0;
-  _self->model_matrix.m[1][1] = 1;
-  _self->model_matrix.m[1][2] = 0;
-  _self->model_matrix.m[1][3] = _self->pos.y;
-  
-  _self->model_matrix.m[2][0] = 0;
-  _self->model_matrix.m[2][1] = 0;
-  _self->model_matrix.m[2][2] = 1;
-  _self->model_matrix.m[2][3] = _self->pos.z;
-  
-  _self->model_matrix.m[3][0] = 0;
-  _self->model_matrix.m[3][1] = 0;
-  _self->model_matrix.m[3][2] = 0;
-  _self->model_matrix.m[3][3] = 1;
-  
-  // Ordering:
-  //    1. Scale
-  //    2. Rotate
-  //    3. Translate
-
-  mat4 rot4;
-  mat4_rot(&rot4, _self->rot.x, _self->rot.y, _self->rot.z);
-
-  mat4* m = &_self->model_matrix;
-  vec3* scale = &_self->scale;
-  
-  // Set up final matrix with scale, rotation and translation
-  _self->model_matrix.m[0][0] = _self->scale.x * rot4.m[0][0]; _self->model_matrix.m[0][1] = _self->scale.y * rot4.m[0][1]; _self->model_matrix.m[0][2] = _self->scale.z * rot4.m[0][2]; _self->model_matrix.m[0][3] = _self->pos.x;
-  _self->model_matrix.m[1][0] = _self->scale.x * rot4.m[1][0]; _self->model_matrix.m[1][1] = _self->scale.y * rot4.m[1][1]; _self->model_matrix.m[1][2] = _self->scale.z * rot4.m[1][2]; _self->model_matrix.m[1][3] = _self->pos.y;
-  _self->model_matrix.m[2][0] = _self->scale.x * rot4.m[2][0]; _self->model_matrix.m[2][1] = _self->scale.y * rot4.m[2][1]; _self->model_matrix.m[2][2] = _self->scale.z * rot4.m[2][2]; _self->model_matrix.m[2][3] = _self->pos.z;
-
-  // No projection term
-  _self->model_matrix.m[3][0] = 0; _self->model_matrix.m[3][1] = 0; _self->model_matrix.m[3][2] = 0; _self->model_matrix.m[3][3] = 1;
-  
-//   _self->updated = ;
+  mat4_mul_of(&_self->model_matrix, 
+	      mat_translation(_self->pos.x,_self->pos.y,_self->pos.z), 
+	      mat_rotation(_self->rot.x,_self->rot.y,_self->rot.z));
+  mat4_mul(&_self->model_matrix, mat_scale(_self->scale.x,_self->scale.y,_self->scale.z));
 }

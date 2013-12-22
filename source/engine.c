@@ -230,7 +230,7 @@ void update_obj_handler(void* _node) {
 void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
   glUseProgram(cur_scene->cur_shader->id);
   glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp_mat->_m);
-  printf("_mvp_mat:");
+  printf("_mvp_mat:\n");
   for (int i = 0; i < 16; ++i)
    printf("_%f\n", _mvp_mat->_m[i]);
   printf("\n");
