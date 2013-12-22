@@ -146,8 +146,8 @@ int neng_frame(struct engine* _self, float _elapsed) {
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
-      glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
+//       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
+//       glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
   
       mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
@@ -203,12 +203,12 @@ void update_obj_handler(void* _node) {
       //update model_view_proj_mat
       printf("procces entity obj\n");
       
-      mat4* mvp_matrix;
+      mat4* mvp_matrix = malloc(sizeof(mat4));
       
       mvp_matrix = &_obj->model_matrix;
       
       for(struct sc_obj* tmp_node = _obj; tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
-	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
+	mat4_mul_of(mvp_matrix, &tmp_node->model_matrix);
       }
       
       mat4_mul(mvp_matrix, vp_matrix);
@@ -227,6 +227,10 @@ void update_obj_handler(void* _node) {
 void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
   glUseProgram(cur_scene->cur_shader->id);
   glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp_mat);
+  printf("_mvp_mat:");
+  for (int i = 0; i < sizeof(*_mvp_mat) / sizeof(float); ++i)
+   printf("_%f\n", _mvp_mat[i]);
+  printf("\n");
   
   //push uniforms to shader
   //use shader
@@ -248,7 +252,7 @@ void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
                                GL_UNSIGNED_INT,
                                (void*)(0));
   
-	OPENGL_CHECK_FOR_ERRORS();
+// 	OPENGL_CHECK_FOR_ERRORS();
 	
   glBindVertexArray(NULL);
 }

@@ -9,6 +9,6 @@ out vec3 fragmentColor;
 
 void main(void)
 {
-	gl_Position   = MVP * vec4(vert, 1.0);
-// 	fragmentColor = color;
+	gl_Position   = /*MVP * */vec4(vert, 1.);
+	fragmentColor = vert;
 }
