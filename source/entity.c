@@ -51,7 +51,7 @@ int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct me
   glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->vertex);
   glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_vertices, _ent->mesh->vertices, GL_STATIC_DRAW);
   glEnableVertexAttribArray(GLSA_VERTEX);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  glVertexAttribPointer(GLSA_VERTEX, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
   if(_mesh->uv) {
     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);

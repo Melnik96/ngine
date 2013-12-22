@@ -20,6 +20,7 @@
 #include <malloc.h>
 #include <string.h>
 #include <stddef.h>
+#include <math.h>
 
 #include "engine.h"
 
@@ -59,6 +60,25 @@ void sc_obj_update_matrix(struct sc_obj* _self) {
   _self->model_matrix.m[3][1] = 0;
   _self->model_matrix.m[3][2] = 0;
   _self->model_matrix.m[3][3] = 1;
+  
+  // Ordering:
+  //    1. Scale
+  //    2. Rotate
+  //    3. Translate
+
+  mat4 rot4;
+  mat4_rot(&rot4, _self->rot.x, _self->rot.y, _self->rot.z);
+
+  mat4* m = &_self->model_matrix;
+  vec3* scale = &_self->scale;
+  
+  // Set up final matrix with scale, rotation and translation
+  _self->model_matrix.m[0][0] = _self->scale.x * rot4.m[0][0]; _self->model_matrix.m[0][1] = _self->scale.y * rot4.m[0][1]; _self->model_matrix.m[0][2] = _self->scale.z * rot4.m[0][2]; _self->model_matrix.m[0][3] = _self->pos.x;
+  _self->model_matrix.m[1][0] = _self->scale.x * rot4.m[1][0]; _self->model_matrix.m[1][1] = _self->scale.y * rot4.m[1][1]; _self->model_matrix.m[1][2] = _self->scale.z * rot4.m[1][2]; _self->model_matrix.m[1][3] = _self->pos.y;
+  _self->model_matrix.m[2][0] = _self->scale.x * rot4.m[2][0]; _self->model_matrix.m[2][1] = _self->scale.y * rot4.m[2][1]; _self->model_matrix.m[2][2] = _self->scale.z * rot4.m[2][2]; _self->model_matrix.m[2][3] = _self->pos.z;
+
+  // No projection term
+  _self->model_matrix.m[3][0] = 0; _self->model_matrix.m[3][1] = 0; _self->model_matrix.m[3][2] = 0; _self->model_matrix.m[3][3] = 1;
   
 //   _self->updated = ;
 }

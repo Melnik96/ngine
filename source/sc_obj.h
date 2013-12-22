@@ -38,7 +38,7 @@ struct sc_obj {
   
   char name[32];
   char type[32];
-  vec3 pos,rot;
+  vec3 pos,rot,scale;
   mat4 model_matrix;
   int updated;//need update gpu buffer
   struct list* typed_objs;//ptr to list of entities or cameras

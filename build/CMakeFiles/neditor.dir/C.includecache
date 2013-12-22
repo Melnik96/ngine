@@ -93,6 +93,8 @@ math.h
 /home/melnik/projects/ngine/editor/source/math.h
 sc_obj.h
 /home/melnik/projects/ngine/editor/source/sc_obj.h
+math/vector.h
+/home/melnik/projects/ngine/editor/source/math/vector.h
 stdio.h
 -
 malloc.h
@@ -111,26 +113,6 @@ net.h
 /home/melnik/projects/ngine/editor/source/net.h
 log.h
 /home/melnik/projects/ngine/editor/source/log.h
-
-/home/melnik/projects/ngine/editor/source/net.c
-sys/socket.h
--
-netinet/in.h
--
-pthread.h
--
-malloc.h
--
-string.h
--
-unistd.h
--
-string.h
--
-log.h
-/home/melnik/projects/ngine/editor/source/log.h
-net.h
-/home/melnik/projects/ngine/editor/source/net.h
 
 /home/melnik/projects/ngine/editor/source/net.h
 stdint.h

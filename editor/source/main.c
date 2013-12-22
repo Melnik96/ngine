@@ -7,6 +7,7 @@
 #include "mesh.h"
 #include "math.h"
 #include "sc_obj.h"
+#include "math/vector.h"
 
 #include <stdio.h>
 #include <malloc.h>
@@ -70,7 +71,7 @@ int main(int argc, char *argv[]) {
   tree_add_child(&sc->root_object->link, &model->link);
   
   struct material mat;
-  vec3 vert[4];vert[0].val;
+  vec3 vert[4];
   vert[0].x = -1.;
   vert[0].y = -1.;
   vert[0].z = 0;
@@ -90,8 +91,8 @@ int main(int argc, char *argv[]) {
   struct mesh mh;
   memset(&mh, 0, sizeof(mh));
   mh.num_indices = 12;
-  mh.num_vertices = 12;
-  uint16_t indices[] = 
+  mh.num_vertices = 4;
+  uint32_t indices[] = 
     { 0, 3, 1,
       1, 3, 2,
       2, 3, 0,
@@ -99,13 +100,16 @@ int main(int argc, char *argv[]) {
   mh.indices = indices;
   mh.vertices = vert;
   
+  printf("indices sizeof %i\n", sizeof(uint32_t));
+  printf("vertices sizeof %i\n", sizeof(vec3));
+  
   struct entity ent;
   memset(&ent, 0, sizeof(ent));
   entity_init(engine0, &ent, "model_ent", &mh, &mat);
   
   model->typed_objs = &ent;
   model->listener = 0;
-  model->pos.z = -2.f;
+  model->pos.z = -20.f;
   sc_obj_update_matrix(model);
   
   //add camera

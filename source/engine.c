@@ -135,12 +135,13 @@ int neng_frame(struct engine* _self, float _elapsed) {
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
+      glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
   
       mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
       tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
       glfwSwapBuffers(_self->window);
       glfwPollEvents();
     }
@@ -213,13 +214,13 @@ void update_obj_handler(void* _node) {
 }
 
 void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
-  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, 0, _mvp_mat);
+  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp_mat);
   glUseProgram(cur_scene->cur_shader->id);
   
   //push uniforms to shader
   //use shader
   
-  glEnable(GL_DEPTH_TEST);
+//   glEnable(GL_DEPTH_TEST);
   glBindVertexArray(_entity->hw->vao);
   
 //         const unsigned int MaterialIndex = _entity->material[i];
@@ -233,7 +234,7 @@ void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _entity->hw->index);
 	glDrawElements(GL_TRIANGLES, 
                                _entity->mesh->num_indices, 
-                               GL_UNSIGNED_SHORT,
+                               GL_UNSIGNED_INT,
                                (void*)(0));
   
   glBindVertexArray(NULL);

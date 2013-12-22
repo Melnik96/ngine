@@ -344,10 +344,28 @@ void OpenGlFrustum(float l, float r, float b, float t, float n, float f, mat4* m
     mat->m[3][2] = -2 * f * n / (f - n);
     mat->m[3][3] = 0;
 }
-void mat_perspective(float angle, float imageAspectRatio, float n, float f, mat4* mat)
+void mat_perspective(float fov, float aspect, float near, float far, float* mret) {
+    float D2R = M_PI / 180.0;
+    float yScale = 1.0 / tan(D2R * fov / 2);
+    float xScale = yScale / aspect;
+    float nearmfar = near - far;
+    float m[] = {
+        xScale, 0, 0, 0,
+        0, yScale, 0, 0,
+        0, 0, (far + near) / nearmfar, -1,
+        0, 0, 2*far*near / nearmfar, 0
+    };
+    memcpy(mret, m, sizeof(float)*16);
+}
+
+void mat4_rot(mat4* m, float x, float y, float z)
 {
-    float scale = tan(deg2rad(angle * 0.5)) * n;
-    float r = imageAspectRatio * scale, l = -r;
-    float t = scale, b = -t;
-    OpenGlFrustum(l, r, b, t, n, f, mat);
+        const float A = cosf(x), B = sinf(x), C = cosf(y),
+                    D = sinf(y), E = cosf(z), F = sinf(z);
+        const float AD = A * D, BD = B * D;
+
+        m->_m[ 0] = C * E;           m->_m[ 1] = -C * F;          m->_m[ 2] = D;      m->_m[ 3] = 0;
+        m->_m[ 4] = BD * E + A * F;  m->_m[ 5] = -BD * F + A * E; m->_m[ 6] = -B * C; m->_m[ 7] = 0;
+        m->_m[ 8] = -AD * E + B * F; m->_m[ 9] = AD * F + B * E;  m->_m[10] = A * C;  m->_m[11] = 0;
+        m->_m[12] = 0;               m->_m[13] = 0;               m->_m[14] = 0;      m->_m[15] = 1;
 }

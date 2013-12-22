@@ -67,6 +67,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 #define GLUS_GEOMETRY_SHADER            0x8DD9
 #define GLUS_COMPUTE_SHADER 		0x91B9
   
+  strcpy(_prog->name, _name);
+  
   vert_shad = glCreateShader(GL_VERTEX_SHADER);
 
   glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
@@ -266,8 +268,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
     
   _prog->attribs = malloc(3*sizeof(struct shader_param));
   
-  glBindAttribLocation(_prog->id, GLSA_VERTEX, "vertex");
-  memcpy(_prog->attribs[GLSA_VERTEX].name, "vertex", sizeof "vertex");
+  glBindAttribLocation(_prog->id, GLSA_VERTEX, "vert");
+  memcpy(_prog->attribs[GLSA_VERTEX].name, "vert", sizeof "vert");
   _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
   
     glLinkProgram(_prog->id);
@@ -275,7 +277,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   _prog->uniforms = malloc(sizeof(struct shader_param));
   memcpy(_prog->uniforms->name, "MVP", 4);
   _prog->uniforms->id = glGetUniformLocation(_prog->id, "MVP");
-  if(!_prog->uniforms->id) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
+  if(_prog->uniforms->id < 0) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
 
     
     glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);

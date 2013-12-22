@@ -1,6 +1,11 @@
 #version 330 core
-out vec3 color;
- 
-void main() {
-    color = vec3(1,0,0);
-} 
+
+// in vec3 fragmentColor;
+
+out vec4 color;
+
+void main(void)
+{
+	vec3 cld = vec3(1.,0.,0.);
+	color = vec4(cld, 1.0);
+}

@@ -16,6 +16,7 @@ void mat4_identity(mat4* pMat);
 void mat4_mul(mat4* _f, mat4* _s);
 void mat4_mul_of(mat4* _mat, mat4* _f, mat4* _s);
 
-void mat_perspective(float angle, float imageAspectRatio, float n, float f, mat4* mat);
+void mat_perspective(float fov, float aspect, float near, float far, float* mret);
+void mat4_rot(mat4* m, float x, float y, float z);
 
 #endif

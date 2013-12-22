@@ -94,10 +94,6 @@ cntr/list.h
 
 /home/melnik/projects/ngine/source/iofile.h
 
-/home/melnik/projects/ngine/source/log.c
-log.h
-/home/melnik/projects/ngine/source/log.h
-
 /home/melnik/projects/ngine/source/log.h
 stdio.h
 -
@@ -127,24 +123,6 @@ cntr/tree.h
 /home/melnik/projects/ngine/source/cntr/tree.h
 
 /home/melnik/projects/ngine/source/scene.h
-
-/home/melnik/projects/ngine/source/shader_prog.c
-string.h
--
-pthread.h
--
-GL/glew.h
--
-GL/gl.h
--
-string.h
--
-string.h
--
-log.h
-/home/melnik/projects/ngine/source/log.h
-shader_prog.h
-/home/melnik/projects/ngine/source/shader_prog.h
 
 /home/melnik/projects/ngine/source/shader_prog.h
 stdint.h
