@@ -205,13 +205,16 @@ void update_obj_handler(void* _node) {
       
       mat4* mvp_matrix = malloc(sizeof(mat4));
       
-      mvp_matrix = &_obj->model_matrix;
+//       mvp_matrix = &_obj->model_matrix;
       
-      for(struct sc_obj* tmp_node = _obj; tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
-	mat4_mul_of(mvp_matrix, &tmp_node->model_matrix);
-      }
+      mat4_identity(mvp_matrix);
+      mat4_mul(mvp_matrix, &_obj->model_matrix);
       
-      mat4_mul(mvp_matrix, vp_matrix);
+//       for(struct sc_obj* tmp_node = _obj; tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
+// 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
+//       }
+      
+      mat4_mul_of(mvp_matrix, vp_matrix, mvp_matrix);
    
       //draw
       draw(cur_scene, ((struct entity*)_obj->typed_objs), mvp_matrix);//need frustum optimization
