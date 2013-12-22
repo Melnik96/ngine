@@ -8,13 +8,14 @@ Features
 - scene management
 -   tree-based scene graph
 
-Design
+Architecture
+------------
 |----------------------|--------|---------------|
-||gui		      |||      |||nodes|
+||gui		      |||      |||nodes|	|
 |----------------------|--------|---------------|
-||graphics	      |||audio |||logic|
+||graphics	      |||audio |||logic|	|
 |----------------------|--------|---------------|
-||opengl 1x||OpenGL 3x|||OpenAL|||
+||opengl 1x||OpenGL 3x|||OpenAL|||		|
 |----------------------|------------------------|
 
 TODO

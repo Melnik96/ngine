@@ -77,6 +77,17 @@ int neng_init(struct engine* _self, char* _win_name) {
   neng_get_opengl_version(_self->gl_ver);
   debug("OpenGL version %s", _self->gl_ver);
   
+  
+  // устанавливаем вьюпорт на все окно
+        glViewport(0, 0, 640, 480);
+
+        // параметры OpenGL
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearDepth(1.0f);
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
+  
+  
   //compile shaders
   debug("load shaders");
   struct shader_source sh_source;
@@ -135,13 +146,13 @@ int neng_frame(struct engine* _self, float _elapsed) {
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
       glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
   
       mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
   
       tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
       glfwSwapBuffers(_self->window);
       glfwPollEvents();
     }
@@ -214,8 +225,8 @@ void update_obj_handler(void* _node) {
 }
 
 void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
-  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp_mat);
   glUseProgram(cur_scene->cur_shader->id);
+  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp_mat);
   
   //push uniforms to shader
   //use shader
@@ -237,6 +248,8 @@ void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
                                GL_UNSIGNED_INT,
                                (void*)(0));
   
+	OPENGL_CHECK_FOR_ERRORS();
+	
   glBindVertexArray(NULL);
 }
 
