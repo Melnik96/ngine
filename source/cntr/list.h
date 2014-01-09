@@ -26,8 +26,6 @@ struct list {
   struct list *next;
 };
 
-struct ptr_offset_32 list_meta;
-
 void list_init(struct list *list);
 void list_insert(struct list *list, struct list *elm);
 void list_remove(struct list *elm);

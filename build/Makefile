@@ -127,6 +127,32 @@ ngine/fast:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
 .PHONY : ngine/fast
 
+#=============================================================================
+# Target rules for targets named s_dynstr
+
+# Build rule for target.
+s_dynstr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 s_dynstr
+.PHONY : s_dynstr
+
+# fast build rule for target.
+s_dynstr/fast:
+	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/build
+.PHONY : s_dynstr/fast
+
+#=============================================================================
+# Target rules for targets named s_np_struct
+
+# Build rule for target.
+s_np_struct: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 s_np_struct
+.PHONY : s_np_struct
+
+# fast build rule for target.
+s_np_struct/fast:
+	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/build
+.PHONY : s_np_struct/fast
+
 editor/source/main.o: editor/source/main.c.o
 .PHONY : editor/source/main.o
 
@@ -737,6 +763,8 @@ help:
 	@echo "... neditor"
 	@echo "... ngine"
 	@echo "... rebuild_cache"
+	@echo "... s_dynstr"
+	@echo "... s_np_struct"
 	@echo "... editor/source/main.o"
 	@echo "... editor/source/main.i"
 	@echo "... editor/source/main.s"

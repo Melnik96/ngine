@@ -17,7 +17,7 @@
  *
  */
 
-/* inclusion guard */
+
 #ifndef __SERIALIZE_H__
 #define __SERIALIZE_H__
 
@@ -25,87 +25,116 @@
 #include <string.h>
 #include <malloc.h>
 
-/**
- * dna - struct of host machine info(byte endian, cpu arch)
- * 
- *                                               |                    total_size                           |
- * |dna      |total_size|base_data_size|po_count |ptr_offset           |base_data     |data_from_ptrs      |
- * |2char(1) |uint64(8) |uint32(4)     |ushort(2)|uint64(8*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	64bit
- * |2char(1) |uint32(4) |uint32(4)     |ushort(2)|uint32(4*3*ptr_count)|base_data_size|sum(ptr_offset[n+3])|	32bit
- * 
- * some_ptr_offset[] = {
- *   ptr->aptr, 40, sizeof(ptr->aptr)
- *   ptr->bptr, 72, sizeof(ptr->bptr)
- * }
- */
-
-enum meta_offset {
-  MO_DNA = 0,
-  MO_TOTAL_SIZE = 2,
-  MO_BDATA_SIZE = 2+sizeof(uint32_t),
-  MO_PO_COUNT = 2+sizeof(uint32_t)*2,
-  MO_PTR_OFFSET = 2+sizeof(uint32_t)*2+2,
-  MO_BDATA_SIZE_64 = 2+sizeof(uint64_t),
-  MO_PO_COUNT_64 = 2+sizeof(uint64_t)*2,
-  MO_PTR_OFFSET_64 = 2+sizeof(uint64_t)*2+2
+struct buffer {
+  size_t size;
+  void*  data;
 };
 
-struct ptr_offset_32 {
-//   uint32_t ptr;
-  uint32_t offset;
-  uint32_t sdata_offset;//fuck incapsulation
-  uint32_t size;
-};
-struct ptr_offset_64 {
-  uint64_t ptr;
-  uint64_t offset;
-  uint64_t sdata_offset;
-  uint64_t size;
+struct ptr_offset {
+  intptr_t ptr;
+  intptr_t offset;
 };
 
-enum {
-  ENDIAN_BIG,
-  ENDIAN_LITTLE
-};
+struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, void* _ptr);
+void* find_ptr_in_array(size_t _num_ptrs, void** _ptrs, void* _ptr);
 
-enum {
-  ARCH_X86,
-  ARCH_X64
-};
+#define sfunc(struct_name, mod) 		struct buffer* struct_name##_##mod##_serializer(struct struct_name* s, struct ptr_offset* _ptr_os, size_t* _po_num, int _r_ser) {\
+						  struct buffer* buf = malloc(sizeof(struct buffer));\
+						  buf->data = malloc(sizeof(struct struct_name));\
+						  buf->size = sizeof(struct struct_name);\
+						  void* lnd = buf->data;\
+						  if(_po_num == NULL) { _po_num = malloc(sizeof(size_t)); *_po_num = 0; }
 
-struct dna {
-  char endian;
-  char arch;//64bit or 32bit
-};
+#define schar(attr)				  memcpy(lnd, &s->attr, sizeof(char));					lnd += sizeof(char);
+#define sint16(attr)				  memcpy(lnd, &s->attr, sizeof(int16_t));				lnd += sizeof(int16_t);
+#define sint32(attr)				  memcpy(lnd, &s->attr, sizeof(int32_t));				lnd += sizeof(int32_t);
+#define sint64(attr)				  memcpy(lnd, &s->attr, sizeof(int64_t));				lnd += sizeof(int64_t);
+#define sfloat(attr)				  memcpy(lnd, &s->attr, sizeof(float));					lnd += sizeof(float);
+#define sdouble(attr)				  memcpy(lnd, &s->attr, sizeof(double));				lnd += sizeof(double);
 
-struct meta {
-  uint32_t type_id;
-  uint32_t type_size;
-  //ptrs
-  struct ptr_offset_32* ptrs;
-};
+#define svoid_ptr(attr, _size)			  void* new_sdata = realloc(buf->data, buf->size+=((_size) - sizeof(void*)));\
+						  if(new_sdata != buf->data) {\
+						    memmove(new_sdata, buf->data, (size_t)(lnd - buf->data));\
+						    lnd = new_sdata + (lnd - buf->data);\
+						    buf->data = new_sdata;\
+						  }\
+						  memcpy(lnd, s->attr, _size);						lnd += _size;
 
-/**
- * base C type ids
- *   not C type -- 0
- *   void*      -- 1
- *   char 	-- 2
- *   int8 	-- 3
- *   int16 	-- 4
- *   int32 	-- 5
- *   int64 	-- 6
- *   float 	-- 7
- *   double 	-- 8
- */
+#define schar_ptr(attr)				  size_t attr##size = strlen(s->attr);\
+						  void* new_sdata = realloc(buf->data, buf->size+=((attr##size) - sizeof(void*)))\
+						  if(new_sdata != buf->data) { memmove(new_sdata, buf->data, (size_t)(lnd - buf->data)); }\
+						  buf->data = new_sdata;\
+						  memcpy(lnd, s->attr, attr##size);					lnd += attr##size;
 
-#define num_types 9
+#define sstruct_ptr(attr, struct_name, mod)	  *((void**)lnd) = s->attr;						lnd += sizeof(void*);\
+						  if(!check_ptr_in_po(*_po_num, _ptr_os, s->attr)) {\
+						    struct buffer* buf_##attr = struct_name##_##mod##_serializer(s->attr, _ptr_os, _po_num, 0);\
+						    void* new_data = realloc(buf->data, buf->size + buf_##attr->size);\
+						    if(buf->data != new_data) { memmove(new_data, buf->data, buf->size); }\
+						    lnd = new_data + (lnd - buf->data);\
+						    memcpy(lnd, buf_##attr->data, buf_##attr->size);			lnd += buf_##attr->size;\
+						    buf->size += buf_##attr->size;\
+						    free(buf_##attr);\
+						    void* new_po = realloc(_ptr_os, (*_po_num+1) * sizeof(struct ptr_offset));\
+						    if(_ptr_os != new_po) {\
+						      memmove(new_po, _ptr_os, (*_po_num) * sizeof(struct ptr_offset));\
+						      _ptr_os = new_po;\
+						    }\
+						    _ptr_os[*_po_num].ptr = (intptr_t)s->attr;\
+						    _ptr_os[*_po_num].offset = lnd - buf_##attr->data;\
+													  *_po_num += 1;\
+						  }
 
-static struct meta* smetas[num_types];
+#define funcs 					  if(_r_ser && _ptr_os) {\
+						    void* new_data = realloc(buf->data, buf->size + sizeof(size_t) + (*_po_num) * sizeof(struct ptr_offset));\
+						    memmove(new_data + sizeof(size_t) + (*_po_num) * sizeof(struct ptr_offset), buf->data, buf->size);\
+						    *((size_t*)new_data) = *_po_num;\
+						    memcpy(new_data + sizeof(size_t), _ptr_os, *_po_num * sizeof(struct ptr_offset));\
+						    buf->data = new_data;\
+						    buf->size += sizeof(size_t) + *_po_num * sizeof(struct ptr_offset);\
+						  }\
+						  return buf;\
+						}
 
-//це не баг, це фіча
-struct meta* smeta_init(uint32_t _type_id, uint32_t _type_size);
+#define dsfunc(struct_name, mod) 		struct struct_name* struct_name##_##mod##_deserializer(void* sdata) {\
+						  struct struct_name* dsdata = malloc(sizeof(struct struct_name));\
+						  size_t po_num = *((size_t*)sdata);\
+						  printf("afsf = %x", sdata);\
+						  struct ptr_offset* ptr_os = (sdata + sizeof(size_t));\
+						  size_t po_last_ds = 0;\
+						  struct ptr_offset* ptr_os_ds = malloc(po_num * sizeof(struct ptr_offset));\
+						  void* lnds = (sdata + sizeof(size_t) + po_num*sizeof(struct ptr_offset));
 
-void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, uint32_t _po_len);
-void* deserialize(void* _sdata);
+#define dschar(attr)				  dsdata->attr = *(char*)lnds;						lnds += sizeof(char);
+#define dsint16(attr)				  dsdata->attr = *(int16_t*)lnds;					lnds += sizeof(int16_t);
+#define dsint32(attr)				  dsdata->attr = *(int32_t*)lnds;					lnds += sizeof(int32_t);
+#define dsint64(attr)				  dsdata->attr = *(int64_t*)lnds;					lnds += sizeof(int64_t);
+#define dsfloat(attr)				  dsdata->attr = *(float*)lnds;						lnds += sizeof(float);
+#define dsdouble(attr)				  dsdata->attr = *(double*)lnds;					lnds += sizeof(double);
+
+#define dsvoid_ptr(attr, size)			  dsdata->attr = malloc(size);\
+						  memcpy(dsdata->attr, lnds, (size));					lnds += size;
+
+#define dschar_ptr(attr)			  size_t attr##_size = strlen((char*)lnds)+1;\
+						  dsdata->attr = malloc(attr##_size);\
+						  memcpy(dsdata->attr, lnds, attr##_size);				lnds += attr##_size;
+
+#define dsstruct_ptr(attr, struct_name, mod)	  struct ptr_offset* p = NULL;\
+						  if(p = check_ptr_in_po(po_last_ds, ptr_os_ds, *((void**)lnds))) {\
+						    dsdata->attr = p->offset;						lnds += sizeof(void*);\
+						  } else if(p = check_ptr_in_po(po_num, ptr_os, *((void**)lnds))) {\
+						    struct struct_name* dsattr_##attr = struct_name##_##mod##_deserializer((sdata + p->offset));\
+						    dsdata->attr = dsattr_##attr;\
+						    ptr_os_ds[po_last_ds].ptr = p->ptr;\
+						    ptr_os_ds[po_last_ds].offset = dsattr_##attr;	po_last_ds += 1;	lnds += sizeof(void*) + sizeof(struct struct_name);\
+						  }
+
+#define funcds					  return dsdata;\
+						}
+
+
+#define serialize(obj_ptr, struct_name, mod)		struct_name##_##mod##_serializer(obj_ptr, NULL, NULL, 1)
+
+#define deserialize(sdata_ptr, struct_name, mod)	struct_name##_##mod##_deserializer(sdata_ptr)
 
 #endif /* __SERIALIZE_H__ */

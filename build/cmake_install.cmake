@@ -36,6 +36,7 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/home/melnik/projects/ngine/build/examples/cmake_install.cmake")
   INCLUDE("/home/melnik/projects/ngine/build/source/physics/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/source/serialize/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

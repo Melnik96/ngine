@@ -12,7 +12,12 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12/CMakeCXXCompiler.cmake"
   "CMakeFiles/2.8.12/CMakeSystem.cmake"
   "../examples/CMakeLists.txt"
+  "../examples/serialize/dyn_string/CMakeLists.txt"
+  "../examples/serialize/linked_list/CMakeLists.txt"
+  "../examples/serialize/mesh/CMakeLists.txt"
+  "../examples/serialize/nasted_ptr_struct/CMakeLists.txt"
   "../source/physics/CMakeLists.txt"
+  "../source/serialize/CMakeLists.txt"
   "/usr/share/cmake-2.8/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake"
@@ -38,11 +43,18 @@ SET(CMAKE_MAKEFILE_OUTPUTS
 SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/serialize/dyn_string/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/serialize/linked_list/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/serialize/mesh/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/serialize/nasted_ptr_struct/CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/physics/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/serialize/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/neditor.dir/DependInfo.cmake"
   "CMakeFiles/ngine.dir/DependInfo.cmake"
+  "examples/CMakeFiles/s_dynstr.dir/DependInfo.cmake"
+  "examples/CMakeFiles/s_np_struct.dir/DependInfo.cmake"
   )

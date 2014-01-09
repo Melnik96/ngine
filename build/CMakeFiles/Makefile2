@@ -129,16 +129,159 @@ clean: CMakeFiles/ngine.dir/clean
 # Directory level rules for directory examples
 
 # Convenience name for "all" pass in the directory.
-examples/all:
+examples/all: examples/CMakeFiles/s_dynstr.dir/all
+examples/all: examples/CMakeFiles/s_np_struct.dir/all
+examples/all: examples/serialize/dyn_string/all
+examples/all: examples/serialize/linked_list/all
+examples/all: examples/serialize/mesh/all
+examples/all: examples/serialize/nasted_ptr_struct/all
 .PHONY : examples/all
 
 # Convenience name for "clean" pass in the directory.
-examples/clean:
+examples/clean: examples/CMakeFiles/s_dynstr.dir/clean
+examples/clean: examples/CMakeFiles/s_np_struct.dir/clean
+examples/clean: examples/serialize/dyn_string/clean
+examples/clean: examples/serialize/linked_list/clean
+examples/clean: examples/serialize/mesh/clean
+examples/clean: examples/serialize/nasted_ptr_struct/clean
 .PHONY : examples/clean
 
 # Convenience name for "preinstall" pass in the directory.
-examples/preinstall:
+examples/preinstall: examples/serialize/dyn_string/preinstall
+examples/preinstall: examples/serialize/linked_list/preinstall
+examples/preinstall: examples/serialize/mesh/preinstall
+examples/preinstall: examples/serialize/nasted_ptr_struct/preinstall
 .PHONY : examples/preinstall
+
+#=============================================================================
+# Target rules for target examples/CMakeFiles/s_dynstr.dir
+
+# All Build rule for target.
+examples/CMakeFiles/s_dynstr.dir/all: CMakeFiles/ngine.dir/all
+	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/depend
+	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  26
+	@echo "Built target s_dynstr"
+.PHONY : examples/CMakeFiles/s_dynstr.dir/all
+
+# Include target in all.
+all: examples/CMakeFiles/s_dynstr.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+examples/CMakeFiles/s_dynstr.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 24
+	$(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/s_dynstr.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
+.PHONY : examples/CMakeFiles/s_dynstr.dir/rule
+
+# Convenience name for target.
+s_dynstr: examples/CMakeFiles/s_dynstr.dir/rule
+.PHONY : s_dynstr
+
+# clean rule for target.
+examples/CMakeFiles/s_dynstr.dir/clean:
+	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/clean
+.PHONY : examples/CMakeFiles/s_dynstr.dir/clean
+
+# clean rule for target.
+clean: examples/CMakeFiles/s_dynstr.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target examples/CMakeFiles/s_np_struct.dir
+
+# All Build rule for target.
+examples/CMakeFiles/s_np_struct.dir/all: CMakeFiles/ngine.dir/all
+	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/depend
+	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  27
+	@echo "Built target s_np_struct"
+.PHONY : examples/CMakeFiles/s_np_struct.dir/all
+
+# Include target in all.
+all: examples/CMakeFiles/s_np_struct.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+examples/CMakeFiles/s_np_struct.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 24
+	$(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/s_np_struct.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
+.PHONY : examples/CMakeFiles/s_np_struct.dir/rule
+
+# Convenience name for target.
+s_np_struct: examples/CMakeFiles/s_np_struct.dir/rule
+.PHONY : s_np_struct
+
+# clean rule for target.
+examples/CMakeFiles/s_np_struct.dir/clean:
+	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/clean
+.PHONY : examples/CMakeFiles/s_np_struct.dir/clean
+
+# clean rule for target.
+clean: examples/CMakeFiles/s_np_struct.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory examples/serialize/dyn_string
+
+# Convenience name for "all" pass in the directory.
+examples/serialize/dyn_string/all:
+.PHONY : examples/serialize/dyn_string/all
+
+# Convenience name for "clean" pass in the directory.
+examples/serialize/dyn_string/clean:
+.PHONY : examples/serialize/dyn_string/clean
+
+# Convenience name for "preinstall" pass in the directory.
+examples/serialize/dyn_string/preinstall:
+.PHONY : examples/serialize/dyn_string/preinstall
+
+#=============================================================================
+# Directory level rules for directory examples/serialize/linked_list
+
+# Convenience name for "all" pass in the directory.
+examples/serialize/linked_list/all:
+.PHONY : examples/serialize/linked_list/all
+
+# Convenience name for "clean" pass in the directory.
+examples/serialize/linked_list/clean:
+.PHONY : examples/serialize/linked_list/clean
+
+# Convenience name for "preinstall" pass in the directory.
+examples/serialize/linked_list/preinstall:
+.PHONY : examples/serialize/linked_list/preinstall
+
+#=============================================================================
+# Directory level rules for directory examples/serialize/mesh
+
+# Convenience name for "all" pass in the directory.
+examples/serialize/mesh/all:
+.PHONY : examples/serialize/mesh/all
+
+# Convenience name for "clean" pass in the directory.
+examples/serialize/mesh/clean:
+.PHONY : examples/serialize/mesh/clean
+
+# Convenience name for "preinstall" pass in the directory.
+examples/serialize/mesh/preinstall:
+.PHONY : examples/serialize/mesh/preinstall
+
+#=============================================================================
+# Directory level rules for directory examples/serialize/nasted_ptr_struct
+
+# Convenience name for "all" pass in the directory.
+examples/serialize/nasted_ptr_struct/all:
+.PHONY : examples/serialize/nasted_ptr_struct/all
+
+# Convenience name for "clean" pass in the directory.
+examples/serialize/nasted_ptr_struct/clean:
+.PHONY : examples/serialize/nasted_ptr_struct/clean
+
+# Convenience name for "preinstall" pass in the directory.
+examples/serialize/nasted_ptr_struct/preinstall:
+.PHONY : examples/serialize/nasted_ptr_struct/preinstall
 
 #=============================================================================
 # Directory level rules for directory source/physics
@@ -154,6 +297,21 @@ source/physics/clean:
 # Convenience name for "preinstall" pass in the directory.
 source/physics/preinstall:
 .PHONY : source/physics/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/serialize
+
+# Convenience name for "all" pass in the directory.
+source/serialize/all:
+.PHONY : source/serialize/all
+
+# Convenience name for "clean" pass in the directory.
+source/serialize/clean:
+.PHONY : source/serialize/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/serialize/preinstall:
+.PHONY : source/serialize/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

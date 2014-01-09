@@ -32,3 +32,12 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   SET(CMAKE_INSTALL_SO_NO_EXE "0")
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
+IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  INCLUDE("/home/melnik/projects/ngine/build/examples/serialize/dyn_string/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/examples/serialize/linked_list/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/examples/serialize/mesh/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/examples/serialize/nasted_ptr_struct/cmake_install.cmake")
+
+ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
+

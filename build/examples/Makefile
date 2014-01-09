@@ -101,6 +101,82 @@ depend:
 	cd /home/melnik/projects/ngine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+examples/CMakeFiles/s_dynstr.dir/rule:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/s_dynstr.dir/rule
+.PHONY : examples/CMakeFiles/s_dynstr.dir/rule
+
+# Convenience name for target.
+s_dynstr: examples/CMakeFiles/s_dynstr.dir/rule
+.PHONY : s_dynstr
+
+# fast build rule for target.
+s_dynstr/fast:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/build
+.PHONY : s_dynstr/fast
+
+# Convenience name for target.
+examples/CMakeFiles/s_np_struct.dir/rule:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/s_np_struct.dir/rule
+.PHONY : examples/CMakeFiles/s_np_struct.dir/rule
+
+# Convenience name for target.
+s_np_struct: examples/CMakeFiles/s_np_struct.dir/rule
+.PHONY : s_np_struct
+
+# fast build rule for target.
+s_np_struct/fast:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/build
+.PHONY : s_np_struct/fast
+
+serialize/dyn_string/main.o: serialize/dyn_string/main.c.o
+.PHONY : serialize/dyn_string/main.o
+
+# target to build an object file
+serialize/dyn_string/main.c.o:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/serialize/dyn_string/main.c.o
+.PHONY : serialize/dyn_string/main.c.o
+
+serialize/dyn_string/main.i: serialize/dyn_string/main.c.i
+.PHONY : serialize/dyn_string/main.i
+
+# target to preprocess a source file
+serialize/dyn_string/main.c.i:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/serialize/dyn_string/main.c.i
+.PHONY : serialize/dyn_string/main.c.i
+
+serialize/dyn_string/main.s: serialize/dyn_string/main.c.s
+.PHONY : serialize/dyn_string/main.s
+
+# target to generate assembly for a file
+serialize/dyn_string/main.c.s:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/serialize/dyn_string/main.c.s
+.PHONY : serialize/dyn_string/main.c.s
+
+serialize/nasted_ptr_struct/main.o: serialize/nasted_ptr_struct/main.c.o
+.PHONY : serialize/nasted_ptr_struct/main.o
+
+# target to build an object file
+serialize/nasted_ptr_struct/main.c.o:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/serialize/nasted_ptr_struct/main.c.o
+.PHONY : serialize/nasted_ptr_struct/main.c.o
+
+serialize/nasted_ptr_struct/main.i: serialize/nasted_ptr_struct/main.c.i
+.PHONY : serialize/nasted_ptr_struct/main.i
+
+# target to preprocess a source file
+serialize/nasted_ptr_struct/main.c.i:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/serialize/nasted_ptr_struct/main.c.i
+.PHONY : serialize/nasted_ptr_struct/main.c.i
+
+serialize/nasted_ptr_struct/main.s: serialize/nasted_ptr_struct/main.c.s
+.PHONY : serialize/nasted_ptr_struct/main.s
+
+# target to generate assembly for a file
+serialize/nasted_ptr_struct/main.c.s:
+	cd /home/melnik/projects/ngine/build && $(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/serialize/nasted_ptr_struct/main.c.s
+.PHONY : serialize/nasted_ptr_struct/main.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -109,6 +185,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... s_dynstr"
+	@echo "... s_np_struct"
+	@echo "... serialize/dyn_string/main.o"
+	@echo "... serialize/dyn_string/main.i"
+	@echo "... serialize/dyn_string/main.s"
+	@echo "... serialize/nasted_ptr_struct/main.o"
+	@echo "... serialize/nasted_ptr_struct/main.i"
+	@echo "... serialize/nasted_ptr_struct/main.s"
 .PHONY : help
 
 

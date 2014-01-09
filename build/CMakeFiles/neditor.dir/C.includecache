@@ -66,10 +66,6 @@ string.h
 malloc.h
 -
 
-../source/string.h
-stddef.h
--
-
 ../source/viewport.h
 math/matrix.h
 ../source/math/matrix.h

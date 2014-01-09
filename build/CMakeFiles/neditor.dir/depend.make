@@ -14,13 +14,11 @@ CMakeFiles/neditor.dir/editor/source/main.c.o: ../source/mesh.h
 CMakeFiles/neditor.dir/editor/source/main.c.o: ../source/sc_obj.h
 CMakeFiles/neditor.dir/editor/source/main.c.o: ../source/scene.h
 CMakeFiles/neditor.dir/editor/source/main.c.o: ../source/serialize.h
-CMakeFiles/neditor.dir/editor/source/main.c.o: ../source/string.h
 CMakeFiles/neditor.dir/editor/source/main.c.o: ../source/viewport.h
 CMakeFiles/neditor.dir/editor/source/main.c.o: ../editor/source/main.c
 CMakeFiles/neditor.dir/editor/source/main.c.o: ../editor/source/net.h
 
 CMakeFiles/neditor.dir/editor/source/net.c.o: ../source/log.h
-CMakeFiles/neditor.dir/editor/source/net.c.o: ../source/string.h
 CMakeFiles/neditor.dir/editor/source/net.c.o: ../editor/source/net.c
 CMakeFiles/neditor.dir/editor/source/net.c.o: ../editor/source/net.h
 

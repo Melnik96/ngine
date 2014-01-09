@@ -19,87 +19,16 @@
 
 #include "serialize.h"
 
-void* serialize(void* _data, uint32_t _data_size, struct dna* _dna, uint32_t _po_len) {
-  void* sdata;
-  void* end_used;
-  void* _ptr_offset = _data+64;
-  
-#if __x86_64__
-  uint64_t po_size = _po_len * sizeof(struct ptr_offset_64);
-#elif __i386__
-  printf("#elseif __i386__\n");
-  uint32_t total_size;
-  uint32_t ptrs_data_size = 0;
-  
-  for(uint8_t i = 0; i < _po_len; i+=1) {
-    ptrs_data_size += ((struct ptr_offset_32*)_ptr_offset)[i].size;
+struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, void* _ptr) {
+  for(size_t i = 0; i < _ptr_num; ++i) {
+    if(_ptr_os[i].ptr == _ptr) { return &_ptr_os[i]; }
   }
-  
-  uint32_t po_size = _po_len * sizeof(struct ptr_offset_32);
-  total_size = MO_PTR_OFFSET+po_size+_data_size+ptrs_data_size;
-  
-  sdata = malloc(total_size);
-  
-  end_used = sdata;
-  
-  memcpy(end_used, _dna, sizeof(struct dna));
-  end_used += sizeof(struct dna);
-  memcpy(end_used, &total_size, sizeof(uint32_t));
-  end_used += sizeof(uint32_t);//4 bytes
-  memcpy(end_used, &_data_size, sizeof(uint32_t));
-  end_used += sizeof(uint32_t);
-  memcpy(end_used, &_po_len, sizeof(uint16_t));
-  end_used += sizeof(uint16_t);//2 bytes
-  memcpy(end_used, _ptr_offset, po_size);
-  end_used += po_size;
-  memcpy(end_used, _data, _data_size);
-  end_used += _data_size;
-  
-  uint32_t cur_ptr_size;
-  for(uint8_t i = 0; i < _po_len; i+=1) {
-    cur_ptr_size = ((struct ptr_offset_32*)_ptr_offset)[i].size;
-    memcpy(end_used, *(void**)((_data+((struct ptr_offset_32*)_ptr_offset)[i].offset)), cur_ptr_size);
-    end_used += cur_ptr_size;
-  }
-#else 
-// #  error unsupported arch
-#endif
-  
-  return sdata;
+  return 0;
 }
 
-void* deserialize(void* _sdata) {
-  void* data;
-  
-  uint32_t base_data_size;
-  uint32_t po_len;
-  
-  struct dna* dna_data = ((struct dna*)_sdata/*+MO_DNA*/);
-  po_len = *((uint16_t*)(_sdata+MO_PO_COUNT));
-  
-  if(((struct dna*)_sdata)->arch == ARCH_X64) {
-    struct ptr_offset_64* ptr_offset;
-    
-    base_data_size = *((uint64_t*)_sdata+MO_BDATA_SIZE_64);
-    ptr_offset = ((struct ptr_offset_64*)_sdata+MO_PTR_OFFSET_64);
-    data = (void*)(_sdata+MO_PTR_OFFSET_64+po_len*sizeof(struct ptr_offset_64));
-  
-    for(uint8_t i = 0; i < po_len; i+=1) {
-      void* ptr_sdata = (void*)(data+base_data_size+(uint64_t)(ptr_offset[i].sdata_offset));
-      memcpy((void*)(data+ptr_offset[i].offset), &ptr_sdata, sizeof(uint64_t));
-    }
-  } else {
-    struct ptr_offset_32* ptr_offset;
-    
-    base_data_size = *((uint32_t*)_sdata+MO_BDATA_SIZE);
-    ptr_offset = ((struct ptr_offset_32*)_sdata+MO_PTR_OFFSET);
-    data = (void*)(_sdata+MO_PTR_OFFSET+po_len*sizeof(struct ptr_offset_32));
-   
-    for(uint8_t i = 0; i < po_len; i+=1) {
-      void* ptr_sdata = (void*)(data+base_data_size+(uint32_t)(ptr_offset[i].sdata_offset));
-      memcpy((void*)(data+ptr_offset[i].offset), &ptr_sdata, sizeof(uint32_t));
-    }
+void* find_ptr_in_array(size_t _num_ptrs, void** _ptrs, void* _ptr) {
+  for(size_t i = 0; i < _num_ptrs; ++i) {
+    if(_ptrs[i] == _ptr) { return _ptr; }
   }
-  
-  return data;
-};
+  return NULL;
+}

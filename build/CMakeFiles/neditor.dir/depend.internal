@@ -15,12 +15,10 @@ CMakeFiles/neditor.dir/editor/source/main.c.o
  ../source/sc_obj.h
  ../source/scene.h
  ../source/serialize.h
- ../source/string.h
  ../source/viewport.h
  /home/melnik/projects/ngine/editor/source/main.c
  /home/melnik/projects/ngine/editor/source/net.h
 CMakeFiles/neditor.dir/editor/source/net.c.o
  ../source/log.h
- ../source/string.h
  /home/melnik/projects/ngine/editor/source/net.c
  /home/melnik/projects/ngine/editor/source/net.h

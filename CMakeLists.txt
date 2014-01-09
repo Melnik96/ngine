@@ -38,3 +38,4 @@ target_link_libraries(neditor
 add_subdirectory(examples)
 
 add_subdirectory(source/physics)
+add_subdirectory(source/serialize)

@@ -20,12 +20,20 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include <stddef.h>
+#include <stdlib.h>
 
 struct string {
   char* str;
   size_t len;
   size_t alloc;
 };
+
+struct string* strp(const char* _cstr) {
+  struct string* str = malloc(sizeof(struct string));
+  str->str = _cstr;
+  str->len = strlen(_cstr);
+  str->alloc = str->len + 1;
+  return str;
+}
 
 #endif // STRING_H

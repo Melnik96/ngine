@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../source/dynstr.h
+stdlib.h
+-
+
+../source/serialize.h
+stdint.h
+-
+string.h
+-
+malloc.h
+-
+
+/home/melnik/projects/ngine/examples/serialize/dyn_string/main.c
+string.h
+-
+string.h
+/home/melnik/projects/ngine/examples/serialize/dyn_string/string.h
+serialize.h
+/home/melnik/projects/ngine/examples/serialize/dyn_string/serialize.h
+sfuncs.h
+/home/melnik/projects/ngine/examples/serialize/dyn_string/sfuncs.h
+
+/home/melnik/projects/ngine/examples/serialize/dyn_string/sfuncs.h
+serialize.h
+/home/melnik/projects/ngine/examples/serialize/dyn_string/serialize.h
+dynstr.h
+/home/melnik/projects/ngine/examples/serialize/dyn_string/dynstr.h
+
