@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+../cinterp/cinterp.h
+libtcc.h
+-
+stdio.h
+-
+string.h
+-
+malloc.h
+-
+engine.h
+../cinterp/engine.h
+iofile.h
+../cinterp/iofile.h
+
 ../source/camera.h
 math/matrix.h
 ../source/math/matrix.h
@@ -27,6 +41,8 @@ cntr/list.h
 ../source/cntr/list.h
 
 ../source/entity.h
+
+../source/iofile.h
 
 ../source/log.h
 stdio.h
@@ -109,6 +125,8 @@ net.h
 /home/melnik/projects/ngine/editor/source/net.h
 log.h
 /home/melnik/projects/ngine/editor/source/log.h
+../cinterp/cinterp.h
+-
 
 /home/melnik/projects/ngine/editor/source/net.h
 stdint.h

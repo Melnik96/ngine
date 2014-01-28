@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../source/math/SIMDx86/align.h
-malloc.h
--
-
-../source/math/deg2rad.h
-math.h
--
-
-../source/math/matrix.h
-
 ../source/serialize.h
 stdint.h
 -
@@ -24,56 +14,20 @@ string.h
 malloc.h
 -
 
-/home/melnik/projects/ngine/source/camera.c
-camera.h
-/home/melnik/projects/ngine/source/camera.h
-
 /home/melnik/projects/ngine/source/camera.h
 math/matrix.h
 /home/melnik/projects/ngine/source/math/matrix.h
-
-/home/melnik/projects/ngine/source/cntr/array.c
-malloc.h
--
-memory.h
--
-array.h
-/home/melnik/projects/ngine/source/cntr/array.h
 
 /home/melnik/projects/ngine/source/cntr/array.h
 sys/types.h
 -
 
-/home/melnik/projects/ngine/source/cntr/list.c
-stdlib.h
--
-list.h
-/home/melnik/projects/ngine/source/cntr/list.h
-
 /home/melnik/projects/ngine/source/cntr/list.h
 serialize.h
 -
 
-/home/melnik/projects/ngine/source/cntr/tree.c
-tree.h
-/home/melnik/projects/ngine/source/cntr/tree.h
-
 /home/melnik/projects/ngine/source/cntr/tree.h
 stdlib.h
--
-
-/home/melnik/projects/ngine/source/dynlib.c
-dynlib.h
-/home/melnik/projects/ngine/source/dynlib.h
-mempool.h
-/home/melnik/projects/ngine/source/mempool.h
-dlfcn.h
--
-string.h
--
-
-/home/melnik/projects/ngine/source/dynlib.h
-stdint.h
 -
 
 /home/melnik/projects/ngine/source/engine.c
@@ -156,89 +110,23 @@ entity.h
 
 /home/melnik/projects/ngine/source/entity.h
 
-/home/melnik/projects/ngine/source/iofile.c
-stdio.h
--
-stdlib.h
--
-errno.h
--
-iofile.h
 /home/melnik/projects/ngine/source/iofile.h
-
-/home/melnik/projects/ngine/source/iofile.h
-
-/home/melnik/projects/ngine/source/log.c
-log.h
-/home/melnik/projects/ngine/source/log.h
 
 /home/melnik/projects/ngine/source/log.h
 stdio.h
 -
 
-/home/melnik/projects/ngine/source/material.c
-material.h
-/home/melnik/projects/ngine/source/material.h
-
-/home/melnik/projects/ngine/source/material.h
-math/vector.h
-/home/melnik/projects/ngine/source/math/vector.h
-
-/home/melnik/projects/ngine/source/math/consts.c
-SIMDx86/align.h
--
-
-/home/melnik/projects/ngine/source/math/matrix.c
-memory.h
--
-math.h
--
-math/matrix.h
-/home/melnik/projects/ngine/source/math/math/matrix.h
-math/deg2rad.h
-/home/melnik/projects/ngine/source/math/math/deg2rad.h
-
-/home/melnik/projects/ngine/source/math/matrix.h
-
-/home/melnik/projects/ngine/source/math/vector.c
-matrix.h
 /home/melnik/projects/ngine/source/math/matrix.h
 
 /home/melnik/projects/ngine/source/math/vector.h
 stdint.h
 -
 
-/home/melnik/projects/ngine/source/mempool.h
-stdlib.h
--
-
-/home/melnik/projects/ngine/source/mesh.c
-mesh.h
-/home/melnik/projects/ngine/source/mesh.h
-
 /home/melnik/projects/ngine/source/mesh.h
 stdint.h
 -
 math/vector.h
 /home/melnik/projects/ngine/source/math/vector.h
-
-/home/melnik/projects/ngine/source/node.c
-malloc.h
--
-string.h
--
-node.h
-/home/melnik/projects/ngine/source/node.h
-
-/home/melnik/projects/ngine/source/node.h
-stdint.h
--
-
-/home/melnik/projects/ngine/source/physics_mgr.c
-physics_mgr.h
-/home/melnik/projects/ngine/source/physics_mgr.h
-
-/home/melnik/projects/ngine/source/physics_mgr.h
 
 /home/melnik/projects/ngine/source/render/hw_buffers.h
 stdint.h
@@ -280,47 +168,9 @@ scene.h
 
 /home/melnik/projects/ngine/source/scene.h
 
-/home/melnik/projects/ngine/source/serialize.c
-serialize.h
-/home/melnik/projects/ngine/source/serialize.h
-
-/home/melnik/projects/ngine/source/serialize.h
-stdint.h
--
-string.h
--
-malloc.h
--
-
-/home/melnik/projects/ngine/source/shader_prog.c
-string.h
--
-pthread.h
--
-GL/glew.h
--
-GL/gl.h
--
-string.h
--
-string.h
--
-log.h
-/home/melnik/projects/ngine/source/log.h
-shader_prog.h
-/home/melnik/projects/ngine/source/shader_prog.h
-
 /home/melnik/projects/ngine/source/shader_prog.h
 stdint.h
 -
-
-/home/melnik/projects/ngine/source/string.c
-string.h
-/home/melnik/projects/ngine/source/string.h
-
-/home/melnik/projects/ngine/source/viewport.c
-viewport.h
-/home/melnik/projects/ngine/source/viewport.h
 
 /home/melnik/projects/ngine/source/viewport.h
 math/matrix.h

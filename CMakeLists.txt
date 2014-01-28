@@ -31,6 +31,7 @@ target_link_libraries(ngine
 add_executable(neditor editor/source/net.c editor/source/main.c)
 target_link_libraries(neditor
   ngine
+  tcc
 )
 
 # install(TARGETS ngine LIBRARY DESTINATION lib)
@@ -39,3 +40,4 @@ add_subdirectory(examples)
 
 add_subdirectory(source/physics)
 add_subdirectory(source/serialize)
+add_subdirectory(cinterp)

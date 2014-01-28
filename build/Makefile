@@ -153,6 +153,19 @@ s_np_struct/fast:
 	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/build
 .PHONY : s_np_struct/fast
 
+#=============================================================================
+# Target rules for targets named cinterp
+
+# Build rule for target.
+cinterp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cinterp
+.PHONY : cinterp
+
+# fast build rule for target.
+cinterp/fast:
+	$(MAKE) -f cinterp/CMakeFiles/cinterp.dir/build.make cinterp/CMakeFiles/cinterp.dir/build
+.PHONY : cinterp/fast
+
 editor/source/main.o: editor/source/main.c.o
 .PHONY : editor/source/main.o
 
@@ -765,6 +778,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... s_dynstr"
 	@echo "... s_np_struct"
+	@echo "... cinterp"
 	@echo "... editor/source/main.o"
 	@echo "... editor/source/main.i"
 	@echo "... editor/source/main.s"

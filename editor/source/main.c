@@ -19,6 +19,11 @@
 #include "cntr/tree.h"
 #include "net.h"
 #include "log.h"
+#include <../cinterp/cinterp.h>
+
+struct engine* get_ngine_intense(void* _ptr) {
+  return _ptr;
+}
 
 int main(int argc, char *argv[]) {
 //   signal(SIGINT, neng_shutdown);
@@ -30,31 +35,15 @@ int main(int argc, char *argv[]) {
     printf("engine init fail\n");
   }
   
-  pthread_t thread;
-  if(pthread_create(&thread, NULL, rconsole_init, NULL) < 0) {
+  pthread_t thr_rcons;
+  if(pthread_create(&thr_rcons, NULL, rconsole_init, NULL) < 0) {
       warning("could not create thread: rconsole");
   }
+  pthread_t thr_cinterp;
+  if(pthread_create(&thr_cinterp, NULL, cinterp_run, get_ngine_intense) < 0) {
+      warning("could not create thread: cinterp");
+  }
   debug("continue executing main thread");
-  
-//   struct ptr_offset_32 ptr_offset1[] = {
-// //     {engine->viewport, offsetof(struct engine, viewport), sizeof(struct viewport)},
-//     {engine0->gl_ver, offsetof(struct engine, gl_ver), 0, /*sizeof(*(engine->gl_ver))*/6}
-//   };
-//   
-//   struct dna and = {
-//     ENDIAN_LITTLE,
-//     ARCH_X86
-//   };
-//   
-//   void* sdata = serialize(engine0, sizeof(*engine0), &and, ptr_offset1, 1);
-//   FILE* sdata_file = fopen("./sdata", "w");
-//   fputs((char*)sdata, sdata_file);
-//   fwrite(sdata, 1, *(uint32_t*)(sdata+2), sdata_file);
-//   fclose(sdata_file);
-//   //deserialize
-//   struct engine* engine_des;
-//   engine_des = deserialize(sdata);
-//   printf("deserialized data struct: engine      gl_ver = %s\n", engine_des->gl_ver);
   
   //load scene from .blend
   
@@ -121,7 +110,8 @@ int main(int argc, char *argv[]) {
   engine0->viewport->camera = cam;
   mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
   
-  if(argc > 1 && memcmp(argv[1], "-norender", 5)) {
+   printf("argc = %i\n argv = %s\n", argc, argv[1]);
+  if(argc > 1/* && strncmp(argv[1], "-norender", 5)*/) {
     engine0->active_render = 0;
   } else {
     engine0->active_render = 1;
