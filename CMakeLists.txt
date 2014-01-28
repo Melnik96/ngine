@@ -26,12 +26,13 @@ target_link_libraries(ngine
   "GLEW"
   "glfw"
   "pthread"
+  "libtcc.a"
+  "dl"
 )
 
 add_executable(neditor editor/source/net.c editor/source/main.c)
 target_link_libraries(neditor
   ngine
-  tcc
 )
 
 # install(TARGETS ngine LIBRARY DESTINATION lib)

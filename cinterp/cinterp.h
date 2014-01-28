@@ -20,10 +20,11 @@
 #ifndef CINTERP_H
 #define CINTERP_H
 
-#include <libtcc.h>
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
+
+#include <libtcc.h>
 
 #include "engine.h"
 #include "iofile.h"
@@ -70,14 +71,19 @@ int cinterp_run(void* _ptr_fun) {
     memset(source, 0, 1024);
     printf(">>>");
     gets(line);
+    if(memcmp(line, "#include", 9)) {
+      realloc(source, strlen(source) + strlen(line));
+      memmove(source + strlen(line), source, strlen(source));
+    } else {
+      
+    }
     strcat(source, main_start);
     strcat(source, line);
     strcat(source, main_end);
     tcc_compile_string(tcc, source);
     
     tcc_add_symbol(tcc, "ngine_intense", _ptr_fun);
-    void* asd = malloc(1024);
-    tcc_relocate(tcc, asd);
+    tcc_relocate(tcc, TCC_RELOCATE_AUTO);
     line_fun = tcc_get_symbol(tcc, "line_fun");
     
     line_fun();

@@ -19,7 +19,7 @@
 #include "cntr/tree.h"
 #include "net.h"
 #include "log.h"
-#include <../cinterp/cinterp.h>
+#include "../cinterp/cinterp.h"
 
 struct engine* get_ngine_intense(void* _ptr) {
   return _ptr;

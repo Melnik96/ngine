@@ -126,7 +126,7 @@ net.h
 log.h
 /home/melnik/projects/ngine/editor/source/log.h
 ../cinterp/cinterp.h
--
+/home/melnik/projects/ngine/editor/cinterp/cinterp.h
 
 /home/melnik/projects/ngine/editor/source/net.h
 stdint.h
