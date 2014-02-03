@@ -28,6 +28,22 @@ string.h
 malloc.h
 -
 
+/home/melnik/projects/ngine/cinterp/cinterp.h
+stdio.h
+-
+stdint.h
+-
+string.h
+-
+malloc.h
+-
+libtcc.h
+-
+engine.h
+/home/melnik/projects/ngine/cinterp/engine.h
+iofile.h
+/home/melnik/projects/ngine/cinterp/iofile.h
+
 /home/melnik/projects/ngine/cinterp/main.c
 libtcc.h
 -
@@ -41,4 +57,6 @@ engine.h
 /home/melnik/projects/ngine/cinterp/engine.h
 iofile.h
 /home/melnik/projects/ngine/cinterp/iofile.h
+cinterp.h
+/home/melnik/projects/ngine/cinterp/cinterp.h
 

@@ -214,6 +214,30 @@ editor/source/net.c.s:
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/net.c.s
 .PHONY : editor/source/net.c.s
 
+source/audio.o: source/audio.c.o
+.PHONY : source/audio.o
+
+# target to build an object file
+source/audio.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/audio.c.o
+.PHONY : source/audio.c.o
+
+source/audio.i: source/audio.c.i
+.PHONY : source/audio.i
+
+# target to preprocess a source file
+source/audio.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/audio.c.i
+.PHONY : source/audio.c.i
+
+source/audio.s: source/audio.c.s
+.PHONY : source/audio.s
+
+# target to generate assembly for a file
+source/audio.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/audio.c.s
+.PHONY : source/audio.c.s
+
 source/camera.o: source/camera.c.o
 .PHONY : source/camera.o
 
@@ -357,30 +381,6 @@ source/engine.s: source/engine.c.s
 source/engine.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.s
 .PHONY : source/engine.c.s
-
-source/engine.o: source/engine.cpp.o
-.PHONY : source/engine.o
-
-# target to build an object file
-source/engine.cpp.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.cpp.o
-.PHONY : source/engine.cpp.o
-
-source/engine.i: source/engine.cpp.i
-.PHONY : source/engine.i
-
-# target to preprocess a source file
-source/engine.cpp.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.cpp.i
-.PHONY : source/engine.cpp.i
-
-source/engine.s: source/engine.cpp.s
-.PHONY : source/engine.s
-
-# target to generate assembly for a file
-source/engine.cpp.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.cpp.s
-.PHONY : source/engine.cpp.s
 
 source/entity.o: source/entity.c.o
 .PHONY : source/entity.o
@@ -785,6 +785,9 @@ help:
 	@echo "... editor/source/net.o"
 	@echo "... editor/source/net.i"
 	@echo "... editor/source/net.s"
+	@echo "... source/audio.o"
+	@echo "... source/audio.i"
+	@echo "... source/audio.s"
 	@echo "... source/camera.o"
 	@echo "... source/camera.i"
 	@echo "... source/camera.s"
@@ -800,9 +803,6 @@ help:
 	@echo "... source/dynlib.o"
 	@echo "... source/dynlib.i"
 	@echo "... source/dynlib.s"
-	@echo "... source/engine.o"
-	@echo "... source/engine.i"
-	@echo "... source/engine.s"
 	@echo "... source/engine.o"
 	@echo "... source/engine.i"
 	@echo "... source/engine.s"

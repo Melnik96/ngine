@@ -6,4 +6,5 @@ cinterp/CMakeFiles/cinterp.dir/main.c.o
  ../source/engine.h
  ../source/iofile.h
  ../source/serialize.h
+ /home/melnik/projects/ngine/cinterp/cinterp.h
  /home/melnik/projects/ngine/cinterp/main.c

@@ -21,6 +21,7 @@
 #define CINTERP_H
 
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 #include <malloc.h>
 
@@ -39,8 +40,7 @@ void tcc_error_cb(void *opaque, const char *msg) {
   printf("%s\n", msg);
 }
 
-const char* main_start = "void line_fun() {\n";
-const char* main_end = "\n}\n";
+
 
 // struct engine* get_ngine_intense() {
 //   return ngine;
@@ -53,45 +53,42 @@ int cinterp_init(struct cinterp* _self);
 
 int cinterp_run(void* _ptr_fun) {
 //   char* source = file_rdbufp(argv[1]);
-  char source[1024];
+  char* script_includes = 	"#include \"/home/melnik/projects/ngine/source/engine.h\"";
+  const char* script_main_start = 	"void line_fun() {\n";
+  char* script_main_body = 	"";
+  const char* script_main_end = 	"\n}\n";
+  char* source = malloc(1024);
+  uint32_t source_len = 1024;
   char line[1024];
-  
-  
-  
-//   if(tcc_compile_string(tcc, source) == -1) { printf("error\n"); }
-//   tcc_run(tcc, 0, 0);
   
   printf("cinterp test version\n");
   while(1) {
     tcc = tcc_new();
     tcc_set_error_func(tcc, NULL, tcc_error_cb);
     tcc_set_output_type(tcc, TCC_OUTPUT_MEMORY);
-    
+    tcc_add_include_path(tcc, "/home/melnik/projects/ngine/source/");
     
     memset(source, 0, 1024);
-    printf(">>>");
+    
+    strcat(source, script_includes);
+    
+    printf("cinterp>>> ");
     gets(line);
-    if(memcmp(line, "#include", 9)) {
-      realloc(source, strlen(source) + strlen(line));
-      memmove(source + strlen(line), source, strlen(source));
+    if(memcmp(line, "#include", 9) == 0) {
+      source = (char*)realloc(source, source_len + strlen(line));
+      strcat(source, line);
     } else {
-      
+      strcat(source, script_main_start);
+      strcat(source, line);
+      strcat(source, script_main_end);
+      tcc_compile_string(tcc, source);
+      tcc_add_symbol(tcc, "ngine_intense", _ptr_fun);
+      tcc_relocate(tcc, TCC_RELOCATE_AUTO);
+      line_fun = tcc_get_symbol(tcc, "line_fun");
+      line_fun();
     }
-    strcat(source, main_start);
-    strcat(source, line);
-    strcat(source, main_end);
-    tcc_compile_string(tcc, source);
-    
-    tcc_add_symbol(tcc, "ngine_intense", _ptr_fun);
-    tcc_relocate(tcc, TCC_RELOCATE_AUTO);
-    line_fun = tcc_get_symbol(tcc, "line_fun");
-    
-    line_fun();
-    
-//     tcc_run(tcc, 0, 0);
-//     printf("\n");
-    tcc_delete(tcc);
   }
+  tcc_delete(tcc);
 }
 
 #endif // CINTERP_H

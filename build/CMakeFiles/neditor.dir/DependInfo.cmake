@@ -9,6 +9,11 @@ SET(CMAKE_DEPENDS_CHECK_C
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
+# Preprocessor definitions for this target.
+SET(CMAKE_TARGET_DEFINITIONS
+  "__GNUC__"
+  )
+
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/DependInfo.cmake"

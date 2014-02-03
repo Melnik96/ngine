@@ -40,30 +40,34 @@
 #include "sc_obj.h"
 #include "entity.h"
 #include "mesh.h"
+#include "audio.h"
 #include "render/hw_buffers.h"
 #include "shader_prog.h"
 #include "iofile.h"
 #include "log.h"
 
-mat4* vp_matrix;
-struct scene* cur_scene;
-
 //predef intern
 void worker_handler(void* _self);
 void update_obj_handler(void* _node);
+void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
-int neng_init(struct engine* _self, char* _win_name) {
+int ngine_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
+  
+  if(_win_name == NULL) {
   if(!glfwInit())
     return -1;
+
+    _self->window = glfwCreateWindow(640, 480, _win_name, NULL, NULL);
+    if(!_self->window) {
+      glfwTerminate();
+      return -1;
+    }
+    glfwMakeContextCurrent(_self->window);
   
-  _self->window = glfwCreateWindow(640, 480, _win_name, NULL, NULL);
-  if(!_self->window) {
-    glfwTerminate();
-    return -1;
-  }
-  glfwMakeContextCurrent(_self->window);
-  
+    glfwSetKeyCallback(_self->window, key_callback);
+//   glfwSetMouseButtonCallback(_self->window);
   
   glewExperimental = GL_TRUE;
   int glew_err = glewInit();
@@ -71,12 +75,6 @@ int neng_init(struct engine* _self, char* _win_name) {
     error(glewGetErrorString(glew_err));
     return 0;
   }
-  debug("  thread %u", pthread_self());
-  
-  _self->gl_ver = malloc(6);
-  neng_get_opengl_version(_self->gl_ver);
-  debug("OpenGL version %s", _self->gl_ver);
-  
   
   // устанавливаем вьюпорт на все окно
         glViewport(0, 0, 640, 480);
@@ -104,41 +102,29 @@ int neng_init(struct engine* _self, char* _win_name) {
     debug("base shader compilation succesfull");
   }
   //init shader uniforms, id
-  
-  vp_matrix = malloc(sizeof(mat4));
+  }// -norender
   
   //create threads
-//   pthread_attr_t* thr_physics_attr;
-//   pthread_attr_init(thr_physics_attr);
-//   pthread_create(&_self->thr_physics, thr_physics_attr, (void*)0, 0);
+//   pthread_create(&_self->thr_physics, NULL, NULL, NULL);
 // 
-//   //workers
-// //   list_init(&_self->jobs);
-//   
-//   uint8_t max_workers = 4;
-// //   max_workers = get_num_cpu_cores() - 2;
-//   
-//   pthread_mutexattr_t* mut_worker_attr;
-//   pthread_mutexattr_init(mut_worker_attr);
-//   pthread_mutex_init(&_self->mutex_workers, mut_worker_attr);
-//   
-//   _self->thr_workers = malloc(max_workers*sizeof(pthread_t));
-// 
-//   for(uint8_t i = 0; i != max_workers; ++i) {
-//     pthread_attr_t* thr_worker_attr;
-//     pthread_attr_init(thr_worker_attr);
-//     pthread_create(&_self->thr_workers[i], thr_physics_attr, worker_handler, _self);
-//   }
-//   
-//   for(uint8_t i = 0; i != max_workers; ++i) {
-//     pthread_join(_self->thr_workers[i], 0);
-//   }
-//   pthread_join(_self->thr_physics, 0);
+  //workers
+  list_init(&_self->jobs);
+  
+  uint8_t max_workers = 4;
+//   max_workers = get_num_cpu_cores() - 2;
+  
+  pthread_mutex_init(&_self->mutex_workers, NULL);
+  
+  _self->thr_workers = malloc(max_workers*sizeof(pthread_t));
+
+  for(uint8_t i = 0; i != max_workers; ++i) {
+    pthread_create(&_self->thr_workers[i], NULL, worker_handler, _self);
+  }
   
   return 1;
 }
 
-int neng_frame(struct engine* _self, float _elapsed) {
+int ngine_frame(struct engine* _self, float _elapsed) {
   if(_self->active_render) {
     //for evry scene
     for(uint8_t i = 0; i < _self->num_scenes; ++i) {
@@ -146,11 +132,9 @@ int neng_frame(struct engine* _self, float _elapsed) {
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
-//       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
-//       glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
-  
-      mat4_mul_of(vp_matrix, &_self->viewport->proj_matrix, &_self->viewport->camera->model_matrix);
-  
+// //       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
+// //       glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
+
       tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
       glfwSwapBuffers(_self->window);
@@ -161,14 +145,14 @@ int neng_frame(struct engine* _self, float _elapsed) {
   return 1;
 }
 
-int neng_shutdown(struct engine* _self) {
+int ngine_shutdown(struct engine* _self) {
   glfwTerminate();
 }
 
 #ifndef GLEW_VERSION_4_4
 #define GLEW_VERSION_4_4 0
 #endif
-void neng_get_opengl_version(char* _ver) {
+void ngine_get_opengl_version(char* _ver) {
   if(GLEW_VERSION_4_4) { memcpy(_ver, "4.4", 4); }
   else if(GLEW_VERSION_4_3) { memcpy(_ver, "4.3", 4); }
   else if(GLEW_VERSION_4_2) { memcpy(_ver, "4.2", 4); }
@@ -196,28 +180,25 @@ void update_obj_handler(void* _node) {
   if(_obj->engine->viewport->camera->updated) {}
   
   if(_obj->updated) {
-    sc_obj_update_matrix(_obj);
     if(memcmp(_obj->type, "entity", 6)==0 && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
       //http://www.flipcode.com/archives/Frustum_Culling.shtml
       //http://blog.makingartstudios.com/?p=155
       //update model_view_proj_mat
-      printf("procces entity obj\n");
+      debug("procces entity obj\n");
       
-      mat4* mvp_matrix = malloc(sizeof(mat4));
+//       pso = pos*scale*rot
+//       world_pso = pso+child_pso
+//       cam_space_world_pso = world_pso+(-cam_pso)
+//       perspective_cswp = get_perspective(cam_space_world_pso, tan(fov/2))
       
-//       mvp_matrix = &_obj->model_matrix;
+      vec3* pso_parent = &((struct sc_obj*)_obj->link.parent)->last_pso;
+      vec3 pso_child = _obj->pos*_obj->scale*_obj->orient;
+      vec3 world_pso = pso_parent+pso_child;
+      vec3 cswp = world_pso-(_obj->engine->viewport->camera->last_pso);
       
-      mat4_identity(mvp_matrix);
-      mat4_mul(mvp_matrix, &_obj->model_matrix);
+      _obj->last_pso = world_pso;
       
-//       for(struct sc_obj* tmp_node = _obj; tmp_node != NULL; tmp_node = (struct sc_obj*)tmp_node->link.parent) {
-// 	mat4_mul(mvp_matrix, &tmp_node->model_matrix);
-//       }
-      
-      mat4_mul_of(mvp_matrix, vp_matrix, mvp_matrix);
-   
-      //draw
-      draw(cur_scene, ((struct entity*)_obj->typed_objs), mvp_matrix);//need frustum optimization
+      draw(cur_scene, ((struct entity*)_obj->typed_objs), cswp);//need frustum optimization
     }
     else if(memcmp(_obj->type, "camera", 7)) {printf("procces camera obj\n");}
     else if(memcmp(_obj->type, "light", 6)) {printf("procces light obj\n");}
@@ -270,6 +251,13 @@ int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
 //        projected[i].z > 1.f || projected[i].z < -1.f) { return 0; } else { return 1; }
 //   }
   return 1;
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+  if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    glfwSetWindowShouldClose(window, GL_TRUE);
+  else if(key == GLFW_KEY_A && action == GLFW_PRESS)
+    sound_play_wav("test.wav");
 }
 
 void worker_handler(void* _self) {

@@ -7,13 +7,15 @@
 #IncludeRegexTransform: 
 
 ../cinterp/cinterp.h
-libtcc.h
--
 stdio.h
+-
+stdint.h
 -
 string.h
 -
 malloc.h
+-
+libtcc.h
 -
 engine.h
 ../cinterp/engine.h

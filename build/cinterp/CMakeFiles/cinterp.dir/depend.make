@@ -5,5 +5,6 @@ cinterp/CMakeFiles/cinterp.dir/main.c.o: ../source/cntr/list.h
 cinterp/CMakeFiles/cinterp.dir/main.c.o: ../source/engine.h
 cinterp/CMakeFiles/cinterp.dir/main.c.o: ../source/iofile.h
 cinterp/CMakeFiles/cinterp.dir/main.c.o: ../source/serialize.h
+cinterp/CMakeFiles/cinterp.dir/main.c.o: ../cinterp/cinterp.h
 cinterp/CMakeFiles/cinterp.dir/main.c.o: ../cinterp/main.c
 

@@ -38,29 +38,28 @@ struct engine {
   struct scene* scenes;//list
   struct shader_prog* shaders;
   
-  char* gl_ver;
   int active_render;
   uint8_t fixed_fps;//60fps
   
+  struct list jobs;//list
+  
   //threads
-//   pthread_t thr_input;//60fps
+  pthread_t thr_input;//60fps
   pthread_t thr_physics;//30fps
   pthread_t thr_sound;
   pthread_t* thr_workers;//one worker per free core
   pthread_mutex_t mutex_workers;
   pthread_cond_t cond_workers;
-  
-  struct list jobs;//list
 };//TODO multiple contexts
 
-int neng_init(struct engine* _self, char* _win_name);
-int neng_shutdown(struct engine* _self);
-int neng_frame(struct engine* _self, float _elapsed);
+int ngine_init(struct engine* _self, char* _win_name);
+int ngine_shutdown(struct engine* _self);
+int ngine_frame(struct engine* _self, float _elapsed);
 
-void neng_get_opengl_version(char* _ver);
+void ngine_get_opengl_version(char* _ver);
 
-int neng_load_shader(char* );
+int ngine_load_shader(char* );
 
-int neng_deserialize_blend(struct sc_obj* _top_obj, void* _blend);
+int ngine_deserialize_blend(struct sc_obj* _top_obj, void* _blend);
 
 #endif /* __ENGINE_H__ */

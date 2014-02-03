@@ -21,33 +21,30 @@
 #ifndef __SCENE_OBJECT_H__
 #define __SCENE_OBJECT_H__
 
-#include "math/matrix.h"
 #include "math/vector.h"
 #include "cntr/tree.h"
 
 struct sc_obj_listener {
   void(*on_update)();
   void(*on_colide)();
+  void(*on_key_pressed)();
 };
 
 struct sc_obj {
-  //scene node tree
   struct tree link;
-  
   struct engine* engine;
   
   char name[32];
-  char type[32];
-  vec3 pos,rot,scale;
-  mat4 model_matrix;
+  char type[32];//TODO type_id: int
+  vec3 pos;
+  vec4 orient;
+  float scale;
+  vec3 last_pso;//if null, updated
   int updated;//need update gpu buffer
   struct list* typed_objs;//ptr to list of entities or cameras
-//   char* script;
   struct sc_obj_listener* listener;
 };
 
 struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type);
-// void sc_obj_translate(vec3 _pos);
-void sc_obj_update_matrix(struct sc_obj* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

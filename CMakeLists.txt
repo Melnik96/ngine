@@ -6,6 +6,8 @@ include_directories("source")
 include_directories("source/math/")
 include_directories("source/import/blender/")
 
+add_definitions("-D__GNUC__")
+
 set(ARCH "x86")
 set(CMAKE_C_FLAGS "-std=c11")
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/editor/bin CACHE INTERNAL "" FORCE)
@@ -23,6 +25,8 @@ set(engine_sources
 add_library(ngine SHARED ${engine_sources})
 target_link_libraries(ngine
   "GL"
+  "openal"
+  "alut"
   "GLEW"
   "glfw"
   "pthread"

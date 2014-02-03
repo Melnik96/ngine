@@ -110,7 +110,6 @@ int main(int argc, char *argv[]) {
   engine0->viewport->camera = cam;
   mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
   
-   printf("argc = %i\n argv = %s\n", argc, argv[1]);
   if(argc > 1/* && strncmp(argv[1], "-norender", 5)*/) {
     engine0->active_render = 0;
   } else {

@@ -1,10 +1,10 @@
 # The set of languages for which implicit dependencies are needed:
 SET(CMAKE_DEPENDS_LANGUAGES
   "C"
-  "CXX"
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
+  "/home/melnik/projects/ngine/source/audio.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/audio.c.o"
   "/home/melnik/projects/ngine/source/camera.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/camera.c.o"
   "/home/melnik/projects/ngine/source/cntr/array.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/cntr/array.c.o"
   "/home/melnik/projects/ngine/source/cntr/list.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/cntr/list.c.o"
@@ -29,10 +29,11 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/ngine/source/viewport.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/viewport.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
-SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/melnik/projects/ngine/source/engine.cpp" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/engine.cpp.o"
+
+# Preprocessor definitions for this target.
+SET(CMAKE_TARGET_DEFINITIONS
+  "__GNUC__"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
