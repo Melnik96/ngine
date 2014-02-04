@@ -49,13 +49,13 @@
 //predef intern
 void worker_handler(void* _self);
 void update_obj_handler(void* _node);
-void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat);
+void draw(struct scene* _scene, struct entity* _entity, vec3* _cswp);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 int ngine_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
   
-  if(_win_name == NULL) {
+//   if(_win_name == 0) {
   if(!glfwInit())
     return -1;
 
@@ -102,7 +102,7 @@ int ngine_init(struct engine* _self, char* _win_name) {
     debug("base shader compilation succesfull");
   }
   //init shader uniforms, id
-  }// -norender
+//   }// -norender
   
   //create threads
 //   pthread_create(&_self->thr_physics, NULL, NULL, NULL);
@@ -117,9 +117,9 @@ int ngine_init(struct engine* _self, char* _win_name) {
   
   _self->thr_workers = malloc(max_workers*sizeof(pthread_t));
 
-  for(uint8_t i = 0; i != max_workers; ++i) {
-    pthread_create(&_self->thr_workers[i], NULL, worker_handler, _self);
-  }
+//   for(uint8_t i = 0; i != max_workers; ++i) {
+//     pthread_create(&_self->thr_workers[i], NULL, worker_handler, _self);
+//   }
   
   return 1;
 }
@@ -128,7 +128,7 @@ int ngine_frame(struct engine* _self, float _elapsed) {
   if(_self->active_render) {
     //for evry scene
     for(uint8_t i = 0; i < _self->num_scenes; ++i) {
-      cur_scene = _self->scenes;
+//       cur_scene = _self->scenes;
       
       if(glfwWindowShouldClose(_self->window)) { return 0; }
       
@@ -177,7 +177,19 @@ void ngine_get_opengl_version(char* _ver) {
 void update_obj_handler(void* _node) {
   struct sc_obj* _obj = _node;
   
-  if(_obj->engine->viewport->camera->updated) {}
+  if(_obj->engine->viewport->camera->updated) {
+    vec3 cswp;
+      vec3 world_pso;
+      if(_obj->engine->viewport->camera->link.parent) {
+	vec3* pso_parent = &((struct sc_obj*)_obj->engine->viewport->camera->link.parent)->last_pso;
+	vec3* pso_child = qrot(&_obj->engine->viewport->camera->orient, &_obj->engine->viewport->camera->pos);
+	vec3_sum_of(&world_pso, pso_parent, pso_child);
+      } else {
+	vec3* pso_child = qrot(&_obj->engine->viewport->camera->orient, &_obj->engine->viewport->camera->pos);
+	world_pso = *pso_child;
+      }
+      _obj->engine->viewport->camera->last_pso = world_pso;//TODO fix
+  }
   
   if(_obj->updated) {
     if(memcmp(_obj->type, "entity", 6)==0 && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
@@ -191,14 +203,21 @@ void update_obj_handler(void* _node) {
 //       cam_space_world_pso = world_pso+(-cam_pso)
 //       perspective_cswp = get_perspective(cam_space_world_pso, tan(fov/2))
       
-      vec3* pso_parent = &((struct sc_obj*)_obj->link.parent)->last_pso;
-      vec3 pso_child = _obj->pos*_obj->scale*_obj->orient;
-      vec3 world_pso = pso_parent+pso_child;
-      vec3 cswp = world_pso-(_obj->engine->viewport->camera->last_pso);
-      
+      vec3 cswp;
+      vec3 world_pso;
+      if(_obj->link.parent) {
+	vec3* pso_parent = &((struct sc_obj*)_obj->link.parent)->last_pso;
+	vec3* pso_child = &_obj->pos;
+	vec3_sum_of(&world_pso, pso_parent, pso_child);
+	vec3_diff_of(&cswp, &world_pso, &_obj->engine->viewport->camera->last_pso);
+      } else {
+	vec3* pso_child = &_obj->pos;
+	vec3_diff_of(&cswp, pso_child, &_obj->engine->viewport->camera->last_pso);
+	world_pso = *pso_child;
+      }
       _obj->last_pso = world_pso;
       
-      draw(cur_scene, ((struct entity*)_obj->typed_objs), cswp);//need frustum optimization
+      draw(_obj->engine->scenes, ((struct entity*)_obj->typed_objs), &_obj->pos);//need frustum optimization
     }
     else if(memcmp(_obj->type, "camera", 7)) {printf("procces camera obj\n");}
     else if(memcmp(_obj->type, "light", 6)) {printf("procces light obj\n");}
@@ -208,13 +227,9 @@ void update_obj_handler(void* _node) {
   _obj->updated = 0;
 }
 
-void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp_mat) {
-  glUseProgram(cur_scene->cur_shader->id);
-  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp_mat->_m);
-  printf("_mvp_mat:\n");
-  for (int i = 0; i < 16; ++i)
-   printf("_%f\n", _mvp_mat->_m[i]);
-  printf("\n");
+void draw(struct scene* _scene, struct entity* _entity, vec3* _cswp) {
+  glUseProgram(_scene->cur_shader->id);
+  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _cswp);
   
   //push uniforms to shader
   //use shader

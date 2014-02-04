@@ -115,8 +115,6 @@ stdint.h
 -
 
 /home/melnik/projects/ngine/source/sc_obj.h
-math/matrix.h
-/home/melnik/projects/ngine/source/math/matrix.h
 math/vector.h
 /home/melnik/projects/ngine/source/math/vector.h
 cntr/tree.h

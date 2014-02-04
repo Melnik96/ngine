@@ -275,8 +275,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
     glLinkProgram(_prog->id);
     
   _prog->uniforms = malloc(sizeof(struct shader_param));
-  memcpy(_prog->uniforms->name, "MVP", 4);
-  _prog->uniforms->id = glGetUniformLocation(_prog->id, "MVP");
+  memcpy(_prog->uniforms->name, "g_obj_pos", 4);
+  _prog->uniforms->id = glGetUniformLocation(_prog->id, "g_obj_pos");
   if(_prog->uniforms->id < 0) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
 
     

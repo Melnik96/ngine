@@ -1,4 +1,52 @@
+#include "vector.h"
 #include "matrix.h"
+
+void vec3_sum(vec3* _out, const vec3* _in) {
+  _out->x += _in->x;
+  _out->y += _in->y;
+  _out->z += _in->z;
+}
+void vec3_sum_of(vec3* _out, const vec3* _in1, const vec3* _in2) {
+  _out->x = _in1->x + _in2->x;
+  _out->y = _in1->y + _in2->y;
+  _out->z = _in1->z + _in2->z;
+}
+void vec3_diff_of(vec3* pOut, const vec3* pLeft, const vec3* pRight) {
+  pOut->x = pLeft->x - pRight->x;
+  pOut->y = pLeft->y - pRight->y;
+  pOut->z = pLeft->z - pRight->z;
+}
+void vec3_cross_of(vec3* _out, const vec3* _in1, const vec3* _in2) {
+  _out->x = (_in1->y * _in2->z) - (_in1->z * _in2->y);
+  _out->y = (_in1->z * _in2->x) - (_in1->x * _in2->z);
+  _out->z = (_in1->x * _in2->y) - (_in1->y * _in2->x);
+}
+void vec3_mul_coef_of(vec3* _out, const vec3* _in1, const int32_t _coef) {
+  _out->x = _in1->x * _coef;
+  _out->y = _in1->y * _coef;
+  _out->z = _in1->z * _coef;
+}
+vec3* vec3r_mul_coef_of(const vec3* _in1, const int32_t _coef) {
+  vec3 _out;
+  vec3_mul_coef_of(&_out, _in1, _coef);
+  return &_out;
+}
+vec3* vec3r_cross_of(const vec3* _in1, const vec3* _in2) {
+  vec3 _out;
+  vec3_cross_of(&_out, _in1, _in2);
+  return &_out;
+}
+vec3* vec3r_sum_of(const vec3* _in1, const vec3* _in2) {
+  vec3 _out;
+  vec3_sum_of(&_out, _in1, _in2);
+  return &_out;
+}
+
+vec3* qrot(vec4* q, vec3* v) {
+//         return v + 2.0*cross(q.xyz, cross(q.xyz,v) + q.w*v);
+  return vec3r_sum_of(v, vec3r_mul_coef_of(vec3r_cross_of(q, vec3r_sum_of(vec3r_cross_of(q,v), vec3r_mul_coef_of(v, q->w))), 2.f));
+}
+
 void vec3_mat4_mul_of(float* pOut4D, const float* pIn4D, const mat4* pMat)
 {
 	#if defined(USE_SSE)

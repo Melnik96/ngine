@@ -67,8 +67,6 @@ math/vector.h
 ../source/math/vector.h
 
 ../source/sc_obj.h
-math/matrix.h
-../source/math/matrix.h
 math/vector.h
 ../source/math/vector.h
 cntr/tree.h

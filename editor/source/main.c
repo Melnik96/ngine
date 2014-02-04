@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
   
   struct engine* engine0;
   engine0 = malloc(sizeof(struct engine));
-  if(!neng_init(engine0, "Nutty Engine Test")) {
+  if(!ngine_init(engine0, "Nutty Engine Test")) {
     printf("engine init fail\n");
   }
   
@@ -97,18 +97,21 @@ int main(int argc, char *argv[]) {
   entity_init(engine0, &ent, "model_ent", &mh, &mat);
   
   model->typed_objs = &ent;
-  model->listener = 0;
   model->pos.z = -20.f;
-  sc_obj_update_matrix(model);
+  model->orient = (vec4){0.f, 0.f, 0.2f, deg2rad(50)};
+//   sc_obj_update_matrix(model);
   
   //add camera
   struct sc_obj* cam = sc_obj_create(engine0, "cam0", "camera");
   tree_add_child(&sc->root_object->link, &cam->link);
-  mat4_identity(&cam->model_matrix);
+  cam->pos = (vec3){0};
+  cam->orient = (vec4){0.f, 0.f, 0.f, 1.f};
+  
+//   mat4_identity(&cam->model_matrix);
   
   engine0->viewport = malloc(sizeof(struct viewport));
   engine0->viewport->camera = cam;
-  mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
+//   mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
   
   if(argc > 1/* && strncmp(argv[1], "-norender", 5)*/) {
     engine0->active_render = 0;
@@ -116,6 +119,6 @@ int main(int argc, char *argv[]) {
     engine0->active_render = 1;
   }
   
-  while(neng_frame(engine0, .3f));
-  neng_shutdown(engine0);
+  while(ngine_frame(engine0, .3f));
+  ngine_shutdown(engine0);
 }

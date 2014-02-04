@@ -3,6 +3,11 @@
 
 #include <stdint.h>
 
+# define M_PI		3.14159265358979323846	/* pi */
+
+#define deg2rad(x) (float)(((x) * M_PI / 180.0f))
+#define rad2deg(x) (float)(((x) * 180.0f / M_PI))
+
 typedef union {
   struct {
     float x,y;
@@ -22,7 +27,13 @@ typedef union {
   float val[4];
 } vec4;
 
-void vec3_mat4_mul_of(float* pOut4D, const float* pIn4D, const union mat4* pMat);
+// void vec3_mat4_mul_of(float* pOut4D, const float* pIn4D, const mat4* pMat);
+void vec3_sum(vec3* _out, const vec3* _in);
+void vec3_sum_of(vec3* _out, const vec3* _in1, const vec3* _in2);
+void vec3_diff_of(vec3* pOut, const vec3* pLeft, const vec3* pRigh);
+void vec3_cross_of(vec3* _out, const vec3* _in1, const vec3* _in2);
+
+vec3* qrot(vec4* q, vec3* v);
 
 /*
 vec_mul() {

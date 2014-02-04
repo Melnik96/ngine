@@ -73,6 +73,7 @@ CMakeFiles/ngine.dir/source/math/matrix.c.o
 CMakeFiles/ngine.dir/source/math/vector.c.o
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.c
+ /home/melnik/projects/ngine/source/math/vector.h
 CMakeFiles/ngine.dir/source/mesh.c.o
  /home/melnik/projects/ngine/source/math/vector.h
  /home/melnik/projects/ngine/source/mesh.c
@@ -88,7 +89,6 @@ CMakeFiles/ngine.dir/source/sc_obj.c.o
  /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/cntr/tree.h
  /home/melnik/projects/ngine/source/engine.h
- /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
  /home/melnik/projects/ngine/source/sc_obj.c
  /home/melnik/projects/ngine/source/sc_obj.h
@@ -97,7 +97,6 @@ CMakeFiles/ngine.dir/source/scene.c.o
  /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/cntr/tree.h
  /home/melnik/projects/ngine/source/engine.h
- /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
  /home/melnik/projects/ngine/source/sc_obj.h
  /home/melnik/projects/ngine/source/scene.c

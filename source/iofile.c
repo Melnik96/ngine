@@ -60,16 +60,39 @@ char* file_rdbuf(FILE* _file) {
 }
 
 char* file_rdbufp(char* _path) {
-  FILE* f;
-  char* buf;
-  f = fopen(_path, "r");
-  if(f != 0) {
-    buf = file_rdbuf(f);
-//     fclose(f);
-  } else {
-    //error();
-    printf("file read error: %s\n     %i", _path, errno);
-  }
-
-  return buf;
+//   FILE* f;
+//   char* buf;
+//   f = fopen(_path, "r");
+//   if(f != 0) {
+//     buf = file_rdbuf(f);
+// //     fclose(f);
+//   } else {
+//     //error();
+//     printf("file read error: %s\n     %i", _path, errno);
+//   }
+// 
+//   return buf;
+  FILE *fp;
+	char *content = NULL;
+ 
+	int count=0;
+ 
+	if (_path != NULL) {
+		fp = fopen(_path,"rt");
+ 
+		if (fp != NULL) {
+ 
+      fseek(fp, 0, SEEK_END);
+      count = ftell(fp);
+      rewind(fp);
+ 
+			if (count > 0) {
+				content = (char *)malloc(sizeof(char) * (count+1));
+				count = fread(content,sizeof(char),count,fp);
+				content[count] = '\0';
+			}
+			fclose(fp);
+		}
+	}
+	return content;
 }
