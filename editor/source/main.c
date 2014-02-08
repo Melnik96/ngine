@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
   entity_init(engine0, &ent, "model_ent", &mh, &mat);
   
   model->typed_objs = &ent;
-  model->pos.z = -20.f;
+  model->pos.z = 0.f;
   kmQuaternionIdentity(&model->orient);
   model->scale = 1.f;
 //   sc_obj_update_matrix(model);
@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
   //add camera
   struct sc_obj* cam = sc_obj_create(engine0, "cam0", "camera");
   tree_add_child(&sc->root_object->link, &cam->link);
-  cam->pos = (vec3){0,0,20};
+  cam->pos = (vec3){0,0,10};
   kmQuaternionIdentity(&cam->orient);
   cam->scale = 1.f;
   
@@ -117,7 +117,7 @@ int main(int argc, char *argv[]) {
   
   engine0->viewport = malloc(sizeof(struct viewport));
   engine0->viewport->camera = cam;
-  kmMat4PerspectiveProjection(&engine0->viewport->proj_matrix, 30.f, /*aspect*/1.20f, 1.f, 1000.f);
+  kmMat4PerspectiveProjection(&engine0->viewport->proj_matrix, 45.f, 640.f/480.f, 0.1f, 1000.f);
   
   if(argc > 1 && strncmp(argv[1], "-norender", 5)) {
     engine0->active_render = 0;

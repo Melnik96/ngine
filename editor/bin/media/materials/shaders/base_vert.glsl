@@ -1,6 +1,6 @@
 #version 330 core
 
-uniform vec4 _mvp;
+uniform mat4 _mvp;
 
 in vec3 vert;
 // in vec3 color;

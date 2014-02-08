@@ -65,6 +65,8 @@ GLFW/glfw3.h
 -
 kazmath/mat4.h
 -
+kazmath/vec3.h
+-
 cntr/array.h
 /home/melnik/projects/ngine/source/cntr/array.h
 cntr/tree.h

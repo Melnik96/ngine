@@ -177,7 +177,7 @@ COMPILER:BOOL=OFF
 ngine_BINARY_DIR:STATIC=/home/melnik/projects/ngine/build
 
 //Dependencies for the target
-ngine_LIB_DEPENDS:STATIC=general;GL;general;openal;general;alut;general;GLEW;general;glfw;general;kazmath;general;pthread;general;libtcc.so;general;dl;
+ngine_LIB_DEPENDS:STATIC=general;GL;general;openal;general;alut;general;GLEW;general;glfw;general;kazmath;general;pthread;general;tcc;general;dl;
 
 //Value Computed by CMake
 ngine_SOURCE_DIR:STATIC=/home/melnik/projects/ngine

@@ -27,6 +27,7 @@
 #include <GLFW/glfw3.h>
 
 #include <kazmath/mat4.h>
+#include <kazmath/vec3.h>
 
 #include "cntr/array.h"
 #include "cntr/tree.h"
@@ -52,9 +53,10 @@
 //predef intern
 void worker_handler(void* _self);
 void update_obj_handler(struct sc_obj* _obj);
-void draw(struct scene* _scene, struct entity* _entity, vec3* _mvp);
+void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void cam_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void cam_cursor_callback(GLFWwindow* _win, double _x, double _y);
 
 int ngine_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
@@ -80,8 +82,10 @@ int ngine_init(struct engine* _self, char* _win_name) {
 //     tcc_relocate(tcc, TCC_RELOCATE_AUTO);
 //     GLFWkeyfun cam_key_callback = tcc_get_symbol(tcc, "cam_key_callback");
     glfwSetWindowUserPointer(_self->window, _self);
+    
     glfwSetKeyCallback(_self->window, cam_key_callback);
-//   glfwSetMouseButtonCallback(_self->window);
+    glfwSetCursorPosCallback(_self->window, cam_cursor_callback);
+//     glfwSetMouseButtonCallback(_self->window);
   
   glewExperimental = GL_TRUE;
   int glew_err = glewInit();
@@ -97,6 +101,7 @@ int ngine_init(struct engine* _self, char* _win_name) {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClearDepth(1.0f);
         glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS); 
         glEnable(GL_CULL_FACE);
   
   
@@ -151,8 +156,13 @@ int ngine_frame(struct engine* _self, float _elapsed) {
 
       //update current active camera
       if(_self->viewport->camera->updated) {
-	sc_obj_upd_mat_inv(_self->viewport->camera);
+// 	sc_obj_upd_mat_inv(_self->viewport->camera);
+	debug("active camera updated\n\tx: %f\n\ty: %f\n\tz: %f",
+	      _self->viewport->camera->pos.x,
+	      _self->viewport->camera->pos.y,
+	      _self->viewport->camera->pos.z);
       }
+      trans_cam(_self->window, &_self->viewport->camera->matrix);
 
       tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
@@ -204,8 +214,14 @@ void update_obj_handler(struct sc_obj* _obj) {
       sc_obj_upd_mat(_obj);
       
       kmMat4* mvp = malloc(sizeof(kmMat4));
-      kmMat4Multiply(mvp, &_obj->matrix, &_obj->engine->viewport->camera->matrix);
-      kmMat4Multiply(mvp, mvp, &_obj->engine->viewport->proj_matrix);
+      mat4 tmp_mat;
+      kmMat4Multiply(&tmp_mat, &_obj->matrix, &_obj->engine->viewport->camera->matrix);
+      kmMat4Multiply(mvp, &tmp_mat, &_obj->engine->viewport->proj_matrix);
+//       kmMat4Multiply(mvp, &_obj->matrix, &_obj->engine->viewport->proj_matrix);
+      vec3 tv = (vec3){1,-1,0};
+      vec3 nv;
+      kmVec3MultiplyMat4(&nv, &(vec3){1,-1,0}, mvp);
+      printf("new vector:\n\tx: %f\n\ty: %f\n\tz: %f", nv.x, nv.y, nv.z);
       
       draw(_obj->engine->scenes, _obj->typed_objs, mvp);//need frustum optimization
     }
@@ -217,9 +233,10 @@ void update_obj_handler(struct sc_obj* _obj) {
   _obj->updated = 0;
 }
 
-void draw(struct scene* _scene, struct entity* _entity, vec3* _mvp) {
+void draw(struct scene* _scene, struct entity* _entity, mat4* _mvp) {
   glUseProgram(_scene->cur_shader->id);
   glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp);
+  
   
   //push uniforms to shader
   //use shader
@@ -261,14 +278,21 @@ void cam_key_callback(GLFWwindow* window, int key, int scancode, int action, int
   if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
     glfwSetWindowShouldClose(window, GL_TRUE);
   } else if(key == GLFW_KEY_W && action == GLFW_PRESS) {
-    ((struct engine*)ngine_intense(window))->viewport->camera->pos.z -= 0.5f/60.f;
+    ((struct engine*)ngine_intense(window))->viewport->camera->pos.z -= 0.5;
+    ((struct engine*)ngine_intense(window))->viewport->camera->updated = 1;
   } else if(key == GLFW_KEY_S && action == GLFW_PRESS) {
-    ((struct engine*)ngine_intense(window))->viewport->camera->pos.z += 0.5f/60.f;
+    ((struct engine*)ngine_intense(window))->viewport->camera->pos.z += 0.5;
+    ((struct engine*)ngine_intense(window))->viewport->camera->updated = 1;
   } else if(key == GLFW_KEY_A && action == GLFW_PRESS) {
     ((struct engine*)ngine_intense(window))->viewport->camera->pos.x -= 0.5f/60.f;
+    ((struct engine*)ngine_intense(window))->viewport->camera->updated = 1;
   } else if(key == GLFW_KEY_D && action == GLFW_PRESS) {
     ((struct engine*)ngine_intense(window))->viewport->camera->pos.x += 0.5f/60.f;
+    ((struct engine*)ngine_intense(window))->viewport->camera->updated = 1;
   }
+}
+void cam_cursor_callback(GLFWwindow* _win, double _x, double _y) {
+  printf("cursor x: %f, y: %f\n", _x, _y);
 }
 
 void worker_handler(void* _self) {
@@ -287,4 +311,98 @@ void worker_handler(void* _self) {
     }
     usleep(3600/_engine->fixed_fps);//wait for new jobs
   }
+}
+
+static double lastTime;
+void trans_cam(GLFWwindow* window, mat4* ViewMatrix) {
+//   mat4 ViewMatrix;
+  mat4 ProjectionMatrix;
+  // Initial position : on +Z
+vec3 position = (vec3){ 0, 0, 5 }; 
+// Initial horizontal angle : toward -Z
+float horizontalAngle = 3.14f;
+// Initial vertical angle : none
+float verticalAngle = 0.0f;
+// Initial Field of View
+float initialFoV = 45.0f;
+
+float speed = 3.0f; // 3 units / second
+float mouseSpeed = 0.005f;
+  
+  
+  
+  // glfwGetTime is called only once, the first time this function is called
+	lastTime = glfwGetTime();
+
+	// Compute time difference between current and last frame
+	double currentTime = glfwGetTime();
+	float deltaTime = currentTime - lastTime;
+
+	// Get mouse position
+	double xpos, ypos;
+	glfwGetCursorPos(window, &xpos, &ypos);
+
+	// Reset mouse position for next frame
+	glfwSetCursorPos(window, 640/2, 480/2);
+
+	// Compute new orientation
+	horizontalAngle += mouseSpeed * 640/2 - xpos;
+	verticalAngle   += mouseSpeed *  480/2 - ypos;
+
+	// Direction : Spherical coordinates to Cartesian coordinates conversion
+	vec3 direction = (vec3){
+		cos(verticalAngle) * sin(horizontalAngle), 
+		sin(verticalAngle),
+		cos(verticalAngle) * cos(horizontalAngle)
+	};
+	
+	// Right vector
+	vec3 right = (vec3){
+		sin(horizontalAngle - 3.14f/2.0f), 
+		0,
+		cos(horizontalAngle - 3.14f/2.0f)
+	};
+	
+	// Up vector
+	vec3 up;
+	kmVec3Cross(&up, &right, &direction);
+
+	// Move forward
+	if (glfwGetKey( window, GLFW_KEY_UP ) == GLFW_PRESS){
+		position.x += direction.x * deltaTime * speed;
+		position.y += direction.y * deltaTime * speed;
+		position.z += direction.z * deltaTime * speed;
+	}
+	// Move backward
+	if (glfwGetKey( window, GLFW_KEY_DOWN ) == GLFW_PRESS){
+		position.x -= direction.x * deltaTime * speed;
+		position.y -= direction.y * deltaTime * speed;
+		position.z -= direction.z * deltaTime * speed;
+	}
+	// Strafe right
+	if (glfwGetKey( window, GLFW_KEY_RIGHT ) == GLFW_PRESS){
+// 		position += right * deltaTime * speed;
+		position.x += right.x * deltaTime * speed;
+		position.y += right.y * deltaTime * speed;
+		position.z += right.z * deltaTime * speed;
+	}
+	// Strafe left
+	if (glfwGetKey( window, GLFW_KEY_LEFT ) == GLFW_PRESS){
+		position.x -= right.x * deltaTime * speed;
+		position.y -= right.y * deltaTime * speed;
+		position.z -= right.z * deltaTime * speed;
+	}
+
+	float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
+
+	// Projection matrix : 45 Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
+// 	kmMat4PerspectiveProjection(&ProjectionMatrix, FoV, 4.0f / 3.0f, 0.1f, 100.0f);
+	// Camera matrix
+	
+	vec3* centr = malloc(sizeof(vec3));
+	kmVec3Add(centr, &position,&direction);
+	kmMat4LookAt(ViewMatrix, &position, centr, &up);
+
+	// For the next frame, the "last time" will be "now"
+	lastTime = currentTime;
 }
