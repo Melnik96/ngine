@@ -364,6 +364,21 @@ clean: cinterp/CMakeFiles/cinterp.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory source/import/obj
+
+# Convenience name for "all" pass in the directory.
+source/import/obj/all:
+.PHONY : source/import/obj/all
+
+# Convenience name for "clean" pass in the directory.
+source/import/obj/clean:
+.PHONY : source/import/obj/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/import/obj/preinstall:
+.PHONY : source/import/obj/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

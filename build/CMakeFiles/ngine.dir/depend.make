@@ -84,10 +84,12 @@ CMakeFiles/ngine.dir/source/node.c.o: ../source/node.h
 CMakeFiles/ngine.dir/source/physics_mgr.c.o: ../source/physics_mgr.c
 CMakeFiles/ngine.dir/source/physics_mgr.c.o: ../source/physics_mgr.h
 
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/serialize.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/cntr/tree.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/engine.h
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/sc_obj.c
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/sc_obj.h
@@ -96,6 +98,7 @@ CMakeFiles/ngine.dir/source/scene.c.o: ../source/serialize.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/cntr/tree.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/engine.h
+CMakeFiles/ngine.dir/source/scene.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/sc_obj.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/scene.c

@@ -26,6 +26,8 @@
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
+#include <kazmath/mat4.h>
+
 #include "cntr/array.h"
 #include "cntr/tree.h"
 #include "cntr/list.h"
@@ -48,8 +50,8 @@
 
 //predef intern
 void worker_handler(void* _self);
-void update_obj_handler(void* _node);
-void draw(struct scene* _scene, struct entity* _entity, vec3* _cswp);
+void update_obj_handler(struct sc_obj* _obj);
+void draw(struct scene* _scene, struct entity* _entity, vec3* _mvp);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 int ngine_init(struct engine* _self, char* _win_name) {
@@ -174,22 +176,12 @@ void ngine_get_opengl_version(char* _ver) {
 }
 
 //intern
-void update_obj_handler(void* _node) {
-  struct sc_obj* _obj = _node;
+void update_obj_handler(struct sc_obj* _obj) {
+  // update algorithm
+  // 1. rotate pos vector of origin quaternion = parent_transform
+  // 2. child_pos + parent_trans rotate of child_orient*parent_orient
   
-  if(_obj->engine->viewport->camera->updated) {
-    vec3 cswp;
-      vec3 world_pso;
-      if(_obj->engine->viewport->camera->link.parent) {
-	vec3* pso_parent = &((struct sc_obj*)_obj->engine->viewport->camera->link.parent)->last_pso;
-	vec3* pso_child = qrot(&_obj->engine->viewport->camera->orient, &_obj->engine->viewport->camera->pos);
-	vec3_sum_of(&world_pso, pso_parent, pso_child);
-      } else {
-	vec3* pso_child = qrot(&_obj->engine->viewport->camera->orient, &_obj->engine->viewport->camera->pos);
-	world_pso = *pso_child;
-      }
-      _obj->engine->viewport->camera->last_pso = world_pso;//TODO fix
-  }
+  if(_obj->engine->viewport->camera->updated) {}
   
   if(_obj->updated) {
     if(memcmp(_obj->type, "entity", 6)==0 && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
@@ -198,26 +190,12 @@ void update_obj_handler(void* _node) {
       //update model_view_proj_mat
       debug("procces entity obj\n");
       
-//       pso = pos*scale*rot
-//       world_pso = pso+child_pso
-//       cam_space_world_pso = world_pso+(-cam_pso)
-//       perspective_cswp = get_perspective(cam_space_world_pso, tan(fov/2))
+      sc_obj_upd_mat(_obj);
       
-      vec3 cswp;
-      vec3 world_pso;
-      if(_obj->link.parent) {
-	vec3* pso_parent = &((struct sc_obj*)_obj->link.parent)->last_pso;
-	vec3* pso_child = &_obj->pos;
-	vec3_sum_of(&world_pso, pso_parent, pso_child);
-	vec3_diff_of(&cswp, &world_pso, &_obj->engine->viewport->camera->last_pso);
-      } else {
-	vec3* pso_child = &_obj->pos;
-	vec3_diff_of(&cswp, pso_child, &_obj->engine->viewport->camera->last_pso);
-	world_pso = *pso_child;
-      }
-      _obj->last_pso = world_pso;
+      kmMat4* mvp = malloc(sizeof(kmMat4));
+      kmMat4Multiply(mvp, &_obj->matrix, &_obj->engine->viewport->proj_matrix);
       
-      draw(_obj->engine->scenes, ((struct entity*)_obj->typed_objs), &_obj->pos);//need frustum optimization
+      draw(_obj->engine->scenes, ((struct entity*)_obj->typed_objs), mvp);//need frustum optimization
     }
     else if(memcmp(_obj->type, "camera", 7)) {printf("procces camera obj\n");}
     else if(memcmp(_obj->type, "light", 6)) {printf("procces light obj\n");}
@@ -227,32 +205,21 @@ void update_obj_handler(void* _node) {
   _obj->updated = 0;
 }
 
-void draw(struct scene* _scene, struct entity* _entity, vec3* _cswp) {
+void draw(struct scene* _scene, struct entity* _entity, vec3* _mvp) {
   glUseProgram(_scene->cur_shader->id);
-  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _cswp);
+  glUniformMatrix4fv(_scene->cur_shader->uniforms->id, 1, GL_TRUE, _mvp);
   
   //push uniforms to shader
   //use shader
   
 //   glEnable(GL_DEPTH_TEST);
   glBindVertexArray(_entity->hw->vao);
-  
-//         const unsigned int MaterialIndex = _entity->material[i];
-// 
-//         assert(MaterialIndex < m_Textures.size());
-//         
-//         if (m_Textures[MaterialIndex]) {
-//             m_Textures[MaterialIndex]->Bind(GL_TEXTURE0);
-//         }
-
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _entity->hw->index);
 	glDrawElements(GL_TRIANGLES, 
                                _entity->mesh->num_indices, 
                                GL_UNSIGNED_INT,
                                (void*)(0));
-  
 // 	OPENGL_CHECK_FOR_ERRORS();
-	
   glBindVertexArray(NULL);
 }
 

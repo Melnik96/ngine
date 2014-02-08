@@ -47,6 +47,8 @@ GL/gl.h
 -
 GLFW/glfw3.h
 -
+kazmath/mat4.h
+-
 cntr/array.h
 /home/melnik/projects/ngine/source/cntr/array.h
 cntr/tree.h
@@ -117,10 +119,30 @@ stdint.h
 /home/melnik/projects/ngine/source/sc_obj.h
 math/vector.h
 /home/melnik/projects/ngine/source/math/vector.h
+math/matrix.h
+/home/melnik/projects/ngine/source/math/matrix.h
 cntr/tree.h
 /home/melnik/projects/ngine/source/cntr/tree.h
 
 /home/melnik/projects/ngine/source/scene.h
+
+/home/melnik/projects/ngine/source/shader_prog.c
+string.h
+-
+pthread.h
+-
+GL/glew.h
+-
+GL/gl.h
+-
+string.h
+-
+string.h
+-
+log.h
+/home/melnik/projects/ngine/source/log.h
+shader_prog.h
+/home/melnik/projects/ngine/source/shader_prog.h
 
 /home/melnik/projects/ngine/source/shader_prog.h
 stdint.h

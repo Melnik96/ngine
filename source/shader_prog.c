@@ -72,9 +72,6 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   vert_shad = glCreateShader(GL_VERTEX_SHADER);
 
   glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
-//   debug(_sources->vertex);
-//   debug(_sources->fragment);
-
   glCompileShader(vert_shad);
 
   glGetShaderiv(vert_shad, GL_COMPILE_STATUS, &compiled);
@@ -206,24 +203,17 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
 //   }
 
   frag_shad = glCreateShader(GLUS_FRAGMENT_SHADER);
-
   glShaderSource(frag_shad , 1, (const char**) &_sources->fragment, 0);
-
   glCompileShader(frag_shad);
 
   glGetShaderiv(frag_shad, GL_COMPILE_STATUS, &compiled);
-
   if(!compiled) {
     glGetShaderiv(frag_shad, GL_INFO_LOG_LENGTH, &logLength);
-
     log = (char*) malloc((size_t)logLength);
-
     if(!log) {
 //       glusDestroyProgram(shaderProgram);
-
       return GLUS_FALSE;
     }
-
     glGetShaderInfoLog(frag_shad, logLength, &charsWritten, log);
 
     debug("Fragment shader compile error:");
@@ -232,9 +222,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
     free(log);
 
     frag_shad = 0;
-
 //     glusDestroyProgram(shaderProgram);
-
     return GLUS_FALSE;
   }
 
@@ -275,8 +263,8 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
     glLinkProgram(_prog->id);
     
   _prog->uniforms = malloc(sizeof(struct shader_param));
-  memcpy(_prog->uniforms->name, "g_obj_pos", 4);
-  _prog->uniforms->id = glGetUniformLocation(_prog->id, "g_obj_pos");
+  memcpy(_prog->uniforms->name, "_mvp", 4);
+  _prog->uniforms->id = glGetUniformLocation(_prog->id, "_mvp");
   if(_prog->uniforms->id < 0) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
 
     

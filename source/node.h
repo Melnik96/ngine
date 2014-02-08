@@ -28,7 +28,7 @@ struct node {
   struct socket* outputs;
   struct socket* inputs;
   
-  int(*process)(struct node*);
+  int(*process)(struct node*);// get data from inputs, procces and write data to outputs
 };
 
 struct socket {
@@ -47,4 +47,5 @@ enum sock_type {
 //some args can be NULL(0)
 int node_create(struct node* _self, char* _type, uint8_t _num_in, uint8_t _num_out, int(*_handler)(struct node*));
 struct socket* node_get_sock_by_name(struct node* _self, char* _name, enum sock_type _sctype);
+
 #endif // NODE_H

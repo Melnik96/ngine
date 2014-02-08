@@ -20,10 +20,12 @@
 #include <malloc.h>
 #include <string.h>
 #include <math.h>
+#include <kazmath/kazmath.h>
 
 #include "engine.h"
 
 #include "sc_obj.h"
+#include <matrix.h>
 
 # define M_PI		3.14159265358979323846	/* pi */
 
@@ -40,3 +42,23 @@ struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
   
   return new_obj;
 }
+struct sc_obj* sc_obj_upd_mat(struct sc_obj* _self) {
+  kmMat4* tmp_mat = malloc(sizeof(kmMat4));
+
+//   kmMat4Identity(tmp_mat);
+  kmMat4Identity(&_self->matrix);
+
+  kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
+  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
+  
+  kmMat4RotationQuaternion(tmp_mat, &_self->orient);
+  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
+  
+  kmMat4Translation(tmp_mat, _self->pos.x, _self->pos.y, _self->pos.z);
+  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
+
+  if(_self->link.parent != NULL) {
+    kmMat4Multiply(&_self->matrix, &((struct sc_obj*)_self->link.parent)->matrix, &_self->matrix);
+  }
+}
+

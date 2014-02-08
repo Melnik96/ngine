@@ -24,8 +24,9 @@
 #include "math/matrix.h"
 
 struct viewport {
-//   mat4 proj_matrix;
+  mat4 proj_matrix;
   struct sc_obj* camera;
+  //TODO multiple active cameras, render targets
 };
 
 #endif /* __VIEWPORT_H__ */

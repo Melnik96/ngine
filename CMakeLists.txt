@@ -29,6 +29,7 @@ target_link_libraries(ngine
   "alut"
   "GLEW"
   "glfw"
+  "kazmath"
   "pthread"
   "libtcc.a"
   "dl"
@@ -46,3 +47,4 @@ add_subdirectory(examples)
 add_subdirectory(source/physics)
 add_subdirectory(source/serialize)
 add_subdirectory(cinterp)
+add_subdirectory(source/import/obj)

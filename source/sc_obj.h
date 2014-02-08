@@ -22,6 +22,7 @@
 #define __SCENE_OBJECT_H__
 
 #include "math/vector.h"
+#include "math/matrix.h"
 #include "cntr/tree.h"
 
 struct sc_obj_listener {
@@ -39,6 +40,7 @@ struct sc_obj {
   vec3 pos;
   vec4 orient;
   float scale;
+  mat4 matrix;
   vec3 last_pso;//if null, updated
   int updated;//need update gpu buffer
   struct list* typed_objs;//ptr to list of entities or cameras
@@ -46,5 +48,6 @@ struct sc_obj {
 };
 
 struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type);
+struct sc_obj* sc_obj_upd_mat(struct sc_obj* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

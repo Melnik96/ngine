@@ -51,12 +51,16 @@ struct shader_param {
 };
 
 struct shader_prog {
-  char 			 name[32];
-  uint32_t 		 id;
-  struct shader_param* uniforms;
-  struct shader_param* attribs;
+  char 			name[32];
+  uint32_t 		id;
+  struct shader_param* 	uniforms;
+  struct shader_param* 	attribs;
 };
 
-int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources);
+int 			shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources);
+struct shader_prog* 	shader_prog_create(const char* _name, struct shader_source* _sources);
+int	 		shader_prog_delete(struct shader_prog* _prog);
+int 			shader_prog_param(struct shader_prog* _prog, const char* _par_name);
+int 			shader_prog_params(struct shader_prog* _prog, const char** _params);
 
 #endif // SHADER_PROG_H

@@ -9,6 +9,8 @@
 #include "sc_obj.h"
 #include "math/vector.h"
 
+#include <kazmath/mat4.h>
+
 #include <stdio.h>
 #include <malloc.h>
 #include <signal.h>
@@ -99,6 +101,7 @@ int main(int argc, char *argv[]) {
   model->typed_objs = &ent;
   model->pos.z = -20.f;
   model->orient = (vec4){0.f, 0.f, 0.2f, deg2rad(50)};
+  model->scale = 1.f;
 //   sc_obj_update_matrix(model);
   
   //add camera
@@ -111,7 +114,7 @@ int main(int argc, char *argv[]) {
   
   engine0->viewport = malloc(sizeof(struct viewport));
   engine0->viewport->camera = cam;
-//   mat_perspective(30.0f, 1.0f, 0.01f, 1000.f,  &engine0->viewport->proj_matrix);
+  kmMat4PerspectiveProjection(&engine0->viewport->proj_matrix, 30.f, /*aspect*/1.20f, 1.f, 1000.f);
   
   if(argc > 1/* && strncmp(argv[1], "-norender", 5)*/) {
     engine0->active_render = 0;

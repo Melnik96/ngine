@@ -69,6 +69,8 @@ math/vector.h
 ../source/sc_obj.h
 math/vector.h
 ../source/math/vector.h
+math/matrix.h
+../source/math/matrix.h
 cntr/tree.h
 ../source/cntr/tree.h
 
@@ -107,6 +109,8 @@ sc_obj.h
 /home/melnik/projects/ngine/editor/source/sc_obj.h
 math/vector.h
 /home/melnik/projects/ngine/editor/source/math/vector.h
+kazmath/mat4.h
+-
 stdio.h
 -
 malloc.h
