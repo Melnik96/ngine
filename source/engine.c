@@ -47,12 +47,14 @@
 #include "shader_prog.h"
 #include "iofile.h"
 #include "log.h"
+#include "../cinterp/cinterp.h"
 
 //predef intern
 void worker_handler(void* _self);
 void update_obj_handler(struct sc_obj* _obj);
 void draw(struct scene* _scene, struct entity* _entity, vec3* _mvp);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void cam_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 int ngine_init(struct engine* _self, char* _win_name) {
   memset(_self, 0, sizeof(struct engine));
@@ -68,7 +70,17 @@ int ngine_init(struct engine* _self, char* _win_name) {
     }
     glfwMakeContextCurrent(_self->window);
   
-    glfwSetKeyCallback(_self->window, key_callback);
+//     TCCState* cam_ctrl_cc = tcc_new();
+//     tcc_add_library(cam_ctrl_cc, "glfw");
+//     tcc_add_sysinclude_path(cam_ctrl_cc, "/usr/include");
+//     tcc_add_sysinclude_path(cam_ctrl_cc, "/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include/");
+//     tcc_add_include_path(tcc, "/home/melnik/projects/ngine/source/");
+//     tcc_compile_string(cam_ctrl_cc, file_rdbufp("cam_ctrl.c"));
+//     tcc_add_symbol(tcc, "ngine_intense", _self);
+//     tcc_relocate(tcc, TCC_RELOCATE_AUTO);
+//     GLFWkeyfun cam_key_callback = tcc_get_symbol(tcc, "cam_key_callback");
+    glfwSetWindowUserPointer(_self->window, _self);
+    glfwSetKeyCallback(_self->window, cam_key_callback);
 //   glfwSetMouseButtonCallback(_self->window);
   
   glewExperimental = GL_TRUE;
@@ -137,6 +149,11 @@ int ngine_frame(struct engine* _self, float _elapsed) {
 // //       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//need cpu resources
 // //       glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
 
+      //update current active camera
+      if(_self->viewport->camera->updated) {
+	sc_obj_upd_mat_inv(_self->viewport->camera);
+      }
+
       tree_for_each((struct tree*)(_self->scenes->root_object), update_obj_handler);
   
       glfwSwapBuffers(_self->window);
@@ -177,12 +194,6 @@ void ngine_get_opengl_version(char* _ver) {
 
 //intern
 void update_obj_handler(struct sc_obj* _obj) {
-  // update algorithm
-  // 1. rotate pos vector of origin quaternion = parent_transform
-  // 2. child_pos + parent_trans rotate of child_orient*parent_orient
-  
-  if(_obj->engine->viewport->camera->updated) {}
-  
   if(_obj->updated) {
     if(memcmp(_obj->type, "entity", 6)==0 && sc_obj_check_visible(_obj, _obj->engine->viewport->camera)) {
       //http://www.flipcode.com/archives/Frustum_Culling.shtml
@@ -193,9 +204,10 @@ void update_obj_handler(struct sc_obj* _obj) {
       sc_obj_upd_mat(_obj);
       
       kmMat4* mvp = malloc(sizeof(kmMat4));
-      kmMat4Multiply(mvp, &_obj->matrix, &_obj->engine->viewport->proj_matrix);
+      kmMat4Multiply(mvp, &_obj->matrix, &_obj->engine->viewport->camera->matrix);
+      kmMat4Multiply(mvp, mvp, &_obj->engine->viewport->proj_matrix);
       
-      draw(_obj->engine->scenes, ((struct entity*)_obj->typed_objs), mvp);//need frustum optimization
+      draw(_obj->engine->scenes, _obj->typed_objs, mvp);//need frustum optimization
     }
     else if(memcmp(_obj->type, "camera", 7)) {printf("procces camera obj\n");}
     else if(memcmp(_obj->type, "light", 6)) {printf("procces light obj\n");}
@@ -236,10 +248,27 @@ int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-  if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+  if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
     glfwSetWindowShouldClose(window, GL_TRUE);
-  else if(key == GLFW_KEY_A && action == GLFW_PRESS)
-    sound_play_wav("test.wav");
+  } else if(key == GLFW_KEY_W && action == GLFW_PRESS) {
+    ;
+  }
+}
+void* ngine_intense(GLFWwindow* _win) {
+  return glfwGetWindowUserPointer(_win);
+}
+void cam_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+  if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+    glfwSetWindowShouldClose(window, GL_TRUE);
+  } else if(key == GLFW_KEY_W && action == GLFW_PRESS) {
+    ((struct engine*)ngine_intense(window))->viewport->camera->pos.z -= 0.5f/60.f;
+  } else if(key == GLFW_KEY_S && action == GLFW_PRESS) {
+    ((struct engine*)ngine_intense(window))->viewport->camera->pos.z += 0.5f/60.f;
+  } else if(key == GLFW_KEY_A && action == GLFW_PRESS) {
+    ((struct engine*)ngine_intense(window))->viewport->camera->pos.x -= 0.5f/60.f;
+  } else if(key == GLFW_KEY_D && action == GLFW_PRESS) {
+    ((struct engine*)ngine_intense(window))->viewport->camera->pos.x += 0.5f/60.f;
+  }
 }
 
 void worker_handler(void* _self) {

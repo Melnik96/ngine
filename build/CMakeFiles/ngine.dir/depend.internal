@@ -24,6 +24,7 @@ CMakeFiles/ngine.dir/source/dynlib.c.o
  /home/melnik/projects/ngine/source/mempool.h
 CMakeFiles/ngine.dir/source/engine.c.o
  ../source/serialize.h
+ /home/melnik/projects/ngine/cinterp/cinterp.h
  /home/melnik/projects/ngine/source/audio.h
  /home/melnik/projects/ngine/source/camera.h
  /home/melnik/projects/ngine/source/cntr/array.h

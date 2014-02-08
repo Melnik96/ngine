@@ -14,6 +14,22 @@ string.h
 malloc.h
 -
 
+/home/melnik/projects/ngine/cinterp/cinterp.h
+stdio.h
+-
+stdint.h
+-
+string.h
+-
+malloc.h
+-
+libtcc.h
+-
+engine.h
+/home/melnik/projects/ngine/cinterp/engine.h
+iofile.h
+/home/melnik/projects/ngine/cinterp/iofile.h
+
 /home/melnik/projects/ngine/source/audio.h
 
 /home/melnik/projects/ngine/source/camera.h
@@ -83,6 +99,8 @@ iofile.h
 /home/melnik/projects/ngine/source/iofile.h
 log.h
 /home/melnik/projects/ngine/source/log.h
+../cinterp/cinterp.h
+/home/melnik/projects/ngine/cinterp/cinterp.h
 
 /home/melnik/projects/ngine/source/engine.h
 stdint.h
@@ -125,24 +143,6 @@ cntr/tree.h
 /home/melnik/projects/ngine/source/cntr/tree.h
 
 /home/melnik/projects/ngine/source/scene.h
-
-/home/melnik/projects/ngine/source/shader_prog.c
-string.h
--
-pthread.h
--
-GL/glew.h
--
-GL/gl.h
--
-string.h
--
-string.h
--
-log.h
-/home/melnik/projects/ngine/source/log.h
-shader_prog.h
-/home/melnik/projects/ngine/source/shader_prog.h
 
 /home/melnik/projects/ngine/source/shader_prog.h
 stdint.h

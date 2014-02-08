@@ -31,7 +31,7 @@ target_link_libraries(ngine
   "glfw"
   "kazmath"
   "pthread"
-  "libtcc.a"
+  "libtcc.so"
   "dl"
 )
 

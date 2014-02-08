@@ -23,6 +23,7 @@ CMakeFiles/ngine.dir/source/dynlib.c.o: ../source/dynlib.h
 CMakeFiles/ngine.dir/source/dynlib.c.o: ../source/mempool.h
 
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/serialize.h
+CMakeFiles/ngine.dir/source/engine.c.o: ../cinterp/cinterp.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/audio.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/camera.h
 CMakeFiles/ngine.dir/source/engine.c.o: ../source/cntr/array.h

@@ -49,5 +49,6 @@ struct sc_obj {
 
 struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type);
 struct sc_obj* sc_obj_upd_mat(struct sc_obj* _self);
+struct sc_obj* sc_obj_upd_mat_inv(struct sc_obj* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

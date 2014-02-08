@@ -10,6 +10,8 @@
 #include "math/vector.h"
 
 #include <kazmath/mat4.h>
+#include <kazmath/vec3.h>
+#include <kazmath/quaternion.h>
 
 #include <stdio.h>
 #include <malloc.h>
@@ -100,15 +102,16 @@ int main(int argc, char *argv[]) {
   
   model->typed_objs = &ent;
   model->pos.z = -20.f;
-  model->orient = (vec4){0.f, 0.f, 0.2f, deg2rad(50)};
+  kmQuaternionIdentity(&model->orient);
   model->scale = 1.f;
 //   sc_obj_update_matrix(model);
   
   //add camera
   struct sc_obj* cam = sc_obj_create(engine0, "cam0", "camera");
   tree_add_child(&sc->root_object->link, &cam->link);
-  cam->pos = (vec3){0};
-  cam->orient = (vec4){0.f, 0.f, 0.f, 1.f};
+  cam->pos = (vec3){0,0,20};
+  kmQuaternionIdentity(&cam->orient);
+  cam->scale = 1.f;
   
 //   mat4_identity(&cam->model_matrix);
   
@@ -116,7 +119,7 @@ int main(int argc, char *argv[]) {
   engine0->viewport->camera = cam;
   kmMat4PerspectiveProjection(&engine0->viewport->proj_matrix, 30.f, /*aspect*/1.20f, 1.f, 1000.f);
   
-  if(argc > 1/* && strncmp(argv[1], "-norender", 5)*/) {
+  if(argc > 1 && strncmp(argv[1], "-norender", 5)) {
     engine0->active_render = 0;
   } else {
     engine0->active_render = 1;

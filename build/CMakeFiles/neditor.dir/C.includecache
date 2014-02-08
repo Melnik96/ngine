@@ -111,6 +111,10 @@ math/vector.h
 /home/melnik/projects/ngine/editor/source/math/vector.h
 kazmath/mat4.h
 -
+kazmath/vec3.h
+-
+kazmath/quaternion.h
+-
 stdio.h
 -
 malloc.h
