@@ -5,12 +5,19 @@
 
 #include "math.h"
 
-struct gl_render_sys {
-  matrix4x4 view_matrix;
-  matrix4x4 world_matrix;
-  matrix4x4 texture_matrix;
+struct gl_state {
+  mat4 model_matrix;
+  mat4 view_matrix;
+  mat4 proj_matrix;
+  
+  struct shader_prog* shader;
+  
+  //lights
+  //mesh
+  //material
 };
 
-int some_fun() {
-  glBindProgramARB();
-}
+gl_draw(struct gl_state* _gl_state, struct entity* _ent, mat4* _mvp);
+
+struct gl_render_sys {
+};

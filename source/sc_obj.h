@@ -31,23 +31,39 @@ struct sc_obj_listener {
   void(*on_key_pressed)();
 };
 
+enum sc_obj_type {
+  SC_OBJ_NULL,
+  SC_OBJ_ENTITY,
+  SC_OBJ_CAMERA
+  //user defined types
+};
+
 struct sc_obj {
   struct tree link;
-  struct engine* engine;
+//   struct engine* engine;
   
   char name[32];
-  char type[32];//TODO type_id: int
+  int type;// sc_obj_type
+  // translation
   vec3 pos;
-  vec4 orient;
+  quat orient;
   float scale;
+  
   mat4 matrix;
-  vec3 last_pso;//if null, updated
-  int updated;//need update gpu buffer
+  
+  // indicators
+  int16_t translated;
+  int16_t updated;//need update gpu buffer
+  
   struct list* typed_objs;//ptr to list of entities or cameras
+  
   struct sc_obj_listener* listener;
 };
 
-struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type);
+int sc_obj_init(struct sc_obj* _self, char* _name, int _type);
+struct sc_obj* sc_obj_create(char* _name, int _type);
+
+//intern
 struct sc_obj* sc_obj_upd_mat(struct sc_obj* _self);
 struct sc_obj* sc_obj_upd_mat_inv(struct sc_obj* _self);
 

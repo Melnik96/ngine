@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/cinterp.dir/main.c.o"
-  "../../editor/bin/cinterp.pdb"
-  "../../editor/bin/cinterp"
+  "../../neditor/bin/cinterp.pdb"
+  "../../neditor/bin/cinterp"
 )
 
 # Per-language clean rules from dependency scanning.

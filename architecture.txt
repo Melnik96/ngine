@@ -1,0 +1,6 @@
+|CPU		|GPU			|
+|scene graph	|skeleton skinning	|
+|serializataion	|rasteriazation		|
+|audio		|			|
+
+All serial work may work on cpu, and paralel work may work on gpu.

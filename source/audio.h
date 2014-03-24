@@ -20,9 +20,13 @@
 #ifndef AUDIO_H
 #define AUDIO_H
 
+#include "math/vector.h"
+
 struct audio {};
 
 int sound_play();
 int sound_play_wav(char* _file);
+
+int sound_play_at(vec3* _pos, int sound);
 
 #endif // AUDIO_H

@@ -10,7 +10,7 @@ add_definitions("-D__GNUC__")
 
 set(ARCH "x86")
 set(CMAKE_C_FLAGS "-std=c11")
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/editor/bin CACHE INTERNAL "" FORCE)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/neditor/bin CACHE INTERNAL "" FORCE)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/lib/${ARCH}/ CACHE INTERNAL "" FORCE)
 
 aux_source_directory("source/" engine_sources)
@@ -35,7 +35,7 @@ target_link_libraries(ngine
   "dl"
 )
 
-add_executable(neditor editor/source/net.c editor/source/main.c)
+add_executable(neditor neditor/source/main.c)
 target_link_libraries(neditor
   ngine
 )
@@ -48,3 +48,5 @@ add_subdirectory(source/physics)
 add_subdirectory(source/serialize)
 add_subdirectory(cinterp)
 add_subdirectory(source/import/obj)
+add_subdirectory(source/anim)
+add_subdirectory(source/cmdinterp)

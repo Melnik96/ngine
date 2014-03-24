@@ -39,6 +39,8 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("/home/melnik/projects/ngine/build/source/serialize/cmake_install.cmake")
   INCLUDE("/home/melnik/projects/ngine/build/cinterp/cmake_install.cmake")
   INCLUDE("/home/melnik/projects/ngine/build/source/import/obj/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/source/anim/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/source/cmdinterp/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

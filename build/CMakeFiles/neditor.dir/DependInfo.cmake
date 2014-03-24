@@ -4,8 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/melnik/projects/ngine/editor/source/main.c" "/home/melnik/projects/ngine/build/CMakeFiles/neditor.dir/editor/source/main.c.o"
-  "/home/melnik/projects/ngine/editor/source/net.c" "/home/melnik/projects/ngine/build/CMakeFiles/neditor.dir/editor/source/net.c.o"
+  "/home/melnik/projects/ngine/neditor/source/main.c" "/home/melnik/projects/ngine/build/CMakeFiles/neditor.dir/neditor/source/main.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 

@@ -17,6 +17,8 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "../examples/serialize/linked_list/CMakeLists.txt"
   "../examples/serialize/mesh/CMakeLists.txt"
   "../examples/serialize/nasted_ptr_struct/CMakeLists.txt"
+  "../source/anim/CMakeLists.txt"
+  "../source/cmdinterp/CMakeLists.txt"
   "../source/import/obj/CMakeLists.txt"
   "../source/physics/CMakeLists.txt"
   "../source/serialize/CMakeLists.txt"
@@ -53,6 +55,8 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "source/serialize/CMakeFiles/CMakeDirectoryInformation.cmake"
   "cinterp/CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/import/obj/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/anim/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/cmdinterp/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

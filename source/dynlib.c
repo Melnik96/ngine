@@ -28,15 +28,22 @@ static struct mempool* dynlib_pool;
 
 struct dynlib* dynlib_open(char* _name) {
   struct dynlib* module;
-  module = mempool_alloc(dynlib_pool);
+  module = malloc(sizeof(struct dynlib));
+// #ifdef LINUX
   module->intense = dlopen(_name, RTLD_LAZY);
-  module->type = so_module;
+// #endif
   strcpy(module->name, _name);
 }
 int dynlib_close(struct dynlib* _module) {
-
+// #ifdef LINUX
+  dlclose(_module->intense);
+// #endif
+  free(_module->intense);
+  free(_module->name);
+  free(_module);
 }
 void* dynlib_getsym(struct dynlib* _module, char* _symname) {
-
+// #ifdef LINUX
+  return dlsym(_module->intense, _symname);
+// #endif
 }
-

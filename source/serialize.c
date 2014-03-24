@@ -19,9 +19,9 @@
 
 #include "serialize.h"
 
-struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, void* _ptr) {
+inline struct ptr_offset* check_ptr_in_list(size_t _ptr_num, struct ptr_offset* _list, void* _ptr) {
   for(size_t i = 0; i < _ptr_num; ++i) {
-    if(_ptr_os[i].ptr == _ptr) { return &_ptr_os[i]; }
+    if(_list[i].ptr == _ptr) { return &_list[i]; }
   }
   return 0;
 }

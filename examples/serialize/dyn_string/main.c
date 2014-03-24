@@ -23,8 +23,8 @@ int main() {
   fwrite(str_buf->data, str_buf->size, 1, f);
   fclose(f);
   
-  struct string* dstr = deserialize(str_buf->data, string,);
+//   struct string* dstr = deserialize(str_buf->data, string,);
   
-  printf("dstr->str = %s\n"
-	 "dstr->len = %i\n", dstr->str, dstr->len);
+//   printf("dstr->str = %s\n"
+// 	 "dstr->len = %i\n", dstr->str, dstr->len);
 }

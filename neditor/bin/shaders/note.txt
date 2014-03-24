@@ -1,0 +1,1 @@
+shaders in folder 'bin' will be in compiled format

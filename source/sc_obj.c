@@ -32,13 +32,17 @@
 #define deg2rad(x) (float)(((x) * M_PI / 180.0f))
 #define rad2deg(x) (float)(((x) * 180.0f / M_PI))
 
-struct sc_obj* sc_obj_create(struct engine* _eng, char* _name, char* _type) {
+#define true 1
+#define false 0
+
+struct sc_obj* sc_obj_create(char* _name, int _type) {
   struct sc_obj* new_obj = malloc(sizeof(struct sc_obj));
   memset(new_obj, 0, sizeof(struct sc_obj));
   strcpy(new_obj->name, _name);
   strcpy(new_obj->type, _type);
-  new_obj->engine = _eng;
-  new_obj->updated = 1;
+  new_obj->translated = true;
+  new_obj->updated = true;
+  
   kmMat4Identity(&new_obj->matrix);
   
   return new_obj;
@@ -60,7 +64,7 @@ struct sc_obj* sc_obj_upd_mat(struct sc_obj* _self) {
 
   if(_self->link.parent != NULL) {
     kmMat4Multiply(&_self->matrix, &((struct sc_obj*)_self->link.parent)->matrix, &_self->matrix);
-  }
+  }// all parents must be updated already
 }
 struct sc_obj* sc_obj_upd_mat_inv(struct sc_obj* _self) {
   kmMat4* tmp_mat = malloc(sizeof(kmMat4));
@@ -71,7 +75,7 @@ struct sc_obj* sc_obj_upd_mat_inv(struct sc_obj* _self) {
 //   kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
 //   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
   
-  kmMat4RotationQuaternion(tmp_mat, &_self->orient);
+  kmMat4RotationQuaternion(tmp_mat, /*-*/&_self->orient);
   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
   
   kmMat4Translation(tmp_mat, -_self->pos.x, -_self->pos.y, -_self->pos.z);

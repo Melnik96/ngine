@@ -11,6 +11,8 @@ stdio.h
 -
 stdint.h
 -
+time.h
+-
 string.h
 -
 malloc.h
@@ -21,6 +23,10 @@ engine.h
 ../cinterp/engine.h
 iofile.h
 ../cinterp/iofile.h
+
+../source/anim/bone.h
+../math/vector.h
+../source/math/vector.h
 
 ../source/camera.h
 math/matrix.h
@@ -43,6 +49,8 @@ cntr/list.h
 ../source/cntr/list.h
 
 ../source/entity.h
+anim/bone.h
+../source/anim/bone.h
 
 ../source/iofile.h
 

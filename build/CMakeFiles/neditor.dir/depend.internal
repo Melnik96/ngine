@@ -3,6 +3,7 @@
 
 CMakeFiles/neditor.dir/editor/source/main.c.o
  ../cinterp/cinterp.h
+ ../source/anim/bone.h
  ../source/camera.h
  ../source/cntr/list.h
  ../source/cntr/tree.h

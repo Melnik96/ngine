@@ -31,7 +31,7 @@
 #include "entity.h"
 
 //cool gameplay http://www.youtube.com/watch?v=4gte8ket3jk
-int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material) {
+int entity_init(struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material) {
 //   _ent->name = NULL;
 //   _ent->mesh = NULL;
 //   _ent->material = NULL;
@@ -57,20 +57,20 @@ int entity_init(struct engine* _eng, struct entity* _ent, char* _name, struct me
     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _ent->mesh->num_vertices, _ent->mesh->uv, GL_STATIC_DRAW);
     glEnableVertexAttribArray(GLSA_UV);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
+    glVertexAttribPointer(GLSA_UV, 2, GL_FLOAT, GL_FALSE, 0, 0);
   }
 
   if(_mesh->normals) {
     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_indices/3, _ent->mesh->normals, GL_STATIC_DRAW);
     glEnableVertexAttribArray(GLSA_NORMAL);
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glVertexAttribPointer(GLSA_NORMAL, 3, GL_FLOAT, GL_FALSE, 0, 0);
   }
 
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ent->hw->index);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint32_t) * _ent->mesh->num_indices, _ent->mesh->indices, GL_STATIC_DRAW);
   
-  glBindVertexArray(0);
+  glBindVertexArray(0);///GL 2.1 ?
 #if DEBUG
   gl_get_error();
 #endif

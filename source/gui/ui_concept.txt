@@ -5,4 +5,6 @@
 - віджети
 -   button
 -   text
--   
+- widget is scene object
+
+Need implement procedural objects for ractangles, widgets, buttons

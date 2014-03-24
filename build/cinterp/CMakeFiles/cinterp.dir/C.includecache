@@ -33,6 +33,8 @@ stdio.h
 -
 stdint.h
 -
+time.h
+-
 string.h
 -
 malloc.h

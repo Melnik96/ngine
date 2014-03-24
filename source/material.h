@@ -24,10 +24,13 @@
 #include "math/vector.h"
 
 struct material {
-  struct array* textures;
+  struct texture* textures;
+  
   vec3 difuse_color;
   
-  //physics
+  // Lighting
+  
+  // Physics
 };
 
 #endif /* __MATERIAL_H__ */

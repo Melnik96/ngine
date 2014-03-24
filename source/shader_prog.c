@@ -22,6 +22,7 @@
 
 #include <GL/glew.h>
 #include <GL/gl.h>
+#include <malloc.h>
 #include <string.h>
 #include <string.h>
 
@@ -261,6 +262,7 @@ int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader
   _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
   
     glLinkProgram(_prog->id);
+#define new(type) malloc(sizeof(type))
     
   _prog->uniforms = malloc(sizeof(struct shader_param));
   memcpy(_prog->uniforms->name, "_mvp", 4);
@@ -364,3 +366,98 @@ GLint ShaderProgramStatus(GLuint program, GLenum param) {
   // вернем статус
   return status;
 }
+
+
+
+/*
+
+struct shader_prog* shader_prog_create(const char* _name, struct shader_source* _sources) {
+  struct shader_prog* new_sprog = malloc(sizeof(struct shader_prog));
+  shader_prog_init(new_sprog, _name, _sources);
+  return new_sprog;
+}
+
+int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources) {
+  if(_sources->vertex) {
+    int vert_shad = glCreateShader(GL_VERTEX_SHADER);
+
+    glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
+    glCompileShader(vert_shad);
+
+    if(sprog_check_compile_error(vert_shad)) {
+      error("OpenGL shader compile error: %s", sprog_get_error_string(vert_shad));
+    }
+  }
+  if(_sources->fragment) {
+    
+  }
+  if(_sources->geometry) {
+    
+  }
+  
+  _prog->id = glCreateProgram();
+
+  glAttachShader(_prog->id, vert_shad);
+  glAttachShader(_prog->id, frag_shad);
+    
+  _prog->attribs = malloc(3*sizeof(struct shader_param));
+  _prog->uniforms = malloc(sizeof(struct shader_param));
+  
+  glBindAttribLocation(_prog->id, GLSA_VERTEX, "vert");
+  memcpy(_prog->attribs[GLSA_VERTEX].name, "vert", sizeof "vert");
+  _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
+  
+  glLinkProgram(_prog->id);
+    
+  memcpy(_prog->uniforms[GLSU_MVP].name, "_mvp", 5);
+  _prog->uniforms->id = glGetUniformLocation(_prog->id, "_mvp");
+  if(_prog->uniforms->id < 0) {error("OpenGL shader error: get uniform location '_mvp'");}
+
+//     int linked;
+//     glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);
+// 
+//     if(!linked) {
+//         glGetProgramiv(_prog->id, GL_INFO_LOG_LENGTH, &logLength);
+//         log = (char*) malloc((size_t)logLength);
+//         if (!log) {
+// //             glusDestroyProgram(shaderProgram);
+//             return GLUS_FALSE;
+//         }
+// 
+//         glGetProgramInfoLog(_prog->id, logLength, &charsWritten, log);
+// 
+//         printf("Shader program link error:");
+//         printf("%s", log);
+// 
+//         free(log);
+// 
+// //         glusDestroyProgram(shaderProgram);
+// 
+//         return GLUS_FALSE;
+//     }
+}
+
+// intern
+int sprog_check_compile_error(const int _shad_id) {
+  int compiled = 0;
+  glGetShaderiv(_shad_id, GL_COMPILE_STATUS, &compiled);
+  if(!compiled) {
+    
+    return GLUS_FALSE;
+  }
+}
+char* sprog_get_error_string(const int _shad_id) {
+  int log_len;
+  glGetShaderiv(_shad_id, GL_INFO_LOG_LENGTH, &log_len);
+  
+  char* log = malloc((size_t)log_len);
+  
+  int log_writen_len;//TODO FIX IT
+  glGetShaderInfoLog(_shad_id, log_len, &log_writen_len, log);
+
+  return log;
+    debug("Fragment shader compile error:");
+    debug("%s", log);
+
+    free(log);
+}*/

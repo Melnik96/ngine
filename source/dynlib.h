@@ -17,18 +17,11 @@
  *
  */
 
-/* inclusion guard */
+
 #ifndef __DYNLIB_H__
 #define __DYNLIB_H__
 
 #include <stdint.h>
-
-//need support .so and .py modules
-
-enum dynlib_type {
-  so_module = (1<<1),
-  py_module = (1<<2)
-};
 
 struct dynlib {
   char name[32];
@@ -36,8 +29,8 @@ struct dynlib {
   uint8_t type;
 };
 
-struct dynlib* dynlib_open(char* _name);
-int dynlib_close(struct dynlib* _module);
-void* dynlib_getsym(struct dynlib* _module, char* _symname);
+struct dynlib* 	dynlib_open(char* _name);
+int 		dynlib_close(struct dynlib* _module);
+void* 		dynlib_getsym(struct dynlib* _module, char* _symname);
 
 #endif /* __DYNLIB_H__ */

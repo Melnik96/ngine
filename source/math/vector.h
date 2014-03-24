@@ -27,6 +27,8 @@ typedef union {
   float val[4];
 } vec4;
 
+typedef vec4 quat;
+
 // void vec3_mat4_mul_of(float* pOut4D, const float* pIn4D, const mat4* pMat);
 void vec3_sum(vec3* _out, const vec3* _in);
 void vec3_sum_of(vec3* _out, const vec3* _in1, const vec3* _in2);

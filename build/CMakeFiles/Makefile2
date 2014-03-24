@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /home/melnik/projects/ngine/build
 CMakeFiles/neditor.dir/all: CMakeFiles/ngine.dir/all
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/depend
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  2
 	@echo "Built target neditor"
 .PHONY : CMakeFiles/neditor.dir/all
 
@@ -72,7 +72,7 @@ all: CMakeFiles/neditor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/neditor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 24
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/neditor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/neditor.dir/rule
@@ -97,7 +97,7 @@ clean: CMakeFiles/neditor.dir/clean
 CMakeFiles/ngine.dir/all:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/depend
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 	@echo "Built target ngine"
 .PHONY : CMakeFiles/ngine.dir/all
 
@@ -160,7 +160,7 @@ examples/preinstall: examples/serialize/nasted_ptr_struct/preinstall
 examples/CMakeFiles/s_dynstr.dir/all: CMakeFiles/ngine.dir/all
 	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/depend
 	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  27
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  26
 	@echo "Built target s_dynstr"
 .PHONY : examples/CMakeFiles/s_dynstr.dir/all
 
@@ -195,7 +195,7 @@ clean: examples/CMakeFiles/s_dynstr.dir/clean
 examples/CMakeFiles/s_np_struct.dir/all: CMakeFiles/ngine.dir/all
 	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/depend
 	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  28
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  27
 	@echo "Built target s_np_struct"
 .PHONY : examples/CMakeFiles/s_np_struct.dir/all
 
@@ -377,6 +377,36 @@ source/import/obj/clean:
 # Convenience name for "preinstall" pass in the directory.
 source/import/obj/preinstall:
 .PHONY : source/import/obj/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/anim
+
+# Convenience name for "all" pass in the directory.
+source/anim/all:
+.PHONY : source/anim/all
+
+# Convenience name for "clean" pass in the directory.
+source/anim/clean:
+.PHONY : source/anim/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/anim/preinstall:
+.PHONY : source/anim/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/cmdinterp
+
+# Convenience name for "all" pass in the directory.
+source/cmdinterp/all:
+.PHONY : source/cmdinterp/all
+
+# Convenience name for "clean" pass in the directory.
+source/cmdinterp/clean:
+.PHONY : source/cmdinterp/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/cmdinterp/preinstall:
+.PHONY : source/cmdinterp/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -15,8 +15,12 @@ Architecture
 |----------------------|--------|---------------|
 ||graphics	      |||audio |||logic|	|
 |----------------------|--------|---------------|
-||opengl 1x||OpenGL 3x|||OpenAL|||		|
+||OpenGL ES||OpenGL 3x|||OpenAL|||		|
 |----------------------|------------------------|
+
+Renderer
+- lighting (point, shape lighting)
+- teselation displaysment
 
 Matrix mul order: pers_proj * (cam_rot * cam_trans) * (trans * rot * scale)
 

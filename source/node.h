@@ -22,6 +22,10 @@
 
 #include <stdint.h>
 
+/**
+ * Logic nodes for scripting and material(texturing)
+ */
+
 struct node {
   char 		 type[64];
   
@@ -45,7 +49,7 @@ enum sock_type {
 };
 
 //some args can be NULL(0)
-int node_create(struct node* _self, char* _type, uint8_t _num_in, uint8_t _num_out, int(*_handler)(struct node*));
-struct socket* node_get_sock_by_name(struct node* _self, char* _name, enum sock_type _sctype);
+int 		node_create(struct node* _self, char* _type, uint8_t _num_in, uint8_t _num_out, int(*_handler)(struct node*));
+struct socket* 	node_get_sock_by_name(struct node* _self, char* _name, enum sock_type _sctype);
 
 #endif // NODE_H

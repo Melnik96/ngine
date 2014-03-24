@@ -17,15 +17,21 @@
  *
  */
 
-/* inclusion guard */
+
 #ifndef __VIEWPORT_H__
 #define __VIEWPORT_H__
 
 #include "math/matrix.h"
 
 struct viewport {
-  mat4 proj_matrix;
+  float width;
+  float height;
   struct sc_obj* camera;
+  
+  int updated;
+  
+  mat4 proj_matrix;
+  
   //TODO multiple active cameras, render targets
 };
 

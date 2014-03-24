@@ -9,20 +9,25 @@ struct string {
   char str[];
 };
 
-int nstr_cmp(struct string* _f, struct string* _s) {
-  if(_f->len != _s->len) { return 0; }
-  if(memcmp(_f->str, _s->str, _f->len) == 1) { return 1; }
-  return 0;
+typedef struct string string;
+
+struct string* nstr(const char* _cstr) {
+  struct string* str = malloc(sizeof(struct string));
+  str->str = _cstr;
+  str->len = strlen(_cstr);
+//   str->alloc = str->len + 1;
+  return str;
 }
+
+int nstrcmp(struct string* _f, struct string* _s) {
+  if(_f->len != _s->len) { return 0; }
+  return memcmp(_f->str, _s->str, _f->len);
+}
+
+nstrcat(struct string* _d, ...) {}
 
 // int nstrncmp(const char* _f, const char _s, uint8_t _len) {
 //   return memcmp(_f, _s, _len);
 // }
-
-//alloc for serialize 
-struct salloc {
-  struct meta meta;
-  void* data;
-};
 
 #endif

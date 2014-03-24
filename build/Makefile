@@ -166,53 +166,29 @@ cinterp/fast:
 	$(MAKE) -f cinterp/CMakeFiles/cinterp.dir/build.make cinterp/CMakeFiles/cinterp.dir/build
 .PHONY : cinterp/fast
 
-editor/source/main.o: editor/source/main.c.o
-.PHONY : editor/source/main.o
+neditor/source/main.o: neditor/source/main.c.o
+.PHONY : neditor/source/main.o
 
 # target to build an object file
-editor/source/main.c.o:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/main.c.o
-.PHONY : editor/source/main.c.o
+neditor/source/main.c.o:
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/main.c.o
+.PHONY : neditor/source/main.c.o
 
-editor/source/main.i: editor/source/main.c.i
-.PHONY : editor/source/main.i
-
-# target to preprocess a source file
-editor/source/main.c.i:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/main.c.i
-.PHONY : editor/source/main.c.i
-
-editor/source/main.s: editor/source/main.c.s
-.PHONY : editor/source/main.s
-
-# target to generate assembly for a file
-editor/source/main.c.s:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/main.c.s
-.PHONY : editor/source/main.c.s
-
-editor/source/net.o: editor/source/net.c.o
-.PHONY : editor/source/net.o
-
-# target to build an object file
-editor/source/net.c.o:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/net.c.o
-.PHONY : editor/source/net.c.o
-
-editor/source/net.i: editor/source/net.c.i
-.PHONY : editor/source/net.i
+neditor/source/main.i: neditor/source/main.c.i
+.PHONY : neditor/source/main.i
 
 # target to preprocess a source file
-editor/source/net.c.i:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/net.c.i
-.PHONY : editor/source/net.c.i
+neditor/source/main.c.i:
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/main.c.i
+.PHONY : neditor/source/main.c.i
 
-editor/source/net.s: editor/source/net.c.s
-.PHONY : editor/source/net.s
+neditor/source/main.s: neditor/source/main.c.s
+.PHONY : neditor/source/main.s
 
 # target to generate assembly for a file
-editor/source/net.c.s:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/editor/source/net.c.s
-.PHONY : editor/source/net.c.s
+neditor/source/main.c.s:
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/main.c.s
+.PHONY : neditor/source/main.c.s
 
 source/audio.o: source/audio.c.o
 .PHONY : source/audio.o
@@ -357,30 +333,6 @@ source/dynlib.s: source/dynlib.c.s
 source/dynlib.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/dynlib.c.s
 .PHONY : source/dynlib.c.s
-
-source/engine.o: source/engine.c.o
-.PHONY : source/engine.o
-
-# target to build an object file
-source/engine.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.o
-.PHONY : source/engine.c.o
-
-source/engine.i: source/engine.c.i
-.PHONY : source/engine.i
-
-# target to preprocess a source file
-source/engine.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.i
-.PHONY : source/engine.c.i
-
-source/engine.s: source/engine.c.s
-.PHONY : source/engine.s
-
-# target to generate assembly for a file
-source/engine.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/engine.c.s
-.PHONY : source/engine.c.s
 
 source/entity.o: source/entity.c.o
 .PHONY : source/entity.o
@@ -574,6 +526,30 @@ source/mesh.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh.c.s
 .PHONY : source/mesh.c.s
 
+source/ngine.o: source/ngine.c.o
+.PHONY : source/ngine.o
+
+# target to build an object file
+source/ngine.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/ngine.c.o
+.PHONY : source/ngine.c.o
+
+source/ngine.i: source/ngine.c.i
+.PHONY : source/ngine.i
+
+# target to preprocess a source file
+source/ngine.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/ngine.c.i
+.PHONY : source/ngine.c.i
+
+source/ngine.s: source/ngine.c.s
+.PHONY : source/ngine.s
+
+# target to generate assembly for a file
+source/ngine.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/ngine.c.s
+.PHONY : source/ngine.c.s
+
 source/node.o: source/node.c.o
 .PHONY : source/node.o
 
@@ -718,29 +694,29 @@ source/shader_prog.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.s
 .PHONY : source/shader_prog.c.s
 
-source/string.o: source/string.c.o
-.PHONY : source/string.o
+source/sys_info.o: source/sys_info.c.o
+.PHONY : source/sys_info.o
 
 # target to build an object file
-source/string.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/string.c.o
-.PHONY : source/string.c.o
+source/sys_info.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.o
+.PHONY : source/sys_info.c.o
 
-source/string.i: source/string.c.i
-.PHONY : source/string.i
+source/sys_info.i: source/sys_info.c.i
+.PHONY : source/sys_info.i
 
 # target to preprocess a source file
-source/string.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/string.c.i
-.PHONY : source/string.c.i
+source/sys_info.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.i
+.PHONY : source/sys_info.c.i
 
-source/string.s: source/string.c.s
-.PHONY : source/string.s
+source/sys_info.s: source/sys_info.c.s
+.PHONY : source/sys_info.s
 
 # target to generate assembly for a file
-source/string.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/string.c.s
-.PHONY : source/string.c.s
+source/sys_info.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.s
+.PHONY : source/sys_info.c.s
 
 source/viewport.o: source/viewport.c.o
 .PHONY : source/viewport.o
@@ -779,12 +755,9 @@ help:
 	@echo "... s_dynstr"
 	@echo "... s_np_struct"
 	@echo "... cinterp"
-	@echo "... editor/source/main.o"
-	@echo "... editor/source/main.i"
-	@echo "... editor/source/main.s"
-	@echo "... editor/source/net.o"
-	@echo "... editor/source/net.i"
-	@echo "... editor/source/net.s"
+	@echo "... neditor/source/main.o"
+	@echo "... neditor/source/main.i"
+	@echo "... neditor/source/main.s"
 	@echo "... source/audio.o"
 	@echo "... source/audio.i"
 	@echo "... source/audio.s"
@@ -803,9 +776,6 @@ help:
 	@echo "... source/dynlib.o"
 	@echo "... source/dynlib.i"
 	@echo "... source/dynlib.s"
-	@echo "... source/engine.o"
-	@echo "... source/engine.i"
-	@echo "... source/engine.s"
 	@echo "... source/entity.o"
 	@echo "... source/entity.i"
 	@echo "... source/entity.s"
@@ -830,6 +800,9 @@ help:
 	@echo "... source/mesh.o"
 	@echo "... source/mesh.i"
 	@echo "... source/mesh.s"
+	@echo "... source/ngine.o"
+	@echo "... source/ngine.i"
+	@echo "... source/ngine.s"
 	@echo "... source/node.o"
 	@echo "... source/node.i"
 	@echo "... source/node.s"
@@ -848,9 +821,9 @@ help:
 	@echo "... source/shader_prog.o"
 	@echo "... source/shader_prog.i"
 	@echo "... source/shader_prog.s"
-	@echo "... source/string.o"
-	@echo "... source/string.i"
-	@echo "... source/string.s"
+	@echo "... source/sys_info.o"
+	@echo "... source/sys_info.i"
+	@echo "... source/sys_info.s"
 	@echo "... source/viewport.o"
 	@echo "... source/viewport.i"
 	@echo "... source/viewport.s"

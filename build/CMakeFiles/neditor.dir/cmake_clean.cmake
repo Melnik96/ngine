@@ -1,8 +1,7 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/neditor.dir/editor/source/net.c.o"
-  "CMakeFiles/neditor.dir/editor/source/main.c.o"
-  "../editor/bin/neditor.pdb"
-  "../editor/bin/neditor"
+  "CMakeFiles/neditor.dir/neditor/source/main.c.o"
+  "../neditor/bin/neditor.pdb"
+  "../neditor/bin/neditor"
 )
 
 # Per-language clean rules from dependency scanning.

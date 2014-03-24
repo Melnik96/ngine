@@ -1,0 +1,113 @@
+/*
+ * <one line to give the program's name and a brief idea of what it does.>
+ * Copyright (C) 2013  <copyright holder> <email>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+#ifndef __SERIALIZE_H__
+#define __SERIALIZE_H__
+
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+struct buffer {
+  size_t size;
+  void*  data;
+};
+
+struct ptr_offset {
+  intptr_t ptr;
+  intptr_t offset;
+};
+
+struct serializer {
+  struct buffer* 	buf;
+  intptr_t		offset;// last used ptr in buffer
+  int 			sd_num;
+  struct ptr_offset* 	sd_list;// serialized_list;
+};
+
+inline struct ptr_offset* check_ptr_in_list(size_t _ptr_num, struct ptr_offset* _list, void* _ptr);
+
+#define sfunc(struct_name, mod) 		struct buffer* struct_name##_##mod##_serializer(struct struct_name* s, struct serializer* _self) {\
+						  int root_fun = 0;\
+						  void* lu = NULL;\
+						  if(!_self) {\
+						    root_fun = 1;\
+						    _self = malloc(sizeof(struct serializer));\
+						    _self->buf = malloc(sizeof(struct buffer));\
+						    _self->buf->data = malloc(sizeof(struct struct_name));\
+						    _self->buf->size = sizeof(struct struct_name);\
+						    _self->sd_num = 0;\
+						    _self->sd_list = NULL;\
+						    lu = _self->buf->data;\
+						  } else {\
+						    _self->buf->data = realloc(_self->buf->data, _self->buf->size + sizeof(struct struct_name));\
+						    _self->buf->size += sizeof(struct struct_name);\
+						    lu = _self->buf->data + _self->offset;\
+						  }\
+						  _self->sd_list = realloc(_self->sd_list, (_self->sd_num + 1) * sizeof(struct ptr_offset));\
+						  _self->sd_list[_self->sd_num] = (struct ptr_offset){s, lu - _self->buf->data};\
+						  _self->sd_num += 1;
+
+#define schar(attr)				  *(char*)lu=s->attr;							lu += sizeof(char);
+#define sint16(attr)				  *(int16_t*)lu=s->attr;						lu += sizeof(int16_t);
+#define sint32(attr)				  *(int32_t*)lu=s->attr;						lu += sizeof(int32_t);
+#define sint64(attr)				  *(int64_t*)lu=s->attr;						lu += sizeof(int64_t);
+#define sfloat(attr)				  *(float*)lu=s->attr;							lu += sizeof(float);
+#define sdouble(attr)				  *(double*)lu=s->attr;							lu += sizeof(double);
+
+#define sstruct(attr, struct_name, mod)		  *((void**)_self->lu) = s->attr;					lu += sizeof(void*);
+#define sstruct_ptr(attr, struct_name, mod)	  *((void**)lu) = s->attr;						lu += sizeof(void*);\
+						  if(check_ptr_in_list(_self->sd_num, _self->sd_list, s->attr)) {\
+						    struct_name##_##mod##_serializer(s->attr, _self);\
+						    lu = _self->buf->data + _self->offset;\
+						  }
+
+#define funcs 					  if(root_fun) {\
+						    _self->buf->data = realloc(_self->buf->data, _self->buf->size + _self->sd_num * sizeof(struct ptr_offset));\
+						    memmove(_self->buf->data + _self->sd_num * sizeof(struct ptr_offset), _self->buf->data, _self->buf->size);\
+						    _self->buf->size += _self->sd_num * sizeof(struct ptr_offset);\
+						    memcpy(_self->buf->data, _self->sd_list, _self->sd_num * sizeof(struct ptr_offset));\
+						    return _self->buf;\
+						  }\
+						  _self->offset = lu - _self->buf->data;\
+						}
+
+
+
+#define dsfunc(struct_name, mod) 		struct struct_name* struct_name##_##mod##_deserializer(void* sdata) {\
+
+#define dschar(attr)				  dsdata->attr = *(char*)_self->lu;						_self->lu += sizeof(char);
+#define dsint16(attr)				  dsdata->attr = *(int16_t*)_self->lu;					_self->lu += sizeof(int16_t);
+#define dsint32(attr)				  dsdata->attr = *(int32_t*)_self->lu;					_self->lu += sizeof(int32_t);
+#define dsint64(attr)				  dsdata->attr = *(int64_t*)_self->lu;					_self->lu += sizeof(int64_t);
+#define dsfloat(attr)				  dsdata->attr = *(float*)_self->lu;						_self->lu += sizeof(float);
+#define dsdouble(attr)				  dsdata->attr = *(double*)_self->lu;					_self->lu += sizeof(double);
+
+#define dsstruct_ptr(attr, struct_name, mod)	  struct ptr_offset* p = NULL;\
+
+#define funcds					}
+
+
+
+#define serialize(obj_ptr, struct_name, mod)		struct_name##_##mod##_serializer(obj_ptr, NULL)
+#define deserialize(sdata_ptr, struct_name, mod)	struct_name##_##mod##_deserializer(sdata_ptr)
+#define demarshal()
+
+#endif /* __SERIALIZE_H__ */

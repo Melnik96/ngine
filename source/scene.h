@@ -23,9 +23,8 @@
 struct scene {
   char name[32];
   struct sc_obj* root_object;
-  struct shader_prog* cur_shader;//bred
 };
 
-struct scene* scene_create(struct engine* _eng, char* _name, char auto_create_root_obj);
+struct scene* scene_create(char* _name, char auto_create_root_obj);
 
 #endif /* __SCENE_H__ */

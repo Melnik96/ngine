@@ -23,20 +23,24 @@
 #include <stdint.h>
 
 enum gl_shader_types {
-  GLST_VERTEX = 0,
-  GLST_GEOMETRY = 1,
-  GLST_FRAGMENT = 2
+  GLST_VERTEX    = 0,
+  GLST_GEOMETRY  = 1,
+  GLST_FRAGMENT  = 2,
+  GLST_TESS_CTRL = 3,
+  GLST_TESS_EVAL = 4,
+  GLST_COMPUTE   = 5
 };
 
 enum gl_shader_attribs {
   GLSA_VERTEX = 0,
-  GLSA_UV = 1,
-  GLSA_NORMAL = 3
+  GLSA_UV     = 1,
+  GLSA_NORMAL = 2
 //   GLSA_
 };
 
 enum gl_shader_uniforms {
-  GLSU_MVP = 0
+  GLSU_MVP  = 0,
+  GLSU_TIME = 1
 };
 
 struct shader_source {
@@ -60,7 +64,9 @@ struct shader_prog {
 int 			shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources);
 struct shader_prog* 	shader_prog_create(const char* _name, struct shader_source* _sources);
 int	 		shader_prog_delete(struct shader_prog* _prog);
-int 			shader_prog_param(struct shader_prog* _prog, const char* _par_name);
+int 			shader_prog_update(struct shader_prog* _prog, struct shader_source* _sources);
+int 			shader_prog_param(struct shader_prog* _prog, const char* _par_name);// оголошення параметра
 int 			shader_prog_params(struct shader_prog* _prog, const char** _params);
+int 			shader_prog_get_param_id(struct shader_prog* _prog, const char* _par_name);
 
 #endif // SHADER_PROG_H

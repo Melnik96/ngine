@@ -9,10 +9,10 @@ sfunc(b,)
   sint32(s)
 funcs
 
-dsfunc(b,)
-  dsint32(f)
-  dsint32(s)
-funcds
+// dsfunc(b,)
+//   dsint32(f)
+//   dsint32(s)
+// funcds
 
 sfunc(a,)
   sint32(f)
@@ -20,10 +20,10 @@ sfunc(a,)
   sstruct_ptr(t, b,)
 funcs
 
-dsfunc(a,)
-  dsint32(f)
-  dsint32(s)
-  dsstruct_ptr(t, b,)
-funcds
+// dsfunc(a,)
+//   dsint32(f)
+//   dsint32(s)
+//   dsstruct_ptr(t, b,)
+// funcds
 
 #endif

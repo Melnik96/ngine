@@ -22,6 +22,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <time.h>
 #include <string.h>
 #include <malloc.h>
 
@@ -61,23 +62,26 @@ int cinterp_run(void* _ptr_fun) {
   uint32_t source_len = 1024;
   char line[1024];
   
+  clock_t last_clock;
+  
   printf("cinterp test version\n");
-  while(1) {
     tcc = tcc_new();
     tcc_set_error_func(tcc, NULL, tcc_error_cb);
     tcc_set_output_type(tcc, TCC_OUTPUT_MEMORY);
     tcc_add_include_path(tcc, "/home/melnik/projects/ngine/source/");
     
+  while(1) {
+    last_clock = clock();
     memset(source, 0, 1024);
     
     strcat(source, script_includes);
     
     printf("cinterp>>> ");
     gets(line);
-    if(memcmp(line, "#include", 9) == 0) {
-      source = (char*)realloc(source, source_len + strlen(line));
-      strcat(source, line);
-    } else {
+//     if(memcmp(line, "#include", 9) == 0) {
+//       source = (char*)realloc(source, source_len + strlen(line));
+//       strcat(source, line);
+//     } else {
       strcat(source, script_main_start);
       strcat(source, line);
       strcat(source, script_main_end);
@@ -86,7 +90,9 @@ int cinterp_run(void* _ptr_fun) {
       tcc_relocate(tcc, TCC_RELOCATE_AUTO);
       line_fun = tcc_get_symbol(tcc, "line_fun");
       line_fun();
-    }
+//     }
+    last_clock = clock() - last_clock;
+    printf("\nclicks: %d (%f sec)\n", last_clock, ((float)last_clock)/CLOCKS_PER_SEC);
   }
   tcc_delete(tcc);
 }

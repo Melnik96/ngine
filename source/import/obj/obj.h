@@ -1,0 +1,1 @@
+struct mesh* obj_load_mesh(const char* _file_name);
