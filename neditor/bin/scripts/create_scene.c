@@ -1,8 +1,8 @@
 #include <ngine.h>
 #include <scene.h>
-#include <import/obj.h>
+#include "import/collada/daeu.h"
 
 void create_scene() {
-  scene_create("benchmark", true);
-  obj_load_mesh();
+  struct scene* nscene = scene_create("neditor", true);
+  collada_convert_scene(nscene, dae_COLLADA);
 }

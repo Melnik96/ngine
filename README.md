@@ -37,6 +37,13 @@ perspective_cswp = get_perspective(cam_space_world_pso, tan(fov/2))
 
 TODO camera_pso
 
+Resources(Asets)
+- shader programs
+- textures
+- materials
+- scripts
+- sounds
+
 TODO
 ----
 - core

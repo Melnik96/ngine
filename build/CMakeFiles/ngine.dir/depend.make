@@ -23,11 +23,14 @@ CMakeFiles/ngine.dir/source/dynlib.c.o: ../source/dynlib.c
 CMakeFiles/ngine.dir/source/dynlib.c.o: ../source/dynlib.h
 CMakeFiles/ngine.dir/source/dynlib.c.o: ../source/mempool.h
 
+CMakeFiles/ngine.dir/source/entity.c.o: ../source/serialize.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/anim/bone.h
+CMakeFiles/ngine.dir/source/entity.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/entity.c
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/entity.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/mesh.h
+CMakeFiles/ngine.dir/source/entity.c.o: ../source/ngine.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/render/hw_buffers.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/scene.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/shader_prog.h
@@ -66,9 +69,12 @@ CMakeFiles/ngine.dir/source/physics_mgr.c.o: ../source/physics_mgr.c
 CMakeFiles/ngine.dir/source/physics_mgr.c.o: ../source/physics_mgr.h
 
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/matrix.h
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/serialize.h
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/cntr/tree.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/vector.h
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/ngine.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/sc_obj.c
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/sc_obj.h
 

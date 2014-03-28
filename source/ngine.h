@@ -42,12 +42,18 @@ struct engine {
   struct viewport* 	viewports;
   struct scene* 	scenes;
   
+  // resources
+  struct csript* 	cscripts;
   struct shader_prog* 	shaders;
+  struct texture*	textures;
+  struct material*	materials;
+  struct sound* 	sounds;
+  //mesh, anim, skel
   
   int 			active_render;
   uint8_t 		fixed_fps;//60fps
   
-  struct list 		jobs;//list
+  struct list* 		jobs;//list
   
   //threads
   pthread_t 		thr_input;//60fps
@@ -58,7 +64,7 @@ struct engine {
   pthread_cond_t 	cond_workers;
 };
 
-int 		ngine_init(struct engine* _self, char* _win_name);
+int 		ngine_init(struct engine* _self);
 struct engine* 	ngine_create();
 int 		ngine_shutdown(struct engine* _self);
 struct window* 	ngine_create_window(char* _win_name, int width, int height);

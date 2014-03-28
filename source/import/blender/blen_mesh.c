@@ -38,7 +38,7 @@ struct mesh* blen_mesh_convert(struct Mesh* _blen_mesh) {
   }
   
   for(int i = 0;; i += 6) {
-    new_mesh->indices[i] = _blen_mesh->mface->v1;
+    new_mesh->indices[i]   = _blen_mesh->mface->v1;
     new_mesh->indices[i+1] = _blen_mesh->mface->v2;
     new_mesh->indices[i+2] = _blen_mesh->mface->v3;
     

@@ -1,6 +1,6 @@
 /*
  * <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) 2013  <copyright holder> <email>
+ * Copyright (C) 2014  <copyright holder> <email>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +17,21 @@
  *
  */
 
-/* inclusion guard */
-#ifndef __PHYSICS_MGR_H__
-#define __PHYSICS_MGR_H__
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
-struct physics_mgr {
-  
+#include <stdint.h>
+
+#include <GL/gl.h>
+
+struct texture {
+  char* name;
+  uint16_t id;
+  uint16_t width;
+  uint16_t height;
+  uint16_t cspace;// GL_RGBA
 };
 
-int physics_mgr_init(struct physics_mgr* _self);
-int physics_mgr_step(struct physics_mgr* _self, float _elapsed);
+struct texture*  texture_create();
 
-#endif /* __PHYSICS_MGR_H__ */
+#endif // TEXTURE_H

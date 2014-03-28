@@ -1,6 +1,6 @@
 /*
  * <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) 2013  <copyright holder> <email>
+ * Copyright (C) 2014  <copyright holder> <email>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,12 +17,4 @@
  *
  */
 
-// #include <bullet/btBulletCollisionCommon.h>
-// #include <bullet/btBulletDynamicsCommon.h>
-
-#include "physics_mgr.h"
-
-void test() {
-//   btTriangleMesh* tmesh = malloc(sizeof(btTriangleMesh));
-//   
-}
+#include "texture.h"

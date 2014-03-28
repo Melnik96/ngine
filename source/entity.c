@@ -24,7 +24,7 @@
 
 #include "render/hw_buffers.h"
 #include "mesh.h"
-#include "engine.h"
+#include "ngine.h"
 #include "scene.h"
 #include "shader_prog.h"
 

@@ -24,11 +24,14 @@ CMakeFiles/ngine.dir/source/dynlib.c.o
  /home/melnik/projects/ngine/source/dynlib.h
  /home/melnik/projects/ngine/source/mempool.h
 CMakeFiles/ngine.dir/source/entity.c.o
+ ../source/serialize.h
  /home/melnik/projects/ngine/source/anim/bone.h
+ /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/entity.c
  /home/melnik/projects/ngine/source/entity.h
  /home/melnik/projects/ngine/source/math/vector.h
  /home/melnik/projects/ngine/source/mesh.h
+ /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/render/hw_buffers.h
  /home/melnik/projects/ngine/source/scene.h
  /home/melnik/projects/ngine/source/shader_prog.h
@@ -67,9 +70,12 @@ CMakeFiles/ngine.dir/source/physics_mgr.c.o
  /home/melnik/projects/ngine/source/physics_mgr.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o
  ../source/math/matrix.h
+ ../source/serialize.h
+ /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/cntr/tree.h
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
+ /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/sc_obj.c
  /home/melnik/projects/ngine/source/sc_obj.h
 CMakeFiles/ngine.dir/source/scene.c.o

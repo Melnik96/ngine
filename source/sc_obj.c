@@ -22,7 +22,7 @@
 #include <math.h>
 #include <kazmath/kazmath.h>
 
-#include "engine.h"
+#include "ngine.h"
 
 #include "sc_obj.h"
 #include <matrix.h>
