@@ -4,30 +4,30 @@
 
 #include "../../texture.h"
 
-struct ngine_texture* ngine_texture_import_tga(void* _tga_data) {
-  struct ngine_texture* tex = ngine_texture_create();
-  tga_header tga_header;
-  void* img = 0;
-  
-  tga_read(_tga_data, &tga_header, tex->);
-  
-  tex->width  = _tga_data[12] | (((unsigned short)_tga_data[13]) << 8);
-  tex->height = _tga_data[14] | (((unsigned short)_tga_data[15]) << 8);
-  
-  if(_tga_data[16] == 24/*bits per pix*/) {
-    tex->cspace = GL_RGB;
-  } else {
-    tex->cspace = GL_RGBA;
-  }
-  
-  
-  u_char idsize           = _tga_data[ 0];
-  u_short colourmaplength = _tga_data[ 5] | (((unsigned short)_tga_data[ 6]) << 8);
-  void* image_out = tga_HEADER_SIZE + idsize + colourmaplength;
-  
-  glGenTextures(1, &tex->id);
-  glTexImage2D(tex->id, 0, tex->cspace);
-}
+// struct ngine_texture* ngine_texture_import_tga(void* _tga_data) {
+//   struct ngine_texture* tex = ngine_texture_create();
+//   tga_header tga_header;
+//   void* img = 0;
+//   
+//   tga_read(_tga_data, &tga_header, tex->);
+//   
+//   tex->width  = _tga_data[12] | (((unsigned short)_tga_data[13]) << 8);
+//   tex->height = _tga_data[14] | (((unsigned short)_tga_data[15]) << 8);
+//   
+//   if(_tga_data[16] == 24/*bits per pix*/) {
+//     tex->cspace = GL_RGB;
+//   } else {
+//     tex->cspace = GL_RGBA;
+//   }
+//   
+//   
+//   u_char idsize           = _tga_data[ 0];
+//   u_short colourmaplength = _tga_data[ 5] | (((unsigned short)_tga_data[ 6]) << 8);
+//   void* image_out = tga_HEADER_SIZE + idsize + colourmaplength;
+//   
+//   glGenTextures(1, &tex->id);
+//   glTexImage2D(tex->id, 0, tex->cspace);
+// }
 
 //*****************************************************************************
 void tga_init(

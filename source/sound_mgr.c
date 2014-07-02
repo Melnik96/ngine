@@ -32,12 +32,12 @@
 //   FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, _snd->fmod_snd, 0, &channel);
 // }
 
-FMOD_CHANNEL* speaker_play_fmod(struct ngine_sc_obj* _speaker, FMOD_SYSTEM* _fmod_sys, FMOD_SOUND* _snd, char _paused) {
+FMOD_CHANNEL* speaker_play_fmod(struct ngine_sc_node* _speaker, FMOD_SYSTEM* _fmod_sys, FMOD_SOUND* _snd, char _paused) {
   FMOD_CHANNEL* channel = NULL;
   FMOD_System_PlaySound(_fmod_sys, FMOD_CHANNEL_FREE, _snd, 1, &channel);
   FMOD_Channel_Set3DAttributes(channel, &_speaker->pos, &(vec3){0,0,0});
   
-  _speaker->typed_objs = channel;
+  _speaker->attached_obj = channel;
   
   if(!_paused) {
     FMOD_Channel_SetPaused(channel, 0);

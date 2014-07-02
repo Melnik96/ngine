@@ -31,7 +31,7 @@ struct ngine_material {
   vec3 specular_color;
   vec3 emissive_color;// light
   
-  struct ngine_texture* textures;
+  struct ngine_texture* tex_color;
   
   /**
    * if tech == NULL then use default renderer techniqueue.
@@ -39,5 +39,7 @@ struct ngine_material {
    */
   struct ngine_tech* tech;
 };
+
+struct ngine_material* ngine_material_create();
 
 #endif /* __MATERIAL_H__ */

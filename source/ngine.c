@@ -39,7 +39,7 @@
 #include "render/render.h"
 
 //intern
-void update_obj_handler(struct ngine_sc_obj* _obj, struct viewport* _viewport, struct ngine* _ngine);
+void update_obj_handler(struct ngine_sc_node* _obj, struct viewport* _viewport, struct ngine* _ngine);
 
 int ngine_init(struct ngine* _self) {
   debug("ngine init");
@@ -86,12 +86,13 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
        _self->windows[i].viewport != NULL &&
        _self->windows[i].viewport->camera != NULL)*/ 
     {
-//       struct ngine_sc_obj* root_sc_obj = tree_get_head(_self->windows[i].viewport->camera);
+//       struct ngine_sc_node* root_sc_obj = tree_get_head(_self->windows[i].viewport->camera);
       tree_for_each3(_self->scenes->root_object, update_obj_handler, _self->windows[i].viewport, _self);
       
       ngine_render_frame(_self->render, 0);
       
       glfwSwapBuffers(_self->windows->win);
+      glfwPollEvents();
     } /*else {
       break;
     }*/
@@ -113,7 +114,7 @@ int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
   return 1;
 }
 
-void update_obj_handler(struct ngine_sc_obj* _obj, struct viewport* _viewport, struct ngine* _ngine) {
+void update_obj_handler(struct ngine_sc_node* _obj, struct viewport* _viewport, struct ngine* _ngine) {
   // pipeline
   // - get array of active lights
   // - get visible sc_objs(entities)
@@ -123,9 +124,9 @@ void update_obj_handler(struct ngine_sc_obj* _obj, struct viewport* _viewport, s
   // -   gl_draw
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
-    debug("procces entity obj");
+//     debug("procces entity obj");
     if(_obj->translated) {
-//       ngine_sc_obj_upd_mat(_obj);
+//       ngine_sc_node_upd_mat(_obj);
     }
     
 //     kmMat4* mvp = calloc(1, sizeof(kmMat4));
@@ -145,12 +146,10 @@ void update_obj_handler(struct ngine_sc_obj* _obj, struct viewport* _viewport, s
       rop->mvp_mat = &_obj->matrix;
       _ngine->render->render_queue->render_ops = rop;
       _ngine->render->render_queue->num_render_ops = 1;
-      
-//     ngine_gl_draw(draw_state, _obj->typed_objs, mvp);
   }
   else if(_obj->type == NGINE_SC_OBJ_SPEAKER) {
-    debug("procces snd_speaker obj");
+//     debug("procces snd_speaker obj");
     
-    FMOD_Channel_Set3DAttributes(_obj->typed_objs, &_obj->pos, &(vec3){0,0,0});//TODO fix vecocity
+    FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix vecocity
   }
 }

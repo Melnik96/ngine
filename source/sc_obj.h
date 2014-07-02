@@ -41,11 +41,11 @@ enum sc_obj_type {
   //user defined types
 };
 
-struct ngine_sc_obj {
+struct ngine_sc_node {
   struct tree link;
 //   struct engine* engine;
   
-  char name[32];
+  char* name;
   int type;// sc_obj_type
   // translation
   vec3 pos;
@@ -54,28 +54,19 @@ struct ngine_sc_obj {
   
   mat4 matrix;
   
-  // indicators
-  int16_t translated;
-  int16_t updated;//need update gpu buffer
+  void* attached_obj;//ptr to list of entities or cameras
   
-  void* typed_objs;//ptr to list of entities or cameras
+  // indicators
+  char translated;
   
   struct sc_obj_listener* listener;
 };
 
-int	       ngine_sc_obj_init(struct ngine_sc_obj* _self, char* _name, int _type);
-struct ngine_sc_obj* ngine_sc_obj_create(char* _name, int _type);
+int	       ngine_sc_node_init(struct ngine_sc_node* _self, char* _name, int _type);
+struct ngine_sc_node* ngine_sc_node_create(char* _name, int _type);
 
 //intern
-struct ngine_sc_obj* ngine_sc_obj_upd_mat(struct ngine_sc_obj* _self);
-struct ngine_sc_obj* ngine_sc_obj_upd_mat_inv(struct ngine_sc_obj* _self);
-
-// future
-struct ngine_sc_node {/*...*/};
-struct ngine_some_typed_obj {
-  /* not pre pad */
-  struct ngine_sc_node* sc_node;
-  /*...*/
-};
+struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self);
+struct ngine_sc_node* ngine_sc_node_upd_mat_inv(struct ngine_sc_node* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

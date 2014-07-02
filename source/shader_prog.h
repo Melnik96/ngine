@@ -25,7 +25,7 @@
 enum {
   NGINE_ATTR_VERTEX = 0,
   NGINE_ATTR_UV     = 1,
-  NGINE_ATTR_NORMAL = 2
+  NGINE_ATTR_NORMAL = 2,
 //   GLSA_
 };
 

@@ -18,3 +18,8 @@
  */
 
 #include "material.h"
+
+struct ngine_material* ngine_material_create() {
+  struct ngine_material* new_mat = calloc(1, sizeof(struct ngine_material));
+  return new_mat;
+}

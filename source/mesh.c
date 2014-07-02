@@ -19,6 +19,7 @@
 
 #include <malloc.h>
 #include <GL/glew.h>
+#include <GL/gl.h>
 
 #include "shader_prog.h"
 
@@ -55,12 +56,12 @@ void ngine_mesh_update(struct ngine_mesh* _self) {
   glEnableVertexAttribArray(NGINE_ATTR_VERTEX);
   glVertexAttribPointer(NGINE_ATTR_VERTEX, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-//   if(_mesh->uv) {
-//     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);
-//     glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _ent->mesh->num_vertices, _ent->mesh->uv, GL_STATIC_DRAW);
-//     glEnableVertexAttribArray(GLSA_UV);
-//     glVertexAttribPointer(GLSA_UV, 2, GL_FLOAT, GL_FALSE, 0, 0);
-//   }
+  if(_self->uvs) {
+    glBindBuffer(GL_ARRAY_BUFFER, _self->hw_buf.uv);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _self->num_vertices, _self->uvs, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(NGINE_ATTR_UV);
+    glVertexAttribPointer(NGINE_ATTR_UV, 2, GL_FLOAT, GL_FALSE, 0, 0);
+  }
 // 
 //   if(_mesh->normals) {
 //     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
@@ -70,7 +71,7 @@ void ngine_mesh_update(struct ngine_mesh* _self) {
 //   }
 
   
-  glBindVertexArray(0);///GL 2.1 ?. YES! extension
+  glBindVertexArray(0);
 
 #if DEBUG
   gl_get_error();

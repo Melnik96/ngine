@@ -34,6 +34,7 @@
 #include "render.h"
 
 // internal
+struct ngine_tech* ngine_create_tech_gl44_low();
 struct ngine_tech* ngine_create_tech_gl21_low();
 void gl_debug_callback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam) {
   debug("GL debug msg: %s", message);
@@ -52,10 +53,14 @@ struct ngine_render* ngine_render_create() {
   new_render->gl_renderer_string = glGetString(GL_RENDERER);
   new_render->gl_extensions_string = glGetString(GL_EXTENSIONS);
   
+  int max_gl_draw_bufs = 0;
+  glGetIntegerv(GL_MAX_DRAW_BUFFERS, &max_gl_draw_bufs);
+  
   debug("\n  OpenGL Info:\n"
 	"    vendor: %s\n"
 	"    renderer: %s\n"
-	"    version: %s", new_render->gl_vendor_string, new_render->gl_renderer_string, new_render->gl_version_string);
+	"    version: %s\n"
+	"    max draw buffers: %i", new_render->gl_vendor_string, new_render->gl_renderer_string, new_render->gl_version_string, max_gl_draw_bufs);
   
   int tmp_gl_ver1 = 0, tmp_gl_ver2 = 0;
 //   glGetIntegerv(GL_MAJOR_VERSION, &tmp_gl_ver1);
@@ -82,7 +87,10 @@ struct ngine_render* ngine_render_create() {
 #endif
   
   // sutup techniqueue
-  if(new_render->gl_ver >= 21) {
+  if(new_render->gl_ver >= 44) {
+    debug("render: technique 'gl44_low'");
+    new_render->tech = ngine_create_tech_gl44_low();;
+  } else if(new_render->gl_ver >= 21) {
     debug("render: technique 'gl21_low'");
     new_render->tech = ngine_create_tech_gl21_low();;
   } else {
@@ -125,7 +133,7 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
       
       for(uint32_t i3 = 0; i3 != _self->render_queue[i].num_render_ops; ++i3) {	// render_op
 	cur_op = &_self->render_queue[i].render_ops[i3];
-	cur_entity = (struct ngine_entity*)cur_op->entity->typed_objs;
+	cur_entity = (struct ngine_entity*)cur_op->entity->attached_obj;
 	
 	for(uint32_t i4 = 0; i4 != cur_entity->mesh->num_chunks; ++i4) {
 	  glBindVertexArray(cur_entity->mesh->chunk[i4].hw_vao);
@@ -178,6 +186,49 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl21/base.frag"), GL_FRAGMENT_SHADER);
   
   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+  
+  ngine_shdr_prog_link(shdr);
+  
+  shdr->uniform_locs[NGINE_UNIFORM_MVP] = glGetUniformLocation(shdr->id, "u_mvp");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
+    error("shader program: get uniform failled");
+  }
+  // ngine_shdr_prog_uniform
+  
+#if CHACHE_SHDR
+  ngine_shdr_prog_get_binary();// save binary
+#endif
+  
+  return new_tech;
+}
+
+struct ngine_tech* ngine_create_tech_gl44_low() {
+  struct ngine_tech* new_tech = calloc(1, sizeof(struct ngine_tech));
+  struct ngine_render_pass* pass0 = calloc(1, sizeof(struct ngine_render_pass));// simple_forward_pass
+
+  struct ngine_shdr_prog* shdr = NULL;
+  
+  new_tech->gl_vendor = GL_VENDOR_NONE;
+  new_tech->gl_ver = 44;
+  new_tech->glsl_ver = 44;
+  
+  new_tech->deferred = 0;
+  new_tech->ssao = 0;
+  
+  new_tech->num_render_passes = 1;
+  
+  new_tech->render_passes = pass0;
+  
+  pass0->a_vert = 1;
+  pass0->u_mvp = 1;
+  
+  pass0->shdr_prog = shdr = ngine_shdr_prog_create("base_gl44_low");
+  
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl44/base.vert"), GL_VERTEX_SHADER);
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl44/base.frag"), GL_FRAGMENT_SHADER);
+  
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_UV, "a_uv");
   
   ngine_shdr_prog_link(shdr);
   

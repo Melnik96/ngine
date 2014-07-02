@@ -44,6 +44,10 @@ CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/import/obj/awol/awol.h
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/import/obj/obj.c
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/import/obj/obj.h
 
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o: ../source/import/targa/tga.c
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o: ../source/import/targa/tga.h
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o: ../source/texture.h
+
 CMakeFiles/ngine.dir/source/iofile.c.o: ../source/iofile.c
 CMakeFiles/ngine.dir/source/iofile.c.o: ../source/iofile.h
 
@@ -111,9 +115,6 @@ CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/render.c
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/render.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/technique.h
 
-CMakeFiles/ngine.dir/source/render/render_state.c.o: ../source/render/render_state.c
-CMakeFiles/ngine.dir/source/render/render_state.c.o: ../source/render/render_state.h
-
 CMakeFiles/ngine.dir/source/render/technique.c.o: ../source/render/technique.c
 CMakeFiles/ngine.dir/source/render/technique.c.o: ../source/render/technique.h
 
@@ -154,6 +155,8 @@ CMakeFiles/ngine.dir/source/sys_info.c.o: ../source/sys_info.c
 CMakeFiles/ngine.dir/source/sys_info.c.o: ../source/sys_info.h
 
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/assets_mgr.h
+CMakeFiles/ngine.dir/source/texture.c.o: ../source/import/targa/tga.h
+CMakeFiles/ngine.dir/source/texture.c.o: ../source/iofile.h
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.c
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.h
 

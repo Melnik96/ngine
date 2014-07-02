@@ -35,19 +35,16 @@
 #define true 1
 #define false 0
 
-struct ngine_sc_obj* ngine_sc_obj_create(char* _name, int _type) {
-  struct ngine_sc_obj* new_obj = malloc(sizeof(struct ngine_sc_obj));
-  memset(new_obj, 0, sizeof(struct ngine_sc_obj));
-  strcpy(new_obj->name, _name);
+struct ngine_sc_node* ngine_sc_node_create(char* _name, int _type) {
+  struct ngine_sc_node* new_obj = calloc(1, sizeof(struct ngine_sc_node));
+  new_obj->name = _name;
   new_obj->type = _type;
-  new_obj->translated = true;
-  new_obj->updated = true;
   
   kmMat4Identity(&new_obj->matrix);
   
   return new_obj;
 }
-struct ngine_sc_obj* ngine_sc_obj_upd_mat(struct ngine_sc_obj* _self) {
+struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self) {
   kmMat4* tmp_mat = malloc(sizeof(kmMat4));
 
 //   kmMat4Identity(tmp_mat);
@@ -63,10 +60,10 @@ struct ngine_sc_obj* ngine_sc_obj_upd_mat(struct ngine_sc_obj* _self) {
   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
 
   if(_self->link.parent != NULL) {
-    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_obj*)_self->link.parent)->matrix, &_self->matrix);
+    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix, &_self->matrix);
   }// all parents must be updated already
 }
-struct ngine_sc_obj* ngine_sc_obj_upd_mat_inv(struct ngine_sc_obj* _self) {
+struct ngine_sc_node* ngine_sc_node_upd_mat_inv(struct ngine_sc_node* _self) {
   kmMat4* tmp_mat = malloc(sizeof(kmMat4));
 
 //   kmMat4Identity(tmp_mat);
@@ -82,6 +79,6 @@ struct ngine_sc_obj* ngine_sc_obj_upd_mat_inv(struct ngine_sc_obj* _self) {
   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
 
   if(_self->link.parent != NULL) {
-    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_obj*)_self->link.parent)->matrix, &_self->matrix);
+    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix, &_self->matrix);
   }
 }

@@ -26,12 +26,12 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/ngine.dir/source/math/matrix.c.o"
   "CMakeFiles/ngine.dir/source/math/vector.c.o"
   "CMakeFiles/ngine.dir/source/math/consts.c.o"
-  "CMakeFiles/ngine.dir/source/render/render_state.c.o"
   "CMakeFiles/ngine.dir/source/render/technique.c.o"
   "CMakeFiles/ngine.dir/source/render/pass.c.o"
   "CMakeFiles/ngine.dir/source/render/render.c.o"
   "CMakeFiles/ngine.dir/source/import/obj/obj.c.o"
   "CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o"
+  "CMakeFiles/ngine.dir/source/import/targa/tga.c.o"
   "../bin/lib/x86/libngine.pdb"
   "../bin/lib/x86/libngine.so"
 )

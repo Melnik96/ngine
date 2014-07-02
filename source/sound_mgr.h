@@ -37,7 +37,7 @@ struct speaker {
 };
 
 // void speaker_play_sound(sc_obj* _speaker, sound* _snd);
-FMOD_CHANNEL* speaker_play_fmod(struct ngine_sc_obj* _speaker, FMOD_SYSTEM* _fmod_sys, FMOD_SOUND* _snd, char _paused);
+FMOD_CHANNEL* speaker_play_fmod(struct ngine_sc_node* _speaker, FMOD_SYSTEM* _fmod_sys, FMOD_SOUND* _snd, char _paused);
 
 // struct sound* sound_create(sound_mgr* _snd_mgr, char* _snd_name, uint32_t _fmod_mode, char _paused);
 

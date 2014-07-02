@@ -26,7 +26,7 @@
 struct viewport {
   float width;
   float height;
-  struct ngine_sc_obj* camera;
+  struct ngine_sc_node* camera;
   
   int updated;
   

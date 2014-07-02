@@ -6,27 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/melnik/projects/ngine/source/math/vector.h
+../source/material.h
+math/vector.h
+../source/math/vector.h
+
+../source/math/vector.h
 stdint.h
 -
 
-/home/melnik/projects/ngine/source/mesh.c
-malloc.h
--
-GL/glew.h
--
-shader_prog.h
-/home/melnik/projects/ngine/source/shader_prog.h
-mesh.h
-/home/melnik/projects/ngine/source/mesh.h
-
-/home/melnik/projects/ngine/source/mesh.h
+../source/mesh.h
 stdint.h
 -
 math/vector.h
-/home/melnik/projects/ngine/source/math/vector.h
+../source/math/vector.h
 
-/home/melnik/projects/ngine/source/shader_prog.h
-stdint.h
+/home/melnik/projects/ngine/source/import/obj/awol/awol.h
+stdio.h
 -
+stdlib.h
+-
+string.h
+-
+ctype.h
+-
+
+/home/melnik/projects/ngine/source/import/obj/obj.c
+stdio.h
+-
+malloc.h
+-
+awol/awol.h
+/home/melnik/projects/ngine/source/import/obj/awol/awol.h
+mesh.h
+/home/melnik/projects/ngine/source/import/obj/mesh.h
+material.h
+/home/melnik/projects/ngine/source/import/obj/material.h
+math/vector.h
+/home/melnik/projects/ngine/source/import/obj/math/vector.h
+obj.h
+/home/melnik/projects/ngine/source/import/obj/obj.h
+
+/home/melnik/projects/ngine/source/import/obj/obj.h
 

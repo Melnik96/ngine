@@ -22,7 +22,7 @@
 
 struct scene {
   char                 name[32];
-  struct ngine_sc_obj*       root_object;
+  struct ngine_sc_node*       root_object;
   struct snd_listener* cur_snd_listener;
 };
 

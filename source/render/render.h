@@ -31,10 +31,10 @@ struct ngine_render_op {
   mat4* 		mvp_mat;
   mat4* 		model_mat;
   
-  struct ngine_sc_obj* 	entity;
+  struct ngine_sc_node* 	entity;
   
   uint32_t 		num_lights;
-  struct ngine_sc_obj* 	lights;// affect lights
+  struct ngine_sc_node* 	lights;// affect lights
   
 };
 

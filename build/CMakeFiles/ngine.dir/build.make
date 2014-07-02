@@ -673,32 +673,9 @@ CMakeFiles/ngine.dir/source/math/consts.c.o.provides: CMakeFiles/ngine.dir/sourc
 
 CMakeFiles/ngine.dir/source/math/consts.c.o.provides.build: CMakeFiles/ngine.dir/source/math/consts.c.o
 
-CMakeFiles/ngine.dir/source/render/render_state.c.o: CMakeFiles/ngine.dir/flags.make
-CMakeFiles/ngine.dir/source/render/render_state.c.o: ../source/render/render_state.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_28)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/render/render_state.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/render/render_state.c.o   -c /home/melnik/projects/ngine/source/render/render_state.c
-
-CMakeFiles/ngine.dir/source/render/render_state.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/render/render_state.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/render/render_state.c > CMakeFiles/ngine.dir/source/render/render_state.c.i
-
-CMakeFiles/ngine.dir/source/render/render_state.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/render/render_state.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/render/render_state.c -o CMakeFiles/ngine.dir/source/render/render_state.c.s
-
-CMakeFiles/ngine.dir/source/render/render_state.c.o.requires:
-.PHONY : CMakeFiles/ngine.dir/source/render/render_state.c.o.requires
-
-CMakeFiles/ngine.dir/source/render/render_state.c.o.provides: CMakeFiles/ngine.dir/source/render/render_state.c.o.requires
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.o.provides.build
-.PHONY : CMakeFiles/ngine.dir/source/render/render_state.c.o.provides
-
-CMakeFiles/ngine.dir/source/render/render_state.c.o.provides.build: CMakeFiles/ngine.dir/source/render/render_state.c.o
-
 CMakeFiles/ngine.dir/source/render/technique.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/render/technique.c.o: ../source/render/technique.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_29)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_28)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/render/technique.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/render/technique.c.o   -c /home/melnik/projects/ngine/source/render/technique.c
 
@@ -721,7 +698,7 @@ CMakeFiles/ngine.dir/source/render/technique.c.o.provides.build: CMakeFiles/ngin
 
 CMakeFiles/ngine.dir/source/render/pass.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/render/pass.c.o: ../source/render/pass.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_30)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_29)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/render/pass.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/render/pass.c.o   -c /home/melnik/projects/ngine/source/render/pass.c
 
@@ -744,7 +721,7 @@ CMakeFiles/ngine.dir/source/render/pass.c.o.provides.build: CMakeFiles/ngine.dir
 
 CMakeFiles/ngine.dir/source/render/render.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/render.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_31)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_30)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/render/render.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/render/render.c.o   -c /home/melnik/projects/ngine/source/render/render.c
 
@@ -767,7 +744,7 @@ CMakeFiles/ngine.dir/source/render/render.c.o.provides.build: CMakeFiles/ngine.d
 
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/import/obj/obj.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_32)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_31)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/import/obj/obj.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/import/obj/obj.c.o   -c /home/melnik/projects/ngine/source/import/obj/obj.c
 
@@ -790,7 +767,7 @@ CMakeFiles/ngine.dir/source/import/obj/obj.c.o.provides.build: CMakeFiles/ngine.
 
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o: ../source/import/obj/awol/awol.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_33)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_32)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o   -c /home/melnik/projects/ngine/source/import/obj/awol/awol.c
 
@@ -810,6 +787,29 @@ CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o.provides: CMakeFiles/ngine.
 .PHONY : CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o.provides
 
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o.provides.build: CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o
+
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o: CMakeFiles/ngine.dir/flags.make
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o: ../source/import/targa/tga.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_33)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/import/targa/tga.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/import/targa/tga.c.o   -c /home/melnik/projects/ngine/source/import/targa/tga.c
+
+CMakeFiles/ngine.dir/source/import/targa/tga.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/import/targa/tga.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/import/targa/tga.c > CMakeFiles/ngine.dir/source/import/targa/tga.c.i
+
+CMakeFiles/ngine.dir/source/import/targa/tga.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/import/targa/tga.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/import/targa/tga.c -o CMakeFiles/ngine.dir/source/import/targa/tga.c.s
+
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o.requires:
+.PHONY : CMakeFiles/ngine.dir/source/import/targa/tga.c.o.requires
+
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o.provides: CMakeFiles/ngine.dir/source/import/targa/tga.c.o.requires
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/targa/tga.c.o.provides.build
+.PHONY : CMakeFiles/ngine.dir/source/import/targa/tga.c.o.provides
+
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o.provides.build: CMakeFiles/ngine.dir/source/import/targa/tga.c.o
 
 # Object files for target ngine
 ngine_OBJECTS = \
@@ -840,12 +840,12 @@ ngine_OBJECTS = \
 "CMakeFiles/ngine.dir/source/math/matrix.c.o" \
 "CMakeFiles/ngine.dir/source/math/vector.c.o" \
 "CMakeFiles/ngine.dir/source/math/consts.c.o" \
-"CMakeFiles/ngine.dir/source/render/render_state.c.o" \
 "CMakeFiles/ngine.dir/source/render/technique.c.o" \
 "CMakeFiles/ngine.dir/source/render/pass.c.o" \
 "CMakeFiles/ngine.dir/source/render/render.c.o" \
 "CMakeFiles/ngine.dir/source/import/obj/obj.c.o" \
-"CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o"
+"CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o" \
+"CMakeFiles/ngine.dir/source/import/targa/tga.c.o"
 
 # External object files for target ngine
 ngine_EXTERNAL_OBJECTS =
@@ -877,12 +877,12 @@ ngine_EXTERNAL_OBJECTS =
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/math/matrix.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/math/vector.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/math/consts.c.o
-../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/render_state.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/technique.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/pass.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/render.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/import/obj/obj.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o
+../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/import/targa/tga.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/build.make
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../bin/lib/x86/libngine.so"
@@ -919,12 +919,12 @@ CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/cntr/list.c.o.require
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/math/matrix.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/math/vector.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/math/consts.c.o.requires
-CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/render_state.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/technique.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/pass.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/render.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/import/obj/obj.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o.requires
+CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/import/targa/tga.c.o.requires
 .PHONY : CMakeFiles/ngine.dir/requires
 
 CMakeFiles/ngine.dir/clean:

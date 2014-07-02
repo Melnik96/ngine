@@ -44,6 +44,10 @@ CMakeFiles/ngine.dir/source/import/obj/obj.c.o
  /home/melnik/projects/ngine/source/import/obj/awol/awol.h
  /home/melnik/projects/ngine/source/import/obj/obj.c
  /home/melnik/projects/ngine/source/import/obj/obj.h
+CMakeFiles/ngine.dir/source/import/targa/tga.c.o
+ /home/melnik/projects/ngine/source/import/targa/tga.c
+ /home/melnik/projects/ngine/source/import/targa/tga.h
+ /home/melnik/projects/ngine/source/texture.h
 CMakeFiles/ngine.dir/source/iofile.c.o
  /home/melnik/projects/ngine/source/iofile.c
  /home/melnik/projects/ngine/source/iofile.h
@@ -111,9 +115,6 @@ CMakeFiles/ngine.dir/source/render/render.c.o
  /home/melnik/projects/ngine/source/render/render.c
  /home/melnik/projects/ngine/source/render/render.h
  /home/melnik/projects/ngine/source/render/technique.h
-CMakeFiles/ngine.dir/source/render/render_state.c.o
- /home/melnik/projects/ngine/source/render/render_state.c
- /home/melnik/projects/ngine/source/render/render_state.h
 CMakeFiles/ngine.dir/source/render/technique.c.o
  /home/melnik/projects/ngine/source/render/technique.c
  /home/melnik/projects/ngine/source/render/technique.h
@@ -155,6 +156,8 @@ CMakeFiles/ngine.dir/source/sys_info.c.o
  /home/melnik/projects/ngine/source/sys_info.h
 CMakeFiles/ngine.dir/source/texture.c.o
  /home/melnik/projects/ngine/source/assets_mgr.h
+ /home/melnik/projects/ngine/source/import/targa/tga.h
+ /home/melnik/projects/ngine/source/iofile.h
  /home/melnik/projects/ngine/source/texture.c
  /home/melnik/projects/ngine/source/texture.h
 CMakeFiles/ngine.dir/source/viewport.c.o

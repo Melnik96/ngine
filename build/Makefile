@@ -367,6 +367,30 @@ source/import/obj/obj.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/obj.c.s
 .PHONY : source/import/obj/obj.c.s
 
+source/import/targa/tga.o: source/import/targa/tga.c.o
+.PHONY : source/import/targa/tga.o
+
+# target to build an object file
+source/import/targa/tga.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/targa/tga.c.o
+.PHONY : source/import/targa/tga.c.o
+
+source/import/targa/tga.i: source/import/targa/tga.c.i
+.PHONY : source/import/targa/tga.i
+
+# target to preprocess a source file
+source/import/targa/tga.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/targa/tga.c.i
+.PHONY : source/import/targa/tga.c.i
+
+source/import/targa/tga.s: source/import/targa/tga.c.s
+.PHONY : source/import/targa/tga.s
+
+# target to generate assembly for a file
+source/import/targa/tga.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/targa/tga.c.s
+.PHONY : source/import/targa/tga.c.s
+
 source/iofile.o: source/iofile.c.o
 .PHONY : source/iofile.o
 
@@ -654,30 +678,6 @@ source/render/render.s: source/render/render.c.s
 source/render/render.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render.c.s
 .PHONY : source/render/render.c.s
-
-source/render/render_state.o: source/render/render_state.c.o
-.PHONY : source/render/render_state.o
-
-# target to build an object file
-source/render/render_state.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.o
-.PHONY : source/render/render_state.c.o
-
-source/render/render_state.i: source/render/render_state.c.i
-.PHONY : source/render/render_state.i
-
-# target to preprocess a source file
-source/render/render_state.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.i
-.PHONY : source/render/render_state.c.i
-
-source/render/render_state.s: source/render/render_state.c.s
-.PHONY : source/render/render_state.s
-
-# target to generate assembly for a file
-source/render/render_state.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.s
-.PHONY : source/render/render_state.c.s
 
 source/render/technique.o: source/render/technique.c.o
 .PHONY : source/render/technique.o
@@ -983,6 +983,9 @@ help:
 	@echo "... source/import/obj/obj.o"
 	@echo "... source/import/obj/obj.i"
 	@echo "... source/import/obj/obj.s"
+	@echo "... source/import/targa/tga.o"
+	@echo "... source/import/targa/tga.i"
+	@echo "... source/import/targa/tga.s"
 	@echo "... source/iofile.o"
 	@echo "... source/iofile.i"
 	@echo "... source/iofile.s"
@@ -1019,9 +1022,6 @@ help:
 	@echo "... source/render/render.o"
 	@echo "... source/render/render.i"
 	@echo "... source/render/render.s"
-	@echo "... source/render/render_state.o"
-	@echo "... source/render/render_state.i"
-	@echo "... source/render/render_state.s"
 	@echo "... source/render/technique.o"
 	@echo "... source/render/technique.i"
 	@echo "... source/render/technique.s"

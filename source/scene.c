@@ -29,7 +29,7 @@ struct scene* scene_create(char* _name, char _auto_create_root_obj) {
   strcpy(new_scene->name, _name);
   
   if(_auto_create_root_obj) {
-    new_scene->root_object = ngine_sc_obj_create("root_object", "null");
+    new_scene->root_object = ngine_sc_node_create("root_object", "null");
   } else {
     new_scene->root_object = NULL;
   }

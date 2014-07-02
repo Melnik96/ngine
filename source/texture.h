@@ -30,8 +30,8 @@ struct ngine_texture {
   uint16_t cspace;// GL_RGBA
 };
 
-struct ngine_texture*  ngine_texture_create();
-struct ngine_texture*  ngine_texture_image(const char* _name);
-struct ngine_texture*  ngine_texture_target(struct ngine_sc_obj* _camera);
+struct ngine_texture* 	ngine_texture_create(const char* _name);
+void 			ngine_texture_image(struct ngine_texture* _self, const char* _img_name);
+void 			ngine_texture_target(struct ngine_sc_node* _camera);
 
 #endif // TEXTURE_H

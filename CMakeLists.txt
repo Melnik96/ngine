@@ -24,6 +24,7 @@ set(engine_sources
   ${engine_sources_render}
   source/import/obj/obj.c
   source/import/obj/awol/awol.c
+  source/import/targa/tga.c
 )
 
 add_library(ngine SHARED ${engine_sources})
