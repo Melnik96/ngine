@@ -26,7 +26,7 @@
 struct array {
 	size_t size;
 	size_t alloc;
-	void* data;
+	void*  data;
 };
 
 #define array_for_each(pos, array)					\

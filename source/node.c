@@ -40,3 +40,11 @@ struct socket* node_get_sock_by_name(struct node* _self, char* _name, enum sock_
 //     }
 //   }
 }
+
+void node_process(struct node* _self, void* _args) {
+  if(_args) {
+    _self->process(_args);
+  } else {
+    _self->process(_self->inputs->value);
+  }
+}

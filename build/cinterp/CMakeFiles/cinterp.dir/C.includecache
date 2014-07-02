@@ -7,26 +7,16 @@
 #IncludeRegexTransform: 
 
 ../source/cntr/list.h
-serialize.h
--
 
-../source/engine.h
+../source/iofile.h
+
+../source/ngine.h
 stdint.h
 -
 pthread.h
 -
 cntr/list.h
 ../source/cntr/list.h
-
-../source/iofile.h
-
-../source/serialize.h
-stdint.h
--
-string.h
--
-malloc.h
--
 
 /home/melnik/projects/ngine/cinterp/cinterp.h
 stdio.h
@@ -41,8 +31,8 @@ malloc.h
 -
 libtcc.h
 -
-engine.h
-/home/melnik/projects/ngine/cinterp/engine.h
+ngine.h
+/home/melnik/projects/ngine/cinterp/ngine.h
 iofile.h
 /home/melnik/projects/ngine/cinterp/iofile.h
 
@@ -55,8 +45,8 @@ string.h
 -
 malloc.h
 -
-engine.h
-/home/melnik/projects/ngine/cinterp/engine.h
+ngine.h
+/home/melnik/projects/ngine/cinterp/ngine.h
 iofile.h
 /home/melnik/projects/ngine/cinterp/iofile.h
 cinterp.h

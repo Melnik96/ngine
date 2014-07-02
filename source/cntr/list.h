@@ -19,7 +19,6 @@
 
 #ifndef LIST_H
 #define LIST_H
-#include <serialize.h>
 
 struct list {
   struct list *prev;

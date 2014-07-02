@@ -3,6 +3,10 @@ Nutty Engine
 
 3D game engine write in C.
 
+Function Naming
+------------
+ngine_<obj_name>_<action>(type _arg, ...);
+
 Features
 --------
 - scene management
@@ -15,8 +19,10 @@ Architecture
 |----------------------|--------|---------------|
 ||graphics	      |||audio |||logic|	|
 |----------------------|--------|---------------|
-||OpenGL ES||OpenGL 3x|||OpenAL|||		|
+||OpenGL ES||OpenGL 3x|||FMOD  |||c scripting|	|
 |----------------------|------------------------|
+
+
 
 Renderer
 - lighting (point, shape lighting)
@@ -38,9 +44,10 @@ perspective_cswp = get_perspective(cam_space_world_pso, tan(fov/2))
 TODO camera_pso
 
 Resources(Asets)
-- shader programs
-- textures
+- models
 - materials
+- textures
+- shader programs
 - scripts
 - sounds
 
@@ -54,12 +61,14 @@ TODO
 -     C dynamic linking
 -   multi-threaded
 -     ^binary thread priority(поток виконується один раз на кожні n\\2 фрейми,
--       але рендер виконується в кожному вреймі)
+-       але рендер виконується в кожному фреймі)
 -   data structure serialization
 -   SIMD math
 -   costom memory alocators
 -   fixed fps
 -   scons build system
+-   use own input system insted of glfw
+-     remote input
 - rendering
 -   multi-monitor and multi-window output
 -   frustum culling
@@ -81,13 +90,13 @@ TODO
 -   dual quaternion skinning
 -   stereo 3D
 -   ngl(Nutty GUI Library)
-- sound(OpenAL)
+- sound(FMOD)
 -   virtually unlimited number of 3D sound sources
 -   zone sound effects
 - physics(bullet3d or ODE based)
 -   aircraft simulation
 - logic
--   C scripting using ccons or cling
+-   C scripting using tcc
 -   interactive C console
 - animation
 - tools

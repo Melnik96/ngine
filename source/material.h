@@ -23,14 +23,21 @@
 
 #include "math/vector.h"
 
-struct material {
-  struct texture* textures;
+struct ngine_material {
+  char* name;
   
+  vec3 ambient_color;
   vec3 difuse_color;
+  vec3 specular_color;
+  vec3 emissive_color;// light
   
-  // Lighting
+  struct ngine_texture* textures;
   
-  // Physics
+  /**
+   * if tech == NULL then use default renderer techniqueue.
+   * techs could be more for compatibility with diffrent renderer techs.
+   */
+  struct ngine_tech* tech;
 };
 
 #endif /* __MATERIAL_H__ */

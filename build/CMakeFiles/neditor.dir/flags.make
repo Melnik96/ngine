@@ -4,5 +4,5 @@
 # compile C with /usr/bin/cc
 C_FLAGS = -std=c11 -g -I/home/melnik/projects/ngine/source -I/home/melnik/projects/ngine/source/math -I/home/melnik/projects/ngine/source/import/blender   
 
-C_DEFINES = -D__GNUC__
+C_DEFINES = 
 

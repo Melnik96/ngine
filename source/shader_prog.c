@@ -17,447 +17,101 @@
  *
  */
 
-#include <string.h>
-#include <pthread.h>
-
-#include <GL/glew.h>
-#include <GL/gl.h>
 #include <malloc.h>
 #include <string.h>
-#include <string.h>
+#include <GL/glew.h>
 
 #include "log.h"
 
 #include "shader_prog.h"
 
-int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources) {
-  uint32_t vert_shad = 0;
-  uint32_t geom_shad = 0;
-  uint32_t frag_shad = 0;
-  uint32_t comp_shad = 0;
-  uint32_t tess_ctrl_shad = 0;
-  uint32_t tess_eval_shad = 0;
-
-  int compiled;
-
-  int logLength, charsWritten;
-
-  char* log;
-
-//   if(!shaderProgram || !vertexSource || !fragmentSource) {
-//     return GLUS_FALSE;
-//   }
-// 
-//   shaderProgram->program = 0;
-//   shaderProgram->compute = 0;
-//   shaderProgram->vertex = 0;
-//   shaderProgram->control = 0;
-//   shaderProgram->evaluation = 0;
-//   shaderProgram->geometry = 0;
-//   shaderProgram->fragment = 0;
-
-  #define GLUS_OK 0
-#define GLUS_TRUE   1
-#define GLUS_FALSE  0
-#define GLUS_BACKWARD_COMPATIBLE_BIT    0x0000
-#define GLUS_FORWARD_COMPATIBLE_BIT     0x0002
-#define GLUS_VERTEX_SHADER              0x8B31
-#define GLUS_FRAGMENT_SHADER            0x8B30
-#define GLUS_TESS_EVALUATION_SHADER     0x8E87
-#define GLUS_TESS_CONTROL_SHADER        0x8E88
-#define GLUS_GEOMETRY_SHADER            0x8DD9
-#define GLUS_COMPUTE_SHADER 		0x91B9
+struct ngine_shdr_prog* ngine_shdr_prog_create(const char* _name) {
+  debug("create shader program '%s'", _name);
   
-  strcpy(_prog->name, _name);
+  struct ngine_shdr_prog* new_shdr_prog = calloc(1, sizeof(struct ngine_shdr_prog));
   
-  vert_shad = glCreateShader(GL_VERTEX_SHADER);
-
-  glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
-  glCompileShader(vert_shad);
-
-  glGetShaderiv(vert_shad, GL_COMPILE_STATUS, &compiled);
-
-  if(!compiled) {
-    glGetShaderiv(vert_shad, GL_INFO_LOG_LENGTH, &logLength);
-
-    log = (char*) malloc((size_t)logLength);
-
-    if(!log) {
-      return GLUS_FALSE;
-    }
-
-    glGetShaderInfoLog(vert_shad, logLength, &charsWritten, log);
-
-    debug("Vertex shader compile error:");
-    debug("%s", log);
-
-    free(log);
-
-    vert_shad = 0;
-
-    return GLUS_FALSE;
-  }
-
-//   if(controlSource) {
-//     shaderProgram->control = glCreateShader(GLUS_TESS_CONTROL_SHADER);
-// 
-//     glShaderSource(shaderProgram->control, 1, (const char**) controlSource, 0);
-// 
-//     glCompileShader(shaderProgram->control);
-// 
-//     glGetShaderiv(shaderProgram->control, GL_COMPILE_STATUS, &compiled);
-// 
-//     if(!compiled) {
-//       glGetShaderiv(shaderProgram->control, GL_INFO_LOG_LENGTH, &logLength);
-// 
-//       log = (char*) malloc((size_t)logLength);
-// 
-//       if(!log) {
-//         glusDestroyProgram(shaderProgram);
-// 
-//         return GLUS_FALSE;
-//       }
-// 
-//       glGetShaderInfoLog(shaderProgram->control, logLength, &charsWritten, log);
-// 
-//       glusLogPrint(GLUS_LOG_ERROR, "Control shader compile error:");
-//       glusLogPrint(GLUS_LOG_ERROR, "%s", log);
-// 
-//       free(log);
-// 
-//       shaderProgram->control = 0;
-// 
-//       glusDestroyProgram(shaderProgram);
-// 
-//       return GLUS_FALSE;
-//     }
-//   }
-// 
-//   if(evaluationSource) {
-//     shaderProgram->evaluation = glCreateShader(GLUS_TESS_EVALUATION_SHADER);
-// 
-//     glShaderSource(shaderProgram->evaluation, 1, (const char**) evaluationSource, 0);
-// 
-//     glCompileShader(shaderProgram->evaluation);
-// 
-//     glGetShaderiv(shaderProgram->evaluation, GL_COMPILE_STATUS, &compiled);
-// 
-//     if(!compiled) {
-//       glGetShaderiv(shaderProgram->evaluation, GL_INFO_LOG_LENGTH, &logLength);
-// 
-//       log = (char*) malloc((size_t)logLength);
-// 
-//       if(!log) {
-//         glusDestroyProgram(shaderProgram);
-// 
-//         return GLUS_FALSE;
-//       }
-// 
-//       glGetShaderInfoLog(shaderProgram->evaluation, logLength, &charsWritten, log);
-// 
-//       glusLogPrint(GLUS_LOG_ERROR, "Evaluation shader compile error:");
-//       glusLogPrint(GLUS_LOG_ERROR, "%s", log);
-// 
-//       free(log);
-// 
-//       shaderProgram->evaluation = 0;
-// 
-//       glusDestroyProgram(shaderProgram);
-// 
-//       return GLUS_FALSE;
-//     }
-//   }
-// 
-//   if(geometrySource) {
-//     shaderProgram->geometry = glCreateShader(GLUS_GEOMETRY_SHADER);
-// 
-//     glShaderSource(shaderProgram->geometry, 1, (const char**) geometrySource, 0);
-// 
-//     glCompileShader(shaderProgram->geometry);
-// 
-//     glGetShaderiv(shaderProgram->geometry, GL_COMPILE_STATUS, &compiled);
-// 
-//     if(!compiled) {
-//       glGetShaderiv(shaderProgram->geometry, GL_INFO_LOG_LENGTH, &logLength);
-// 
-//       log = (char*) malloc((size_t)logLength);
-// 
-//       if(!log) {
-//         glusDestroyProgram(shaderProgram);
-// 
-//         return GLUS_FALSE;
-//       }
-// 
-//       glGetShaderInfoLog(shaderProgram->geometry, logLength, &charsWritten, log);
-// 
-//       glusLogPrint(GLUS_LOG_ERROR, "Geometry shader compile error:");
-//       glusLogPrint(GLUS_LOG_ERROR, "%s", log);
-// 
-//       free(log);
-// 
-//       shaderProgram->geometry = 0;
-// 
-//       glusDestroyProgram(shaderProgram);
-// 
-//       return GLUS_FALSE;
-//     }
-//   }
-
-  frag_shad = glCreateShader(GLUS_FRAGMENT_SHADER);
-  glShaderSource(frag_shad , 1, (const char**) &_sources->fragment, 0);
-  glCompileShader(frag_shad);
-
-  glGetShaderiv(frag_shad, GL_COMPILE_STATUS, &compiled);
-  if(!compiled) {
-    glGetShaderiv(frag_shad, GL_INFO_LOG_LENGTH, &logLength);
-    log = (char*) malloc((size_t)logLength);
-    if(!log) {
-//       glusDestroyProgram(shaderProgram);
-      return GLUS_FALSE;
-    }
-    glGetShaderInfoLog(frag_shad, logLength, &charsWritten, log);
-
-    debug("Fragment shader compile error:");
-    debug("%s", log);
-
-    free(log);
-
-    frag_shad = 0;
-//     glusDestroyProgram(shaderProgram);
-    return GLUS_FALSE;
-  }
-
-  _prog->id = glCreateProgram();
-
-  glAttachShader(_prog->id, vert_shad);
-  glAttachShader(_prog->id, frag_shad);
-
-//   if(shaderProgram->control) {
-//     glAttachShader(shaderProgram->program, shaderProgram->control);
-//   }
-// 
-//   if(shaderProgram->evaluation) {
-//     glAttachShader(shaderProgram->program, shaderProgram->evaluation);
-//   }
-// 
-//   if(shaderProgram->geometry) {
-//     glAttachShader(shaderProgram->program, shaderProgram->geometry);
-//   }
+  new_shdr_prog->name = _name;
+  new_shdr_prog->id = glCreateProgram();
   
+  return new_shdr_prog;
+}
+int ngine_shdr_prog_delete(struct ngine_shdr_prog* _self) {
+  glDeleteProgram(_self->id);
+  free(_self);
+}
+
+void ngine_shdr_prog_binary(struct ngine_shdr_prog* _self, void* _bin, uint32_t _size) {
   
-    int linked;
-//     int logLength, charsWritten;
-//     char* log;
+}
 
-    if(!_prog->id) {
-        return GLUS_FALSE;
-    }
-
+int ngine_shdr_prog_compile(struct ngine_shdr_prog* _self, const char* _source, uint32_t _type) {
+  uint32_t shdr_id = glCreateShader(_type);
+  
+  glShaderSource(shdr_id, 1, &_source, 0);
+  glCompileShader(shdr_id);
+  glAttachShader(_self->id, shdr_id);
+  
+  int result = 0;
+  
+  glGetShaderiv(shdr_id, GL_COMPILE_STATUS, &result);
+  
+  if(!result) {
+    int length = 0;
+    char* err_log = NULL;
     
+    glGetShaderiv(shdr_id, GL_INFO_LOG_LENGTH, &length);
     
-  _prog->attribs = malloc(3*sizeof(struct shader_param));
-  
-  glBindAttribLocation(_prog->id, GLSA_VERTEX, "vert");
-  memcpy(_prog->attribs[GLSA_VERTEX].name, "vert", sizeof "vert");
-  _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
-  
-    glLinkProgram(_prog->id);
-#define new(type) malloc(sizeof(type))
-    
-  _prog->uniforms = malloc(sizeof(struct shader_param));
-  memcpy(_prog->uniforms->name, "_mvp", 4);
-  _prog->uniforms->id = glGetUniformLocation(_prog->id, "_mvp");
-  if(_prog->uniforms->id < 0) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
-
-    
-    glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);
-
-    if(!linked) {
-        glGetProgramiv(_prog->id, GL_INFO_LOG_LENGTH, &logLength);
-        log = (char*) malloc((size_t)logLength);
-        if (!log) {
-//             glusDestroyProgram(shaderProgram);
-            return GLUS_FALSE;
-        }
-
-        glGetProgramInfoLog(_prog->id, logLength, &charsWritten, log);
-
-        printf("Shader program link error:");
-        printf("%s", log);
-
-        free(log);
-
-//         glusDestroyProgram(shaderProgram);
-
-        return GLUS_FALSE;
+    if(length > 0) {
+      err_log = malloc(length);
+      int written = 0;
+      glGetShaderInfoLog(shdr_id, length, &written, err_log);
     }
     
-//   int a_vertex = glGetAttribLocation(_prog->id, "vertex");
-//   if(!a_vertex) {printf("error: int _a_vpm = glGetAttribLocation(_prog->id, 'vertex');\n");}
-  
-//   glBindAttribLocation(_prog->id, GLSA_NORMAL, "normal");
-//   glBindAttribLocation(_prog->id, GLSA_UV, "uv");
-  
-//   int _u_mvp = glGetUniformLocation(_prog->id, "MVP");
-//   if(!_u_mvp) {printf("error: int _u_mvp = glGetUniformLocation(cur_scene->cur_shader->id, 'MVP');\n");}
-//   _prog->uniforms = malloc(sizeof(struct shader_param));
-//   memcpy(_prog->uniforms->name, "MVP", sizeof "MVP");
-// //   _prog->uniforms->name = "MVP";
-//   _prog->id = _u_mvp;
-
-
-  return GLUS_TRUE;
-}
-
-void printLog(GLuint obj) {
-  int infologLength = 0;
-  char infoLog[1024];
-
-// 	if (glIsShader(obj))
-  glGetShaderInfoLog(obj, 1024, &infologLength, infoLog);
-// 	else
-// 		glGetProgramInfoLog(obj, 1024, &infologLength, infoLog);
-
-//     if (infologLength > 0)
-  printf("%s\n", infoLog);
-}
-
-// проверка статуса param шейдера shader
-GLint ShaderStatus(GLuint shader, GLenum param) {
-  GLint status, length;
-  GLchar buffer[1024];
-
-  // получим статус шейдера
-  glGetShaderiv(shader, param, &status);
-  printf("shad id = %i", shader);
-
-//         в случае ошибки запишем ее в лог-файл
-  if(status != GL_TRUE) {
-    glGetShaderInfoLog(shader, 1024, &length, buffer);
-    printf("Shader: %s\n", (const char*)buffer);
+    error("shader program '%s' compiling shader error:\n  %s", _self->name, err_log);
+    
+    free(err_log);
+    
+    glDeleteShader(shdr_id);
   }
-
-  // проверим не было ли ошибок OpenGL
-//         OPENGL_CHECK_FOR_ERRORS();
-  printf("gl error: %i", glGetError());
-
-  // вернем статус
-  return status;
+  
+  return result;
 }
 
-// проверка статуса param шейдерной программы program
-GLint ShaderProgramStatus(GLuint program, GLenum param) {
-  GLint status, length;
-  GLchar buffer[1024];
+int ngine_shdr_prog_link(struct ngine_shdr_prog* _self) {
+  debug("link shader program '%s'", _self->name);
+  
+  glLinkProgram(_self->id);
+  
+  int linked = 0;
+  
+  glGetProgramiv(_self->id, GL_LINK_STATUS, &linked);
 
-  // получим статус шейдерной программы
-  glGetProgramiv(program, param, &status);
-
-  // в случае ошибки запишем ее в лог-файл
-//         if (status != GL_TRUE)
-//         {
-//                 glGetProgramInfoLog(program, 1024, &length, buffer);
-//                 LOG_ERROR("Shader program: %s\n", (const char*)buffer);
-//         }
-//
-//         // проверим не было ли ошибок OpenGL
-//         OPENGL_CHECK_FOR_ERRORS();
-
-  // вернем статус
-  return status;
-}
-
-
-
-/*
-
-struct shader_prog* shader_prog_create(const char* _name, struct shader_source* _sources) {
-  struct shader_prog* new_sprog = malloc(sizeof(struct shader_prog));
-  shader_prog_init(new_sprog, _name, _sources);
-  return new_sprog;
-}
-
-int shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources) {
-  if(_sources->vertex) {
-    int vert_shad = glCreateShader(GL_VERTEX_SHADER);
-
-    glShaderSource(vert_shad, 1, (const char**) &_sources->vertex, 0);
-    glCompileShader(vert_shad);
-
-    if(sprog_check_compile_error(vert_shad)) {
-      error("OpenGL shader compile error: %s", sprog_get_error_string(vert_shad));
+  if(!linked) {
+    int length = 0;
+    char* err_log = NULL;
+    
+    glGetProgramiv(_self->id, GL_INFO_LOG_LENGTH, &length);
+    
+    if(length > 0) {
+      err_log = malloc(length);
+      int written = 0;
+      glGetProgramInfoLog(_self->id, length, &written, err_log);
     }
-  }
-  if(_sources->fragment) {
-    
-  }
-  if(_sources->geometry) {
-    
-  }
-  
-  _prog->id = glCreateProgram();
 
-  glAttachShader(_prog->id, vert_shad);
-  glAttachShader(_prog->id, frag_shad);
-    
-  _prog->attribs = malloc(3*sizeof(struct shader_param));
-  _prog->uniforms = malloc(sizeof(struct shader_param));
-  
-  glBindAttribLocation(_prog->id, GLSA_VERTEX, "vert");
-  memcpy(_prog->attribs[GLSA_VERTEX].name, "vert", sizeof "vert");
-  _prog->attribs[GLSA_VERTEX].id = GLSA_VERTEX;
-  
-  glLinkProgram(_prog->id);
-    
-  memcpy(_prog->uniforms[GLSU_MVP].name, "_mvp", 5);
-  _prog->uniforms->id = glGetUniformLocation(_prog->id, "_mvp");
-  if(_prog->uniforms->id < 0) {error("OpenGL shader error: get uniform location '_mvp'");}
+    error("linking shader program '%s' error:\n  %s", _self->name, err_log);
 
-//     int linked;
-//     glGetProgramiv(_prog->id, GL_LINK_STATUS, &linked);
-// 
-//     if(!linked) {
-//         glGetProgramiv(_prog->id, GL_INFO_LOG_LENGTH, &logLength);
-//         log = (char*) malloc((size_t)logLength);
-//         if (!log) {
-// //             glusDestroyProgram(shaderProgram);
-//             return GLUS_FALSE;
-//         }
-// 
-//         glGetProgramInfoLog(_prog->id, logLength, &charsWritten, log);
-// 
-//         printf("Shader program link error:");
-//         printf("%s", log);
-// 
-//         free(log);
-// 
-// //         glusDestroyProgram(shaderProgram);
-// 
-//         return GLUS_FALSE;
-//     }
+    free(err_log);
+
+    glDeleteProgram(_self->id);
+  }
+  
+  return linked;
 }
 
-// intern
-int sprog_check_compile_error(const int _shad_id) {
-  int compiled = 0;
-  glGetShaderiv(_shad_id, GL_COMPILE_STATUS, &compiled);
-  if(!compiled) {
-    
-    return GLUS_FALSE;
-  }
+void ngine_shdr_prog_bind_attr(struct ngine_shdr_prog* _self, uint32_t _index, const char* _name) {
+  glBindAttribLocation(_self->id, _index, _name);
 }
-char* sprog_get_error_string(const int _shad_id) {
-  int log_len;
-  glGetShaderiv(_shad_id, GL_INFO_LOG_LENGTH, &log_len);
-  
-  char* log = malloc((size_t)log_len);
-  
-  int log_writen_len;//TODO FIX IT
-  glGetShaderInfoLog(_shad_id, log_len, &log_writen_len, log);
 
-  return log;
-    debug("Fragment shader compile error:");
-    debug("%s", log);
-
-    free(log);
-}*/
+// struct buffer* ngine_shdr_prog_get_binary(struct ngine_shdr_prog* _self) {
+//   
+// }

@@ -28,17 +28,20 @@
 struct sc_obj_listener {
   void(*on_update)();
   void(*on_colide)();
-  void(*on_key_pressed)();
+//   void(*on_key_pressed)();
 };
 
 enum sc_obj_type {
-  SC_OBJ_NULL,
-  SC_OBJ_ENTITY,
-  SC_OBJ_CAMERA
+  NGINE_SC_OBJ_NULL = 0,
+  NGINE_SC_OBJ_ENTITY,
+  NGINE_SC_OBJ_LIGHT,
+  NGINE_SC_OBJ_CAMERA,
+  NGINE_SC_OBJ_SPEAKER,
+  NGINE_SC_OBJ_LISTENER
   //user defined types
 };
 
-struct sc_obj {
+struct ngine_sc_obj {
   struct tree link;
 //   struct engine* engine;
   
@@ -55,16 +58,24 @@ struct sc_obj {
   int16_t translated;
   int16_t updated;//need update gpu buffer
   
-  struct list* typed_objs;//ptr to list of entities or cameras
+  void* typed_objs;//ptr to list of entities or cameras
   
   struct sc_obj_listener* listener;
 };
 
-int sc_obj_init(struct sc_obj* _self, char* _name, int _type);
-struct sc_obj* sc_obj_create(char* _name, int _type);
+int	       ngine_sc_obj_init(struct ngine_sc_obj* _self, char* _name, int _type);
+struct ngine_sc_obj* ngine_sc_obj_create(char* _name, int _type);
 
 //intern
-struct sc_obj* sc_obj_upd_mat(struct sc_obj* _self);
-struct sc_obj* sc_obj_upd_mat_inv(struct sc_obj* _self);
+struct ngine_sc_obj* ngine_sc_obj_upd_mat(struct ngine_sc_obj* _self);
+struct ngine_sc_obj* ngine_sc_obj_upd_mat_inv(struct ngine_sc_obj* _self);
+
+// future
+struct ngine_sc_node {/*...*/};
+struct ngine_some_typed_obj {
+  /* not pre pad */
+  struct ngine_sc_node* sc_node;
+  /*...*/
+};
 
 #endif /* __SCENE_OBJECT_H__ */

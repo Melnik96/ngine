@@ -3,9 +3,16 @@
 
 CMakeFiles/neditor.dir/neditor/source/main.c.o
  ../source/cntr/list.h
+ ../source/cntr/tree.h
+ ../source/dynlib.h
  ../source/iofile.h
  ../source/math/matrix.h
+ ../source/math/vector.h
  ../source/ngine.h
- ../source/serialize.h
+ ../source/render/render.h
+ ../source/sc_obj.h
+ ../source/scene.h
+ ../source/sound_mgr.h
  ../source/viewport.h
+ ../source/window.h
  /home/melnik/projects/ngine/neditor/source/main.c

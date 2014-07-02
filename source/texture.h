@@ -22,16 +22,16 @@
 
 #include <stdint.h>
 
-#include <GL/gl.h>
-
-struct texture {
-  char* name;
+struct ngine_texture {
+  char* name;// NULL == "unamed"
   uint16_t id;
   uint16_t width;
   uint16_t height;
   uint16_t cspace;// GL_RGBA
 };
 
-struct texture*  texture_create();
+struct ngine_texture*  ngine_texture_create();
+struct ngine_texture*  ngine_texture_image(const char* _name);
+struct ngine_texture*  ngine_texture_target(struct ngine_sc_obj* _camera);
 
 #endif // TEXTURE_H

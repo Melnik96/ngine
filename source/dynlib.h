@@ -23,14 +23,20 @@
 
 #include <stdint.h>
 
+enum dynlib_type {
+  DT_CSRIPT,
+  DT_SOLIB,
+};
+
 struct dynlib {
   char name[32];
   void* intense;
   uint8_t type;
 };
 
-struct dynlib* 	dynlib_open(char* _name);
+struct dynlib* 	dynlib_open(struct ngine* _ngine, char* _name);
 int 		dynlib_close(struct dynlib* _module);
 void* 		dynlib_getsym(struct dynlib* _module, char* _symname);
+void* 		dynlib_addsym(struct dynlib* _module, char* _symname, void* _sym);
 
 #endif /* __DYNLIB_H__ */

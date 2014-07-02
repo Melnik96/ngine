@@ -127,45 +127,6 @@ ngine/fast:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
 .PHONY : ngine/fast
 
-#=============================================================================
-# Target rules for targets named s_dynstr
-
-# Build rule for target.
-s_dynstr: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 s_dynstr
-.PHONY : s_dynstr
-
-# fast build rule for target.
-s_dynstr/fast:
-	$(MAKE) -f examples/CMakeFiles/s_dynstr.dir/build.make examples/CMakeFiles/s_dynstr.dir/build
-.PHONY : s_dynstr/fast
-
-#=============================================================================
-# Target rules for targets named s_np_struct
-
-# Build rule for target.
-s_np_struct: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 s_np_struct
-.PHONY : s_np_struct
-
-# fast build rule for target.
-s_np_struct/fast:
-	$(MAKE) -f examples/CMakeFiles/s_np_struct.dir/build.make examples/CMakeFiles/s_np_struct.dir/build
-.PHONY : s_np_struct/fast
-
-#=============================================================================
-# Target rules for targets named cinterp
-
-# Build rule for target.
-cinterp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cinterp
-.PHONY : cinterp
-
-# fast build rule for target.
-cinterp/fast:
-	$(MAKE) -f cinterp/CMakeFiles/cinterp.dir/build.make cinterp/CMakeFiles/cinterp.dir/build
-.PHONY : cinterp/fast
-
 neditor/source/main.o: neditor/source/main.c.o
 .PHONY : neditor/source/main.o
 
@@ -190,29 +151,29 @@ neditor/source/main.c.s:
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/main.c.s
 .PHONY : neditor/source/main.c.s
 
-source/audio.o: source/audio.c.o
-.PHONY : source/audio.o
+source/assets_mgr.o: source/assets_mgr.c.o
+.PHONY : source/assets_mgr.o
 
 # target to build an object file
-source/audio.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/audio.c.o
-.PHONY : source/audio.c.o
+source/assets_mgr.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/assets_mgr.c.o
+.PHONY : source/assets_mgr.c.o
 
-source/audio.i: source/audio.c.i
-.PHONY : source/audio.i
+source/assets_mgr.i: source/assets_mgr.c.i
+.PHONY : source/assets_mgr.i
 
 # target to preprocess a source file
-source/audio.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/audio.c.i
-.PHONY : source/audio.c.i
+source/assets_mgr.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/assets_mgr.c.i
+.PHONY : source/assets_mgr.c.i
 
-source/audio.s: source/audio.c.s
-.PHONY : source/audio.s
+source/assets_mgr.s: source/assets_mgr.c.s
+.PHONY : source/assets_mgr.s
 
 # target to generate assembly for a file
-source/audio.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/audio.c.s
-.PHONY : source/audio.c.s
+source/assets_mgr.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/assets_mgr.c.s
+.PHONY : source/assets_mgr.c.s
 
 source/camera.o: source/camera.c.o
 .PHONY : source/camera.o
@@ -358,6 +319,54 @@ source/entity.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/entity.c.s
 .PHONY : source/entity.c.s
 
+source/import/obj/awol/awol.o: source/import/obj/awol/awol.c.o
+.PHONY : source/import/obj/awol/awol.o
+
+# target to build an object file
+source/import/obj/awol/awol.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o
+.PHONY : source/import/obj/awol/awol.c.o
+
+source/import/obj/awol/awol.i: source/import/obj/awol/awol.c.i
+.PHONY : source/import/obj/awol/awol.i
+
+# target to preprocess a source file
+source/import/obj/awol/awol.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.i
+.PHONY : source/import/obj/awol/awol.c.i
+
+source/import/obj/awol/awol.s: source/import/obj/awol/awol.c.s
+.PHONY : source/import/obj/awol/awol.s
+
+# target to generate assembly for a file
+source/import/obj/awol/awol.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.s
+.PHONY : source/import/obj/awol/awol.c.s
+
+source/import/obj/obj.o: source/import/obj/obj.c.o
+.PHONY : source/import/obj/obj.o
+
+# target to build an object file
+source/import/obj/obj.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/obj.c.o
+.PHONY : source/import/obj/obj.c.o
+
+source/import/obj/obj.i: source/import/obj/obj.c.i
+.PHONY : source/import/obj/obj.i
+
+# target to preprocess a source file
+source/import/obj/obj.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/obj.c.i
+.PHONY : source/import/obj/obj.c.i
+
+source/import/obj/obj.s: source/import/obj/obj.c.s
+.PHONY : source/import/obj/obj.s
+
+# target to generate assembly for a file
+source/import/obj/obj.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/obj/obj.c.s
+.PHONY : source/import/obj/obj.c.s
+
 source/iofile.o: source/iofile.c.o
 .PHONY : source/iofile.o
 
@@ -381,6 +390,30 @@ source/iofile.s: source/iofile.c.s
 source/iofile.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iofile.c.s
 .PHONY : source/iofile.c.s
+
+source/light.o: source/light.c.o
+.PHONY : source/light.o
+
+# target to build an object file
+source/light.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/light.c.o
+.PHONY : source/light.c.o
+
+source/light.i: source/light.c.i
+.PHONY : source/light.i
+
+# target to preprocess a source file
+source/light.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/light.c.i
+.PHONY : source/light.c.i
+
+source/light.s: source/light.c.s
+.PHONY : source/light.s
+
+# target to generate assembly for a file
+source/light.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/light.c.s
+.PHONY : source/light.c.s
 
 source/log.o: source/log.c.o
 .PHONY : source/log.o
@@ -574,29 +607,125 @@ source/node.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/node.c.s
 .PHONY : source/node.c.s
 
-source/physics_mgr.o: source/physics_mgr.c.o
-.PHONY : source/physics_mgr.o
+source/render/pass.o: source/render/pass.c.o
+.PHONY : source/render/pass.o
 
 # target to build an object file
-source/physics_mgr.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.o
-.PHONY : source/physics_mgr.c.o
+source/render/pass.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/pass.c.o
+.PHONY : source/render/pass.c.o
 
-source/physics_mgr.i: source/physics_mgr.c.i
-.PHONY : source/physics_mgr.i
+source/render/pass.i: source/render/pass.c.i
+.PHONY : source/render/pass.i
 
 # target to preprocess a source file
-source/physics_mgr.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.i
-.PHONY : source/physics_mgr.c.i
+source/render/pass.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/pass.c.i
+.PHONY : source/render/pass.c.i
 
-source/physics_mgr.s: source/physics_mgr.c.s
-.PHONY : source/physics_mgr.s
+source/render/pass.s: source/render/pass.c.s
+.PHONY : source/render/pass.s
 
 # target to generate assembly for a file
-source/physics_mgr.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/physics_mgr.c.s
-.PHONY : source/physics_mgr.c.s
+source/render/pass.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/pass.c.s
+.PHONY : source/render/pass.c.s
+
+source/render/render.o: source/render/render.c.o
+.PHONY : source/render/render.o
+
+# target to build an object file
+source/render/render.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render.c.o
+.PHONY : source/render/render.c.o
+
+source/render/render.i: source/render/render.c.i
+.PHONY : source/render/render.i
+
+# target to preprocess a source file
+source/render/render.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render.c.i
+.PHONY : source/render/render.c.i
+
+source/render/render.s: source/render/render.c.s
+.PHONY : source/render/render.s
+
+# target to generate assembly for a file
+source/render/render.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render.c.s
+.PHONY : source/render/render.c.s
+
+source/render/render_state.o: source/render/render_state.c.o
+.PHONY : source/render/render_state.o
+
+# target to build an object file
+source/render/render_state.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.o
+.PHONY : source/render/render_state.c.o
+
+source/render/render_state.i: source/render/render_state.c.i
+.PHONY : source/render/render_state.i
+
+# target to preprocess a source file
+source/render/render_state.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.i
+.PHONY : source/render/render_state.c.i
+
+source/render/render_state.s: source/render/render_state.c.s
+.PHONY : source/render/render_state.s
+
+# target to generate assembly for a file
+source/render/render_state.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/render_state.c.s
+.PHONY : source/render/render_state.c.s
+
+source/render/technique.o: source/render/technique.c.o
+.PHONY : source/render/technique.o
+
+# target to build an object file
+source/render/technique.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/technique.c.o
+.PHONY : source/render/technique.c.o
+
+source/render/technique.i: source/render/technique.c.i
+.PHONY : source/render/technique.i
+
+# target to preprocess a source file
+source/render/technique.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/technique.c.i
+.PHONY : source/render/technique.c.i
+
+source/render/technique.s: source/render/technique.c.s
+.PHONY : source/render/technique.s
+
+# target to generate assembly for a file
+source/render/technique.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render/technique.c.s
+.PHONY : source/render/technique.c.s
+
+source/render_target.o: source/render_target.c.o
+.PHONY : source/render_target.o
+
+# target to build an object file
+source/render_target.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render_target.c.o
+.PHONY : source/render_target.c.o
+
+source/render_target.i: source/render_target.c.i
+.PHONY : source/render_target.i
+
+# target to preprocess a source file
+source/render_target.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render_target.c.i
+.PHONY : source/render_target.c.i
+
+source/render_target.s: source/render_target.c.s
+.PHONY : source/render_target.s
+
+# target to generate assembly for a file
+source/render_target.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/render_target.c.s
+.PHONY : source/render_target.c.s
 
 source/sc_obj.o: source/sc_obj.c.o
 .PHONY : source/sc_obj.o
@@ -694,6 +823,30 @@ source/shader_prog.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/shader_prog.c.s
 .PHONY : source/shader_prog.c.s
 
+source/sound_mgr.o: source/sound_mgr.c.o
+.PHONY : source/sound_mgr.o
+
+# target to build an object file
+source/sound_mgr.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sound_mgr.c.o
+.PHONY : source/sound_mgr.c.o
+
+source/sound_mgr.i: source/sound_mgr.c.i
+.PHONY : source/sound_mgr.i
+
+# target to preprocess a source file
+source/sound_mgr.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sound_mgr.c.i
+.PHONY : source/sound_mgr.c.i
+
+source/sound_mgr.s: source/sound_mgr.c.s
+.PHONY : source/sound_mgr.s
+
+# target to generate assembly for a file
+source/sound_mgr.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sound_mgr.c.s
+.PHONY : source/sound_mgr.c.s
+
 source/sys_info.o: source/sys_info.c.o
 .PHONY : source/sys_info.o
 
@@ -717,6 +870,30 @@ source/sys_info.s: source/sys_info.c.s
 source/sys_info.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.s
 .PHONY : source/sys_info.c.s
+
+source/texture.o: source/texture.c.o
+.PHONY : source/texture.o
+
+# target to build an object file
+source/texture.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/texture.c.o
+.PHONY : source/texture.c.o
+
+source/texture.i: source/texture.c.i
+.PHONY : source/texture.i
+
+# target to preprocess a source file
+source/texture.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/texture.c.i
+.PHONY : source/texture.c.i
+
+source/texture.s: source/texture.c.s
+.PHONY : source/texture.s
+
+# target to generate assembly for a file
+source/texture.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/texture.c.s
+.PHONY : source/texture.c.s
 
 source/viewport.o: source/viewport.c.o
 .PHONY : source/viewport.o
@@ -742,6 +919,30 @@ source/viewport.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.s
 .PHONY : source/viewport.c.s
 
+source/window.o: source/window.c.o
+.PHONY : source/window.o
+
+# target to build an object file
+source/window.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/window.c.o
+.PHONY : source/window.c.o
+
+source/window.i: source/window.c.i
+.PHONY : source/window.i
+
+# target to preprocess a source file
+source/window.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/window.c.i
+.PHONY : source/window.c.i
+
+source/window.s: source/window.c.s
+.PHONY : source/window.s
+
+# target to generate assembly for a file
+source/window.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/window.c.s
+.PHONY : source/window.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -752,15 +953,12 @@ help:
 	@echo "... neditor"
 	@echo "... ngine"
 	@echo "... rebuild_cache"
-	@echo "... s_dynstr"
-	@echo "... s_np_struct"
-	@echo "... cinterp"
 	@echo "... neditor/source/main.o"
 	@echo "... neditor/source/main.i"
 	@echo "... neditor/source/main.s"
-	@echo "... source/audio.o"
-	@echo "... source/audio.i"
-	@echo "... source/audio.s"
+	@echo "... source/assets_mgr.o"
+	@echo "... source/assets_mgr.i"
+	@echo "... source/assets_mgr.s"
 	@echo "... source/camera.o"
 	@echo "... source/camera.i"
 	@echo "... source/camera.s"
@@ -779,9 +977,18 @@ help:
 	@echo "... source/entity.o"
 	@echo "... source/entity.i"
 	@echo "... source/entity.s"
+	@echo "... source/import/obj/awol/awol.o"
+	@echo "... source/import/obj/awol/awol.i"
+	@echo "... source/import/obj/awol/awol.s"
+	@echo "... source/import/obj/obj.o"
+	@echo "... source/import/obj/obj.i"
+	@echo "... source/import/obj/obj.s"
 	@echo "... source/iofile.o"
 	@echo "... source/iofile.i"
 	@echo "... source/iofile.s"
+	@echo "... source/light.o"
+	@echo "... source/light.i"
+	@echo "... source/light.s"
 	@echo "... source/log.o"
 	@echo "... source/log.i"
 	@echo "... source/log.s"
@@ -806,9 +1013,21 @@ help:
 	@echo "... source/node.o"
 	@echo "... source/node.i"
 	@echo "... source/node.s"
-	@echo "... source/physics_mgr.o"
-	@echo "... source/physics_mgr.i"
-	@echo "... source/physics_mgr.s"
+	@echo "... source/render/pass.o"
+	@echo "... source/render/pass.i"
+	@echo "... source/render/pass.s"
+	@echo "... source/render/render.o"
+	@echo "... source/render/render.i"
+	@echo "... source/render/render.s"
+	@echo "... source/render/render_state.o"
+	@echo "... source/render/render_state.i"
+	@echo "... source/render/render_state.s"
+	@echo "... source/render/technique.o"
+	@echo "... source/render/technique.i"
+	@echo "... source/render/technique.s"
+	@echo "... source/render_target.o"
+	@echo "... source/render_target.i"
+	@echo "... source/render_target.s"
 	@echo "... source/sc_obj.o"
 	@echo "... source/sc_obj.i"
 	@echo "... source/sc_obj.s"
@@ -821,12 +1040,21 @@ help:
 	@echo "... source/shader_prog.o"
 	@echo "... source/shader_prog.i"
 	@echo "... source/shader_prog.s"
+	@echo "... source/sound_mgr.o"
+	@echo "... source/sound_mgr.i"
+	@echo "... source/sound_mgr.s"
 	@echo "... source/sys_info.o"
 	@echo "... source/sys_info.i"
 	@echo "... source/sys_info.s"
+	@echo "... source/texture.o"
+	@echo "... source/texture.i"
+	@echo "... source/texture.s"
 	@echo "... source/viewport.o"
 	@echo "... source/viewport.i"
 	@echo "... source/viewport.s"
+	@echo "... source/window.o"
+	@echo "... source/window.i"
+	@echo "... source/window.s"
 .PHONY : help
 
 

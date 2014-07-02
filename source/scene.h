@@ -21,8 +21,9 @@
 #define __SCENE_H__
 
 struct scene {
-  char name[32];
-  struct sc_obj* root_object;
+  char                 name[32];
+  struct ngine_sc_obj*       root_object;
+  struct snd_listener* cur_snd_listener;
 };
 
 struct scene* scene_create(char* _name, char auto_create_root_obj);

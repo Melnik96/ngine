@@ -30,4 +30,14 @@ nstrcat(struct string* _d, ...) {}
 //   return memcmp(_f, _s, _len);
 // }
 
+void mid(char *in, char *out, int start, int end) {
+    int i = 0;
+    int size = end - start;
+
+    for(i = 0; i < size; i++){
+        out[i] = in[start + i + 1];
+    }
+    out[size] = 0;
+}
+
 #endif

@@ -17,4 +17,31 @@
  *
  */
 
+#include <GL/glew.h>
+
+#include "assets_mgr.h"
+
 #include "texture.h"
+
+struct ngine_texture* ngine_texture_create(const char* _name) {
+//   ngine_assets_mgr_get_file(, NGINE_IMAGE_ASSET);
+  
+  // create and enable a texture in GL
+  glActiveTexture(GL_TEXTURE0);
+  GLuint textureId;
+  glGenTextures(1, &textureId);
+  glBindTexture(GL_TEXTURE_2D, textureId);
+
+  // set filtering types - coming up after the break!
+  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+  // copy loaded texture in hardware
+//   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, imageData->w, imageData->h, 0, GL_RGB,
+// 	       GL_UNSIGNED_BYTE, imageData->data);
+//   free(imageData->data);
+
+//   // map texture into shader variable
+//   glUseProgram(shaderProgHandle);
+//   int texLocation = glGetUniformLocation(shaderProgHandle, "tex");
+}

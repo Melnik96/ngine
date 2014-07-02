@@ -19,6 +19,28 @@
 
 #include "tree.h"
 
+struct tree* tree_get_head(struct tree* _node) {
+  while(1) {
+    if(_node->parent == NULL) {
+      return _node;
+    } else {
+      _node = _node->parent;
+    }
+  }
+}
+
+uint32_t tree_num_parents(struct tree* _node) {
+  uint32_t num = 0;
+  while(1) {
+    if(_node->parent == NULL) {
+      return num;
+    } else {
+      num +=1;
+      _node = _node->parent;
+    }
+  }
+}
+
 void tree_for_each(struct tree* _node, void(*_fun)(void* _node)) {
   _fun((void*)_node);
   if(_node->childs != NULL) {
@@ -31,6 +53,49 @@ void tree_for_each(struct tree* _node, void(*_fun)(void* _node)) {
     tree_for_each(_node->parent->next, _fun);
   }
 }
+
+void tree_for_each2(struct tree* _node, void(*_fun)(void* _node, void* _arg), void* _arg) {
+  _fun((void*)_node, _arg);
+  if(_node->childs != NULL) {
+    tree_for_each2(_node->childs, _fun, _arg);
+  } 
+  else if(_node->next != NULL) {
+    tree_for_each2(_node->next, _fun, _arg);
+  }
+  else if(_node->parent != NULL && _node->parent->next != NULL) {
+    tree_for_each2(_node->parent->next, _fun, _arg);
+  }
+}
+
+void tree_for_each3(struct tree* _node, void(*_fun)(void* _node, void* _arg1, void* _arg2), void* _arg1, void* _arg2) {
+  _fun((void*)_node, _arg1, _arg2);
+  if(_node->childs != NULL) {
+    tree_for_each3(_node->childs, _fun, _arg1, _arg2);
+  } 
+  else if(_node->next != NULL) {
+    tree_for_each3(_node->next, _fun, _arg1, _arg2);
+  }
+  else if(_node->parent != NULL && _node->parent->next != NULL) {
+    tree_for_each3(_node->parent->next, _fun, _arg1, _arg2);
+  }
+}
+
+// #define tree_for_each(_node, _fun) \
+//   while(1) {\
+//     _fun((void*)_node);\
+//     if(_node->childs != NULL) {\
+//       _node = _node->childs;\
+//       continue;\
+//     } \
+//     else if(_node->next != NULL) {\
+//       _node = _node->next;\
+//       continue;\
+//     }\
+//     else if(_node->parent != NULL && _node->parent->next != NULL) {\
+//       _node = _node->parent->next;\
+//       continue;\
+//     }\
+//   }
 
 int tree_add_child(struct tree* _self, struct tree* _child) {
   if(_self->childs == 0) {

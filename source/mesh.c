@@ -17,5 +17,62 @@
  *
  */
 
+#include <malloc.h>
+#include <GL/glew.h>
+
+#include "shader_prog.h"
+
 #include "mesh.h"
 
+struct ngine_mesh* ngine_mesh_create(int _num_chunks) {
+  struct ngine_mesh* new_mesh = calloc(1, sizeof(struct ngine_mesh));
+  
+  new_mesh->num_chunks = _num_chunks;
+  new_mesh->chunk = calloc(_num_chunks, sizeof(*new_mesh->chunk));
+  
+  return new_mesh;
+}
+
+void ngine_mesh_update(struct ngine_mesh* _self) {
+  // 	if(_self->tech->render_passes[i3].a_vert == 1) {}
+	// note: when load mesh to VAOs bind only needed attribs 
+	//       from render technique or if present material tech
+  
+  // for each chunk
+  glGenVertexArrays(1, &_self->chunk->hw_vao);
+  glBindVertexArray(_self->chunk->hw_vao);
+  
+  glGenBuffers(1, &_self->chunk->hw_index);
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _self->chunk->hw_index);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint32_t) * _self->chunk->num_indices, _self->chunk->indices, GL_STATIC_DRAW);
+  
+  // Create the buffers for the vertices attributes
+  glGenBuffers(4, &_self->hw_buf);
+
+  // Generate and populate the buffers with vertex attributes and the indices
+  glBindBuffer(GL_ARRAY_BUFFER, _self->hw_buf.vert);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _self->num_vertices, _self->vertices, GL_STATIC_DRAW);
+  glEnableVertexAttribArray(NGINE_ATTR_VERTEX);
+  glVertexAttribPointer(NGINE_ATTR_VERTEX, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+//   if(_mesh->uv) {
+//     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->uv);
+//     glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _ent->mesh->num_vertices, _ent->mesh->uv, GL_STATIC_DRAW);
+//     glEnableVertexAttribArray(GLSA_UV);
+//     glVertexAttribPointer(GLSA_UV, 2, GL_FLOAT, GL_FALSE, 0, 0);
+//   }
+// 
+//   if(_mesh->normals) {
+//     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
+//     glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_indices/3, _ent->mesh->normals, GL_STATIC_DRAW);
+//     glEnableVertexAttribArray(GLSA_NORMAL);
+//     glVertexAttribPointer(GLSA_NORMAL, 3, GL_FLOAT, GL_FALSE, 0, 0);
+//   }
+
+  
+  glBindVertexArray(0);///GL 2.1 ?. YES! extension
+
+#if DEBUG
+  gl_get_error();
+#endif
+}

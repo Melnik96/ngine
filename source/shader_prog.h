@@ -22,51 +22,42 @@
 
 #include <stdint.h>
 
-enum gl_shader_types {
-  GLST_VERTEX    = 0,
-  GLST_GEOMETRY  = 1,
-  GLST_FRAGMENT  = 2,
-  GLST_TESS_CTRL = 3,
-  GLST_TESS_EVAL = 4,
-  GLST_COMPUTE   = 5
-};
-
-enum gl_shader_attribs {
-  GLSA_VERTEX = 0,
-  GLSA_UV     = 1,
-  GLSA_NORMAL = 2
+enum {
+  NGINE_ATTR_VERTEX = 0,
+  NGINE_ATTR_UV     = 1,
+  NGINE_ATTR_NORMAL = 2
 //   GLSA_
 };
 
-enum gl_shader_uniforms {
-  GLSU_MVP  = 0,
-  GLSU_TIME = 1
+enum {
+  NGINE_UNIFORM_MVP  = 0,
+  NGINE_UNIFORM_TIME = 1,
+  NGINE_UNIFORMS_NUM
 };
 
-struct shader_source {
-  char* vertex;
-  char* geometry;
-  char* fragment;
-};
-
-struct shader_param {
-  char     name[32];
+struct ngine_shdr_prog {
+  char* name;
   uint32_t id;
+  
+  uint32_t vert_shad;
+  uint32_t frag_shad;
+  uint32_t tess_ctrl_shad;
+  uint32_t tess_eval_shad;
+  uint32_t geom_shad;
+  uint32_t compute_shad;
+  
+  int32_t uniform_locs[NGINE_UNIFORMS_NUM];// -1 uniform not present in shader program
 };
 
-struct shader_prog {
-  char 			name[32];
-  uint32_t 		id;
-  struct shader_param* 	uniforms;
-  struct shader_param* 	attribs;
-};
+struct ngine_shdr_prog* ngine_shdr_prog_create(const char* _name);
+int	 		ngine_shdr_prog_delete(struct ngine_shdr_prog* _self);
+void 			ngine_shdr_prog_binary(struct ngine_shdr_prog* _self, void* _bin, uint32_t _size);// setup shader prog from binary
+// void 			ngine_shdr_prog_source(struct ngine_shdr_prog* _self, uint32_t _type, const char* _source);
+int	 		ngine_shdr_prog_compile(struct ngine_shdr_prog* _self, const char* _source, uint32_t _type);
+void 			ngine_shdr_prog_bind_attr(struct ngine_shdr_prog* _self, uint32_t _index, const char* _name);
+int 			ngine_shdr_prog_link(struct ngine_shdr_prog* _self);
+struct buffer* 		ngine_shdr_prog_get_binary(struct ngine_shdr_prog* _self);
 
-int 			shader_prog_init(struct shader_prog* _prog, const char* _name, struct shader_source* _sources);
-struct shader_prog* 	shader_prog_create(const char* _name, struct shader_source* _sources);
-int	 		shader_prog_delete(struct shader_prog* _prog);
-int 			shader_prog_update(struct shader_prog* _prog, struct shader_source* _sources);
-int 			shader_prog_param(struct shader_prog* _prog, const char* _par_name);// оголошення параметра
-int 			shader_prog_params(struct shader_prog* _prog, const char** _params);
-int 			shader_prog_get_param_id(struct shader_prog* _prog, const char* _par_name);
+// TODO shader preprocessor
 
 #endif // SHADER_PROG_H

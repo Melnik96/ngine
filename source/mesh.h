@@ -24,17 +24,37 @@
 #include <stdint.h>
 #include "math/vector.h"
 
-struct mesh {
-  uint16_t 	num_indices;
-  uint32_t 	num_vertices;
-  uint32_t* 	indices;
-  vec3* 	vertices;
-  uint16_t* 	normals;
-  vec3* 	tangent;
-  vec3* 	colors;
-  vec2* 	uv;
-  aabb 		aabb;
-  //TODO add half-edged
+struct ngine_mesh {
+  uint32_t 		num_vertices;
+  
+  vec3* 		vertices;// position
+  vec3* 		normals;
+  vec2* 		uvs;
+//   vec3* 	tangent;
+//   vec3* 	colors;
+  // weights
+  
+  uint16_t 		num_chunks;
+  struct {
+    uint32_t 			num_indices;
+    uint32_t* 			indices;
+    struct ngine_material* 	mtl;
+    uint32_t 			hw_vao;
+    uint32_t 			hw_index;
+  } *chunk;
+  
+  aabb 			aabb;
+  
+  struct {
+    uint32_t vert;
+    uint32_t color;
+    uint32_t uv;
+    uint32_t norm;
+  } hw_buf;
 };
+
+struct ngine_mesh* 	ngine_mesh_create(int _num_chunks);
+// 			update gpu beffers. possibly will renamed to ngine_mesh_gpu
+void 			ngine_mesh_update(struct ngine_mesh* _self);
 
 #endif /* __MESH_H__ */

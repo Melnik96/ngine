@@ -23,7 +23,7 @@
 
 #include "iofile.h"
 
-char* file_rdbuf(FILE* _file) {
+char* file_rdbuf(int _file) {
   size_t newLen;
   char* buf;
   if(_file != NULL) {

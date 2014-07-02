@@ -22,6 +22,7 @@
 #define __TREE_H__
 
 #include <stdlib.h>
+#include <stdint.h>
 
 struct tree {
   struct tree* parent;
@@ -29,7 +30,11 @@ struct tree {
   struct tree* childs;
 };
 
-void tree_for_each(struct tree* _node, void(*_fun)(void* _node));
-int tree_add_child(struct tree* _self, struct tree* _child);
+struct tree* 	tree_get_head(struct tree* _node);
+uint32_t        tree_num_parents(struct tree* _node);
+void 		tree_for_each(struct tree* _node, void(*_fun)(void* _node));
+void 		tree_for_each2(struct tree* _node, void(*_fun)(void* _node, void* _arg), void* _arg);
+void 		tree_for_each3(struct tree* _node, void(*_fun)(void* _node, void* _arg1, void* _arg2), void* _arg1, void* _arg2);
+int 		tree_add_child(struct tree* _self, struct tree* _child);
 
 #endif /* __TREE_H__ */

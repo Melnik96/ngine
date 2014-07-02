@@ -1,0 +1,16 @@
+(per frame)
+  - update
+  - render
+  - swap
+
+(do_update)
+  - get begin frame time
+  - update all modules(render, scripting, gui, plugins, sound, etc)
+
+(render)
+  - render_world
+  - - get player(active camera)
+  - - - get prijection
+  - - - get modelview
+  - - - set it for renderRenderer
+  - renderRenderer->render_world

@@ -4,12 +4,16 @@
 
 #include "../../texture.h"
 
-struct texture* tga_load_texture(void* _tga_data) {
-  struct texture* tex = texture_create();
+struct ngine_texture* ngine_texture_import_tga(void* _tga_data) {
+  struct ngine_texture* tex = ngine_texture_create();
+  tga_header tga_header;
+  void* img = 0;
+  
+  tga_read(_tga_data, &tga_header, tex->);
   
   tex->width  = _tga_data[12] | (((unsigned short)_tga_data[13]) << 8);
   tex->height = _tga_data[14] | (((unsigned short)_tga_data[15]) << 8);
-  gv
+  
   if(_tga_data[16] == 24/*bits per pix*/) {
     tex->cspace = GL_RGB;
   } else {

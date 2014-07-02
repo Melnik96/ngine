@@ -21,26 +21,17 @@
 #ifndef __ENTITY_H__
 #define __ENTITY_H__
 
-#include "anim/bone.h"
-
-struct entity {
-//  struct list 		link;
-  
+struct ngine_entity {
   char 			name[32];
-//   struct physics* phys;
-//   uint num_meshes;
-//   uint num_materials;
   int 			updated;
-  struct mesh* 		mesh;
-  struct material* 	material;
-  struct skel 		skel;
-  
-  struct hw_buffers* 	hw;
+  struct ngine_mesh* 	mesh;
+//   struct skel 	skel;
+  struct physics* 	phys_info;
 };
 
-int 		entity_init(struct entity* _ent, char* _name, struct mesh* _mesh, struct material* _material);
-struct entity* 	entity_create(char* _name, struct mesh* _mesh, struct material* _material);
-int 		entity_update_hw(struct entity* _ent);//call in engine.c if entity.updated == 1
+int 			ngine_entity_init(struct ngine_entity* _ent, char* _name, struct ngine_mesh* _mesh);
+struct ngine_entity* 	ngine_entity_create(char* _name, struct ngine_mesh* _mesh);
+int 			ngine_entity_update_hw(struct ngine_entity* _ent);//call in engine.c if entity.updated == 1
 //note: mesh may never change in cpu. Animation, soft body and teselation may compute on gpu.
 
 #endif /* __ENTITY_H__ */

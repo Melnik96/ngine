@@ -1,5 +1,2 @@
-/home/melnik/projects/ngine/build/cinterp/CMakeFiles/cinterp.dir
 /home/melnik/projects/ngine/build/CMakeFiles/neditor.dir
 /home/melnik/projects/ngine/build/CMakeFiles/ngine.dir
-/home/melnik/projects/ngine/build/examples/CMakeFiles/s_dynstr.dir
-/home/melnik/projects/ngine/build/examples/CMakeFiles/s_np_struct.dir

@@ -17,33 +17,92 @@
  *
  */
 
-#include "dynlib.h"
-
+#include "ngine.h"
+#include "log.h"
+#include "iofile.h"
 #include "mempool.h"
 
-#include <dlfcn.h>
+#include <unistd.h>
 #include <string.h>
+// #include <str>
+#include <stdio.h>
+#include <dlfcn.h>
+
+#include <libtcc.h>
+
+#include "dynlib.h"
 
 static struct mempool* dynlib_pool;
 
-struct dynlib* dynlib_open(char* _name) {
+// char* nsprintf(const char *format, ...) {
+//   char* ns = malloc(1024);//TODO FIX IT
+//   sprintf(ns, format, va_arg);
+// }
+
+struct dynlib* dynlib_open(struct ngine* _ngine, char* _name) {
   struct dynlib* module;
   module = malloc(sizeof(struct dynlib));
-// #ifdef LINUX
-  module->intense = dlopen(_name, RTLD_LAZY);
-// #endif
+  
   strcpy(module->name, _name);
+  
+// #ifdef LINUX
+  char* full_path_so = malloc(46);
+  char* full_path_c = malloc(46);
+  sprintf(full_path_so, "scripts/%s.so", _name);
+  sprintf(full_path_c, "../source/scripts/%s.c", _name);
+  
+  if(module->intense = dlopen(full_path_so, RTLD_LAZY)) {
+    module->type = DT_SOLIB;
+    debug(".so lib loaded");
+  } else {
+    char* script_source = file_rdbufp(full_path_c);
+    if(script_source) {
+      module->type = DT_CSRIPT;
+      module->intense = tcc_new();
+      
+      tcc_add_sysinclude_path(module->intense, "/usr/include");
+      tcc_add_sysinclude_path(module->intense, "/usr/lib64/tcc/include/");
+      tcc_add_include_path(module->intense, "../../source/");
+      
+      tcc_add_library_path(module->intense, "/usr/lib/");
+      tcc_add_library_path(module->intense, "/usr/lib64/");
+      tcc_add_library(module->intense, "../../bin/lib/x86/libngine.so");
+      tcc_add_library(module->intense, "/usr/lib/x86/libfmodex.so");
+      
+      tcc_compile_string(module->intense, script_source);
+//     tcc_add_symbol(module->intense, "ngine_intense", ngine_intense);
+//     tcc_add_symbol(module->intense, "neditor_intense", &neditor_intense);
+#if chache_scripts
+      tcc_output_file(module->intense, full_path_so);
+#endif
+      tcc_relocate(module->intense, TCC_RELOCATE_AUTO);
+      
+      debug("cscript loaded");
+    } else {
+      warning("script %s %s", _name, "not found");
+      return NULL;
+      free(module);
+    }
+  }
+// #endif
+  return module;
 }
 int dynlib_close(struct dynlib* _module) {
 // #ifdef LINUX
-  dlclose(_module->intense);
+  if(_module->type == DT_CSRIPT) {
+    tcc_delete(_module->intense);
+  } else {
+    dlclose(_module->intense);
+  }
 // #endif
-  free(_module->intense);
-  free(_module->name);
   free(_module);
 }
 void* dynlib_getsym(struct dynlib* _module, char* _symname) {
 // #ifdef LINUX
-  return dlsym(_module->intense, _symname);
+  if(_module->type == DT_CSRIPT) {
+    return tcc_get_symbol(_module->intense, _symname);
+  } else {
+    return dlsym(_module->intense, _symname);
+  }
 // #endif
 }

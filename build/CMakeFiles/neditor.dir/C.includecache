@@ -7,12 +7,24 @@
 #IncludeRegexTransform: 
 
 ../source/cntr/list.h
-serialize.h
+
+../source/cntr/tree.h
+stdlib.h
+-
+stdint.h
+-
+
+../source/dynlib.h
+stdint.h
 -
 
 ../source/iofile.h
 
 ../source/math/matrix.h
+
+../source/math/vector.h
+stdint.h
+-
 
 ../source/ngine.h
 stdint.h
@@ -22,25 +34,53 @@ pthread.h
 cntr/list.h
 ../source/cntr/list.h
 
-../source/serialize.h
-stdint.h
--
-string.h
--
-malloc.h
+../source/render/render.h
+
+../source/sc_obj.h
+math/vector.h
+../source/math/vector.h
+math/matrix.h
+../source/math/matrix.h
+cntr/tree.h
+../source/cntr/tree.h
+
+../source/scene.h
+
+../source/sound_mgr.h
+math/vector.h
+../source/math/vector.h
+fmodex/fmod.h
 -
 
 ../source/viewport.h
 math/matrix.h
 ../source/math/matrix.h
 
+../source/window.h
+
 /home/melnik/projects/ngine/neditor/source/main.c
-libtcc.h
--
 ngine.h
 /home/melnik/projects/ngine/neditor/source/ngine.h
+window.h
+/home/melnik/projects/ngine/neditor/source/window.h
+scene.h
+/home/melnik/projects/ngine/neditor/source/scene.h
 iofile.h
--
+/home/melnik/projects/ngine/neditor/source/iofile.h
 viewport.h
+/home/melnik/projects/ngine/neditor/source/viewport.h
+dynlib.h
+/home/melnik/projects/ngine/neditor/source/dynlib.h
+sc_obj.h
+/home/melnik/projects/ngine/neditor/source/sc_obj.h
+sound_mgr.h
+/home/melnik/projects/ngine/neditor/source/sound_mgr.h
+render/render.h
+/home/melnik/projects/ngine/neditor/source/render/render.h
+libtcc.h
+-
+malloc.h
+-
+fmodex/fmod.h
 -
 

@@ -20,7 +20,7 @@
 #ifndef IOFILE_H
 #define IOFILE_H
 
-char* file_rdbuf(FILE* _file);
+char* file_rdbuf(int _file);
 char* file_rdbufp(char* _path);
 
 #endif // IOFILE_H

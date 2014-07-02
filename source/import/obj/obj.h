@@ -1,1 +1,1 @@
-struct mesh* obj_load_mesh(const char* _file_name);
+struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name);

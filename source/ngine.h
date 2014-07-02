@@ -32,23 +32,23 @@ struct job {
   void* args;
 };
 
-struct window {
-  struct GLFWwindow* window;
-  struct viewport*   viewport;
-};
-
-struct engine {
+struct ngine {
   struct window* 	windows;
   struct viewport* 	viewports;
   struct scene* 	scenes;
   
   // resources
-  struct csript* 	cscripts;
+  struct dynlib* 	dynlibs;
   struct shader_prog* 	shaders;
   struct texture*	textures;
   struct material*	materials;
   struct sound* 	sounds;
   //mesh, anim, skel
+  
+  struct assets_mgr* 	assets_mgr;
+  
+  struct ngine_render* 	render;
+  struct FMOD_SYSTEM*	fmod_sound;
   
   int 			active_render;
   uint8_t 		fixed_fps;//60fps
@@ -64,10 +64,9 @@ struct engine {
   pthread_cond_t 	cond_workers;
 };
 
-int 		ngine_init(struct engine* _self);
-struct engine* 	ngine_create();
-int 		ngine_shutdown(struct engine* _self);
-struct window* 	ngine_create_window(char* _win_name, int width, int height);
-int 		ngine_frame(struct engine* _self, float _elapsed);
+int 			ngine_init(struct ngine* _self);
+struct ngine* 		ngine_create();
+int 			ngine_shutdown(struct ngine* _self);
+int 			ngine_frame(struct ngine* _self, float _elapsed);
 
 #endif /* __ENGINE_H__ */

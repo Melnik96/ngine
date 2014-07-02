@@ -35,12 +35,13 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/home/melnik/projects/ngine/build/examples/cmake_install.cmake")
-  INCLUDE("/home/melnik/projects/ngine/build/source/physics/cmake_install.cmake")
-  INCLUDE("/home/melnik/projects/ngine/build/source/serialize/cmake_install.cmake")
-  INCLUDE("/home/melnik/projects/ngine/build/cinterp/cmake_install.cmake")
   INCLUDE("/home/melnik/projects/ngine/build/source/import/obj/cmake_install.cmake")
   INCLUDE("/home/melnik/projects/ngine/build/source/anim/cmake_install.cmake")
   INCLUDE("/home/melnik/projects/ngine/build/source/cmdinterp/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/source/import/targa/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/neditor/bin/scripts/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/source/nodes/cmake_install.cmake")
+  INCLUDE("/home/melnik/projects/ngine/build/tools/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
