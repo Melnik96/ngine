@@ -33,7 +33,7 @@ target_link_libraries(ngine
   "fmodex"
   "GLEW"
   "glfw"
-  "kazmath"
+  "kazmath.so"
   "pthread"
   "tcc"
   "dl"

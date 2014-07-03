@@ -121,6 +121,8 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
   // 1. build render queue
   // 2. send draw_calls to gpu
   
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  
   for(uint32_t i = 0; i != _self->num_queues; ++i) {				// queue
     for(uint32_t i2 = 0; i2 != _self->tech->num_render_passes; ++i2) {		// pass
       cur_pass = &_self->tech->render_passes[i2];
@@ -186,6 +188,7 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl21/base.frag"), GL_FRAGMENT_SHADER);
   
   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_UV, "a_uv");
   
   ngine_shdr_prog_link(shdr);
   
@@ -194,6 +197,8 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
     error("shader program: get uniform failled");
   }
   // ngine_shdr_prog_uniform
+  
+//   glEnable(GL_CULL_FACE);
   
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary

@@ -1,1 +1,0 @@
-/usr/bin/cc  -std=c11 -g    CMakeFiles/s_np_struct.dir/serialize/nasted_ptr_struct/main.c.o  -o ../../neditor/bin/s_np_struct -rdynamic ../../bin/lib/x86/libngine.so -lGL -lopenal -lalut -lGLEW -lglfw -lkazmath -lpthread -ltcc -ldl -Wl,-rpath,/home/melnik/projects/ngine/bin/lib/x86 

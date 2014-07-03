@@ -50,39 +50,16 @@ struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self) {
 //   kmMat4Identity(tmp_mat);
   kmMat4Identity(&_self->matrix);
 
-  kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
-  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
-  
-  kmMat4RotationQuaternion(tmp_mat, &_self->orient);
-  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
-  
-  kmMat4Translation(tmp_mat, _self->pos.x, _self->pos.y, _self->pos.z);
-  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
-
-  if(_self->link.parent != NULL) {
-    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix, &_self->matrix);
-  }// all parents must be updated already
-}
-struct ngine_sc_node* ngine_sc_node_upd_mat_inv(struct ngine_sc_node* _self) {
-  kmMat4* tmp_mat = malloc(sizeof(kmMat4));
-
-//   kmMat4Identity(tmp_mat);
-  kmMat4Identity(&_self->matrix);
-
 //   kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
 //   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
   
-  kmQuaternion inv_quat;
-  kmQuaternionInverse(&inv_quat, &_self->orient);
-  kmMat4RotationQuaternion(tmp_mat, inv_quat);
-  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
+  kmMat4RotationQuaternion(tmp_mat, &_self->orient);
+  kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);
   
-  kmMat4Translation(tmp_mat, -_self->pos.x, -_self->pos.y, -_self->pos.z);
-  kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
-  
-  kmMat4Inverse()
-
+  kmMat4Translation(tmp_mat, _self->pos.x, _self->pos.y, _self->pos.z);
+  kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);
+// 
   if(_self->link.parent != NULL) {
-    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix, &_self->matrix);
-  }
+    kmMat4Multiply(&_self->matrix, &_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix);
+  }// all parents must be updated already
 }

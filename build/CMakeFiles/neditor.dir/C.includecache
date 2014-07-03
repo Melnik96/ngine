@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../source/camera.h
+math/matrix.h
+../source/math/matrix.h
+
 ../source/cntr/list.h
 
 ../source/cntr/tree.h
@@ -35,6 +39,12 @@ cntr/list.h
 ../source/cntr/list.h
 
 ../source/render/render.h
+
+../source/render_target.h
+stdint.h
+../source/stdint.h
+math/matrix.h
+../source/math/matrix.h
 
 ../source/sc_obj.h
 math/vector.h
@@ -77,9 +87,13 @@ sound_mgr.h
 /home/melnik/projects/ngine/neditor/source/sound_mgr.h
 render/render.h
 /home/melnik/projects/ngine/neditor/source/render/render.h
-libtcc.h
+render_target.h
+/home/melnik/projects/ngine/neditor/source/render_target.h
+camera.h
 -
 malloc.h
+-
+time.h
 -
 fmodex/fmod.h
 -

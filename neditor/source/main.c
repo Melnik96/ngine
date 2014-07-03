@@ -7,9 +7,11 @@
 #include "sc_obj.h"
 #include "sound_mgr.h"
 #include "render/render.h"
+#include "render_target.h"
+#include <camera.h>
 
-#include <libtcc.h>
 #include <malloc.h>
+#include <time.h>
 
 #include <fmodex/fmod.h>
 
@@ -44,6 +46,15 @@ int main(int argc, char *argv[]) {
   
   neditor->engine->scenes = create_scene();
   
+  struct ngine_sc_node* node_cam = ngine_sc_node_create("camera", NGINE_SC_OBJ_CAMERA);
+  node_cam->attached_obj = ngine_camera_create(90.0, 0.1, 100.0);
+  node_cam->pos.z = 0.5;
+  node_cam->pos.x = 0.5;
+  node_cam->pos.y = -0;
+  tree_add_child((struct tree*)neditor->engine->scenes->root_object, (struct tree*)node_cam);
+  
+  neditor->engine->rend_target = ngine_render_target_create(node_cam, 640, 480);
+  
   struct ngine_sc_node* speaker = ngine_sc_node_create("speaker1", NGINE_SC_OBJ_SPEAKER);
   tree_add_child(&neditor->engine->scenes->root_object->link, &speaker->link);
   
@@ -54,8 +65,13 @@ int main(int argc, char *argv[]) {
 
 //   speaker_play_fmod(speaker, neditor->engine->fmod_sound, sound1, 0);
   
+
+  clock_t start = clock(), diff;
   while(1) {
-    ngine_frame(neditor->engine, 0.1f);
+    diff = clock() - start;
+    float msec = ((float)diff)/CLOCKS_PER_SEC;
+    ngine_frame(neditor->engine, ((float)diff)/CLOCKS_PER_SEC);
+    printf("frame time %f seconds\n", msec);
   }
   ngine_shutdown(neditor->engine);
 }

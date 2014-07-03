@@ -34,7 +34,7 @@ struct job {
 
 struct ngine {
   struct window* 	windows;
-  struct viewport* 	viewports;
+  struct ngine_render_target* rend_target;// array
   struct scene* 	scenes;
   
   // resources

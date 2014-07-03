@@ -25,7 +25,7 @@ CMAKE_BUILD_TYPE:STRING=Debug
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler.
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_COMPILER:FILEPATH=/usr/lib/colorgcc/bin/c++
 
 //Flags used by the compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -33,19 +33,18 @@ CMAKE_CXX_FLAGS:STRING=
 //Flags used by the compiler during debug builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=-g
 
-//Flags used by the compiler during release minsize builds.
+//Flags used by the compiler during release builds for minimum
+// size.
 CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
-//Flags used by the compiler during release builds (/MD /Ob1 /Oi
-// /Ot /Oy /Gs will produce slightly less optimized but smaller
-// files).
+//Flags used by the compiler during release builds.
 CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
-//Flags used by the compiler during Release with Debug Info builds.
+//Flags used by the compiler during release builds with debug info.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //C compiler.
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_COMPILER:FILEPATH=/usr/lib/colorgcc/bin/cc
 
 //Flags used by the compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -53,15 +52,14 @@ CMAKE_C_FLAGS:STRING=
 //Flags used by the compiler during debug builds.
 CMAKE_C_FLAGS_DEBUG:STRING=-g
 
-//Flags used by the compiler during release minsize builds.
+//Flags used by the compiler during release builds for minimum
+// size.
 CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
-//Flags used by the compiler during release builds (/MD /Ob1 /Oi
-// /Ot /Oy /Gs will produce slightly less optimized but smaller
-// files).
+//Flags used by the compiler during release builds.
 CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
-//Flags used by the compiler during Release with Debug Info builds.
+//Flags used by the compiler during release builds with debug info.
 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Flags used by the linker.
@@ -170,14 +168,11 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Compiler
-COMPILER:BOOL=OFF
-
 //Value Computed by CMake
 ngine_BINARY_DIR:STATIC=/home/melnik/projects/ngine/build
 
 //Dependencies for the target
-ngine_LIB_DEPENDS:STATIC=general;GL;general;fmodex;general;GLEW;general;glfw;general;kazmath;general;pthread;general;tcc;general;dl;
+ngine_LIB_DEPENDS:STATIC=general;GL;general;fmodex;general;GLEW;general;glfw;general;kazmath.so;general;pthread;general;tcc;general;dl;
 
 //Value Computed by CMake
 ngine_SOURCE_DIR:STATIC=/home/melnik/projects/ngine
@@ -189,18 +184,14 @@ ngine_SOURCE_DIR:STATIC=/home/melnik/projects/ngine
 
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_BUILD_TOOL
-CMAKE_BUILD_TOOL-ADVANCED:INTERNAL=1
-//What is the target build tool cmake is generating for.
-CMAKE_BUILD_TOOL:INTERNAL=/usr/bin/make
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/home/melnik/projects/ngine/build
 //Major version of cmake used to create the current loaded cache
-CMAKE_CACHE_MAJOR_VERSION:INTERNAL=2
+CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=8
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=0
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=12
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=0
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -283,7 +274,7 @@ CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RANLIB
 CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-2.8
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.0
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG

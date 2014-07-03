@@ -23,12 +23,14 @@
 
 #include "math/matrix.h"
 
-struct camera {
+struct ngine_camera {
   float near, far;
   float fov;
   
   int updated;
 };
+
+struct ngine_camera* ngine_camera_create(float _fov, float _near, float _far);
 
 // int camera_look_at(struct camera* _self, struct scene_object* _target);
 

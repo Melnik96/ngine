@@ -37,9 +37,12 @@
 #include "material.h"
 #include "shader_prog.h"
 #include "render/render.h"
+#include "render_target.h"
+
+#include <kazmath/kazmath.h>
 
 //intern
-void update_obj_handler(struct ngine_sc_node* _obj, struct viewport* _viewport, struct ngine* _ngine);
+void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* _rend_target, struct ngine* _ngine);
 
 int ngine_init(struct ngine* _self) {
   debug("ngine init");
@@ -79,24 +82,30 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
+  if(15.0*_elapsed >= 2*3.14159265358979323846f) {}
+  kmQuaternionRotationPitchYawRoll(
+    &((struct ngine_sc_node*)_self->scenes->root_object->link.childs->next)->orient,
+    0, 15.0*_elapsed, 0
+  );
+  
   //for each render target
-  for(int i = 0; ; ++i) {
+//   for(int i = 0; ; ++i) {
 /*    if(&_self->windows[i] != NULL && 
        &_self->windows[i] != NULL &&
        _self->windows[i].viewport != NULL &&
        _self->windows[i].viewport->camera != NULL)*/ 
-    {
+//     {
 //       struct ngine_sc_node* root_sc_obj = tree_get_head(_self->windows[i].viewport->camera);
-      tree_for_each3(_self->scenes->root_object, update_obj_handler, _self->windows[i].viewport, _self);
+      tree_for_each3(_self->scenes->root_object, update_obj_handler, _self->rend_target, _self);
       
       ngine_render_frame(_self->render, 0);
       
       glfwSwapBuffers(_self->windows->win);
-      glfwPollEvents();
-    } /*else {
-      break;
-    }*/
-  }
+//       glfwPollEvents();
+//     } /*else {
+//       break;
+//     }*/
+//   }
   glfwPollEvents();
   FMOD_System_Update(_self->fmod_sound);
 }
@@ -114,7 +123,7 @@ int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
   return 1;
 }
 
-void update_obj_handler(struct ngine_sc_node* _obj, struct viewport* _viewport, struct ngine* _ngine) {
+void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* _rend_target, struct ngine* _ngine) {
   // pipeline
   // - get array of active lights
   // - get visible sc_objs(entities)
@@ -125,31 +134,31 @@ void update_obj_handler(struct ngine_sc_node* _obj, struct viewport* _viewport, 
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
 //     debug("procces entity obj");
-    if(_obj->translated) {
-//       ngine_sc_node_upd_mat(_obj);
-    }
+//     if(_obj->translated) {
+      ngine_sc_node_upd_mat(_obj);
+//     }
     
-//     kmMat4* mvp = calloc(1, sizeof(kmMat4));
-//       mat4 tmp_mat;
-//       kmMat4Multiply(&tmp_mat, &_obj->matrix, &_viewport->camera->matrix);
-//       kmMat4Multiply(mvp, &tmp_mat, &_viewport->proj_matrix);
-//       
-//       vec3 nv;
-//       kmVec3MultiplyMat4(&nv, &(vec3){1,-1,0}, mvp);
-//       printf("new vector:\n\tx: %f\n\ty: %f\n\tz: %f", nv.x, nv.y, nv.z);
+    kmMat4* mvp = calloc(1, sizeof(kmMat4));
+      mat4 tmp_mat;
+      kmMat4Inverse(&tmp_mat, &_rend_target->camera->matrix);
+      kmMat4Multiply(&tmp_mat, &tmp_mat, &_obj->matrix);
+      kmMat4Multiply(mvp, &_rend_target->mat_proj, &tmp_mat);
       
-//       struct gl_render_data* draw_state = calloc(1, sizeof(struct gl_render_data));
-//       draw_state->shdr_prog = _shader;// get from material
-      // TODO ...
+//       kmMat4Multiply(mvp, &_obj->matrix, &_rend_target->mat_proj);
+
       struct ngine_render_op* rop = calloc(1, sizeof(struct ngine_render_op));
       rop->entity = _obj;
-      rop->mvp_mat = &_obj->matrix;
+      rop->mvp_mat = mvp;
+//       rop->// render target
       _ngine->render->render_queue->render_ops = rop;
       _ngine->render->render_queue->num_render_ops = 1;
   }
   else if(_obj->type == NGINE_SC_OBJ_SPEAKER) {
 //     debug("procces snd_speaker obj");
     
-    FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix vecocity
+    FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix velocity
+  }
+  else if(_obj->type == NGINE_SC_OBJ_CAMERA) {
+    ngine_sc_node_upd_mat(_obj);
   }
 }

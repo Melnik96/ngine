@@ -14,8 +14,41 @@
 #include <fmodex/fmod.h>
 
 #include "log.h"
+#include <node.h>
 
 #include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+
+#define deg2rad(x) (float)(((x) * M_PI / 180.0f))
+#define rad2deg(x) (float)(((x) * 180.0f / M_PI))
+
+///< Create a quaternion from yaw, pitch and roll
+quat* kmQuaternionRotationPitchYawRoll(quat* pOut,
+                                 float pitch,
+                                 float yaw,
+				 float roll)
+{
+    assert(pitch <= 2*M_PI);
+    assert(yaw <= 2*M_PI);
+    assert(roll <= 2*M_PI);
+
+    // Finds the Sin and Cosin for each half angles.
+    float sY = sinf(yaw * 0.5);
+    float cY = cosf(yaw * 0.5);
+    float sZ = sinf(roll * 0.5);
+    float cZ = cosf(roll * 0.5);
+    float sX = sinf(pitch * 0.5);
+    float cX = cosf(pitch * 0.5);
+
+    // Formula to construct a new Quaternion based on Euler Angles.
+    pOut->w = cY * cZ * cX - sY * sZ * sX;
+    pOut->x = sY * sZ * cX + cY * cZ * sX;
+    pOut->y = sY * cZ * cX + cY * sZ * sX;
+    pOut->z = cY * sZ * cX - sY * cZ * sX;
+
+    return pOut;
+}
 
 struct scene* create_scene() {
   struct scene* nscene = scene_create("neditor", 1);
@@ -28,11 +61,15 @@ struct scene* create_scene() {
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
   ngine_mesh_update(mesh_suzy);
   
-  struct ngine_entity* ent_suzy = ngine_entity_create("triangle", mesh_suzy);
+  struct ngine_entity* ent_suzy = ngine_entity_create("sphare", mesh_suzy);
   struct ngine_sc_node* node_suzy = ngine_sc_node_create("suzanne", NGINE_SC_OBJ_ENTITY);
   
   node_suzy->attached_obj = (struct list*)ent_suzy;
-  node_suzy->pos.z = -10;
+  node_suzy->pos.x = -0.0;
+  node_suzy->pos.y = -0.0;
+  node_suzy->pos.z = -10.5;
+  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(45), 0);
+//   node_suzy->orient = (quat){0, 0, 1, 0.9};
   
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
   
@@ -65,7 +102,11 @@ struct scene* create_scene() {
   struct ngine_sc_node* obj_tri = ngine_sc_node_create("triangle", NGINE_SC_OBJ_ENTITY);
   
   obj_tri->attached_obj = (struct list*)ent_tri;
-  obj_tri->pos.z = -5;
+  obj_tri->pos.x = -0.5;
+  obj_tri->pos.y = -0.0;
+  obj_tri->pos.z = -1.5;
+  kmQuaternionRotationPitchYawRoll(&obj_tri->orient, 0, deg2rad(45), 0);
+//   obj_tri->orient = (quat){0, 1, 0, 0.7071068};
   
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)obj_tri);
   }

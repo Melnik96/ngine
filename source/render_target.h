@@ -20,13 +20,24 @@
 #ifndef RENDER_TARGET_H
 #define RENDER_TARGET_H
 
+#include "stdint.h"
+
+#include "math/matrix.h"
+
 struct ngine_render_target {
   union {
     struct ngine_texture* 	rtt_tex;
     struct ngine_framebuffer* 	fbuf;
   };
   
-  struct ngine_camera* camera;
+  mat4 mat_proj;
+  
+  uint32_t width;
+  uint32_t height;
+  
+  struct ngine_sc_node* camera;
 };
+
+struct ngine_render_target* ngine_render_target_create(struct ngine_sc_node* _camera, uint32_t _w, uint32_t _h);
 
 #endif // RENDER_TARGET_H

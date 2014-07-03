@@ -19,3 +19,10 @@
 
 #include "camera.h"
 
+struct ngine_camera* ngine_camera_create(float _fov, float _near, float _far) {
+  struct ngine_camera* new_cam = calloc(1, sizeof(struct ngine_camera));
+  new_cam->fov = _fov;
+  new_cam->near = _near;
+  new_cam->far = _far;
+  return new_cam;
+}
