@@ -57,59 +57,116 @@ struct scene* create_scene() {
 //   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
 //   struct entity* ent_suzy = ngine_entity_create("suzanne", mesh_suzy);
   
-  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/cube.obj");
+  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
   ngine_mesh_update(mesh_suzy);
   
-  struct ngine_entity* ent_suzy = ngine_entity_create("sphare", mesh_suzy);
+  struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
   struct ngine_sc_node* node_suzy = ngine_sc_node_create("suzanne", NGINE_SC_OBJ_ENTITY);
   
   node_suzy->attached_obj = (struct list*)ent_suzy;
   node_suzy->pos.x = -0.5;
   node_suzy->pos.y = -0.0;
-  node_suzy->pos.z = -1.5;
-  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
+  node_suzy->pos.z = -2.5;
+//   kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
 //   node_suzy->orient = (quat){0, 0, 1, 0.9};
   
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
+//   
+//   {// triangle
+//   struct ngine_mesh* mesh_tri = ngine_mesh_create(1);
+//     mesh_tri->num_vertices = 3;
+//     mesh_tri->vertices = (vec3[]){
+//     {0, 0.75, 0},
+//     {0.75, -0.75, 0},
+//     {-0.75, -0.75, 0},
+//   };
+//     mesh_tri->uvs = (vec2[]){
+//     {0.5, 0.0},
+//     {1.0, 1.0},
+//     {0.0, 1.0}
+//   };
+//   
+//   mesh_tri->chunk->num_indices = 3;
+//   mesh_tri->chunk->indices = (int32_t[]){
+//      0, 1, 2
+//   };
+//   
+//   mesh_tri->chunk->mtl = ngine_material_create();
+//   mesh_tri->chunk->mtl->tex_color = ngine_texture_create(0);
+//   ngine_texture_image(mesh_tri->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+//   
+//   ngine_mesh_update(mesh_tri);
+//   
+//   struct ngine_entity* ent_tri = ngine_entity_create("triangle", mesh_tri);
+//   struct ngine_sc_node* obj_tri = ngine_sc_node_create("triangle", NGINE_SC_OBJ_ENTITY);
+//   
+//   obj_tri->attached_obj = (struct list*)ent_tri;
+//   obj_tri->pos.x = -0.5;
+//   obj_tri->pos.y = -0.0;
+//   obj_tri->pos.z = -1.5;
+//   kmQuaternionRotationPitchYawRoll(&obj_tri->orient, 0, deg2rad(45), 0);
+// //   obj_tri->orient = (quat){0, 1, 0, 0.7071068};
+//   
+//   tree_add_child((struct tree*)nscene->root_object, (struct tree*)obj_tri);
+//   }
   
-  {// triangle
-  struct ngine_mesh* mesh_tri = ngine_mesh_create(1);
-    mesh_tri->num_vertices = 3;
-    mesh_tri->vertices = (vec3[]){
-    {0, 0.75, 0},
-    {0.75, -0.75, 0},
-    {-0.75, -0.75, 0},
-  };
-    mesh_tri->uvs = (vec2[]){
-    {0.5, 0.0},
-    {1.0, 1.0},
-    {0.0, 1.0}
-  };
-  
-  mesh_tri->chunk->num_indices = 3;
-  mesh_tri->chunk->indices = (int32_t[]){
-     0, 1, 2
-  };
-  
-  mesh_tri->chunk->mtl = ngine_material_create();
-  mesh_tri->chunk->mtl->tex_color = ngine_texture_create(0);
-  ngine_texture_image(mesh_tri->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
-  
-  ngine_mesh_update(mesh_tri);
-  
-  struct ngine_entity* ent_tri = ngine_entity_create("triangle", mesh_tri);
-  struct ngine_sc_node* obj_tri = ngine_sc_node_create("triangle", NGINE_SC_OBJ_ENTITY);
-  
-  obj_tri->attached_obj = (struct list*)ent_tri;
-  obj_tri->pos.x = -0.5;
-  obj_tri->pos.y = -0.0;
-  obj_tri->pos.z = -1.5;
-  kmQuaternionRotationPitchYawRoll(&obj_tri->orient, 0, deg2rad(45), 0);
-//   obj_tri->orient = (quat){0, 1, 0, 0.7071068};
-  
-  tree_add_child((struct tree*)nscene->root_object, (struct tree*)obj_tri);
-  }
+//   {// cube
+//   struct ngine_mesh* mesh_tri = ngine_mesh_create(1);
+//     mesh_tri->num_vertices = 3;
+//     mesh_tri->vertices = (vec3[]){
+//     1.000000, -1.000000, -1.000000,
+//     1.000000, -1.000000, 1.000000,
+//     -1.000000, -1.000000, 1.000000,
+//     -1.000000, -1.000000, -1.000000,
+//     1.000000, 1.000000, -0.999999,
+//     -1.000000, 1.000000, -1.000000,
+//     -1.000000, 1.000000, 1.000000,
+//     0.999999, 1.000000, 1.000001
+//   };
+//   mesh_tri->uvs = (vec2[]){
+//     {0.5, 0.0},
+//     {1.0, 1.0},
+//     {0.0, 1.0},
+//     {0.5, 0.0},
+//     {1.0, 1.0},
+//     {0.0, 1.0}
+//   };
+//   
+//   mesh_tri->chunk->num_indices = 3;
+//   mesh_tri->chunk->indices = (int32_t[]){
+//      1, 2, 3,
+//      5, 6, 7,
+//      0, 4, 7,
+//      1, 7, 6,
+//      6, 5, 3,
+//      0, 3, 5,
+//      0, 1, 3,
+//      4, 5, 7,
+//      1, 0, 7,
+//      2, 1, 6,
+//      2, 6, 3,
+//      4, 0, 5
+//   };
+//   
+//   mesh_tri->chunk->mtl = ngine_material_create();
+//   mesh_tri->chunk->mtl->tex_color = ngine_texture_create(0);
+//   ngine_texture_image(mesh_tri->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+//   
+//   ngine_mesh_update(mesh_tri);
+//   
+//   struct ngine_entity* ent_tri = ngine_entity_create("triangle", mesh_tri);
+//   struct ngine_sc_node* obj_tri = ngine_sc_node_create("triangle", NGINE_SC_OBJ_ENTITY);
+//   
+//   obj_tri->attached_obj = (struct list*)ent_tri;
+//   obj_tri->pos.x = -0.5;
+//   obj_tri->pos.y = -0.0;
+//   obj_tri->pos.z = -2.5;
+//   kmQuaternionRotationPitchYawRoll(&obj_tri->orient, 0, deg2rad(45), 0);
+// //   obj_tri->orient = (quat){0, 1, 0, 0.7071068};
+//   
+//   tree_add_child((struct tree*)nscene->root_object, (struct tree*)obj_tri);
+//   }
   
   return nscene;
 }

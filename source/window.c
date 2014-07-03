@@ -74,8 +74,8 @@ struct window* window_create(char* _win_name, int _width, int _height) {
 //         // параметры OpenGL
         glClearColor(.4f, 0.2f, 0.0f, 1.0f);
         glClearDepth(1.0f);
-//         glEnable(GL_DEPTH_TEST);
-// 	glDepthFunc(GL_LESS); 
+        glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS); 
 //         glEnable(GL_CULL_FACE);
 
   return new_win;

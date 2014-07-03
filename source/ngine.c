@@ -82,9 +82,9 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
-  if(15.0*_elapsed >= 2*3.14159265358979323846f) {}
+//   if(15.0*_elapsed >= 2*3.14159265358979323846f) {}
   kmQuaternionRotationPitchYawRoll(
-    &((struct ngine_sc_node*)_self->scenes->root_object->link.childs->next)->orient,
+    &((struct ngine_sc_node*)_self->scenes->root_object->link.childs)->orient,
     0, 15.0*_elapsed, 0
   );
   
