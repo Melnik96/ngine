@@ -19,8 +19,16 @@
 
 #ifndef INPUT_H
 #define INPUT_H
+#include <stdint.h>
 
-class input {
+struct ngine_input_callback {
+  uint32_t key;
+  char pressed;
+  void* args;
+  void(*callback)(void* args);
+};
+
+struct input {
 };
 
 #endif // INPUT_H

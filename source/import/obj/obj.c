@@ -14,6 +14,7 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
   
   struct ngine_mesh* mesh = calloc(1, sizeof(struct ngine_mesh));
   
+  mesh->num_vertices = obj->max_vertices;
   mesh->vertices = obj->vertices;
   mesh->uvs = obj->textures;
 //   mesh->normals = obj->normals;
@@ -40,10 +41,10 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
 //     mesh->chunks[i].uv_indices = malloc(mesh->chunks[i].num_indices * sizeof(int32_t));
     
     for(int f = 0; f != obj->chunk[i]->max_tri*6; f+=6) {
-      mesh->chunk[i].indices[/*ВОООТ ТТТУУТТТ ПРОБЛЕМА!!!!!!!!!!!!!!!!*/f*3] = obj->chunk[i]->tri_index[f];
-      mesh->chunk[i].indices[f*3+1] = obj->chunk[i]->tri_index[f+2];
-      mesh->chunk[i].indices[f*3+2] = obj->chunk[i]->tri_index[f+4];
-      printf("tringle: %i, %i, %i\n", obj->chunk[i]->tri_index[f], obj->chunk[i]->tri_index[f+2], obj->chunk[i]->tri_index[f+4]);
+      mesh->chunk[i].indices[f/2] = obj->chunk[i]->tri_index[f];
+      mesh->chunk[i].indices[f/2+1] = obj->chunk[i]->tri_index[f+2];
+      mesh->chunk[i].indices[f/2+2] = obj->chunk[i]->tri_index[f+4];
+//       printf("tringle: %i, %i, %i\n", mesh->chunk[i].indices[f/2], mesh->chunk[i].indices[f/2+1], mesh->chunk[i].indices[f/2+2]);
     }
   }
   

@@ -48,6 +48,7 @@ struct awol_chunk
 /* awol_model struct */
 struct awol_model
 {
+  unsigned int max_vertices;
     float* vertices;             /* geometric vertex array */
     float* textures;             /* texture vertex array   */
     float* normals;              /* vertex normal array    */

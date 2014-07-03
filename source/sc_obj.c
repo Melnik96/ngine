@@ -72,11 +72,15 @@ struct ngine_sc_node* ngine_sc_node_upd_mat_inv(struct ngine_sc_node* _self) {
 //   kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
 //   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
   
-  kmMat4RotationQuaternion(tmp_mat, /*-*/&_self->orient);
+  kmQuaternion inv_quat;
+  kmQuaternionInverse(&inv_quat, &_self->orient);
+  kmMat4RotationQuaternion(tmp_mat, inv_quat);
   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
   
   kmMat4Translation(tmp_mat, -_self->pos.x, -_self->pos.y, -_self->pos.z);
   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
+  
+  kmMat4Inverse()
 
   if(_self->link.parent != NULL) {
     kmMat4Multiply(&_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix, &_self->matrix);

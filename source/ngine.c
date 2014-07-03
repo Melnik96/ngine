@@ -79,7 +79,7 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
-  //for each window
+  //for each render target
   for(int i = 0; ; ++i) {
 /*    if(&_self->windows[i] != NULL && 
        &_self->windows[i] != NULL &&

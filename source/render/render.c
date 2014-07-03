@@ -238,6 +238,8 @@ struct ngine_tech* ngine_create_tech_gl44_low() {
   }
   // ngine_shdr_prog_uniform
   
+//   glEnable(GL_CULL_FACE);
+  
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary
 #endif

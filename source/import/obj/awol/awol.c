@@ -633,6 +633,7 @@ struct awol_model* awol_create_model(const char* objfile)
     int t_c = 0;        /* triangle count   */
     long f_offset = 0L; /* char offset      */
 
+    model->max_vertices = v_c;
     /* allocate memory for model vertex data */
     model->vertices = (float*)calloc(3*v_c, sizeof(float));
     model->textures = (float*)calloc(2*vt_c, sizeof(float));
