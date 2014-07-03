@@ -6,25 +6,9 @@
 
 #IncludeRegexTransform: 
 
-../source/cntr/tree.h
-stdlib.h
--
-stdint.h
--
-
-../source/entity.h
-
-../source/iofile.h
-
-../source/log.h
-stdio.h
--
-
 ../source/material.h
 math/vector.h
 ../source/math/vector.h
-
-../source/math/matrix.h
 
 ../source/math/vector.h
 stdint.h
@@ -36,51 +20,31 @@ stdint.h
 math/vector.h
 ../source/math/vector.h
 
-../source/sc_obj.h
-math/vector.h
-../source/math/vector.h
-math/matrix.h
-../source/math/matrix.h
-cntr/tree.h
-../source/cntr/tree.h
-
-../source/shader_prog.h
-stdint.h
+/home/melnik/projects/ngine/source/import/obj/awol/awol.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+ctype.h
 -
 
-/home/melnik/projects/ngine/source/render/pass.h
-stdint.h
--
-
-/home/melnik/projects/ngine/source/render/render.c
-GL/glew.h
+/home/melnik/projects/ngine/source/import/obj/obj.c
+stdio.h
 -
 malloc.h
 -
-log.h
-/home/melnik/projects/ngine/source/render/log.h
-iofile.h
-/home/melnik/projects/ngine/source/render/iofile.h
-sc_obj.h
-/home/melnik/projects/ngine/source/render/sc_obj.h
-entity.h
-/home/melnik/projects/ngine/source/render/entity.h
+awol/awol.h
+/home/melnik/projects/ngine/source/import/obj/awol/awol.h
 mesh.h
-/home/melnik/projects/ngine/source/render/mesh.h
+/home/melnik/projects/ngine/source/import/obj/mesh.h
 material.h
-/home/melnik/projects/ngine/source/render/material.h
-shader_prog.h
-/home/melnik/projects/ngine/source/render/shader_prog.h
-technique.h
-/home/melnik/projects/ngine/source/render/technique.h
-pass.h
-/home/melnik/projects/ngine/source/render/pass.h
-render.h
-/home/melnik/projects/ngine/source/render/render.h
+/home/melnik/projects/ngine/source/import/obj/material.h
+math/vector.h
+/home/melnik/projects/ngine/source/import/obj/math/vector.h
+obj.h
+/home/melnik/projects/ngine/source/import/obj/obj.h
 
-/home/melnik/projects/ngine/source/render/render.h
-
-/home/melnik/projects/ngine/source/render/technique.h
-stdint.h
--
+/home/melnik/projects/ngine/source/import/obj/obj.h
 

@@ -57,7 +57,7 @@ struct scene* create_scene() {
 //   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
 //   struct entity* ent_suzy = ngine_entity_create("suzanne", mesh_suzy);
   
-  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/icosphere.obj");
+  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/cube.obj");
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
   ngine_mesh_update(mesh_suzy);
   
@@ -65,10 +65,10 @@ struct scene* create_scene() {
   struct ngine_sc_node* node_suzy = ngine_sc_node_create("suzanne", NGINE_SC_OBJ_ENTITY);
   
   node_suzy->attached_obj = (struct list*)ent_suzy;
-  node_suzy->pos.x = -0.0;
+  node_suzy->pos.x = -0.5;
   node_suzy->pos.y = -0.0;
-  node_suzy->pos.z = -10.5;
-  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(45), 0);
+  node_suzy->pos.z = -1.5;
+  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
 //   node_suzy->orient = (quat){0, 0, 1, 0.9};
   
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
