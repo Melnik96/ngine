@@ -61,7 +61,7 @@ struct dynlib* dynlib_open(struct ngine* _ngine, char* _name) {
       module->intense = tcc_new();
       
       tcc_add_sysinclude_path(module->intense, "/usr/include");
-      tcc_add_sysinclude_path(module->intense, "/usr/local/include/");
+      tcc_add_sysinclude_path(module->intense, "/usr/local/include");
       tcc_add_sysinclude_path(module->intense, "/usr/lib64/tcc/include/");
       tcc_add_include_path(module->intense, "../../source/");
       

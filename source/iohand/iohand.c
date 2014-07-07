@@ -26,7 +26,7 @@
 #include "iohand.h"
 
 #define USE_GLFW
-
+/*
 struct ngine_iohand* ngine_iohand_create(ngine_platform _platform) {
   struct ngine_iohand* new_iohand = NULL;
   
@@ -51,4 +51,4 @@ struct ngine_iohand* ngine_iohand_create(ngine_platform _platform) {
     new_iohand = ngine_win_iohand_create();
   }
 #endif
-}
+}*/

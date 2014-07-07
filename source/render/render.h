@@ -50,6 +50,8 @@ struct ngine_render_queue {
   struct ngine_render_op* 	render_ops;
 };// one per render target
 
+void ngine_render_queue_add_op(struct ngine_render_queue* _self, struct ngine_render_op* _op);
+
 struct ngine_render {
   // gl version and exensions
   uint8_t gl_ver;

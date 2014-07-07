@@ -19,7 +19,6 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
 //   mesh->uvs = obj->textures;
 //   mesh->normals = obj->normals;
 
-  
   // materials
   struct ngine_material* mat = calloc(obj->max_mtl, sizeof(struct ngine_material));
   for(int i = 0; i != obj->max_mtl; ++i) {

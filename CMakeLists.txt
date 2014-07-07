@@ -17,11 +17,13 @@ aux_source_directory("source/" engine_sources)
 aux_source_directory("source/cntr" engine_sources_cntr)
 aux_source_directory("source/math" engine_sources_math)
 aux_source_directory("source/render" engine_sources_render)
+aux_source_directory("source/iohand" engine_sources_iohand)
 set(engine_sources
   ${engine_sources} 
   ${engine_sources_cntr} 
   ${engine_sources_math}
   ${engine_sources_render}
+  ${engine_sources_iohand}
   source/import/obj/obj.c
   source/import/obj/awol/awol.c
   source/import/targa/tga.c
@@ -39,7 +41,7 @@ target_link_libraries(ngine
   "dl"
 )
 
-add_executable(neditor neditor/source/main.c)
+add_executable(neditor neditor/source/neditor.c neditor/source/main.c)
 target_link_libraries(neditor
   ngine
 )

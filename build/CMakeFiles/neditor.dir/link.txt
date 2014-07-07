@@ -1,1 +1,1 @@
-/usr/lib/colorgcc/bin/cc  -std=c11 -g    CMakeFiles/neditor.dir/neditor/source/main.c.o  -o ../neditor/bin/neditor -rdynamic ../bin/lib/x86/libngine.so -lGL -lfmodex -lGLEW -lglfw -lkazmath -lpthread -ltcc -ldl -Wl,-rpath,/home/melnik/projects/ngine/bin/lib/x86 
+/usr/lib/colorgcc/bin/cc  -std=c11 -g    CMakeFiles/neditor.dir/neditor/source/neditor.c.o CMakeFiles/neditor.dir/neditor/source/main.c.o  -o ../neditor/bin/neditor -rdynamic ../bin/lib/x86/libngine.so -lGL -lfmodex -lGLEW -lglfw -lkazmath -lpthread -ltcc -ldl -Wl,-rpath,/home/melnik/projects/ngine/bin/lib/x86 

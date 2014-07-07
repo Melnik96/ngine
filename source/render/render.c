@@ -148,6 +148,7 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	  glDrawElements(GL_TRIANGLES, cur_entity->mesh->chunk[i4].num_indices, GL_UNSIGNED_INT, NULL);
 	}
       }
+      _self->render_queue[i].num_render_ops = 0;
     }
   }
 #ifndef NDEBUG
@@ -158,7 +159,14 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 #endif
 }
 
-
+void ngine_render_queue_add_op(struct ngine_render_queue* _self, struct ngine_render_op* _op) {
+  if(_self->num_render_ops == _self->alloc_render_ops) {
+    _self->render_ops = realloc(_self->render_ops, sizeof(struct ngine_render_op)*(_self->num_render_ops+1));
+  }
+  _self->render_ops[_self->num_render_ops] = *_op;
+  _self->num_render_ops++;
+  _self->alloc_render_ops++;
+}
 
 
 // internal
@@ -198,7 +206,12 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   }
   // ngine_shdr_prog_uniform
   
-//   glEnable(GL_CULL_FACE);
+//           параметры OpenGL
+//   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
+  glEnable(GL_CULL_FACE);
+  glClearDepth(1.0f);
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS); 
   
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary

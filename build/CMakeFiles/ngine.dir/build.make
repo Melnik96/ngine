@@ -739,9 +739,101 @@ CMakeFiles/ngine.dir/source/render/pass.c.o.provides: CMakeFiles/ngine.dir/sourc
 
 CMakeFiles/ngine.dir/source/render/pass.c.o.provides.build: CMakeFiles/ngine.dir/source/render/pass.c.o
 
+CMakeFiles/ngine.dir/source/iohand/window.c.o: CMakeFiles/ngine.dir/flags.make
+CMakeFiles/ngine.dir/source/iohand/window.c.o: ../source/iohand/window.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_31)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/iohand/window.c.o"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/iohand/window.c.o   -c /home/melnik/projects/ngine/source/iohand/window.c
+
+CMakeFiles/ngine.dir/source/iohand/window.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/iohand/window.c.i"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/iohand/window.c > CMakeFiles/ngine.dir/source/iohand/window.c.i
+
+CMakeFiles/ngine.dir/source/iohand/window.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/iohand/window.c.s"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/iohand/window.c -o CMakeFiles/ngine.dir/source/iohand/window.c.s
+
+CMakeFiles/ngine.dir/source/iohand/window.c.o.requires:
+.PHONY : CMakeFiles/ngine.dir/source/iohand/window.c.o.requires
+
+CMakeFiles/ngine.dir/source/iohand/window.c.o.provides: CMakeFiles/ngine.dir/source/iohand/window.c.o.requires
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/window.c.o.provides.build
+.PHONY : CMakeFiles/ngine.dir/source/iohand/window.c.o.provides
+
+CMakeFiles/ngine.dir/source/iohand/window.c.o.provides.build: CMakeFiles/ngine.dir/source/iohand/window.c.o
+
+CMakeFiles/ngine.dir/source/iohand/input.c.o: CMakeFiles/ngine.dir/flags.make
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/iohand/input.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_32)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/iohand/input.c.o"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/iohand/input.c.o   -c /home/melnik/projects/ngine/source/iohand/input.c
+
+CMakeFiles/ngine.dir/source/iohand/input.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/iohand/input.c.i"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/iohand/input.c > CMakeFiles/ngine.dir/source/iohand/input.c.i
+
+CMakeFiles/ngine.dir/source/iohand/input.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/iohand/input.c.s"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/iohand/input.c -o CMakeFiles/ngine.dir/source/iohand/input.c.s
+
+CMakeFiles/ngine.dir/source/iohand/input.c.o.requires:
+.PHONY : CMakeFiles/ngine.dir/source/iohand/input.c.o.requires
+
+CMakeFiles/ngine.dir/source/iohand/input.c.o.provides: CMakeFiles/ngine.dir/source/iohand/input.c.o.requires
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/input.c.o.provides.build
+.PHONY : CMakeFiles/ngine.dir/source/iohand/input.c.o.provides
+
+CMakeFiles/ngine.dir/source/iohand/input.c.o.provides.build: CMakeFiles/ngine.dir/source/iohand/input.c.o
+
+CMakeFiles/ngine.dir/source/iohand/display.c.o: CMakeFiles/ngine.dir/flags.make
+CMakeFiles/ngine.dir/source/iohand/display.c.o: ../source/iohand/display.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_33)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/iohand/display.c.o"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/iohand/display.c.o   -c /home/melnik/projects/ngine/source/iohand/display.c
+
+CMakeFiles/ngine.dir/source/iohand/display.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/iohand/display.c.i"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/iohand/display.c > CMakeFiles/ngine.dir/source/iohand/display.c.i
+
+CMakeFiles/ngine.dir/source/iohand/display.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/iohand/display.c.s"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/iohand/display.c -o CMakeFiles/ngine.dir/source/iohand/display.c.s
+
+CMakeFiles/ngine.dir/source/iohand/display.c.o.requires:
+.PHONY : CMakeFiles/ngine.dir/source/iohand/display.c.o.requires
+
+CMakeFiles/ngine.dir/source/iohand/display.c.o.provides: CMakeFiles/ngine.dir/source/iohand/display.c.o.requires
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/display.c.o.provides.build
+.PHONY : CMakeFiles/ngine.dir/source/iohand/display.c.o.provides
+
+CMakeFiles/ngine.dir/source/iohand/display.c.o.provides.build: CMakeFiles/ngine.dir/source/iohand/display.c.o
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o: CMakeFiles/ngine.dir/flags.make
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o: ../source/iohand/iohand.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_34)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/iohand/iohand.c.o"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/iohand/iohand.c.o   -c /home/melnik/projects/ngine/source/iohand/iohand.c
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/iohand/iohand.c.i"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/iohand/iohand.c > CMakeFiles/ngine.dir/source/iohand/iohand.c.i
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/iohand/iohand.c.s"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/iohand/iohand.c -o CMakeFiles/ngine.dir/source/iohand/iohand.c.s
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o.requires:
+.PHONY : CMakeFiles/ngine.dir/source/iohand/iohand.c.o.requires
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o.provides: CMakeFiles/ngine.dir/source/iohand/iohand.c.o.requires
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/iohand.c.o.provides.build
+.PHONY : CMakeFiles/ngine.dir/source/iohand/iohand.c.o.provides
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o.provides.build: CMakeFiles/ngine.dir/source/iohand/iohand.c.o
+
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/import/obj/obj.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_31)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_35)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/import/obj/obj.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/import/obj/obj.c.o   -c /home/melnik/projects/ngine/source/import/obj/obj.c
 
@@ -764,7 +856,7 @@ CMakeFiles/ngine.dir/source/import/obj/obj.c.o.provides.build: CMakeFiles/ngine.
 
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o: ../source/import/obj/awol/awol.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_32)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_36)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o   -c /home/melnik/projects/ngine/source/import/obj/awol/awol.c
 
@@ -787,7 +879,7 @@ CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/ngine.dir/source/import/targa/tga.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/import/targa/tga.c.o: ../source/import/targa/tga.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_33)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_37)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/import/targa/tga.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/import/targa/tga.c.o   -c /home/melnik/projects/ngine/source/import/targa/tga.c
 
@@ -840,6 +932,10 @@ ngine_OBJECTS = \
 "CMakeFiles/ngine.dir/source/render/render.c.o" \
 "CMakeFiles/ngine.dir/source/render/technique.c.o" \
 "CMakeFiles/ngine.dir/source/render/pass.c.o" \
+"CMakeFiles/ngine.dir/source/iohand/window.c.o" \
+"CMakeFiles/ngine.dir/source/iohand/input.c.o" \
+"CMakeFiles/ngine.dir/source/iohand/display.c.o" \
+"CMakeFiles/ngine.dir/source/iohand/iohand.c.o" \
 "CMakeFiles/ngine.dir/source/import/obj/obj.c.o" \
 "CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o" \
 "CMakeFiles/ngine.dir/source/import/targa/tga.c.o"
@@ -877,6 +973,10 @@ ngine_EXTERNAL_OBJECTS =
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/render.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/technique.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/render/pass.c.o
+../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/iohand/window.c.o
+../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/iohand/input.c.o
+../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/iohand/display.c.o
+../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/iohand/iohand.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/import/obj/obj.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/import/targa/tga.c.o
@@ -919,6 +1019,10 @@ CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/math/vector.c.o.requi
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/render.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/technique.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/render/pass.c.o.requires
+CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/iohand/window.c.o.requires
+CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/iohand/input.c.o.requires
+CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/iohand/display.c.o.requires
+CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/iohand/iohand.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/import/obj/obj.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/import/targa/tga.c.o.requires

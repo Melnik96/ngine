@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/neditor.dir/neditor/source/neditor.c.o"
   "CMakeFiles/neditor.dir/neditor/source/main.c.o"
   "../neditor/bin/neditor.pdb"
   "../neditor/bin/neditor"

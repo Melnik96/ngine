@@ -30,8 +30,8 @@ void event_window_closed(GLFWwindow* _glfw_win);
 void event_cursor_pos_changed(GLFWwindow* _glfw_win, double _x, double _y);
 void event_key(GLFWwindow* _glfw_win, int _key, int _scancode, int _action, int _mod);
 
-struct window* window_create(char* _win_name, int _width, int _height) {
-  struct window* new_win = calloc(1, sizeof(struct window));
+struct ngine_window* ngine_window_create(char* _win_name, int _width, int _height) {
+  struct ngine_window* new_win = calloc(1, sizeof(struct ngine_window));
   
   new_win->listener = calloc(1, sizeof(struct window_listener));
   new_win->input_listener = calloc(1, sizeof(struct window_input_listener));
@@ -41,7 +41,8 @@ struct window* window_create(char* _win_name, int _width, int _height) {
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 //   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
 
-  new_win->win = glfwCreateWindow(_width, _height, _win_name, NULL, NULL);
+  GLFWmonitor* monitor = /*glfwGetPrimaryMonitor()*/0;
+  new_win->win = glfwCreateWindow(_width, _height, _win_name, monitor, NULL);
   
   if(!new_win->win) {
     error("cannot create window '%s'", _win_name);
@@ -59,56 +60,38 @@ struct window* window_create(char* _win_name, int _width, int _height) {
 //   glfwSetMouseButtonCallback();
   
   glfwMakeContextCurrent(new_win->win);
-//   glewExperimental = GL_TRUE;
-//   GLenum glew_err = glewInit();
-//   if (glew_err != GLEW_OK) {
-// 	// a problem occured when trying to init glew, report it:
-// 	printf("GLEW Error occured, Description: %s\n", glewGetErrorString(glew_err));
-// 	glfwDestroyWindow(newWindow->m_pWindow);
-// 	delete newWindow;
-// 	return NULL;
-//   }
-  // устанавливаем вьюпорт на все окно
-  glViewport(0, 0, 640, 480);
-
-//         // параметры OpenGL
-        glClearColor(.4f, 0.2f, 0.0f, 1.0f);
-        glClearDepth(1.0f);
-        glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS); 
-//         glEnable(GL_CULL_FACE);
-
+  
   return new_win;
 }
 
-int window_destroy(struct window* _win) {
+int ngine_window_destroy(struct ngine_window* _win) {
   _win->listener->on_close();
 }
 
 // window events calbacks
 void event_window_resized(GLFWwindow* _glfw_win, int _width, int _height) {
-  struct window* win = glfwGetWindowUserPointer(_glfw_win);
-  win->listener->on_resize();
+  struct ngine_window* win = glfwGetWindowUserPointer(_glfw_win);
+//   win->listener->on_resize(win->input_listener->user_data);
 }
 void event_window_closed(GLFWwindow* _glfw_win) {
-  struct window* win = glfwGetWindowUserPointer(_glfw_win);
-  win->listener->on_close();
+  struct ngine_window* win = glfwGetWindowUserPointer(_glfw_win);
+  win->listener->on_close(win->input_listener->user_data);
 }
 void event_cursor_pos_changed(GLFWwindow* _glfw_win, double _x, double _y) {
-  struct window* win = glfwGetWindowUserPointer(_glfw_win);
+  struct ngine_window* win = glfwGetWindowUserPointer(_glfw_win);
   if(win->input_listener->on_mouse_move) {
-    win->input_listener->on_mouse_move(_x, _y);
+    win->input_listener->on_mouse_move(win->input_listener->user_data, _x, _y);
   }
 }
 void event_key(GLFWwindow* _glfw_win, int _key, int _scancode, int _action, int _mod) {
-  struct window* win = glfwGetWindowUserPointer(_glfw_win);
+  struct ngine_window* win = glfwGetWindowUserPointer(_glfw_win);
   if(_action == GLFW_PRESS) {
     if(win->input_listener->on_key_pressed) {
-      win->input_listener->on_key_pressed(_key);
+      win->input_listener->on_key_pressed(win->input_listener->user_data, _key);
     }
-  } else {
+  } else if(_action == GLFW_RELEASE) {
     if(win->input_listener->on_key_relased) {
-      win->input_listener->on_key_relased(_key);
+      win->input_listener->on_key_relased(win->input_listener->user_data, _key);
     }
   }
 }

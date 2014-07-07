@@ -25,10 +25,9 @@
 #include "math/matrix.h"
 #include "cntr/tree.h"
 
-struct sc_obj_listener {
-  void(*on_update)();
+struct ngine_sc_node_listener {
+  void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
   void(*on_colide)();
-//   void(*on_key_pressed)();
 };
 
 enum sc_obj_type {
@@ -59,14 +58,12 @@ struct ngine_sc_node {
   // indicators
   char translated;
   
-  struct sc_obj_listener* listener;
+  struct ngine_sc_node_listener* listener;
 };
 
-int	       ngine_sc_node_init(struct ngine_sc_node* _self, char* _name, int _type);
 struct ngine_sc_node* ngine_sc_node_create(char* _name, int _type);
 
 //intern
 struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self);
-struct ngine_sc_node* ngine_sc_node_upd_mat_inv(struct ngine_sc_node* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

@@ -20,8 +20,8 @@
 #ifndef GLFW_IOHAND_H
 #define GLFW_IOHAND_H
 
-class glfw_iohand {};
+// class glfw_iohand {};
 
-class glfw_iohand* ngine_glfw_iohand_create(enum ngine_platform _platform);
+// class glfw_iohand* ngine_glfw_iohand_create(enum ngine_platform _platform);
 
 #endif // GLFW_IOHAND_H

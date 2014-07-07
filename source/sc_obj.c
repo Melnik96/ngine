@@ -37,10 +37,12 @@
 
 struct ngine_sc_node* ngine_sc_node_create(char* _name, int _type) {
   struct ngine_sc_node* new_obj = calloc(1, sizeof(struct ngine_sc_node));
+  new_obj->listener = calloc(1, sizeof(struct ngine_sc_node_listener));
   new_obj->name = _name;
   new_obj->type = _type;
   
   kmMat4Identity(&new_obj->matrix);
+  
   
   return new_obj;
 }

@@ -51,6 +51,22 @@ CMakeFiles/ngine.dir/source/import/targa/tga.c.o: ../source/texture.h
 CMakeFiles/ngine.dir/source/iofile.c.o: ../source/iofile.c
 CMakeFiles/ngine.dir/source/iofile.c.o: ../source/iofile.h
 
+CMakeFiles/ngine.dir/source/iohand/display.c.o: ../source/iohand/display.c
+CMakeFiles/ngine.dir/source/iohand/display.c.o: ../source/iohand/display.h
+
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/cntr/array.h
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/cntr/list.h
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/ngine.h
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/iohand/input.c
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/iohand/input.h
+CMakeFiles/ngine.dir/source/iohand/input.c.o: ../source/window.h
+
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o: ../source/iohand/intern/glfw/glfw_iohand.h
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o: ../source/iohand/iohand.c
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o: ../source/iohand/iohand.h
+
+CMakeFiles/ngine.dir/source/iohand/window.c.o: ../source/iohand/window.c
+
 CMakeFiles/ngine.dir/source/light.c.o: ../source/light.c
 CMakeFiles/ngine.dir/source/light.c.o: ../source/light.h
 

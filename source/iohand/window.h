@@ -20,31 +20,4 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-struct monitor {
-  
-};
-
-struct window_listener {
-  void(*on_resize)();
-  void(*on_close)();
-  void(*on_change_pos)();
-};
-
-struct window_input_listener {
-  void(*on_key_pressed)(int _key);
-  void(*on_key_relased)();
-  void(*on_mouse_move)(double x, double y);
-};
-
-struct ngine_window {
-  struct GLFWwindow* win;
-  struct viewport*   viewport;
-  
-  struct window_listener* listener;
-  struct window_input_listener* input_listener;
-};
-
-struct ngine_window*  ngine_window_create(struct ngine_display, char* _win_name, int _width, int _height);
-int 		window_destroy(struct window* _win);
-
 #endif // WINDOW_H

@@ -42,7 +42,7 @@
 #include <kazmath/kazmath.h>
 
 //intern
-void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* _rend_target, struct ngine* _ngine);
+void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine* _ngine);
 
 int ngine_init(struct ngine* _self) {
   debug("ngine init");
@@ -82,11 +82,15 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
-//   if(15.0*_elapsed >= 2*3.14159265358979323846f) {}
-  kmQuaternionRotationPitchYawRoll(
-    &((struct ngine_sc_node*)_self->scenes->root_object->link.childs)->orient,
-    0, 15.0*_elapsed, 0
-  );
+#define deg2rad(x) (float)(((x) * M_PI / 180.0f))
+#define rad2deg(x) (float)(((x) * 180.0f / M_PI))
+  struct ngine_sc_node* obj = ((struct ngine_sc_node*)_self->scenes->root_object->link.childs);
+  /*
+  if(cur_yaw >= 2*3.14159265358979323846f) {
+    cur_yaw = 0;
+  }*/
+  
+  
   
   //for each render target
 //   for(int i = 0; ; ++i) {
@@ -96,7 +100,7 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
        _self->windows[i].viewport->camera != NULL)*/ 
 //     {
 //       struct ngine_sc_node* root_sc_obj = tree_get_head(_self->windows[i].viewport->camera);
-      tree_for_each3(_self->scenes->root_object, update_obj_handler, _self->rend_target, _self);
+      tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
       ngine_render_frame(_self->render, 0);
       
@@ -123,7 +127,7 @@ int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
   return 1;
 }
 
-void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* _rend_target, struct ngine* _ngine) {
+void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine* _ngine) {
   // pipeline
   // - get array of active lights
   // - get visible sc_objs(entities)
@@ -131,6 +135,10 @@ void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* 
   // -   get lights for sc_obj
   // -   set gl_render_data
   // -   gl_draw
+  
+  if(_obj->listener->on_update) {
+    _obj->listener->on_update(_obj, *_time_elapsed);
+  }
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
 //     debug("procces entity obj");
@@ -140,9 +148,9 @@ void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* 
     
     kmMat4* mvp = calloc(1, sizeof(kmMat4));
       mat4 tmp_mat;
-      kmMat4Inverse(&tmp_mat, &_rend_target->camera->matrix);
+      kmMat4Inverse(&tmp_mat, &_ngine->rend_target->camera->matrix);
       kmMat4Multiply(&tmp_mat, &tmp_mat, &_obj->matrix);
-      kmMat4Multiply(mvp, &_rend_target->mat_proj, &tmp_mat);
+      kmMat4Multiply(mvp, &_ngine->rend_target->mat_proj, &tmp_mat);
       
 //       kmMat4Multiply(mvp, &_obj->matrix, &_rend_target->mat_proj);
 
@@ -150,12 +158,10 @@ void update_obj_handler(struct ngine_sc_node* _obj, struct ngine_render_target* 
       rop->entity = _obj;
       rop->mvp_mat = mvp;
 //       rop->// render target
-      _ngine->render->render_queue->render_ops = rop;
-      _ngine->render->render_queue->num_render_ops = 1;
+      ngine_render_queue_add_op(_ngine->render->render_queue, rop);
   }
   else if(_obj->type == NGINE_SC_OBJ_SPEAKER) {
 //     debug("procces snd_speaker obj");
-    
     FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix velocity
   }
   else if(_obj->type == NGINE_SC_OBJ_CAMERA) {

@@ -33,7 +33,7 @@ struct job {
 };
 
 struct ngine {
-  struct window* 	windows;
+  struct ngine_window* 	windows;
   struct ngine_render_target* rend_target;// array
   struct scene* 	scenes;
   
@@ -46,6 +46,7 @@ struct ngine {
   //mesh, anim, skel
   
   struct assets_mgr* 	assets_mgr;
+  struct ngine_input* 	input;
   
   struct ngine_render* 	render;
   struct FMOD_SYSTEM*	fmod_sound;

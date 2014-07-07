@@ -51,6 +51,22 @@ CMakeFiles/ngine.dir/source/import/targa/tga.c.o
 CMakeFiles/ngine.dir/source/iofile.c.o
  /home/melnik/projects/ngine/source/iofile.c
  /home/melnik/projects/ngine/source/iofile.h
+CMakeFiles/ngine.dir/source/iohand/display.c.o
+ /home/melnik/projects/ngine/source/iohand/display.c
+ /home/melnik/projects/ngine/source/iohand/display.h
+CMakeFiles/ngine.dir/source/iohand/input.c.o
+ ../source/cntr/array.h
+ ../source/cntr/list.h
+ ../source/ngine.h
+ /home/melnik/projects/ngine/source/iohand/input.c
+ /home/melnik/projects/ngine/source/iohand/input.h
+ /home/melnik/projects/ngine/source/window.h
+CMakeFiles/ngine.dir/source/iohand/iohand.c.o
+ /home/melnik/projects/ngine/source/iohand/intern/glfw/glfw_iohand.h
+ /home/melnik/projects/ngine/source/iohand/iohand.c
+ /home/melnik/projects/ngine/source/iohand/iohand.h
+CMakeFiles/ngine.dir/source/iohand/window.c.o
+ /home/melnik/projects/ngine/source/iohand/window.c
 CMakeFiles/ngine.dir/source/light.c.o
  /home/melnik/projects/ngine/source/light.c
  /home/melnik/projects/ngine/source/light.h

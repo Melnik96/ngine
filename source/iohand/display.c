@@ -19,27 +19,27 @@
 
 #include "display.h"
 
-struct way_display {
-  struct wl_display *display;
-  struct wl_registry *registry;
-  struct wl_compositor *compositor;
-  struct xdg_shell *shell;
-  struct wl_seat *seat;
-  struct wl_pointer *pointer;
-  struct wl_touch *touch;
-  struct wl_keyboard *keyboard;
-  struct wl_shm *shm;
-  struct wl_cursor_theme *cursor_theme;
-  struct wl_cursor *default_cursor;
-  struct wl_surface *cursor_surface;
-  struct {
-    EGLDisplay dpy;
-    EGLContext ctx;
-    EGLConfig conf;
-  } egl;
-  
-  uint32_t	 num_windows;
-  struct window* windows;
-  
-  PFNEGLSWAPBUFFERSWITHDAMAGEEXTPROC swap_buffers_with_damage;
-};
+// struct way_display {
+//   struct wl_display *display;
+//   struct wl_registry *registry;
+//   struct wl_compositor *compositor;
+//   struct xdg_shell *shell;
+//   struct wl_seat *seat;
+//   struct wl_pointer *pointer;
+//   struct wl_touch *touch;
+//   struct wl_keyboard *keyboard;
+//   struct wl_shm *shm;
+//   struct wl_cursor_theme *cursor_theme;
+//   struct wl_cursor *default_cursor;
+//   struct wl_surface *cursor_surface;
+//   struct {
+//     EGLDisplay dpy;
+//     EGLContext ctx;
+//     EGLConfig conf;
+//   } egl;
+//   
+//   uint32_t	 num_windows;
+//   struct window* windows;
+//   
+//   PFNEGLSWAPBUFFERSWITHDAMAGEEXTPROC swap_buffers_with_damage;
+// };

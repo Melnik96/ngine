@@ -49,9 +49,32 @@ include CMakeFiles/neditor.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/neditor.dir/flags.make
 
+CMakeFiles/neditor.dir/neditor/source/neditor.c.o: CMakeFiles/neditor.dir/flags.make
+CMakeFiles/neditor.dir/neditor/source/neditor.c.o: ../neditor/source/neditor.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/neditor.dir/neditor/source/neditor.c.o"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/neditor.dir/neditor/source/neditor.c.o   -c /home/melnik/projects/ngine/neditor/source/neditor.c
+
+CMakeFiles/neditor.dir/neditor/source/neditor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/neditor.dir/neditor/source/neditor.c.i"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/neditor/source/neditor.c > CMakeFiles/neditor.dir/neditor/source/neditor.c.i
+
+CMakeFiles/neditor.dir/neditor/source/neditor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/neditor.dir/neditor/source/neditor.c.s"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/neditor/source/neditor.c -o CMakeFiles/neditor.dir/neditor/source/neditor.c.s
+
+CMakeFiles/neditor.dir/neditor/source/neditor.c.o.requires:
+.PHONY : CMakeFiles/neditor.dir/neditor/source/neditor.c.o.requires
+
+CMakeFiles/neditor.dir/neditor/source/neditor.c.o.provides: CMakeFiles/neditor.dir/neditor/source/neditor.c.o.requires
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.o.provides.build
+.PHONY : CMakeFiles/neditor.dir/neditor/source/neditor.c.o.provides
+
+CMakeFiles/neditor.dir/neditor/source/neditor.c.o.provides.build: CMakeFiles/neditor.dir/neditor/source/neditor.c.o
+
 CMakeFiles/neditor.dir/neditor/source/main.c.o: CMakeFiles/neditor.dir/flags.make
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../neditor/source/main.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/neditor.dir/neditor/source/main.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/neditor.dir/neditor/source/main.c.o   -c /home/melnik/projects/ngine/neditor/source/main.c
 
@@ -74,11 +97,13 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o.provides.build: CMakeFiles/nedito
 
 # Object files for target neditor
 neditor_OBJECTS = \
+"CMakeFiles/neditor.dir/neditor/source/neditor.c.o" \
 "CMakeFiles/neditor.dir/neditor/source/main.c.o"
 
 # External object files for target neditor
 neditor_EXTERNAL_OBJECTS =
 
+../neditor/bin/neditor: CMakeFiles/neditor.dir/neditor/source/neditor.c.o
 ../neditor/bin/neditor: CMakeFiles/neditor.dir/neditor/source/main.c.o
 ../neditor/bin/neditor: CMakeFiles/neditor.dir/build.make
 ../neditor/bin/neditor: ../bin/lib/x86/libngine.so
@@ -90,6 +115,7 @@ neditor_EXTERNAL_OBJECTS =
 CMakeFiles/neditor.dir/build: ../neditor/bin/neditor
 .PHONY : CMakeFiles/neditor.dir/build
 
+CMakeFiles/neditor.dir/requires: CMakeFiles/neditor.dir/neditor/source/neditor.c.o.requires
 CMakeFiles/neditor.dir/requires: CMakeFiles/neditor.dir/neditor/source/main.c.o.requires
 .PHONY : CMakeFiles/neditor.dir/requires
 

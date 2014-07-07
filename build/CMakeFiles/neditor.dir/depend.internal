@@ -3,10 +3,12 @@
 
 CMakeFiles/neditor.dir/neditor/source/main.c.o
  ../source/camera.h
+ ../source/cntr/array.h
  ../source/cntr/list.h
  ../source/cntr/tree.h
  ../source/dynlib.h
  ../source/iofile.h
+ ../source/iohand/input.h
  ../source/math/matrix.h
  ../source/math/vector.h
  ../source/ngine.h
@@ -18,3 +20,7 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o
  ../source/viewport.h
  ../source/window.h
  /home/melnik/projects/ngine/neditor/source/main.c
+ /home/melnik/projects/ngine/neditor/source/neditor.h
+CMakeFiles/neditor.dir/neditor/source/neditor.c.o
+ /home/melnik/projects/ngine/neditor/source/neditor.c
+ /home/melnik/projects/ngine/neditor/source/neditor.h

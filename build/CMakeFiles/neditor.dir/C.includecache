@@ -10,6 +10,10 @@
 math/matrix.h
 ../source/math/matrix.h
 
+../source/cntr/array.h
+sys/types.h
+-
+
 ../source/cntr/list.h
 
 ../source/cntr/tree.h
@@ -23,6 +27,12 @@ stdint.h
 -
 
 ../source/iofile.h
+
+../source/iohand/input.h
+stdint.h
+-
+cntr/array.h
+../source/iohand/cntr/array.h
 
 ../source/math/matrix.h
 
@@ -85,6 +95,8 @@ sc_obj.h
 /home/melnik/projects/ngine/neditor/source/sc_obj.h
 sound_mgr.h
 /home/melnik/projects/ngine/neditor/source/sound_mgr.h
+iohand/input.h
+/home/melnik/projects/ngine/neditor/source/iohand/input.h
 render/render.h
 /home/melnik/projects/ngine/neditor/source/render/render.h
 render_target.h
@@ -97,4 +109,14 @@ time.h
 -
 fmodex/fmod.h
 -
+kazmath/kazmath.h
+-
+neditor.h
+/home/melnik/projects/ngine/neditor/source/neditor.h
+
+/home/melnik/projects/ngine/neditor/source/neditor.c
+neditor.h
+/home/melnik/projects/ngine/neditor/source/neditor.h
+
+/home/melnik/projects/ngine/neditor/source/neditor.h
 

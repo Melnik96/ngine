@@ -31,12 +31,13 @@ struct window_listener {
 };
 
 struct window_input_listener {
-  void(*on_key_pressed)(int _key);
-  void(*on_key_relased)();
-  void(*on_mouse_move)(double x, double y);
+  void(*on_key_pressed)(void* _user, int _key);
+  void(*on_key_relased)(void* _user, int _key);
+  void(*on_mouse_move)(void* _user, double x, double y);
+  void* user_data;
 };
 
-struct window {
+struct ngine_window {
   struct GLFWwindow* win;
   struct viewport*   viewport;
   
@@ -44,7 +45,7 @@ struct window {
   struct window_input_listener* input_listener;
 };
 
-struct window*  window_create(char* _win_name, int _width, int _height);
-int 		window_destroy(struct window* _win);
+struct ngine_window* 	ngine_window_create(char* _win_name, int _width, int _height);
+int 			ngine_window_destroy(struct ngine_window* _win);
 
 #endif // WINDOW_H

@@ -152,6 +152,30 @@ neditor/source/main.c.s:
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/main.c.s
 .PHONY : neditor/source/main.c.s
 
+neditor/source/neditor.o: neditor/source/neditor.c.o
+.PHONY : neditor/source/neditor.o
+
+# target to build an object file
+neditor/source/neditor.c.o:
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.o
+.PHONY : neditor/source/neditor.c.o
+
+neditor/source/neditor.i: neditor/source/neditor.c.i
+.PHONY : neditor/source/neditor.i
+
+# target to preprocess a source file
+neditor/source/neditor.c.i:
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.i
+.PHONY : neditor/source/neditor.c.i
+
+neditor/source/neditor.s: neditor/source/neditor.c.s
+.PHONY : neditor/source/neditor.s
+
+# target to generate assembly for a file
+neditor/source/neditor.c.s:
+	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.s
+.PHONY : neditor/source/neditor.c.s
+
 source/assets_mgr.o: source/assets_mgr.c.o
 .PHONY : source/assets_mgr.o
 
@@ -415,6 +439,102 @@ source/iofile.s: source/iofile.c.s
 source/iofile.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iofile.c.s
 .PHONY : source/iofile.c.s
+
+source/iohand/display.o: source/iohand/display.c.o
+.PHONY : source/iohand/display.o
+
+# target to build an object file
+source/iohand/display.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/display.c.o
+.PHONY : source/iohand/display.c.o
+
+source/iohand/display.i: source/iohand/display.c.i
+.PHONY : source/iohand/display.i
+
+# target to preprocess a source file
+source/iohand/display.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/display.c.i
+.PHONY : source/iohand/display.c.i
+
+source/iohand/display.s: source/iohand/display.c.s
+.PHONY : source/iohand/display.s
+
+# target to generate assembly for a file
+source/iohand/display.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/display.c.s
+.PHONY : source/iohand/display.c.s
+
+source/iohand/input.o: source/iohand/input.c.o
+.PHONY : source/iohand/input.o
+
+# target to build an object file
+source/iohand/input.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/input.c.o
+.PHONY : source/iohand/input.c.o
+
+source/iohand/input.i: source/iohand/input.c.i
+.PHONY : source/iohand/input.i
+
+# target to preprocess a source file
+source/iohand/input.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/input.c.i
+.PHONY : source/iohand/input.c.i
+
+source/iohand/input.s: source/iohand/input.c.s
+.PHONY : source/iohand/input.s
+
+# target to generate assembly for a file
+source/iohand/input.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/input.c.s
+.PHONY : source/iohand/input.c.s
+
+source/iohand/iohand.o: source/iohand/iohand.c.o
+.PHONY : source/iohand/iohand.o
+
+# target to build an object file
+source/iohand/iohand.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/iohand.c.o
+.PHONY : source/iohand/iohand.c.o
+
+source/iohand/iohand.i: source/iohand/iohand.c.i
+.PHONY : source/iohand/iohand.i
+
+# target to preprocess a source file
+source/iohand/iohand.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/iohand.c.i
+.PHONY : source/iohand/iohand.c.i
+
+source/iohand/iohand.s: source/iohand/iohand.c.s
+.PHONY : source/iohand/iohand.s
+
+# target to generate assembly for a file
+source/iohand/iohand.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/iohand.c.s
+.PHONY : source/iohand/iohand.c.s
+
+source/iohand/window.o: source/iohand/window.c.o
+.PHONY : source/iohand/window.o
+
+# target to build an object file
+source/iohand/window.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/window.c.o
+.PHONY : source/iohand/window.c.o
+
+source/iohand/window.i: source/iohand/window.c.i
+.PHONY : source/iohand/window.i
+
+# target to preprocess a source file
+source/iohand/window.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/window.c.i
+.PHONY : source/iohand/window.c.i
+
+source/iohand/window.s: source/iohand/window.c.s
+.PHONY : source/iohand/window.s
+
+# target to generate assembly for a file
+source/iohand/window.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/iohand/window.c.s
+.PHONY : source/iohand/window.c.s
 
 source/light.o: source/light.c.o
 .PHONY : source/light.o
@@ -957,6 +1077,9 @@ help:
 	@echo "... neditor/source/main.o"
 	@echo "... neditor/source/main.i"
 	@echo "... neditor/source/main.s"
+	@echo "... neditor/source/neditor.o"
+	@echo "... neditor/source/neditor.i"
+	@echo "... neditor/source/neditor.s"
 	@echo "... source/assets_mgr.o"
 	@echo "... source/assets_mgr.i"
 	@echo "... source/assets_mgr.s"
@@ -990,6 +1113,18 @@ help:
 	@echo "... source/iofile.o"
 	@echo "... source/iofile.i"
 	@echo "... source/iofile.s"
+	@echo "... source/iohand/display.o"
+	@echo "... source/iohand/display.i"
+	@echo "... source/iohand/display.s"
+	@echo "... source/iohand/input.o"
+	@echo "... source/iohand/input.i"
+	@echo "... source/iohand/input.s"
+	@echo "... source/iohand/iohand.o"
+	@echo "... source/iohand/iohand.i"
+	@echo "... source/iohand/iohand.s"
+	@echo "... source/iohand/window.o"
+	@echo "... source/iohand/window.i"
+	@echo "... source/iohand/window.s"
 	@echo "... source/light.o"
 	@echo "... source/light.i"
 	@echo "... source/light.s"
