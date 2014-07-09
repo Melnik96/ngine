@@ -41,19 +41,16 @@ struct ngine_window* ngine_window_create(char* _win_name, int _width, int _heigh
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 //   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
 
-  GLFWmonitor* monitor = /*glfwGetPrimaryMonitor()*/0;
+  GLFWmonitor* monitor = 0/*glfwGetPrimaryMonitor()*/;
   new_win->win = glfwCreateWindow(_width, _height, _win_name, monitor, NULL);
-  
   if(!new_win->win) {
     error("cannot create window '%s'", _win_name);
     return NULL;
   }
   
   glfwSetWindowUserPointer(new_win->win, new_win);
-  
   glfwSetWindowCloseCallback(new_win->win, event_window_closed);
   glfwSetWindowSizeCallback(new_win->win, event_window_resized);
-  
   glfwSetKeyCallback(new_win->win, event_key);
 //   glfwSetCursorEnterCallback();
   glfwSetCursorPosCallback(new_win->win, event_cursor_pos_changed);
@@ -80,7 +77,7 @@ void event_window_closed(GLFWwindow* _glfw_win) {
 void event_cursor_pos_changed(GLFWwindow* _glfw_win, double _x, double _y) {
   struct ngine_window* win = glfwGetWindowUserPointer(_glfw_win);
   if(win->input_listener->on_mouse_move) {
-    win->input_listener->on_mouse_move(win->input_listener->user_data, _x, _y);
+    win->input_listener->on_mouse_move(win->input_listener->user_data, win, _x, _y);
   }
 }
 void event_key(GLFWwindow* _glfw_win, int _key, int _scancode, int _action, int _mod) {

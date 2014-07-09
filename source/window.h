@@ -33,7 +33,7 @@ struct window_listener {
 struct window_input_listener {
   void(*on_key_pressed)(void* _user, int _key);
   void(*on_key_relased)(void* _user, int _key);
-  void(*on_mouse_move)(void* _user, double x, double y);
+  void(*on_mouse_move)(void* _user, struct ngine_window*, double x, double y);
   void* user_data;
 };
 

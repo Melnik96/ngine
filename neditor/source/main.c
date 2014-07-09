@@ -8,7 +8,6 @@
 #include "sound_mgr.h"
 #include "iohand/input.h"
 #include "render/render.h"
-#include "render_target.h"
 #include <camera.h>
 
 #include <malloc.h>
@@ -45,7 +44,7 @@ int main(int argc, char *argv[]) {
   
   neditor->engine->scenes = create_scene(neditor->engine);
   
-  struct ngine_sc_node* speaker = ngine_sc_node_create("speaker1", NGINE_SC_OBJ_SPEAKER);
+  struct ngine_sc_node* speaker = ngine_sc_node_create(neditor->engine->scenes, "speaker1", NGINE_SC_OBJ_SPEAKER);
   tree_add_child(&neditor->engine->scenes->root_object->link, &speaker->link);
   
   speaker->pos.x = -10.f;

@@ -24,7 +24,7 @@
 
 void key_pressed(struct ngine_input* _input, uint32_t _key);
 void key_relased(struct ngine_input* _input, uint32_t _key);
-void mouse_move(struct ngine_input* _input, double _x, double _y);
+void mouse_move(struct ngine_input* _input, struct ngine_window* win, double _x, double _y);
 
 struct ngine_input* ngine_input_create(struct ngine_window* _win) {
   struct ngine_input* new_input = calloc(1, sizeof(struct ngine_input));
@@ -54,7 +54,7 @@ void ngine_input_unbind_key(struct ngine_input* _self, uint32_t _key, char _pres
   
 }
 
-void ngine_input_bind_mouse_move(struct ngine_input* _self, void* _args, void(*_callback)(void*, double, double)) {
+void ngine_input_bind_mouse_move(struct ngine_input* _self, void* _args, void(*_callback)(struct ngine_window*, void*, double, double)) {
   if(!_self->mouse_move_callback) {
     _self->mouse_move_callback = malloc(sizeof(struct ngine_input_mouse_move_callback));
   }
@@ -81,8 +81,8 @@ void key_relased(struct ngine_input* _input, uint32_t _key) {
     }
   }
 }
-void mouse_move(struct ngine_input* _input, double _x, double _y) {
+void mouse_move(struct ngine_input* _input, struct ngine_window* win, double _x, double _y) {
   if(_input->mouse_move_callback) {
-    _input->mouse_move_callback->callback(_input->mouse_move_callback->args, _x, _y);
+    _input->mouse_move_callback->callback(win, _input->mouse_move_callback->args, _x, _y);
   }
 }

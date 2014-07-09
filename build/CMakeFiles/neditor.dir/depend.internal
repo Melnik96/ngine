@@ -13,7 +13,6 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o
  ../source/math/vector.h
  ../source/ngine.h
  ../source/render/render.h
- ../source/render_target.h
  ../source/sc_obj.h
  ../source/scene.h
  ../source/sound_mgr.h

@@ -152,10 +152,10 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
     }
   }
 #ifndef NDEBUG
-  uint32_t err = 0;
-  if((err = glGetError()) != GL_NO_ERROR) {
-    error("OpenGL error: %s", glewGetErrorString(err));
-  }
+//   uint32_t err = 0;
+//   if((err = glGetError()) != GL_NO_ERROR) {
+//     error("OpenGL error: %s", glewGetErrorString(err));
+//   }
 #endif
 }
 

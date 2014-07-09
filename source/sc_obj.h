@@ -41,29 +41,49 @@ enum sc_obj_type {
 };
 
 struct ngine_sc_node {
-  struct tree link;
-//   struct engine* engine;
+  struct tree 		link;
   
-  char* name;
-  int type;// sc_obj_type
+  char* 		name;
+  int 			type;// sc_obj_type
+  
+  struct ngine_scene* 	scene;
   // translation
-  vec3 pos;
-  quat orient;
-  float scale;
+  vec3 			pos;
+  quat 			orient;
+  float 		scale;
   
-  mat4 matrix;
+  mat4 			matrix;
   
-  void* attached_obj;//ptr to list of entities or cameras
+  void* 		attached_obj;
   
   // indicators
-  char translated;
+  char 			translated;
+  char 			dynamic;
   
   struct ngine_sc_node_listener* listener;
+//   struct {
+//     void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
+//     void(*on_colide)();
+//   };
 };
 
-struct ngine_sc_node* ngine_sc_node_create(char* _name, int _type);
+struct ngine_sc_node* 	ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type);
+
+enum {
+  NGINE_SHAPE_POINT = 0,
+  NGINE_SHAPE_BOX,
+  NGINE_SHAPE_SPHERE,
+  NGINE_SHAPE_CONVEX,
+  NGINE_SHAPE_GIMPACT,
+  NGINE_SHAPE_TRIMESH
+};
+
+struct ngine_phys_info {};
+
+void 			ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys, int _shape_type);
+// void 			ngine_sc_node_phys_activate(struct ngine_sc_node* _self, char _active);
 
 //intern
-struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self);
+struct ngine_sc_node* 	ngine_sc_node_upd_mat(struct ngine_sc_node* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

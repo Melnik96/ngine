@@ -16,7 +16,7 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
   
   mesh->num_vertices = obj->max_vertices;
   mesh->vertices = obj->vertices;
-//   mesh->uvs = obj->textures;
+  mesh->uvs = obj->textures;
 //   mesh->normals = obj->normals;
 
   // materials
@@ -33,7 +33,7 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
   mesh->chunk = calloc(obj->max_chunk, sizeof(*(mesh->chunk)));
   
   for(int i = 0; i != obj->max_chunk; ++i) {
-    mesh->uvs = malloc(obj->chunk[i]->max_tri*3*sizeof(vec2));
+//     mesh->uvs = malloc(obj->chunk[i]->max_tri*3*sizeof(vec2));
   
     mesh->chunk[i].mtl = &(mat[i]);
     
@@ -46,13 +46,21 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
       mesh->chunk[i].indices[f/2+1] = obj->chunk[i]->tri_index[f+2];
       mesh->chunk[i].indices[f/2+2] = obj->chunk[i]->tri_index[f+4];
 //       printf("tringle: %i, %i, %i\n", mesh->chunk[i].indices[f/2], mesh->chunk[i].indices[f/2+1], mesh->chunk[i].indices[f/2+2]);
-      mesh->uvs[f/2].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+1]];
-      mesh->uvs[f/2].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+1]+1];
-      mesh->uvs[f/2+1].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+3]];
-      mesh->uvs[f/2+1].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+3]+1];
-      mesh->uvs[f/2+2].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+5]];
-      mesh->uvs[f/2+2].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+5]+1];
-//       printf("uv: %f, %f, %f\n", mesh->uvs[f/2].x, mesh->uvs[f/2].y, mesh->uvs[f/2+2]);
+//       memcpy(((float*)mesh->uvs)+(f)*sizeof(float), obj->textures+2*(obj->chunk[i]->tri_index[f+1]), 2*sizeof(float));
+//       memcpy(((float*)mesh->uvs)+(f+2)*sizeof(float), obj->textures+2*(obj->chunk[i]->tri_index[f+3]), 2*sizeof(float));
+//       memcpy(((float*)mesh->uvs)+(f+4)*sizeof(float), obj->textures+2*(obj->chunk[i]->tri_index[f+5]), 2*sizeof(float));
+      
+//       mesh->uvs[f/2].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+1]*2];
+//       mesh->uvs[f/2].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+1]+1];
+//       mesh->uvs[f/2+1].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+3]];
+//       mesh->uvs[f/2+1].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+3]+1];
+//       mesh->uvs[f/2+2].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+5]];
+//       mesh->uvs[f/2+2].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+5]+1];
+      printf("uv: %f, %f,\n    %f, %f,\n    %f, %f,\n", 
+				 mesh->uvs[f/2].x, mesh->uvs[f/2].y, 
+				 mesh->uvs[f/2+1].x, mesh->uvs[f/2+1].y,
+				 mesh->uvs[f/2+2].x, mesh->uvs[f/2+2].y
+	    );
     }
   }
   

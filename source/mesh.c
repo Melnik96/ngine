@@ -58,7 +58,7 @@ void ngine_mesh_update(struct ngine_mesh* _self) {
 
   if(_self->uvs) {
     glBindBuffer(GL_ARRAY_BUFFER, _self->hw_buf.uv);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _self->num_vertices, _self->uvs, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _self->chunk->num_indices, _self->uvs, GL_STATIC_DRAW);
     glEnableVertexAttribArray(NGINE_ATTR_UV);
     glVertexAttribPointer(NGINE_ATTR_UV, 2, GL_FLOAT, GL_FALSE, 0, 0);
   }

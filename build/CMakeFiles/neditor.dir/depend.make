@@ -12,7 +12,6 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/math/matrix.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/math/vector.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/ngine.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/render/render.h
-CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/render_target.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/sc_obj.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/scene.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/sound_mgr.h

@@ -93,6 +93,7 @@ CMakeFiles/ngine.dir/source/mesh.c.o: ../source/mesh.c
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/mesh.h
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/shader_prog.h
 
+CMakeFiles/ngine.dir/source/ngine.c.o: ../source/camera.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/cntr/tree.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/entity.h
@@ -149,12 +150,15 @@ CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/cntr/tree.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/ngine.h
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/physics/rigidbody/RBI_api.h
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/sc_obj.c
 CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/sc_obj.h
+CMakeFiles/ngine.dir/source/sc_obj.c.o: ../source/scene.h
 
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/cntr/tree.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/math/matrix.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/math/vector.h
+CMakeFiles/ngine.dir/source/scene.c.o: ../source/physics/rigidbody/RBI_api.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/sc_obj.h
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/scene.c
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/scene.h

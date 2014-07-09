@@ -39,7 +39,7 @@ struct ngine_render_op {
 };
 
 struct ngine_render_queue {
-  // framebuffer
+  struct ngine_render_target* 	render_target;
   
   mat4* 		view_mat;
   mat4* 		proj_mat;

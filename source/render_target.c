@@ -36,3 +36,14 @@ struct ngine_render_target* ngine_render_target_create(struct ngine_sc_node* _ca
   
   return new_target;
 }
+
+// void ngine_render_target_create(struct ngine_sc_node* _camera, uint32_t _w, uint32_t _h) {
+//   struct ngine_render_target* new_target = calloc(1, sizeof(struct ngine_render_target));
+//   new_target->width = _w;
+//   new_target->height = _h;
+//   new_target->camera = _camera;
+//   
+//   struct ngine_camera* cam = (struct ngine_camera*)(_camera->attached_obj);
+//   
+//   kmMat4PerspectiveProjection(&new_target->mat_proj, cam->fov, (float)_w/(float)_h, cam->near, cam->far);
+// }

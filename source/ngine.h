@@ -35,7 +35,7 @@ struct job {
 struct ngine {
   struct ngine_window* 	windows;
   struct ngine_render_target* rend_target;// array
-  struct scene* 	scenes;
+  struct ngine_scene* 	scenes;
   
   // resources
   struct dynlib* 	dynlibs;

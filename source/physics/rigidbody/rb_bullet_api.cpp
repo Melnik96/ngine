@@ -690,7 +690,7 @@ rbCollisionShape *RB_shape_new_cylinder(float radius, float height)
 
 /* Setup (Convex Hull) ------------ */
 
-rbCollisionShape *RB_shape_new_convex_hull(float *verts, int stride, int count, float margin, bool *can_embed)
+rbCollisionShape *RB_shape_new_convex_hull(float* verts, int stride, int count, float margin, char* can_embed)
 {
 	btConvexHullComputer hull_computer = btConvexHullComputer();
 	

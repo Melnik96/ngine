@@ -20,18 +20,31 @@
 #include <string.h>
 #include <malloc.h>
 
+#include "physics/rigidbody/RBI_api.h"
 #include "sc_obj.h"
 
 #include "scene.h"
 
-struct scene* scene_create(char* _name, char _auto_create_root_obj) {
-  struct scene* new_scene = malloc(sizeof(struct scene));
-  strcpy(new_scene->name, _name);
+struct ngine_scene* ngine_scene_create(char* _name, char _dynamics, char _auto_create_root_obj) {
+  struct ngine_scene* new_scene = malloc(sizeof(struct ngine_scene));
+  new_scene->name = _name;
+  
+//   if(_dynamics) {
+//     ngine_scene_dynamics_create(new_scene);
+//     ngine_scene_dynamics_enable(new_scene);
+//   } else {
+//     new_scene->root_object = NULL;
+//   }
   
   if(_auto_create_root_obj) {
-    new_scene->root_object = ngine_sc_node_create("root_object", "null");
+    new_scene->root_object = ngine_sc_node_create(new_scene, "root_object", "null");
   } else {
     new_scene->root_object = NULL;
   }
+  
   return new_scene;
+}
+
+void ngine_scene_dynamics_create(struct ngine_scene* _self, vec3* _gravity) {
+//   _self->dyn_world = RB_dworld_new(_gravity);
 }

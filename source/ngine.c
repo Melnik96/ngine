@@ -38,6 +38,7 @@
 #include "shader_prog.h"
 #include "render/render.h"
 #include "render_target.h"
+#include "camera.h"
 
 #include <kazmath/kazmath.h>
 
@@ -82,16 +83,6 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
-#define deg2rad(x) (float)(((x) * M_PI / 180.0f))
-#define rad2deg(x) (float)(((x) * 180.0f / M_PI))
-  struct ngine_sc_node* obj = ((struct ngine_sc_node*)_self->scenes->root_object->link.childs);
-  /*
-  if(cur_yaw >= 2*3.14159265358979323846f) {
-    cur_yaw = 0;
-  }*/
-  
-  
-  
   //for each render target
 //   for(int i = 0; ; ++i) {
 /*    if(&_self->windows[i] != NULL && 
@@ -142,17 +133,20 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
 //     debug("procces entity obj");
-//     if(_obj->translated) {
+    if(/*_obj->translated*/1) {
       ngine_sc_node_upd_mat(_obj);
-//     }
+    } /*else if(_obj->phys_active) {
+      RB_get_transform_matrix();
+    }*/
     
+      struct ngine_camera* __cam = ((struct ngine_camera*)_ngine->rend_target->camera->attached_obj);
+      kmMat4PerspectiveProjection(&_ngine->rend_target->mat_proj, __cam->fov, (float)_ngine->rend_target->width/(float)_ngine->rend_target->height, __cam->near, __cam->far);
+      
     kmMat4* mvp = calloc(1, sizeof(kmMat4));
       mat4 tmp_mat;
       kmMat4Inverse(&tmp_mat, &_ngine->rend_target->camera->matrix);
       kmMat4Multiply(&tmp_mat, &tmp_mat, &_obj->matrix);
       kmMat4Multiply(mvp, &_ngine->rend_target->mat_proj, &tmp_mat);
-      
-//       kmMat4Multiply(mvp, &_obj->matrix, &_rend_target->mat_proj);
 
       struct ngine_render_op* rop = calloc(1, sizeof(struct ngine_render_op));
       rop->entity = _obj;
