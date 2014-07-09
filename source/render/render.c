@@ -256,7 +256,10 @@ struct ngine_tech* ngine_create_tech_gl44_low() {
   }
   // ngine_shdr_prog_uniform
   
-//   glEnable(GL_CULL_FACE);
+  glEnable(GL_CULL_FACE);
+  glClearDepth(1.0f);
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS); 
   
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary

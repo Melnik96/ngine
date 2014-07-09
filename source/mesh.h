@@ -44,6 +44,7 @@ struct ngine_mesh {
   } *chunk;
   
   aabb 			aabb;
+  struct rbCollisionShape* coll_shape;
   
   struct {
     uint32_t vert;
@@ -53,8 +54,19 @@ struct ngine_mesh {
   } hw_buf;
 };
 
-struct ngine_mesh* 	ngine_mesh_create(int _num_chunks);
-// 			update gpu beffers. possibly will renamed to ngine_mesh_gpu
-void 			ngine_mesh_update(struct ngine_mesh* _self);
+struct ngine_mesh* 		ngine_mesh_create(int _num_chunks);
+// 				update gpu beffers. possibly will renamed to ngine_mesh_gpu
+void 				ngine_mesh_update(struct ngine_mesh* _self);
+
+enum {
+  NGINE_SHAPE_POINT = 0,
+  NGINE_SHAPE_BOX,
+  NGINE_SHAPE_SPHERE,
+  NGINE_SHAPE_CONVEX,
+  NGINE_SHAPE_GIMPACT,
+  NGINE_SHAPE_TRIMESH
+};
+
+struct rbCollisionShape* 	ngine_mesh_make_coll_shape(struct ngine_mesh* _self, int _shape_type);
 
 #endif /* __MESH_H__ */

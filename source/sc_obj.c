@@ -27,49 +27,56 @@
 #include "physics/rigidbody/RBI_api.h"
 
 #include "ngine.h"
+#include "log.h"
 #include "scene.h"
+#include "entity.h"
 
 #include "sc_obj.h"
+#include "mesh.h"
 
 struct ngine_sc_node* ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type) {
   struct ngine_sc_node* new_obj = calloc(1, sizeof(struct ngine_sc_node));
   new_obj->listener = calloc(1, sizeof(struct ngine_sc_node_listener));
   new_obj->name = _name;
   new_obj->type = _type;
+  new_obj->scene = _scene;
   
   kmMat4Identity(&new_obj->matrix);
-  
   
   return new_obj;
 }
 
-void ngine_sc_node_phys_setup(struct ngine_sc_node* _self, struct ngine_phys_info* _phys, int _shape_type) {
-//   if(_self->type == NGINE_SC_OBJ_ENTITY) {
-//     if(_shape_type == NGINE_SHAPE_BOX) {
-//       RB_shape_new_box(1, 1, 1);
-//     } else if(_shape_type == NGINE_SHAPE_POINT) {
-//       RB_shape_new_gimpact_mesh();
-//     } else if(_shape_type == NGINE_SHAPE_SPHERE) {
-//       RB_shape_new_gimpact_mesh();
-//     } else if(_shape_type == NGINE_SHAPE_TRIMESH) {
-//       RB_shape_new_gimpact_mesh();
-//     } else if(_shape_type == NGINE_SHAPE_CONVEX) {
-//       RB_shape_new_gimpact_mesh();
-//     } else if(_shape_type == NGINE_SHAPE_GIMPACT) {
-//       RB_trimesh_data_new();
-//       RB_trimesh_add_vertices();
-//       // fot every chunk
-//       RB_trimesh_add_triangle_indices();
-//       RB_trimesh_finish();
-//       
-//       RB_shape_new_gimpact_mesh();
-//     }
-//   } else {
-//     
-//   }
-//   
-//   RB_body_new();
-//   RB_dworld_add_body();
+void ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative) {
+  if(_relative == NGINE_TRANS_LOCAL) {
+    vec3 tvec;
+    kmQuaternionMultiplyVec3(&tvec, &_self->orient, _vec);
+    kmVec3Add(&_self->pos, &tvec, &_self->pos);
+  } else if(_relative == NGINE_TRANS_PARENT) {
+    kmVec3Add(&_self->pos, _vec, &_self->pos);
+  } else if(_relative == NGINE_TRANS_WORLD) {
+    vec3 tvec;
+    kmQuaternionMultiplyVec3(&tvec, &((struct ngine_sc_node*)tree_get_head(_self))->orient, _vec);
+    kmVec3Add(&_self->pos, &tvec, &_self->pos);
+  } else {
+    error("sc_node trans type invalid");
+  }
+  _self->translated = 1;
+}
+
+
+void ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys) {
+  if(_self->type == NGINE_SC_OBJ_ENTITY) {
+    _self->rigid_body = RB_body_new(((struct ngine_entity*)_self->attached_obj)->mesh->coll_shape, &_self->pos, &_self->orient);
+    debug("create rigidbody for entity");
+  } else {
+    // TODO
+  }
+  
+  RB_dworld_add_body(_self->scene->dyn_world, _self->rigid_body, 0);
+  RB_body_activate(_self->rigid_body);
+  RB_body_set_mass(_self->rigid_body, 12);
+  
+  _self->dynamic = 1;
 }
 
 // intern
@@ -81,7 +88,6 @@ struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self) {
 
 //   kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
 //   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
-  sleep(0.1);
   
   kmMat4RotationQuaternion(tmp_mat, &_self->orient);
   kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);

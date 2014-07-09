@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/RBI_api.h
+
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/rb_bullet_api.cpp
+stdio.h
+-
+errno.h
+-
+RBI_api.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/RBI_api.h
+bullet/btBulletDynamicsCommon.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/btBulletDynamicsCommon.h
+bullet/LinearMath/btVector3.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/LinearMath/btVector3.h
+bullet/LinearMath/btScalar.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/LinearMath/btScalar.h
+bullet/LinearMath/btMatrix3x3.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/LinearMath/btMatrix3x3.h
+bullet/LinearMath/btTransform.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/LinearMath/btTransform.h
+bullet/LinearMath/btConvexHullComputer.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/LinearMath/btConvexHullComputer.h
+bullet/BulletCollision/Gimpact/btGImpactShape.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/BulletCollision/Gimpact/btGImpactShape.h
+bullet/BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h
+bullet/BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h
+/home/melnik/projects/ngine_ungit/source/physics/rigidbody/bullet/BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h
+

@@ -39,6 +39,7 @@
 #include "render/render.h"
 #include "render_target.h"
 #include "camera.h"
+#include "physics/rigidbody/RBI_api.h"
 
 #include <kazmath/kazmath.h>
 
@@ -83,6 +84,7 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
+  glfwPollEvents();
   //for each render target
 //   for(int i = 0; ; ++i) {
 /*    if(&_self->windows[i] != NULL && 
@@ -93,6 +95,9 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
 //       struct ngine_sc_node* root_sc_obj = tree_get_head(_self->windows[i].viewport->camera);
       tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
+      if(_self->scenes->dyn_world) {
+	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 1, 0.5);
+      }
       ngine_render_frame(_self->render, 0);
       
       glfwSwapBuffers(_self->windows->win);
@@ -101,7 +106,6 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
 //       break;
 //     }*/
 //   }
-  glfwPollEvents();
   FMOD_System_Update(_self->fmod_sound);
 }
 
@@ -131,12 +135,24 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
     _obj->listener->on_update(_obj, *_time_elapsed);
   }
   
+//   if(1/*_obj->translated*/) {
+//     if(_obj->dynamic) {
+//       RB_body_set_loc_rot();
+//     } else {
+//       ngine_sc_node_upd_mat(_obj);
+//     }
+//   }
+  
+  if(_obj->dynamic) {
+    RB_body_get_transform_matrix(_obj->rigid_body, &_obj->matrix.m);
+  } else {
+    ngine_sc_node_upd_mat(_obj);
+  }
+  
   if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
 //     debug("procces entity obj");
-    if(/*_obj->translated*/1) {
-      ngine_sc_node_upd_mat(_obj);
-    } /*else if(_obj->phys_active) {
-      RB_get_transform_matrix();
+    /*else if(_obj->phys_active) { 
+    RB_get_transform_matrix();
     }*/
     
       struct ngine_camera* __cam = ((struct ngine_camera*)_ngine->rend_target->camera->attached_obj);

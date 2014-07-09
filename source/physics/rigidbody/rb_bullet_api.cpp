@@ -61,17 +61,17 @@ subject to the following restrictions:
 
 #include "RBI_api.h"
 
-#include "btBulletDynamicsCommon.h"
+#include "bullet/btBulletDynamicsCommon.h"
 
-#include "LinearMath/btVector3.h"
-#include "LinearMath/btScalar.h"	
-#include "LinearMath/btMatrix3x3.h"
-#include "LinearMath/btTransform.h"
-#include "LinearMath/btConvexHullComputer.h"
+#include "bullet/LinearMath/btVector3.h"
+#include "bullet/LinearMath/btScalar.h"	
+#include "bullet/LinearMath/btMatrix3x3.h"
+#include "bullet/LinearMath/btTransform.h"
+#include "bullet/LinearMath/btConvexHullComputer.h"
 
-#include "BulletCollision/Gimpact/btGImpactShape.h"
-#include "BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h"
-#include "BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h"
+#include "bullet/BulletCollision/Gimpact/btGImpactShape.h"
+#include "bullet/BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h"
+#include "bullet/BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h"
 
 struct rbDynamicsWorld {
 	btDiscreteDynamicsWorld *dynamicsWorld;
@@ -597,6 +597,7 @@ void RB_body_set_loc_rot(rbRigidBody *object, const float loc[3], const float ro
 	btTransform trans;
 	trans.setOrigin(btVector3(loc[0], loc[1], loc[2]));
 	trans.setRotation(btQuaternion(rot[1], rot[2], rot[3], rot[0]));
+// 	trans.setRotation(btQuaternion(rot[0], rot[1], rot[2], rot[3]));
 	
 	ms->setWorldTransform(trans);
 }

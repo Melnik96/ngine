@@ -5,6 +5,7 @@ project(ngine)
 include_directories("source")
 include_directories("source/math/")
 include_directories("source/import/blender/")
+include_directories("/usr/local/include/bullet/")
 
 # add_definitions("-D__GNUC__")
 
@@ -27,14 +28,17 @@ set(engine_sources
   source/import/obj/obj.c
   source/import/obj/awol/awol.c
   source/import/targa/tga.c
+  source/physics/rigidbody/rb_bullet_api.cpp
 )
 
 add_library(ngine SHARED ${engine_sources})
 target_link_libraries(ngine
   "GL"
-  "fmodex"
   "GLEW"
   "glfw"
+  "fmodex"
+  "/usr/local/lib/libBulletCollision.so"
+  "/usr/local/lib/libBulletDynamics.so"
   "kazmath.so"
   "pthread"
   "tcc"

@@ -54,11 +54,11 @@ void moveing_right(struct ngine_sc_node* _sc_node, float _time);
 void node_rotation(struct ngine_sc_node* _sc_node, float _time);
 
 struct ngine_scene* create_scene(struct ngine* _ngine) {
-  struct ngine_scene* nscene = ngine_scene_create("neditor", 1, 1);
+  struct ngine_scene* nscene = ngine_scene_create("neditor", 0, 1);
   debug("scene 'neditor' created");
   
   struct ngine_sc_node* node_cam = ngine_sc_node_create(nscene, "camera", NGINE_SC_OBJ_CAMERA);
-  node_cam->attached_obj = ngine_camera_create(90.0, 0.1, 1000.0);
+  node_cam->attached_obj = ngine_camera_create(90.0, 0.1, 100.0);
   node_cam->pos.z = 0.5;
   node_cam->pos.x = 0;
   node_cam->pos.y = 0;
@@ -103,42 +103,89 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
   
   node_suzy->listener->on_update = node_rotation;
-}
+
 {
-  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
-  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_BOX);
-  ngine_mesh_update(mesh_suzy);
-//   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  struct ngine_mesh* mesh_suzy2 = ngine_mesh_import_obj("media/models/suzanne.obj");
+//   ngine_texture_image(mesh_suzy2->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  mesh_suzy2->chunk->mtl = ngine_material_create();
+  mesh_suzy2->chunk->mtl->tex_color = ngine_texture_create(0);
+  ngine_texture_image(mesh_suzy2->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  ngine_mesh_update(mesh_suzy2);
   
-  struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
-  struct ngine_sc_node* node_suzy = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
+  struct ngine_entity* ent_suzy2 = ngine_entity_create("sphere", mesh_suzy2);
+  struct ngine_sc_node* node_suzy2 = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
   
-  node_suzy->attached_obj = (struct list*)ent_suzy;
-  node_suzy->pos.x = 2.0;
-  node_suzy->pos.y = 0.0;
-  node_suzy->pos.z = -4.0;
-  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
-  ngine_sc_node_make_dynamic(node_suzy, 0);
-  
-  tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
-}
-{
-  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
-//   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
-  ngine_mesh_update(mesh_suzy);
-  
-  struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
-  struct ngine_sc_node* node_suzy = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
-  
-  node_suzy->attached_obj = (struct list*)ent_suzy;
-  node_suzy->pos.x = 3.0;
-  node_suzy->pos.y = -1.5;
-  node_suzy->pos.z = -3.0;
-  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(-45), 0);
+  node_suzy2->attached_obj = (struct list*)ent_suzy2;
+  node_suzy2->pos.x = -2.0;
+  node_suzy2->pos.y = -2.0;
+  node_suzy2->pos.z = -2.0;
+  kmQuaternionRotationPitchYawRoll(&node_suzy2->orient, 0, deg2rad(0), 0);
 //   node_suzy->orient = (quat){0, 0, 1, 0.9};
   
-  tree_add_child((struct tree*)node_cam, (struct tree*)node_suzy);
+  tree_add_child((struct tree*)node_suzy, (struct tree*)node_suzy2);
+  
+  node_suzy2->listener->on_update = node_rotation;
+}{
+  struct ngine_mesh* mesh_suzy2 = ngine_mesh_import_obj("media/models/suzanne.obj");
+//   ngine_texture_image(mesh_suzy2->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  mesh_suzy2->chunk->mtl = ngine_material_create();
+  mesh_suzy2->chunk->mtl->tex_color = ngine_texture_create(0);
+  ngine_texture_image(mesh_suzy2->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  ngine_mesh_update(mesh_suzy2);
+  
+  struct ngine_entity* ent_suzy2 = ngine_entity_create("sphere", mesh_suzy2);
+  struct ngine_sc_node* node_suzy2 = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
+  
+  node_suzy2->attached_obj = (struct list*)ent_suzy2;
+  node_suzy2->pos.x = -0.0;
+  node_suzy2->pos.y = -2.0;
+  node_suzy2->pos.z = 2.0;
+  kmQuaternionRotationPitchYawRoll(&node_suzy2->orient, 0, deg2rad(0), 0);
+//   node_suzy->orient = (quat){0, 0, 1, 0.9};
+  
+  tree_add_child((struct tree*)node_suzy, (struct tree*)node_suzy2);
+  
+  node_suzy2->listener->on_update = node_rotation;
+}{
+  struct ngine_mesh* mesh_suzy2 = ngine_mesh_import_obj("media/models/suzanne.obj");
+//   ngine_texture_image(mesh_suzy2->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  mesh_suzy2->chunk->mtl = ngine_material_create();
+  mesh_suzy2->chunk->mtl->tex_color = ngine_texture_create(0);
+  ngine_texture_image(mesh_suzy2->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  ngine_mesh_update(mesh_suzy2);
+  
+  struct ngine_entity* ent_suzy2 = ngine_entity_create("sphere", mesh_suzy2);
+  struct ngine_sc_node* node_suzy2 = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
+  
+  node_suzy2->attached_obj = (struct list*)ent_suzy2;
+  node_suzy2->pos.x = 2.0;
+  node_suzy2->pos.y = -2.0;
+  node_suzy2->pos.z = -2.0;
+  kmQuaternionRotationPitchYawRoll(&node_suzy2->orient, 0, deg2rad(0), 0);
+//   node_suzy->orient = (quat){0, 0, 1, 0.9};
+  
+  tree_add_child((struct tree*)node_suzy, (struct tree*)node_suzy2);
+  
+  node_suzy2->listener->on_update = node_rotation;
 }
+}
+// {
+//   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
+// //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+//   ngine_mesh_update(mesh_suzy);
+//   
+//   struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
+//   struct ngine_sc_node* node_suzy = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
+//   
+//   node_suzy->attached_obj = (struct list*)ent_suzy;
+//   node_suzy->pos.x = 2.0;
+//   node_suzy->pos.y = 0.0;
+//   node_suzy->pos.z = -4.0;
+//   kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
+// //   node_suzy->orient = (quat){0, 0, 1, 0.9};
+//   
+//   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
+// }
 
 //   ngine_input_bind_key(_ngine->input, GLFW_KEY_F11, 1, &1, ngine_window_fullscrean);
   ngine_input_bind_key(_ngine->input, GLFW_KEY_ESCAPE, 1, 0, exit);
@@ -183,16 +230,16 @@ void move_none(struct ngine_sc_node* _sc_node) {
 }
 // sc_node->on_update
 void moveing_forward(struct ngine_sc_node* _sc_node, float _time) {
-  ngine_sc_node_translate(_sc_node, &(vec3){0,0,-0.5}, NGINE_TRANS_LOCAL);
+  _sc_node->pos.z -= 0.5;
 }
 void moveing_backward(struct ngine_sc_node* _sc_node, float _time) {
-  ngine_sc_node_translate(_sc_node, &(vec3){0,0,0.5}, NGINE_TRANS_LOCAL);
+  _sc_node->pos.z += 0.5;
 }
 void moveing_left(struct ngine_sc_node* _sc_node, float _time) {
-  ngine_sc_node_translate(_sc_node, &(vec3){-0.5,0,0}, NGINE_TRANS_LOCAL);
+  _sc_node->pos.x -= 0.5;
 }
 void moveing_right(struct ngine_sc_node* _sc_node, float _time) {
-  ngine_sc_node_translate(_sc_node, &(vec3){0.5,0,0}, NGINE_TRANS_LOCAL);
+  _sc_node->pos.x += 0.5;
 }
 
 float cur_yaw = 0;

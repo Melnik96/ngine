@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   struct neditor* neditor = malloc(sizeof(struct neditor));
   neditor->engine = ngine_create();
   struct ngine* ngine = neditor->engine;
-  neditor->engine->windows = ngine_window_create("Nutty Engine Editor", 640, 480);
+  neditor->engine->windows = ngine_window_create("Nutty Engine Editor", 1440, 900);
   neditor->engine->input = ngine_input_create(neditor->engine->windows);
   neditor->engine->render = ngine_render_create();
   

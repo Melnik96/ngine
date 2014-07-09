@@ -40,6 +40,12 @@ enum sc_obj_type {
   //user defined types
 };
 
+enum {
+  NGINE_TRANS_LOCAL = 0,
+  NGINE_TRANS_PARENT,
+  NGINE_TRANS_WORLD
+};
+
 struct ngine_sc_node {
   struct tree 		link;
   
@@ -55,6 +61,7 @@ struct ngine_sc_node {
   mat4 			matrix;
   
   void* 		attached_obj;
+  struct rbRigidBody* 	rigid_body;
   
   // indicators
   char 			translated;
@@ -68,19 +75,11 @@ struct ngine_sc_node {
 };
 
 struct ngine_sc_node* 	ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type);
-
-enum {
-  NGINE_SHAPE_POINT = 0,
-  NGINE_SHAPE_BOX,
-  NGINE_SHAPE_SPHERE,
-  NGINE_SHAPE_CONVEX,
-  NGINE_SHAPE_GIMPACT,
-  NGINE_SHAPE_TRIMESH
-};
+void 			ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative);
 
 struct ngine_phys_info {};
 
-void 			ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys, int _shape_type);
+void 			ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys);
 // void 			ngine_sc_node_phys_activate(struct ngine_sc_node* _self, char _active);
 
 //intern

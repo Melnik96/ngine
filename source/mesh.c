@@ -21,6 +21,7 @@
 #include <GL/glew.h>
 #include <GL/gl.h>
 
+#include "physics/rigidbody/RBI_api.h"
 #include "shader_prog.h"
 
 #include "mesh.h"
@@ -76,4 +77,35 @@ void ngine_mesh_update(struct ngine_mesh* _self) {
 #if DEBUG
   gl_get_error();
 #endif
+}
+
+struct rbCollisionShape* ngine_mesh_make_coll_shape(struct ngine_mesh* _self, int _shape_type) {
+  if(_shape_type == NGINE_SHAPE_BOX) {
+    _self->coll_shape = RB_shape_new_box(1, 1, 1);
+  } /*else if(_shape_type == NGINE_SHAPE_POINT) {
+    coll_shape = RB_shape_new_gimpact_mesh();
+  } */else if(_shape_type == NGINE_SHAPE_SPHERE) {
+    _self->coll_shape = RB_shape_new_sphere(1);
+  }/* else if(_shape_type == NGINE_SHAPE_TRIMESH) {
+    coll_shape = RB_shape_new_trimesh(mesh_data);
+  } *//*else if(_shape_type == NGINE_SHAPE_CONVEX) {
+    coll_shape = RB_shape_new_convex_hull();
+  } */else if(_shape_type == NGINE_SHAPE_GIMPACT) {
+    uint32_t num_tris = 0;
+    for(int i = 0; i != _self->num_chunks; ++i) {
+      num_tris += _self->chunk[i].num_indices/3;
+    }
+    rbMeshData* mesh_data = RB_trimesh_data_new(num_tris, _self->num_vertices);
+    RB_trimesh_add_vertices(mesh_data, _self->vertices, _self->num_vertices, 0);
+    // fot every chunk
+    for(int i = 0; i != _self->num_chunks; ++i) {
+      for(uint32_t ii = 0; ii != _self->chunk[i].num_indices; ii+=3) {
+	RB_trimesh_add_triangle_indices(mesh_data, ii/3, _self->chunk[i].indices[ii], _self->chunk[i].indices[ii+1], _self->chunk[i].indices[ii*3+2]);
+      }
+    }
+    RB_trimesh_finish(mesh_data);
+
+    _self->coll_shape = RB_shape_new_gimpact_mesh(mesh_data);
+  }
+  return _self->coll_shape;
 }

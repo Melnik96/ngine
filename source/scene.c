@@ -29,12 +29,10 @@ struct ngine_scene* ngine_scene_create(char* _name, char _dynamics, char _auto_c
   struct ngine_scene* new_scene = malloc(sizeof(struct ngine_scene));
   new_scene->name = _name;
   
-//   if(_dynamics) {
-//     ngine_scene_dynamics_create(new_scene);
+  if(_dynamics) {
+    ngine_scene_dynamics_create(new_scene, &(vec3){0,-1,0});
 //     ngine_scene_dynamics_enable(new_scene);
-//   } else {
-//     new_scene->root_object = NULL;
-//   }
+  }
   
   if(_auto_create_root_obj) {
     new_scene->root_object = ngine_sc_node_create(new_scene, "root_object", "null");
@@ -46,5 +44,5 @@ struct ngine_scene* ngine_scene_create(char* _name, char _dynamics, char _auto_c
 }
 
 void ngine_scene_dynamics_create(struct ngine_scene* _self, vec3* _gravity) {
-//   _self->dyn_world = RB_dworld_new(_gravity);
+  _self->dyn_world = RB_dworld_new(_gravity);
 }

@@ -1,2 +1,2 @@
-/home/melnik/projects/ngine/build/CMakeFiles/neditor.dir
-/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir
+/home/melnik/projects/ngine_ungit/build/CMakeFiles/neditor.dir
+/home/melnik/projects/ngine_ungit/build/CMakeFiles/ngine.dir
