@@ -5,7 +5,7 @@ project(ngine)
 include_directories("source")
 include_directories("source/math/")
 include_directories("source/import/blender/")
-include_directories("/usr/local/include/bullet/")
+include_directories("/usr/include/bullet/")
 
 # add_definitions("-D__GNUC__")
 
@@ -37,8 +37,8 @@ target_link_libraries(ngine
   "GLEW"
   "glfw"
   "fmodex"
-  "/usr/local/lib/libBulletCollision.so"
-  "/usr/local/lib/libBulletDynamics.so"
+  "libBulletCollision.so"
+  "libBulletDynamics.so"
   "kazmath.so"
   "pthread"
   "tcc"

@@ -72,9 +72,9 @@ void ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_i
     // TODO
   }
   
-  RB_dworld_add_body(_self->scene->dyn_world, _self->rigid_body, 0);
+  RB_dworld_add_body(_self->scene->dyn_world, _self->rigid_body, 1);
   RB_body_activate(_self->rigid_body);
-  RB_body_set_mass(_self->rigid_body, 12);
+  RB_body_set_mass(_self->rigid_body, _phys->mass);
   
   _self->dynamic = 1;
 }

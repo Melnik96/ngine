@@ -74,27 +74,27 @@ math/matrix.h
 
 ../source/window.h
 
-/home/melnik/projects/ngine_ungit/neditor/source/main.c
+/home/melnik/projects/ngine/neditor/source/main.c
 ngine.h
-/home/melnik/projects/ngine_ungit/neditor/source/ngine.h
+/home/melnik/projects/ngine/neditor/source/ngine.h
 window.h
-/home/melnik/projects/ngine_ungit/neditor/source/window.h
+/home/melnik/projects/ngine/neditor/source/window.h
 scene.h
-/home/melnik/projects/ngine_ungit/neditor/source/scene.h
+/home/melnik/projects/ngine/neditor/source/scene.h
 iofile.h
-/home/melnik/projects/ngine_ungit/neditor/source/iofile.h
+/home/melnik/projects/ngine/neditor/source/iofile.h
 viewport.h
-/home/melnik/projects/ngine_ungit/neditor/source/viewport.h
+/home/melnik/projects/ngine/neditor/source/viewport.h
 dynlib.h
-/home/melnik/projects/ngine_ungit/neditor/source/dynlib.h
+/home/melnik/projects/ngine/neditor/source/dynlib.h
 sc_obj.h
-/home/melnik/projects/ngine_ungit/neditor/source/sc_obj.h
+/home/melnik/projects/ngine/neditor/source/sc_obj.h
 sound_mgr.h
-/home/melnik/projects/ngine_ungit/neditor/source/sound_mgr.h
+/home/melnik/projects/ngine/neditor/source/sound_mgr.h
 iohand/input.h
-/home/melnik/projects/ngine_ungit/neditor/source/iohand/input.h
+/home/melnik/projects/ngine/neditor/source/iohand/input.h
 render/render.h
-/home/melnik/projects/ngine_ungit/neditor/source/render/render.h
+/home/melnik/projects/ngine/neditor/source/render/render.h
 camera.h
 -
 malloc.h
@@ -106,7 +106,7 @@ fmodex/fmod.h
 kazmath/kazmath.h
 -
 neditor.h
-/home/melnik/projects/ngine_ungit/neditor/source/neditor.h
+/home/melnik/projects/ngine/neditor/source/neditor.h
 
-/home/melnik/projects/ngine_ungit/neditor/source/neditor.h
+/home/melnik/projects/ngine/neditor/source/neditor.h
 

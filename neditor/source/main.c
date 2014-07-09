@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   struct neditor* neditor = malloc(sizeof(struct neditor));
   neditor->engine = ngine_create();
   struct ngine* ngine = neditor->engine;
-  neditor->engine->windows = ngine_window_create("Nutty Engine Editor", 1440, 900);
+  neditor->engine->windows = ngine_window_create("Nutty Engine Editor", 640, 480);
   neditor->engine->input = ngine_input_create(neditor->engine->windows);
   neditor->engine->render = ngine_render_create();
   
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
   
   // create scene in script 'create_scene.c'
   struct dynlib* cs = dynlib_open(neditor->engine, "create_scene");
-  struct scene*(*create_scene)(struct ngine*) = dynlib_getsym(cs, "create_scene");
+  struct ngine_scene*(*create_scene)(struct ngine*) = dynlib_getsym(cs, "create_scene");
   void(*print_win_closed)(void) = dynlib_getsym(cs, "print_win_closed");
 //   dynlib_close(cs);
   

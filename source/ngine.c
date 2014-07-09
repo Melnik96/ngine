@@ -96,7 +96,7 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
       tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
       if(_self->scenes->dyn_world) {
-	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 1, 0.5);
+	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed*10, 4, 0.01);
       }
       ngine_render_frame(_self->render, 0);
       
