@@ -96,9 +96,11 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
       tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
       if(_self->scenes->dyn_world) {
-	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed*10, 4, 0.01);
+	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
       }
-      ngine_render_frame(_self->render, 0);
+      ngine_render_frame(_self->render, _elapsed);
+      //http://gameprogrammingpatterns.com/
+//       RB_dworld_export(_self->scenes->dyn_world, "bullet_world.bullet");
       
       glfwSwapBuffers(_self->windows->win);
 //       glfwPollEvents();
@@ -131,10 +133,6 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   // -   set gl_render_data
   // -   gl_draw
   
-  if(_obj->listener->on_update) {
-    _obj->listener->on_update(_obj, *_time_elapsed);
-  }
-  
 //   if(1/*_obj->translated*/) {
 //     if(_obj->dynamic) {
 //       RB_body_set_loc_rot();
@@ -144,8 +142,20 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
 //   }
   
   if(_obj->dynamic) {
-    RB_body_get_transform_matrix(_obj->rigid_body, &_obj->matrix.m);
-  } else {
+    RB_body_get_position(_obj->rigid_body, _obj->pos.val);
+    RB_body_get_orientation(_obj->rigid_body, _obj->orient.val);
+//     _obj->pos.z *= -1;
+//     _obj->orient.z *= -1;
+//     _obj->orient.w *= -1;
+//     _obj->translated = 1;
+//     RB_body_get_transform_matrix(_obj->rigid_body, _obj->matrix.m);
+  } 
+  
+  if(_obj->listener->on_update) {
+    _obj->listener->on_update(_obj, *_time_elapsed);
+  }
+  
+  if(1/*_obj->translated*/) {
     ngine_sc_node_upd_mat(_obj);
   }
   

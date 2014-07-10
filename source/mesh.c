@@ -81,7 +81,7 @@ void ngine_mesh_update(struct ngine_mesh* _self) {
 
 struct rbCollisionShape* ngine_mesh_make_coll_shape(struct ngine_mesh* _self, int _shape_type) {
   if(_shape_type == NGINE_SHAPE_BOX) {
-    _self->coll_shape = RB_shape_new_box(1, 1, 1);
+    _self->coll_shape = RB_shape_new_box(30, 1, 30);
   } /*else if(_shape_type == NGINE_SHAPE_POINT) {
     coll_shape = RB_shape_new_gimpact_mesh();
   } */else if(_shape_type == NGINE_SHAPE_SPHERE) {
@@ -92,15 +92,14 @@ struct rbCollisionShape* ngine_mesh_make_coll_shape(struct ngine_mesh* _self, in
       num_tris += _self->chunk[i].num_indices/3;
     }
     rbMeshData* mesh_data = RB_trimesh_data_new(num_tris, _self->num_vertices);
-    RB_trimesh_add_vertices(mesh_data, _self->vertices, _self->num_vertices, 0);
+    RB_trimesh_add_vertices(mesh_data, _self->vertices, _self->num_vertices, 3*sizeof(float));
     // fot every chunk
     for(int i = 0; i != _self->num_chunks; ++i) {
-      for(uint32_t ii = 0; ii != _self->chunk[i].num_indices; ii+=3) {
-	RB_trimesh_add_triangle_indices(mesh_data, ii/3, _self->chunk[i].indices[ii], _self->chunk[i].indices[ii+1], _self->chunk[i].indices[ii*3+2]);
+      for(uint32_t ii = 0; ii != _self->chunk[i].num_indices/3; ++ii) {
+	RB_trimesh_add_triangle_indices(mesh_data, ii, _self->chunk[i].indices[ii*3], _self->chunk[i].indices[ii*3+1], _self->chunk[i].indices[ii*3+2]);
       }
     }
     RB_trimesh_finish(mesh_data);
-    
     _self->coll_shape = RB_shape_new_trimesh(mesh_data);
   } /*else if(_shape_type == NGINE_SHAPE_CONVEX) {
     coll_shape = RB_shape_new_convex_hull();
@@ -110,11 +109,11 @@ struct rbCollisionShape* ngine_mesh_make_coll_shape(struct ngine_mesh* _self, in
       num_tris += _self->chunk[i].num_indices/3;
     }
     rbMeshData* mesh_data = RB_trimesh_data_new(num_tris, _self->num_vertices);
-    RB_trimesh_add_vertices(mesh_data, _self->vertices, _self->num_vertices, 0);
+    RB_trimesh_add_vertices(mesh_data, _self->vertices, _self->num_vertices, 3*sizeof(float));
     // fot every chunk
     for(int i = 0; i != _self->num_chunks; ++i) {
-      for(uint32_t ii = 0; ii != _self->chunk[i].num_indices; ii+=3) {
-	RB_trimesh_add_triangle_indices(mesh_data, ii/3, _self->chunk[i].indices[ii], _self->chunk[i].indices[ii+1], _self->chunk[i].indices[ii*3+2]);
+      for(uint32_t ii = 0; ii != _self->chunk[i].num_indices/3; ++ii) {
+	RB_trimesh_add_triangle_indices(mesh_data, ii, _self->chunk[i].indices[ii*3], _self->chunk[i].indices[ii*3+1], _self->chunk[i].indices[ii*3+2]);
       }
     }
     RB_trimesh_finish(mesh_data);

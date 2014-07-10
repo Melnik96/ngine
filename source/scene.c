@@ -30,7 +30,7 @@ struct ngine_scene* ngine_scene_create(char* _name, char _dynamics, char _auto_c
   new_scene->name = _name;
   
   if(_dynamics) {
-    ngine_scene_dynamics_create(new_scene, &(vec3){0,-1,0});
+    ngine_scene_dynamics_create(new_scene, &(vec3){0,-9.80665,0});
 //     ngine_scene_dynamics_enable(new_scene);
   }
   

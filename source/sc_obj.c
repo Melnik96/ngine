@@ -51,6 +51,11 @@ void ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relat
     vec3 tvec;
     kmQuaternionMultiplyVec3(&tvec, &_self->orient, _vec);
     kmVec3Add(&_self->pos, &tvec, &_self->pos);
+//     if(_self->rigid_body) {
+// //     RB_body_set_loc_rot(_self->rigid_body, &_self->pos, &_self->orient);
+//       RB_body_translate(_self->rigid_body, tvec.val);
+//       RB_body_activate(_self->rigid_body);
+//     }
   } else if(_relative == NGINE_TRANS_PARENT) {
     kmVec3Add(&_self->pos, _vec, &_self->pos);
   } else if(_relative == NGINE_TRANS_WORLD) {
@@ -60,12 +65,40 @@ void ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relat
   } else {
     error("sc_node trans type invalid");
   }
+//   if(_self->rigid_body) {
+// //     RB_body_set_loc_rot(_self->rigid_body, &_self->pos, &_self->orient);
+//     RB_body_translate(_self->rigid_body, &_self->pos);
+//   }
   _self->translated = 1;
 }
 
+void ngine_sc_node_rotate(struct ngine_sc_node* _self, quat* _orient, int _relative) {
+  kmQuaternionAdd(&_self->orient, _orient, &_self->orient);
+  kmQuaternionNormalize(&_self->orient, &_self->orient);
+}
+
+void ngine_sc_node_set_lin_vel(struct ngine_sc_node* _self, vec3* _vel, int _relative) {
+  if(_relative == NGINE_TRANS_LOCAL) {
+    vec3 tvec;
+    kmQuaternionMultiplyVec3(&tvec, &_self->orient, _vel);
+    RB_body_set_linear_velocity(_self->rigid_body, tvec.val);
+  } else if(_relative == NGINE_TRANS_PARENT) {
+    vec3 tvec;
+    kmQuaternionMultiplyVec3(&tvec, &((struct ngine_sc_node*)_self->link.parent)->orient, _vel);
+    RB_body_set_linear_velocity(_self->rigid_body, tvec.val);
+  } else if(_relative == NGINE_TRANS_WORLD) {
+    RB_body_set_linear_velocity(_self->rigid_body, _vel->val);
+  } else {
+    error("sc_node trans type invalid");
+  }
+//   _self->translated = 1;
+}
 
 void ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys) {
   if(_self->type == NGINE_SC_OBJ_ENTITY) {
+//     _self->pos.z *= -1;
+//     _self->orient.y *= -1;
+//     _self->orient.w *= -1;
     _self->rigid_body = RB_body_new(((struct ngine_entity*)_self->attached_obj)->mesh->coll_shape, &_self->pos, &_self->orient);
     debug("create rigidbody for entity");
   } else {

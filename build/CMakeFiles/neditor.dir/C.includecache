@@ -101,6 +101,8 @@ malloc.h
 -
 time.h
 -
+sys/time.h
+-
 fmodex/fmod.h
 -
 kazmath/kazmath.h

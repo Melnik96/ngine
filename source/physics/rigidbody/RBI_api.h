@@ -196,6 +196,8 @@ void RB_body_get_transform_matrix(rbRigidBody *body, float m_out[4][4]);
 
 /* Set RigidBody's location and rotation */
 void RB_body_set_loc_rot(rbRigidBody *body, const float loc[3], const float rot[4]);
+// ngine
+void RB_body_translate(rbRigidBody *object, const float v[3]);
 /* Set RigidBody's local scaling */
 void RB_body_set_scale(rbRigidBody *body, const float scale[3]);
 

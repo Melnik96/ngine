@@ -12,6 +12,7 @@
 
 #include <malloc.h>
 #include <time.h>
+#include <sys/time.h>
 
 #include <fmodex/fmod.h>
 
@@ -54,13 +55,21 @@ int main(int argc, char *argv[]) {
   speaker_play_fmod(speaker, neditor->engine->fmod_sound, sound1, 0);
   
 
-  clock_t diff = clock();
+  struct timeval last_time;
+  gettimeofday(&last_time, NULL);
+  double last_time_d = (double)last_time.tv_sec+(double)last_time.tv_usec/1000000.0;
+  
+  struct timeval cur_time;
+  double cur_time_d;
+  double diff;
   while(1) {
-    diff = clock() - diff;
-    float sec = ((float)diff)/CLOCKS_PER_SEC*1000;
-    ngine_frame(neditor->engine, sec);
-//     printf("fps %f\n", 1/sec);
-    diff = clock();
+    gettimeofday(&cur_time, NULL);
+    cur_time_d = (double)cur_time.tv_sec+(double)cur_time.tv_usec/1000000.0;
+    diff = cur_time_d - last_time_d;
+    last_time_d = cur_time_d;
+    
+    ngine_frame(neditor->engine, diff);
+    printf("fps %f elapsed time %f\n", 1/diff, diff);
   }
   ngine_shutdown(neditor->engine);
 }

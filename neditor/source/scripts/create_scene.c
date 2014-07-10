@@ -32,6 +32,13 @@
 #define deg2rad(x) (float)(((x) * M_PI / 180.0f))
 #define rad2deg(x) (float)(((x) * 180.0f / M_PI))
 
+// set velocity
+void vel_forward(struct ngine_sc_node* _sc_node);
+void vel_backward(struct ngine_sc_node* _sc_node);
+void vel_left(struct ngine_sc_node* _sc_node);
+void vel_right(struct ngine_sc_node* _sc_node);
+void vel_none(struct ngine_sc_node* _sc_node);
+
 void cam_rot(struct ngine_window* win, struct ngine_sc_node* _node, double _x, double _y);
 void move_forward(struct ngine_sc_node* _sc_node);
 void move_backward(struct ngine_sc_node* _sc_node);
@@ -58,7 +65,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   debug("scene 'neditor' created");
   
   struct ngine_sc_node* node_cam = ngine_sc_node_create(nscene, "camera", NGINE_SC_OBJ_CAMERA);
-  node_cam->attached_obj = ngine_camera_create(90.0, 0.1, 1000.0);
+  node_cam->attached_obj = ngine_camera_create(45.0, 0.1, 1000.0);
   node_cam->pos.z = 0.5;
   node_cam->pos.x = 0;
   node_cam->pos.y = 0;
@@ -106,7 +113,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
 }
 {
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
-  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_SPHERE);
+  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_GIMPACT);
   ngine_mesh_update(mesh_suzy);
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
   
@@ -115,16 +122,16 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   
   node_suzy->attached_obj = (struct list*)ent_suzy;
   node_suzy->pos.x = 2.9;
-  node_suzy->pos.y = 0.0;
+  node_suzy->pos.y = 4.0;
   node_suzy->pos.z = -4.0;
-  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
+  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, 0, deg2rad(45));
   ngine_sc_node_make_dynamic(node_suzy, &(struct ngine_phys_info){10});
   
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
 }
 {
-  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/cube.obj");
-  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_BOX);
+  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/plane.obj");
+  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_TRIMESH);
   ngine_mesh_update(mesh_suzy);
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
   
@@ -142,7 +149,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
 }
 {
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
-  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_SPHERE);
+//   ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_BOX);
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
   ngine_mesh_update(mesh_suzy);
   
@@ -152,11 +159,38 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   node_suzy->attached_obj = (struct list*)ent_suzy;
   node_suzy->pos.x = 3.0;
   node_suzy->pos.y = -1.5;
-  node_suzy->pos.z = -3.0;
+  node_suzy->pos.z = -4.0;
+  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(-45), 0);
+//   ngine_sc_node_make_dynamic(node_suzy, &(struct ngine_phys_info){10});
+  
+  tree_add_child((struct tree*)node_cam, (struct tree*)node_suzy);
+}
+{
+  struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
+  ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_GIMPACT);
+  ngine_mesh_update(mesh_suzy);
+//   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+  
+  struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
+  struct ngine_sc_node* node_suzy = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);
+  
+  node_suzy->attached_obj = (struct list*)ent_suzy;
+  node_suzy->pos.x = 3.0;
+  node_suzy->pos.y = -1.5;
+  node_suzy->pos.z = -4.0;
   kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(-45), 0);
   ngine_sc_node_make_dynamic(node_suzy, &(struct ngine_phys_info){10});
   
-  tree_add_child((struct tree*)node_cam, (struct tree*)node_suzy);
+  tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
+  
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_UP, 1, node_suzy, vel_forward);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_DOWN, 1, node_suzy, vel_backward);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_LEFT, 1, node_suzy, vel_left);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_RIGHT, 1, node_suzy, vel_right);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_UP, 0, node_suzy, vel_none);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_DOWN, 0, node_suzy, vel_none);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_LEFT, 0, node_suzy, vel_none);
+  ngine_input_bind_key(_ngine->input, GLFW_KEY_RIGHT, 0, node_suzy, vel_none);
 }
 
 //   ngine_input_bind_key(_ngine->input, GLFW_KEY_F11, 1, &1, ngine_window_fullscrean);
@@ -182,6 +216,23 @@ void cam_rot(struct ngine_window* win, struct ngine_sc_node* _node, double _x, d
 //   printf("last x: %f y: %f\n", _x, _y);
   
   glfwSetCursorPos(win->win, 640/2, 480/2);
+}
+
+// set velocity
+void vel_forward(struct ngine_sc_node* _sc_node) {
+  ngine_sc_node_set_lin_vel(_sc_node, &(vec3){0,0,-5}, NGINE_TRANS_LOCAL);
+}
+void vel_backward(struct ngine_sc_node* _sc_node) {
+  ngine_sc_node_set_lin_vel(_sc_node, &(vec3){0,0,5}, NGINE_TRANS_LOCAL);
+}
+void vel_left(struct ngine_sc_node* _sc_node) {
+  ngine_sc_node_set_lin_vel(_sc_node, &(vec3){-5,0,0}, NGINE_TRANS_LOCAL);
+}
+void vel_right(struct ngine_sc_node* _sc_node) {
+  ngine_sc_node_set_lin_vel(_sc_node, &(vec3){5,0,0}, NGINE_TRANS_LOCAL);
+}
+void vel_none(struct ngine_sc_node* _sc_node) {
+  ngine_sc_node_set_lin_vel(_sc_node, &(vec3){0,0,0}, NGINE_TRANS_LOCAL);
 }
 
 // key_callback
@@ -218,14 +269,16 @@ float cur_yaw = 0;
 void node_rotation(struct ngine_sc_node* _sc_node, float _time) {
 //   printf("time: %f\n", _time);
 //   cur_yaw *= 1.01;
-  cur_yaw += deg2rad(15*0.1);
+  cur_yaw += deg2rad(180*_time);
   if(cur_yaw >= 2*M_PI) {
     cur_yaw -= 2*M_PI;
   }
+  quat q;
   kmQuaternionRotationPitchYawRoll(
-    &_sc_node->orient,
+    &q,
     0, cur_yaw, 0.0
   );
+  ngine_sc_node_rotate(_sc_node, &q, NGINE_TRANS_LOCAL);
 }
 
 void fov_inc(struct ngine_sc_node* _sc_node) {

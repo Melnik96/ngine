@@ -76,6 +76,9 @@ struct ngine_sc_node {
 
 struct ngine_sc_node* 	ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type);
 void 			ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative);
+void 			ngine_sc_node_rotate(struct ngine_sc_node* _self, quat* _orient, int _relative);
+// only if sc_node dynamic
+void 			ngine_sc_node_set_lin_vel(struct ngine_sc_node* _self, vec3* _vel, int _relative);
 
 struct ngine_phys_info {
   float mass;

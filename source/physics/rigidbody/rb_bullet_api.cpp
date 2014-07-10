@@ -130,10 +130,14 @@ static inline void copy_v3_btvec3(float vec[3], const btVector3 &btvec)
 }
 static inline void copy_quat_btquat(float quat[4], const btQuaternion &btquat)
 {
-	quat[0] = btquat.getW();
-	quat[1] = btquat.getX();
-	quat[2] = btquat.getY();
-	quat[3] = btquat.getZ();
+// 	quat[0] = btquat.getW();
+// 	quat[1] = btquat.getX();
+// 	quat[2] = btquat.getY();
+// 	quat[3] = btquat.getZ();
+	quat[0] = btquat.getX();
+	quat[1] = btquat.getY();
+	quat[2] = btquat.getZ();
+  	quat[3] = btquat.getW();
 }
 
 /* ********************************** */
@@ -324,7 +328,8 @@ rbRigidBody *RB_body_new(rbCollisionShape *shape, const float loc[3], const floa
 	/* current transform */
 	btTransform trans;
 	trans.setOrigin(btVector3(loc[0], loc[1], loc[2]));
-	trans.setRotation(btQuaternion(rot[1], rot[2], rot[3], rot[0]));
+// 	trans.setRotation(btQuaternion(rot[1], rot[2], rot[3], rot[0]));
+	trans.setRotation(btQuaternion(rot[0], rot[1], rot[2], rot[3]));
 	
 	/* create motionstate, which is necessary for interpolation (includes reverse playback) */
 	btDefaultMotionState *motionState = new btDefaultMotionState(trans);
@@ -596,10 +601,14 @@ void RB_body_set_loc_rot(rbRigidBody *object, const float loc[3], const float ro
 	/* set transform matrix */
 	btTransform trans;
 	trans.setOrigin(btVector3(loc[0], loc[1], loc[2]));
-	trans.setRotation(btQuaternion(rot[1], rot[2], rot[3], rot[0]));
-// 	trans.setRotation(btQuaternion(rot[0], rot[1], rot[2], rot[3]));
+// 	trans.setRotation(btQuaternion(rot[1], rot[2], rot[3], rot[0]));
+	trans.setRotation(btQuaternion(rot[0], rot[1], rot[2], rot[3]));
 	
 	ms->setWorldTransform(trans);
+}
+void RB_body_translate(rbRigidBody *object, const float v[3]) {
+	btRigidBody *body = object->body;
+	body->translate(btVector3(v[0], v[1], v[2]));
 }
 
 void RB_body_set_scale(rbRigidBody *object, const float scale[3])
@@ -735,7 +744,7 @@ static void RB_trimesh_data_delete(rbMeshData *mesh)
 void RB_trimesh_add_vertices(rbMeshData *mesh, float *vertices, int num_verts, int vert_stride)
 {
 	for (int i = 0; i < num_verts; i++) {
-		float *vert = (float*)(((char*)vertices + i * vert_stride));
+		float *vert = (float*)((char*)vertices + i * vert_stride);
 		mesh->vertices[i].x = vert[0];
 		mesh->vertices[i].y = vert[1];
 		mesh->vertices[i].z = vert[2];
@@ -854,7 +863,8 @@ static void make_constraint_transforms(btTransform &transform1, btTransform &tra
 {
 	btTransform pivot_transform = btTransform();
 	pivot_transform.setOrigin(btVector3(pivot[0], pivot[1], pivot[2]));
-	pivot_transform.setRotation(btQuaternion(orn[1], orn[2], orn[3], orn[0]));
+// 	pivot_transform.setRotation(btQuaternion(orn[1], orn[2], orn[3], orn[0]));
+	pivot_transform.setRotation(btQuaternion(orn[0], orn[1], orn[2], orn[3]));
 	
 	transform1 = body1->getWorldTransform().inverse() * pivot_transform;
 	transform2 = body2->getWorldTransform().inverse() * pivot_transform;

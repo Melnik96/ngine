@@ -56,11 +56,11 @@ struct ngine_mesh* ngine_mesh_import_obj(const char* _file_name) {
 //       mesh->uvs[f/2+1].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+3]+1];
 //       mesh->uvs[f/2+2].x = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+5]];
 //       mesh->uvs[f/2+2].y = ((float*)obj->textures)[obj->chunk[i]->tri_index[f+5]+1];
-      printf("uv: %f, %f,\n    %f, %f,\n    %f, %f,\n", 
-				 mesh->uvs[f/2].x, mesh->uvs[f/2].y, 
-				 mesh->uvs[f/2+1].x, mesh->uvs[f/2+1].y,
-				 mesh->uvs[f/2+2].x, mesh->uvs[f/2+2].y
-	    );
+//       printf("uv: %f, %f,\n    %f, %f,\n    %f, %f,\n", 
+// 				 mesh->uvs[f/2].x, mesh->uvs[f/2].y, 
+// 				 mesh->uvs[f/2+1].x, mesh->uvs[f/2+1].y,
+// 				 mesh->uvs[f/2+2].x, mesh->uvs[f/2+2].y
+// 	    );
     }
   }
   
