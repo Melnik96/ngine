@@ -486,7 +486,7 @@ uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight) {
   glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fbo);
 
     // Create the gbuffer textures
-    glGenTextures(2, &g_texs);
+    glGenTextures(2, g_texs);
     glGenTextures(1, &depth_tex);
 
     for (uint32_t i = 0 ; i != 2 ; ++i) {
