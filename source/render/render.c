@@ -440,7 +440,7 @@ struct ngine_tech* ngine_create_tech_gl44() {
     error("shader program: get uniform failled");
   }
   
-  pass_geom->fbo_draw = gbuf(640, 480);
+  pass_geom->fbo_draw = gbuf(1024, 600);
   
   
   pass_light->a_vert = 1;

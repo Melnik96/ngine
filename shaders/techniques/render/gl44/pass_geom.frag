@@ -2,9 +2,12 @@
 
 uniform sampler2D u_tex;
 
-varying vec2 frag_uv;
+in vec2 frag_uv;
 // varying vec3 frag_wnorm;
-varying vec3 frag_wpos;
+in vec3 frag_wpos;
+
+out vec3 g_difuse;
+out vec3 g_wpos;
 
 void main() {
 //   WorldPosOut = frag_wpos;
@@ -12,6 +15,6 @@ void main() {
 //   NormalOut = normalize(frag_wnorm);
 //   TexCoordOut = vec3(frag_uv, 0.0);
   
-  gl_FragData[0] = texture(u_tex, frag_uv).xyzw;
-  gl_FragData[1] = vec4(frag_wpos, 0);
+  g_difuse = texture(u_tex, frag_uv).xyz;
+  g_wpos = frag_wpos;
 } 
