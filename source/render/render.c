@@ -36,6 +36,7 @@
 #include <texture.h>
 
 // internal
+struct ngine_tech* ngine_create_tech_gl44();
 struct ngine_tech* ngine_create_tech_gl44_low();
 struct ngine_tech* ngine_create_tech_gl30();
 struct ngine_tech* ngine_create_tech_gl21_low();
@@ -92,8 +93,8 @@ struct ngine_render* ngine_render_create() {
   
   // sutup techniqueue
   if(new_render->gl_ver >= 44) {
-    debug("render: technique 'gl44_low'");
-    new_render->tech = ngine_create_tech_gl44_low();;
+    debug("render: technique 'gl44'");
+    new_render->tech = ngine_create_tech_gl44();;
   } else if(new_render->gl_ver >= 30) {
     debug("render: technique 'gl30'");
     new_render->tech = ngine_create_tech_gl30();;
@@ -177,7 +178,10 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	  glDrawElements(GL_TRIANGLES, cur_entity->mesh->chunk[i4].num_indices, GL_UNSIGNED_INT, NULL);
 	}
       }
-      _self->render_queue[i].num_render_ops = 0;
+      if(i2 == _self->tech->num_render_passes-1) {// last pass
+	_self->render_queue[i].num_render_ops = 0;
+	printf("clear render op");
+      }
     }
   }
 #ifndef NDEBUG
@@ -381,6 +385,90 @@ struct ngine_tech* ngine_create_tech_gl44_low() {
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary
 #endif
+  
+  return new_tech;
+}
+
+struct ngine_tech* ngine_create_tech_gl44() {
+  struct ngine_tech* new_tech = calloc(1, sizeof(struct ngine_tech));
+  struct ngine_render_pass* pass_geom = calloc(1, sizeof(struct ngine_render_pass));// geometry
+  struct ngine_render_pass* pass_ssao = calloc(1, sizeof(struct ngine_render_pass));// ssao
+  struct ngine_render_pass* pass_light = calloc(1, sizeof(struct ngine_render_pass));// light final
+
+  struct ngine_shdr_prog* shdr = NULL;
+  
+  new_tech->gl_vendor = GL_VENDOR_NONE;
+  new_tech->gl_ver = 44;
+  new_tech->glsl_ver = 440;
+  
+  new_tech->deferred = 1;
+  new_tech->ssao = 0;// 1
+  
+  new_tech->num_render_passes = 2;// 3
+  
+  new_tech->render_passes = calloc(2/*3*/, sizeof(struct ngine_render_pass));
+  
+  pass_geom = &new_tech->render_passes[0];
+  pass_light = &new_tech->render_passes[1];
+//   pass_ssao = &new_tech->render_passes[0];
+  
+  pass_geom->a_vert = 1;
+  pass_geom->u_mvp = 1;
+  pass_geom->u_model = 1;
+//   pass_geom->a_norm = 1;
+  
+  pass_geom->shdr_prog = shdr = ngine_shdr_prog_create("gl44_geom");
+  
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl44/pass_geom.vert"), GL_VERTEX_SHADER);
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl44/pass_geom.frag"), GL_FRAGMENT_SHADER);
+  
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+//   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_NORMAL, "a_norm");
+  
+  ngine_shdr_prog_link(shdr);
+  
+  shdr->uniform_locs[NGINE_UNIFORM_MVP] = glGetUniformLocation(shdr->id, "u_mvp");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
+    error("shader program: get uniform failled");
+  }
+  shdr->uniform_locs[NGINE_UNIFORM_MODEL] = glGetUniformLocation(shdr->id, "u_model");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MODEL] == -1) {
+    error("shader program: get uniform failled");
+  }
+  shdr->uniform_locs[NGINE_UNIFORM_TEX] = glGetUniformLocation(shdr->id, "u_tex");
+  if(shdr->uniform_locs[NGINE_UNIFORM_TEX] == -1) {
+    error("shader program: get uniform failled");
+  }
+  
+  pass_geom->fbo_draw = gbuf(640, 480);
+  
+  
+  pass_light->a_vert = 1;
+  pass_light->a_uv = 0;
+  pass_light->u_mvp = 1;
+  pass_light->u_tex = 0;
+  
+  pass_light->shdr_prog = ngine_shdr_prog_create("gl44_light");
+  shdr = pass_light->shdr_prog;
+  
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl44/pass_light.vert"), GL_VERTEX_SHADER);
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl44/pass_light.frag"), GL_FRAGMENT_SHADER);
+  
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+//   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_UV, "a_uv");
+  
+  ngine_shdr_prog_link(shdr);
+  
+  shdr->uniform_locs[NGINE_UNIFORM_MVP] = glGetUniformLocation(shdr->id, "u_mvp");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
+    error("shader program: get uniform failled");
+  }
+  
+//   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
+  glEnable(GL_CULL_FACE);
+  glClearDepth(1.0f);
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS); 
   
   return new_tech;
 }

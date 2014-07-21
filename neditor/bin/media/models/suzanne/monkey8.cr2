@@ -1,0 +1,2053 @@
+{
+
+version
+	{
+	number 4
+	}
+figureResFile :Runtime:Geometries:Blender3DClub:Characters:c:\\dses\\monkey8.obj
+actor BODY:1
+	{
+
+	}
+actor earl:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 earl
+	}
+actor head:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 head
+	}
+actor eyer:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 eyer
+	}
+actor head.004:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 head.004
+	}
+actor head.001:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 head.001
+	}
+actor head.002:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 head.002
+	}
+actor head.003:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 head.003
+	}
+actor eyel:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 eyel
+	}
+actor earr:1
+	{
+	storageOffset 0 0 0
+	geomHandlerGeom 13 earr
+	}
+actor BODY:1
+	{
+	name    GetStringRes(1024,1)
+	off
+	bend 1
+	dynamicsLock		1
+	hidden		0
+	addToMenu	1
+	castsShadow		1
+	includeInDepthCue		1
+	parent UNIVERSE
+	channels
+		{
+		zOffsetA zOffset
+			{
+			name GetStringRes(1028,38)
+			initValue 0
+			hidden 1
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  1
+				k  0  0
+				}
+			interpStyleLocked 0
+			staticValue 0
+			}
+		yOffsetA yOffset
+			{
+			name GetStringRes(1028,37)
+			initValue 0
+			hidden 1
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  1
+				k  0  0
+				}
+			interpStyleLocked 0
+			staticValue 0
+			}
+		xOffsetA xOffset
+			{
+			name GetStringRes(1028,36)
+			initValue 0
+			hidden 1
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  1
+				k  0  0
+				}
+			interpStyleLocked 0
+			staticValue 0
+			}
+		propagatingScale scale
+			{
+			name GetStringRes(1028,5)
+			initValue 1
+			hidden 0
+			forceLimits 0
+			min 0.001
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  0
+				k  0  1
+				}
+			interpStyleLocked 0
+			}
+		propagatingScaleX xScale
+			{
+			name GetStringRes(1028,6)
+			initValue 1
+			hidden 0
+			forceLimits 0
+			min 0.001
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  0
+				k  0  1
+				}
+			interpStyleLocked 0
+			}
+		propagatingScaleY yScale
+			{
+			name GetStringRes(1028,7)
+			initValue 1
+			hidden 0
+			forceLimits 0
+			min 0.001
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  0
+				k  0  1
+				}
+			interpStyleLocked 0
+			}
+		propagatingScaleZ zScale
+			{
+			name GetStringRes(1028,8)
+			initValue 1
+			hidden 0
+			forceLimits 0
+			min 0.001
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  0
+				k  0  1
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name yrot
+			initValue 0
+			hidden 0
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static  0
+				k  0  0
+				}
+			interpStyleLocked 0
+			}
+		rotateX xrot
+			{
+			name xrot
+			initValue 90
+			hidden 0
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static  0
+				k  0  0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name zrot
+			initValue 0
+			hidden 0
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static  0
+				k  0  0
+				}
+			interpStyleLocked 0
+			}
+		translateX xtran
+			{
+			name GetStringRes(1028,12)
+			initValue 0
+			hidden 0
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.001
+			keys
+				{
+				static  0
+				k  0  0
+				}
+			interpStyleLocked 0
+			}
+		translateY ytran
+			{
+			name GetStringRes(1028,13)
+			initValue 0
+			hidden 0
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.001
+			keys
+				{
+				static  0
+				k  0  0
+				}
+			interpStyleLocked 0
+			}
+		translateZ ztran
+			{
+			name GetStringRes(1028,14)
+			initValue 0
+			hidden 0
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.001
+			keys
+				{
+				static  0
+				k  0  0
+				}
+			interpStyleLocked 0
+			}
+		xOffsetB xTranB
+			{
+			name GetStringRes(1028,33)
+			initValue 0
+			hidden 1
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  1
+				k  0  0
+				}
+			interpStyleLocked 0
+			staticValue 0
+			}
+		yOffsetB yTranB
+			{
+			name GetStringRes(1028,34)
+			initValue 0
+			hidden 1
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  1
+				k  0  0
+				}
+			interpStyleLocked 0
+			staticValue 0
+			}
+		zOffsetB zTranB
+			{
+			name GetStringRes(1028,35)
+			initValue 0
+			hidden 1
+			forceLimits 0
+			min -100000
+			max 100000
+			trackingScale 0.004
+			keys
+				{
+				static  1
+				k  0  0
+				}
+			interpStyleLocked 0
+			staticValue 0
+			}
+		}
+	endPoint 0 0.74 0.25
+	origin 0 0 0
+	orientation 0 0 0
+	displayOrigin		0
+	displayMode USEPARENT
+	customMaterial	0
+	locked 0
+	}
+
+actor earl:1
+	{
+	name	earl:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head.002:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -31.0
+			max 31.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.002:1
+			matrixActor NULL
+			center 0.107613228261 0.161534279585 -0.0885205641389 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.002:1
+			matrixActor NULL
+			center 0.107613228261 0.161534279585 -0.0885205641389 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head.002:1
+			matrixActor NULL
+			center 0.217718496919 0.214577794075 -0.140477746725 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		}
+	endPoint 0.217718496919 0.214577794075 -0.140477746725
+	origin 0.107613228261 0.161534279585 -0.0885205641389
+	orientation -23.1085453033 -4.54826498032 -62.3394050598
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor head:1
+	{
+	name	head:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	BODY:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -5.0
+			max 5.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -5.0
+			max 5.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -5.0
+			max 5.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor UNIVERSE
+			matrixActor NULL
+			center 0.0 0.0 0.0 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor UNIVERSE
+			matrixActor NULL
+			center 0.0 0.0 0.0 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor UNIVERSE
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		jointX head.004_jointx
+			{
+			name head.004_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.004:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ head.004_jointz
+			{
+			name head.004_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.004:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointX head.001_jointx
+			{
+			name head.001_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.001:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ head.001_jointz
+			{
+			name head.001_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.001:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointX head.002_jointx
+			{
+			name head.002_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.002:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ head.002_jointz
+			{
+			name head.002_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.002:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointX head.003_jointx
+			{
+			name head.003_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.003:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ head.003_jointz
+			{
+			name head.003_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.003:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		}
+	endPoint 0.000578565872274 0.132027432323 -1.93325563891e-012
+	origin 0.0 0.0 0.0
+	orientation -9.2736884838e-010 1.96943068504 -0.251077920198
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor eyer:1
+	{
+	name	eyer:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head.003:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.003:1
+			matrixActor NULL
+			center -0.0491780936718 0.185834050179 0.0202498007566 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.003:1
+			matrixActor NULL
+			center -0.0491780936718 0.185834050179 0.0202498007566 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head.003:1
+			matrixActor NULL
+			center -0.0545675083995 0.186504468322 0.0760023444891 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		}
+	endPoint -0.0545675083995 0.186504468322 0.0760023444891
+	origin -0.0491780936718 0.185834050179 0.0202498007566
+	orientation 84.4509658813 -0.404785335064 78.7499694824
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor head.004:1
+	{
+	name	head.004:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head:1
+			matrixActor NULL
+			center 0.0485995225608 0.185834050179 0.0202497988939 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		jointX eyel_jointx
+			{
+			name eyel_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor eyel:1
+			matrixActor NULL
+			center 0.0485995225608 0.185834050179 0.0202497988939 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ eyel_jointz
+			{
+			name eyel_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor eyel:1
+			matrixActor NULL
+			center 0.0485995225608 0.185834050179 0.0202497988939 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		}
+	endPoint 0.0485995225608 0.185834050179 0.0202497988939
+	origin 0.000578565872274 0.132027432323 -1.93325563891e-012
+	orientation 15.6864128113 -1.02700352669 -42.0364494324
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor head.001:1
+	{
+	name	head.001:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head:1
+			matrixActor NULL
+			center -0.105877533555 0.162112861872 -0.0914133936167 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		jointX earr_jointx
+			{
+			name earr_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor earr:1
+			matrixActor NULL
+			center -0.105877533555 0.162112861872 -0.0914133936167 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ earr_jointz
+			{
+			name earr_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor earr:1
+			matrixActor NULL
+			center -0.105877533555 0.162112861872 -0.0914133936167 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		}
+	endPoint -0.105877533555 0.162112861872 -0.0914133936167
+	origin 0.000578565872274 0.132027432323 -1.93325563891e-012
+	orientation -39.6941146851 4.17590427399 70.7603378296
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor head.002:1
+	{
+	name	head.002:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head:1
+			matrixActor NULL
+			center 0.107613228261 0.161534279585 -0.0885205641389 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		jointX earl_jointx
+			{
+			name earl_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor earl:1
+			matrixActor NULL
+			center 0.107613228261 0.161534279585 -0.0885205641389 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ earl_jointz
+			{
+			name earl_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor earl:1
+			matrixActor NULL
+			center 0.107613228261 0.161534279585 -0.0885205641389 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		}
+	endPoint 0.107613228261 0.161534279585 -0.0885205641389
+	origin 0.000578565872274 0.132027432323 -1.93325563891e-012
+	orientation -38.6255264282 -2.95035481453 -72.2327575684
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor head.003:1
+	{
+	name	head.003:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -1.0
+			max 1.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head:1
+			matrixActor NULL
+			center 0.000578565872274 0.132027432323 -1.93325563891e-012 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head:1
+			matrixActor NULL
+			center -0.0491780936718 0.185834050179 0.0202498007566 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		jointX eyer_jointx
+			{
+			name eyer_jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor eyer:1
+			matrixActor NULL
+			center -0.0491780936718 0.185834050179 0.0202498007566 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ eyer_jointz
+			{
+			name eyer_jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor eyer:1
+			matrixActor NULL
+			center -0.0491780936718 0.185834050179 0.0202498007566 
+			flipped
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		}
+	endPoint -0.0491780936718 0.185834050179 0.0202498007566
+	origin 0.000578565872274 0.132027432323 -1.93325563891e-012
+	orientation 15.4850292206 4.01576089859 43.8720092773
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor eyel:1
+	{
+	name	eyel:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head.004:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.004:1
+			matrixActor NULL
+			center 0.0485995225608 0.185834050179 0.0202497988939 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.004:1
+			matrixActor NULL
+			center 0.0485995225608 0.185834050179 0.0202497988939 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head.004:1
+			matrixActor NULL
+			center 0.0543008744717 0.186504468322 0.0760023742914 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		}
+	endPoint 0.0543008744717 0.186504468322 0.0760023742914
+	origin 0.0485995225608 0.185834050179 0.0202497988939
+	orientation 84.1932373047 0.919163525105 -74.329284668
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+actor earr:1
+	{
+	name	earr:1
+	on
+	bend	1
+	dynamicsLock	1
+	hidden	0
+	addToMenu	1
+	castsShadow	1
+	includeInDepthCue	1
+	parent	head.001:1
+	channels
+		{
+		rotateX xrot
+			{
+			name Bend
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -31.0
+			max 31.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateY yrot
+			{
+			name Twist
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		rotateZ zrot
+			{
+			name Side to Side
+			initValue 0
+			hidden 0
+			forceLimits 1
+			min -15.0
+			max 15.0
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			}
+		jointX jointx
+			{
+			name jointx
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.001:1
+			matrixActor NULL
+			center -0.105877533555 0.162112861872 -0.0914133936167 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		jointZ jointz
+			{
+			name jointz
+			initValue 0
+			hidden 1
+			forceLimit 0
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			angles 225 135 45 -45
+			otherActor head.001:1
+			matrixActor NULL
+			center -0.105877533555 0.162112861872 -0.0914133936167 
+			doBulge 0
+			jointMult 1
+			calcWeights
+			}
+		twistY twisty
+			{
+			name GetStringRes(1028,2)
+			initValue 0
+			hidden 1
+			forceLimit 1
+			min -100000
+			max 100000
+			trackingScale 1
+			keys
+				{
+				static 0
+				k 0 0
+				}
+			interpStyleLocked 0
+			otherActor head.001:1
+			matrixActor NULL
+			center -0.223602980375 0.214577764273 -0.14047780633 
+			startPt -.05
+			endPt .5
+			calcWeights
+			}
+		}
+	endPoint -0.223602980375 0.214577764273 -0.14047780633
+	origin -0.105877533555 0.162112861872 -0.0914133936167
+	orientation -20.9338817596 5.2853064537 63.9614906311
+	displayOrigin	1
+	displayMode	USEPARENT
+	customMaterial	0
+	locked	0
+	}
+
+
+figure
+	{
+	name	Figure 1
+	root	BODY:1
+	addChild	earl:1
+		head.002:1
+	addChild	head:1
+		BODY:1
+	addChild	eyer:1
+		head.003:1
+	addChild	head.004:1
+		head:1
+	addChild	head.001:1
+		head:1
+	addChild	head.002:1
+		head:1
+	addChild	head.003:1
+		head:1
+	addChild	eyel:1
+		head.004:1
+	addChild	earr:1
+		head.001:1
+
+	weld		earl:1
+			head.002:1
+	defaultPick head:1
+	weld		eyer:1
+			head.003:1
+	weld		head.004:1
+			head:1
+	weld		head.001:1
+			head:1
+	weld		head.002:1
+			head:1
+	weld		head.003:1
+			head:1
+	weld		eyel:1
+			head.004:1
+	weld		earr:1
+			head.001:1
+	weld		head.004:1
+			head.001:1
+	weld		head.004:1
+			head.002:1
+	weld		head.004:1
+			head.003:1
+	weld		head.001:1
+			head.004:1
+	weld		head.001:1
+			head.002:1
+	weld		head.001:1
+			head.003:1
+	weld		head.002:1
+			head.004:1
+	weld		head.002:1
+			head.001:1
+	weld		head.002:1
+			head.003:1
+	weld		head.003:1
+			head.004:1
+	weld		head.003:1
+			head.001:1
+	weld		head.003:1
+			head.002:1
+	weld    head:1
+      earr:1
+	weld    earl:1
+      head:1
+	allowsBending 1
+	conforming 0
+	figureType 1318
+	origFigureType 1318
+	canonType 8
+	}
+	setGeomHandlerOffset 0 0 0
+}
