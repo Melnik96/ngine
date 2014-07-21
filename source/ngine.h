@@ -40,6 +40,7 @@ struct ngine {
   // resources
   struct dynlib* 	dynlibs;
   struct shader_prog* 	shaders;
+  uint32_t 		num_textures;
   struct texture*	textures;
   struct material*	materials;
   struct sound* 	sounds;
@@ -67,6 +68,7 @@ struct ngine {
 
 int 			ngine_init(struct ngine* _self);
 struct ngine* 		ngine_create();
+struct ngine* 		ngine_intense();
 int 			ngine_shutdown(struct ngine* _self);
 int 			ngine_frame(struct ngine* _self, float _elapsed);
 

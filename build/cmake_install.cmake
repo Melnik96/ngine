@@ -32,19 +32,6 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "0")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/melnik/projects/ngine/build/examples/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/source/import/obj/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/source/anim/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/source/cmdinterp/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/source/import/targa/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/neditor/bin/scripts/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/source/nodes/cmake_install.cmake")
-  include("/home/melnik/projects/ngine/build/tools/cmake_install.cmake")
-
-endif()
-
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

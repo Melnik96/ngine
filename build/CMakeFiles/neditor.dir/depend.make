@@ -8,6 +8,7 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/cntr/tree.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/dynlib.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/iofile.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/iohand/input.h
+CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/log.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/math/matrix.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/math/vector.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/ngine.h
@@ -19,7 +20,4 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/viewport.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/window.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../neditor/source/main.c
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../neditor/source/neditor.h
-
-CMakeFiles/neditor.dir/neditor/source/neditor.c.o: ../neditor/source/neditor.c
-CMakeFiles/neditor.dir/neditor/source/neditor.c.o: ../neditor/source/neditor.h
 

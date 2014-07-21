@@ -44,6 +44,7 @@
 #include <kazmath/kazmath.h>
 
 //intern
+static struct ngine* ngine_intense_var;
 void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine* _ngine);
 
 int ngine_init(struct ngine* _self) {
@@ -73,10 +74,15 @@ int ngine_init(struct ngine* _self) {
 struct ngine* ngine_create() {
   struct ngine* new_ngine = calloc(1, sizeof(struct ngine));
   if(ngine_init(new_ngine)) {
+    ngine_intense_var = new_ngine;
     return new_ngine;
   } else {
     return NULL;
   }
+}
+
+struct ngine* ngine_intense() {
+  return ngine_intense_var;
 }
 
 int ngine_shutdown(struct ngine* _self) {
@@ -96,7 +102,7 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
       tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
       if(_self->scenes->dyn_world) {
-	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
+// 	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
       }
       ngine_render_frame(_self->render, _elapsed);
       //http://gameprogrammingpatterns.com/
@@ -160,7 +166,7 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   }
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
-//     debug("procces entity obj");
+//     debug("procces entity obj '%s'", _obj->name);
     /*else if(_obj->phys_active) { 
     RB_get_transform_matrix();
     }*/
@@ -177,6 +183,7 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
       struct ngine_render_op* rop = calloc(1, sizeof(struct ngine_render_op));
       rop->entity = _obj;
       rop->mvp_mat = mvp;
+      rop->model_mat = &_obj->matrix;
 //       rop->// render target
       ngine_render_queue_add_op(_ngine->render->render_queue, rop);
   }

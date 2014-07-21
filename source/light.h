@@ -20,13 +20,24 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-struct light {
-  float ambient[4];
-  float diffuse[4];
-  float specular[4];
-  float attenuation[3];
+#include "math/vector.h"
+
+enum ngine_light_type {
+  NGINE_LIGHT_POINT = 0,
+  NGINE_LIGHT_SPOT
+};
+
+struct ngine_light {
+  uint32_t type;
+  
+  vec3 ambient;
+  vec3 diffuse;
+  vec3 specular;
+  vec3 attenuation[3];
 
   float intensity;
 };
+
+// todo antilight -rgb
 
 #endif // LIGHT_H

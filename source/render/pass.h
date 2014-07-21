@@ -22,14 +22,13 @@
 
 #include <stdint.h>
 
-/**
- * *.tech files compiles to this structs.
- */
-
 struct ngine_render_pass {
   struct ngine_shdr_prog* shdr_prog;
   // subroutines needs to be active
   uint32_t* subroutine_ids;
+  
+  uint32_t fbo_read;
+  uint32_t fbo_draw;
   
   // vertex data attribs
   char a_vert;
@@ -39,11 +38,13 @@ struct ngine_render_pass {
   
   // uniforms
   char u_mvp;
+  char u_model;
+  char u_tex;
   char u_time;
   
   // input textures
   uint32_t num_tex_in;
-  uint32_t tex_in_type;
+  uint32_t tex_in_type;// GLRGB
   // in_textures
 //   uint32_t* frag_data_locs;
   
@@ -51,14 +52,6 @@ struct ngine_render_pass {
   uint32_t num_tex_out;
   uint32_t tex_out_type;
   uint32_t* frag_data_locs;
-  
-  // !NOT need
-  /**
-   * GL_BACK_BUFFER
-   * deferred_texture
-   */
-  uint32_t fb_type;
-  uint32_t tex_type;
   
   // gl active states
   uint32_t* active_states;

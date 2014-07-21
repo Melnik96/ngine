@@ -59,17 +59,17 @@ void ngine_mesh_update(struct ngine_mesh* _self) {
 
   if(_self->uvs) {
     glBindBuffer(GL_ARRAY_BUFFER, _self->hw_buf.uv);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _self->chunk->num_indices, _self->uvs, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * _self->chunk->num_indices/*need review*/, _self->uvs, GL_STATIC_DRAW);
     glEnableVertexAttribArray(NGINE_ATTR_UV);
     glVertexAttribPointer(NGINE_ATTR_UV, 2, GL_FLOAT, GL_FALSE, 0, 0);
   }
-// 
-//   if(_mesh->normals) {
-//     glBindBuffer(GL_ARRAY_BUFFER, _ent->hw->normal);
-//     glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _ent->mesh->num_indices/3, _ent->mesh->normals, GL_STATIC_DRAW);
-//     glEnableVertexAttribArray(GLSA_NORMAL);
-//     glVertexAttribPointer(GLSA_NORMAL, 3, GL_FLOAT, GL_FALSE, 0, 0);
-//   }
+
+  if(_self->normals) {
+    glBindBuffer(GL_ARRAY_BUFFER, _self->hw_buf.norm);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * _self->chunk->num_indices, _self->normals, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(NGINE_ATTR_NORMAL);
+    glVertexAttribPointer(NGINE_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  }
 
   
   glBindVertexArray(0);

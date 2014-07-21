@@ -11,15 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.0.0/CMakeCCompiler.cmake"
   "CMakeFiles/3.0.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.0.0/CMakeSystem.cmake"
-  "../examples/CMakeLists.txt"
-  "../neditor/bin/scripts/CMakeLists.txt"
-  "../source/anim/CMakeLists.txt"
-  "../source/cmdinterp/CMakeLists.txt"
-  "../source/import/obj/CMakeLists.txt"
-  "../source/import/targa/CMakeLists.txt"
-  "../source/nodes/CMakeLists.txt"
-  "../tools/CMakeLists.txt"
-  "../tools/sedit/CMakeLists.txt"
   "/usr/share/cmake-3.0/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.0/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.0/Modules/CMakeCommonLanguageInclude.cmake"
@@ -44,15 +35,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "source/import/obj/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "source/anim/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "source/cmdinterp/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "source/import/targa/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "neditor/bin/scripts/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "source/nodes/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tools/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tools/sedit/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

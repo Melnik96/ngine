@@ -41,7 +41,7 @@ struct ngine_window* ngine_window_create(char* _win_name, int _width, int _heigh
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 //   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
 
-  GLFWmonitor* monitor = /*glfwGetPrimaryMonitor()*/0;
+  GLFWmonitor* monitor = glfwGetPrimaryMonitor();
   new_win->win = glfwCreateWindow(_width, _height, _win_name, monitor, NULL);
   if(!new_win->win) {
     error("cannot create window '%s'", _win_name);

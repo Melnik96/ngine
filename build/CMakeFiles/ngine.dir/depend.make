@@ -34,9 +34,22 @@ CMakeFiles/ngine.dir/source/entity.c.o: ../source/ngine.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/scene.h
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/shader_prog.h
 
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/cntr/tree.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/entity.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/light.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/log.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/math/matrix.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/math/vector.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/mesh.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/sc_obj.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/scene.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/import/asmp/asmp.c
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o: ../source/import/asmp/asmp.h
+
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o: ../source/import/obj/awol/awol.c
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o: ../source/import/obj/awol/awol.h
 
+CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/log.h
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/material.h
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o: ../source/mesh.h
@@ -69,6 +82,7 @@ CMakeFiles/ngine.dir/source/iohand/window.c.o: ../source/iohand/window.c
 
 CMakeFiles/ngine.dir/source/light.c.o: ../source/light.c
 CMakeFiles/ngine.dir/source/light.c.o: ../source/light.h
+CMakeFiles/ngine.dir/source/light.c.o: ../source/math/vector.h
 
 CMakeFiles/ngine.dir/source/log.c.o: ../source/log.c
 CMakeFiles/ngine.dir/source/log.c.o: ../source/log.h
@@ -130,6 +144,7 @@ CMakeFiles/ngine.dir/source/render/render.c.o: ../source/math/vector.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/mesh.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/sc_obj.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/shader_prog.h
+CMakeFiles/ngine.dir/source/render/render.c.o: ../source/texture.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/pass.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/render.c
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/render.h
@@ -185,9 +200,13 @@ CMakeFiles/ngine.dir/source/sound_mgr.c.o: ../source/sound_mgr.h
 CMakeFiles/ngine.dir/source/sys_info.c.o: ../source/sys_info.c
 CMakeFiles/ngine.dir/source/sys_info.c.o: ../source/sys_info.h
 
+CMakeFiles/ngine.dir/source/text.c.o: ../source/text.c
+
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/assets_mgr.h
+CMakeFiles/ngine.dir/source/texture.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/import/targa/tga.h
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/iofile.h
+CMakeFiles/ngine.dir/source/texture.c.o: ../source/ngine.h
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.c
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.h
 

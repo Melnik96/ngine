@@ -78,6 +78,7 @@ void ngine_sc_node_rotate(struct ngine_sc_node* _self, quat* _orient, int _relat
 }
 
 void ngine_sc_node_set_lin_vel(struct ngine_sc_node* _self, vec3* _vel, int _relative) {
+  RB_body_activate(_self->rigid_body);
   if(_relative == NGINE_TRANS_LOCAL) {
     vec3 tvec;
     kmQuaternionMultiplyVec3(&tvec, &_self->orient, _vel);

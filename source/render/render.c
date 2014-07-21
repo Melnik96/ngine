@@ -19,6 +19,7 @@
 
 #include <GL/glew.h>
 #include <malloc.h>
+#include <tiff.h>
 
 #include "log.h"
 #include "iofile.h"
@@ -32,10 +33,13 @@
 #include "pass.h"
 
 #include "render.h"
+#include <texture.h>
 
 // internal
 struct ngine_tech* ngine_create_tech_gl44_low();
+struct ngine_tech* ngine_create_tech_gl30();
 struct ngine_tech* ngine_create_tech_gl21_low();
+uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight);
 void gl_debug_callback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam) {
   debug("GL debug msg: %s", message);
 }
@@ -90,6 +94,9 @@ struct ngine_render* ngine_render_create() {
   if(new_render->gl_ver >= 44) {
     debug("render: technique 'gl44_low'");
     new_render->tech = ngine_create_tech_gl44_low();;
+  } else if(new_render->gl_ver >= 30) {
+    debug("render: technique 'gl30'");
+    new_render->tech = ngine_create_tech_gl30();;
   } else if(new_render->gl_ver >= 21) {
     debug("render: technique 'gl21_low'");
     new_render->tech = ngine_create_tech_gl21_low();;
@@ -133,6 +140,17 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	// if subroutines supported, change subroutine and not switch shader
       }
       
+      if(cur_pass->fbo_read) {
+	glBindFramebuffer(GL_READ_FRAMEBUFFER, cur_pass->fbo_read);
+      } else {
+	glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+      }
+      if(cur_pass->fbo_draw) {
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, cur_pass->fbo_draw);
+      } else {
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+      }
+      
       for(uint32_t i3 = 0; i3 != _self->render_queue[i].num_render_ops; ++i3) {	// render_op
 	cur_op = &_self->render_queue[i].render_ops[i3];
 	cur_entity = (struct ngine_entity*)cur_op->entity->attached_obj;
@@ -142,6 +160,17 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	  
 	  if(cur_pass->u_mvp) {
 	    glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_op->mvp_mat);
+	  }
+	  if(cur_pass->u_model) {
+	    glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MODEL], 1, 0, cur_op->model_mat);
+	  }
+	  
+	  if(cur_pass->u_tex) {
+	    if(cur_entity->mesh->chunk[i4].mtl && cur_entity->mesh->chunk[i4].mtl->tex_color) {
+	      glActiveTexture(GL_TEXTURE0 /*+ cur_entity->mesh->chunk[i4].mtl->tex_color->id*/);
+	      glBindTexture(GL_TEXTURE_2D, cur_entity->mesh->chunk[i4].mtl->tex_color->id);
+	      glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], /*cur_entity->mesh->chunk[i4].mtl->tex_color->id*/0);
+	    }
 	  }
 	  
 	  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cur_entity->mesh->chunk[i4].hw_index);
@@ -189,6 +218,7 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   
   pass0->a_vert = 1;
   pass0->u_mvp = 1;
+  pass0->u_tex = 1;
   
   pass0->shdr_prog = shdr = ngine_shdr_prog_create("base_gl21_low");
   
@@ -204,6 +234,10 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
     error("shader program: get uniform failled");
   }
+  shdr->uniform_locs[NGINE_UNIFORM_TEX] = glGetUniformLocation(shdr->id, "u_tex");
+  if(shdr->uniform_locs[NGINE_UNIFORM_TEX] == -1) {
+    error("shader program: get uniform failled");
+  }
   // ngine_shdr_prog_uniform
   
 //           параметры OpenGL
@@ -216,6 +250,89 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary
 #endif
+  
+  return new_tech;
+}
+
+struct ngine_tech* ngine_create_tech_gl30() {
+  struct ngine_tech* new_tech = calloc(1, sizeof(struct ngine_tech));
+  struct ngine_render_pass* pass_geom = calloc(1, sizeof(struct ngine_render_pass));// geometry
+  struct ngine_render_pass* pass_ssao = calloc(1, sizeof(struct ngine_render_pass));// ssao
+  struct ngine_render_pass* pass_light = calloc(1, sizeof(struct ngine_render_pass));// light final
+
+  struct ngine_shdr_prog* shdr = NULL;
+  
+  new_tech->gl_vendor = GL_VENDOR_NONE;
+  new_tech->gl_ver = 30;
+  new_tech->glsl_ver = 130;
+  
+  new_tech->deferred = 1;
+  new_tech->ssao = 0;// 1
+  
+  new_tech->num_render_passes = 2;// 3
+  
+  new_tech->render_passes = calloc(2/*3*/, sizeof(struct ngine_render_pass));
+  
+  pass_geom = &new_tech->render_passes[0];
+  pass_light = &new_tech->render_passes[1];
+//   pass_ssao = &new_tech->render_passes[0];
+  
+  pass_geom->a_vert = 1;
+  pass_geom->u_mvp = 1;
+  pass_geom->u_model = 1;
+  pass_geom->a_norm= 1;
+  
+  pass_geom->shdr_prog = shdr = ngine_shdr_prog_create("gl30_geom");
+  
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_geom.vert"), GL_VERTEX_SHADER);
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_geom.frag"), GL_FRAGMENT_SHADER);
+  
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+//   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_NORMAL, "a_norm");
+  
+  ngine_shdr_prog_link(shdr);
+  
+  shdr->uniform_locs[NGINE_UNIFORM_MVP] = glGetUniformLocation(shdr->id, "u_mvp");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
+    error("shader program: get uniform failled");
+  }
+  shdr->uniform_locs[NGINE_UNIFORM_MODEL] = glGetUniformLocation(shdr->id, "u_model");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MODEL] == -1) {
+    error("shader program: get uniform failled");
+  }
+  shdr->uniform_locs[NGINE_UNIFORM_TEX] = glGetUniformLocation(shdr->id, "u_tex");
+  if(shdr->uniform_locs[NGINE_UNIFORM_TEX] == -1) {
+    error("shader program: get uniform failled");
+  }
+  
+  pass_geom->fbo_draw = gbuf(640, 480);
+  
+  
+  pass_light->a_vert = 1;
+  pass_light->a_uv = 0;
+  pass_light->u_mvp = 1;
+  pass_light->u_tex = 0;
+  
+  pass_light->shdr_prog = shdr = ngine_shdr_prog_create("gl30_light");
+  
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_light.vert"), GL_VERTEX_SHADER);
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_light.frag"), GL_FRAGMENT_SHADER);
+  
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+//   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_UV, "a_uv");
+  
+  ngine_shdr_prog_link(shdr);
+  
+  shdr->uniform_locs[NGINE_UNIFORM_MVP] = glGetUniformLocation(shdr->id, "u_mvp");
+  if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
+    error("shader program: get uniform failled");
+  }
+  
+//   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
+  glEnable(GL_CULL_FACE);
+  glClearDepth(1.0f);
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS); 
   
   return new_tech;
 }
@@ -266,4 +383,47 @@ struct ngine_tech* ngine_create_tech_gl44_low() {
 #endif
   
   return new_tech;
+}
+
+
+
+
+
+uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight) {
+  uint32_t g_texs[2];
+  uint32_t depth_tex;
+  // Create the FBO
+  uint32_t fbo;
+  glGenFramebuffers(1, &fbo); 
+  glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fbo);
+
+    // Create the gbuffer textures
+    glGenTextures(2, &g_texs);
+    glGenTextures(1, &depth_tex);
+
+    for (uint32_t i = 0 ; i != 2 ; ++i) {
+       glBindTexture(GL_TEXTURE_2D, g_texs[i]);
+       glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, WindowWidth, WindowHeight, 0, GL_RGB, GL_FLOAT, NULL);
+       glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, g_texs[i], 0);
+    }
+
+    // depth
+    glBindTexture(GL_TEXTURE_2D, depth_tex);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT32F, WindowWidth, WindowHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+    glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depth_tex, 0);
+
+    GLenum DrawBuffers[] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1/*, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3*/ }; 
+    glDrawBuffers(2, DrawBuffers);
+
+    GLenum Status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+
+    if (Status != GL_FRAMEBUFFER_COMPLETE) {
+        printf("FB error, status: 0x%x\n", Status);
+        return 0;
+    }
+
+    // restore default FBO
+    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+
+    return fbo;
 }

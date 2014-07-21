@@ -1,0 +1,71 @@
+# Blender MTL File: 'None'
+# Material Count: 6
+
+newmtl Material.001
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.512000 0.512000 0.512000
+Ks 0.038462 0.038462 0.038462
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd up_normal_dDo02.png
+map_Bump up_normal_rail.tga
+map_Ka up_normal_rail.tga
+
+newmtl Material_NONE
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.512000 0.512000 0.512000
+Ks 0.038462 0.038462 0.038462
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd up_normal_dDo02.png
+map_Bump up_normal_rail.tga
+map_Ka up_normal_rail.tga
+
+newmtl None
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.800000 0.800000 0.800000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl floor_ped
+Ns 998.039216
+Ka 0.000000 0.000000 0.000000
+Kd 0.375569 0.375569 0.375569
+Ks 0.053892 0.053892 0.053892
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd New normal map document.psd
+map_Bump New normal map document.psd
+map_Ka menu_floor_dDo02_d.tga
+
+newmtl floor_ped_NONE
+Ns 998.039216
+Ka 0.000000 0.000000 0.000000
+Kd 0.375569 0.375569 0.375569
+Ks 0.053892 0.053892 0.053892
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd menu_floor_dDo02_d.tga
+map_Bump New normal map document.psd
+map_Ka menu_floor_dDo02_d.tga
+
+newmtl floor_side
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.146707 0.146707 0.146707
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd floor_dDo_d.tga
+map_Bump floor_side.tga
+map_Ka floor_dDo_d.tga

@@ -152,30 +152,6 @@ neditor/source/main.c.s:
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/main.c.s
 .PHONY : neditor/source/main.c.s
 
-neditor/source/neditor.o: neditor/source/neditor.c.o
-.PHONY : neditor/source/neditor.o
-
-# target to build an object file
-neditor/source/neditor.c.o:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.o
-.PHONY : neditor/source/neditor.c.o
-
-neditor/source/neditor.i: neditor/source/neditor.c.i
-.PHONY : neditor/source/neditor.i
-
-# target to preprocess a source file
-neditor/source/neditor.c.i:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.i
-.PHONY : neditor/source/neditor.c.i
-
-neditor/source/neditor.s: neditor/source/neditor.c.s
-.PHONY : neditor/source/neditor.s
-
-# target to generate assembly for a file
-neditor/source/neditor.c.s:
-	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/neditor/source/neditor.c.s
-.PHONY : neditor/source/neditor.c.s
-
 source/assets_mgr.o: source/assets_mgr.c.o
 .PHONY : source/assets_mgr.o
 
@@ -343,6 +319,30 @@ source/entity.s: source/entity.c.s
 source/entity.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/entity.c.s
 .PHONY : source/entity.c.s
+
+source/import/asmp/asmp.o: source/import/asmp/asmp.c.o
+.PHONY : source/import/asmp/asmp.o
+
+# target to build an object file
+source/import/asmp/asmp.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o
+.PHONY : source/import/asmp/asmp.c.o
+
+source/import/asmp/asmp.i: source/import/asmp/asmp.c.i
+.PHONY : source/import/asmp/asmp.i
+
+# target to preprocess a source file
+source/import/asmp/asmp.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/asmp/asmp.c.i
+.PHONY : source/import/asmp/asmp.c.i
+
+source/import/asmp/asmp.s: source/import/asmp/asmp.c.s
+.PHONY : source/import/asmp/asmp.s
+
+# target to generate assembly for a file
+source/import/asmp/asmp.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/import/asmp/asmp.c.s
+.PHONY : source/import/asmp/asmp.c.s
 
 source/import/obj/awol/awol.o: source/import/obj/awol/awol.c.o
 .PHONY : source/import/obj/awol/awol.o
@@ -1016,6 +1016,30 @@ source/sys_info.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.s
 .PHONY : source/sys_info.c.s
 
+source/text.o: source/text.c.o
+.PHONY : source/text.o
+
+# target to build an object file
+source/text.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/text.c.o
+.PHONY : source/text.c.o
+
+source/text.i: source/text.c.i
+.PHONY : source/text.i
+
+# target to preprocess a source file
+source/text.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/text.c.i
+.PHONY : source/text.c.i
+
+source/text.s: source/text.c.s
+.PHONY : source/text.s
+
+# target to generate assembly for a file
+source/text.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/text.c.s
+.PHONY : source/text.c.s
+
 source/texture.o: source/texture.c.o
 .PHONY : source/texture.o
 
@@ -1101,9 +1125,6 @@ help:
 	@echo "... neditor/source/main.o"
 	@echo "... neditor/source/main.i"
 	@echo "... neditor/source/main.s"
-	@echo "... neditor/source/neditor.o"
-	@echo "... neditor/source/neditor.i"
-	@echo "... neditor/source/neditor.s"
 	@echo "... source/assets_mgr.o"
 	@echo "... source/assets_mgr.i"
 	@echo "... source/assets_mgr.s"
@@ -1125,6 +1146,9 @@ help:
 	@echo "... source/entity.o"
 	@echo "... source/entity.i"
 	@echo "... source/entity.s"
+	@echo "... source/import/asmp/asmp.o"
+	@echo "... source/import/asmp/asmp.i"
+	@echo "... source/import/asmp/asmp.s"
 	@echo "... source/import/obj/awol/awol.o"
 	@echo "... source/import/obj/awol/awol.i"
 	@echo "... source/import/obj/awol/awol.s"
@@ -1209,6 +1233,9 @@ help:
 	@echo "... source/sys_info.o"
 	@echo "... source/sys_info.i"
 	@echo "... source/sys_info.s"
+	@echo "... source/text.o"
+	@echo "... source/text.i"
+	@echo "... source/text.s"
 	@echo "... source/texture.o"
 	@echo "... source/texture.i"
 	@echo "... source/texture.s"

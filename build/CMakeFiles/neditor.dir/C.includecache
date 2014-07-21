@@ -34,6 +34,10 @@ stdint.h
 cntr/array.h
 ../source/iohand/cntr/array.h
 
+../source/log.h
+stdio.h
+-
+
 ../source/math/matrix.h
 
 ../source/math/vector.h
@@ -87,6 +91,8 @@ viewport.h
 /home/melnik/projects/ngine/neditor/source/viewport.h
 dynlib.h
 /home/melnik/projects/ngine/neditor/source/dynlib.h
+log.h
+/home/melnik/projects/ngine/neditor/source/log.h
 sc_obj.h
 /home/melnik/projects/ngine/neditor/source/sc_obj.h
 sound_mgr.h

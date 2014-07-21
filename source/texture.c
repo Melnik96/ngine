@@ -24,6 +24,7 @@
 #include "import/targa/tga.h"
 
 #include "texture.h"
+#include "ngine.h"
 
 struct ngine_texture* ngine_texture_create(const char* _name) {
   struct ngine_texture* new_tex = calloc(1, sizeof(struct ngine_texture));
@@ -34,6 +35,7 @@ struct ngine_texture* ngine_texture_create(const char* _name) {
 }
 
 void ngine_texture_image(struct ngine_texture* _self, const char* _img_name) {
+  printf("load texture '%s' ", _img_name);
   tga_header tga_header;
   uint32_t img_data_off = 0;
   void* img_data = 0;
@@ -43,9 +45,11 @@ void ngine_texture_image(struct ngine_texture* _self, const char* _img_name) {
   img_data = &tga_buf[img_data_off];
   
   // create and enable a texture in GL
-  glActiveTexture(GL_TEXTURE0);
+//   glActiveTexture(GL_TEXTURE0 + ngine_intense()->num_textures);
+  glActiveTexture(GL_TEXTURE0 /*+ _self->id*/);
   glGenTextures(1, &_self->id);
   glBindTexture(GL_TEXTURE_2D, _self->id);
+  printf("%i\n", _self->id);
 
   // set filtering types - coming up after the break!
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -55,6 +59,8 @@ void ngine_texture_image(struct ngine_texture* _self, const char* _img_name) {
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, tga_header.width, tga_header.height, 0, GL_RGB,
 	       GL_UNSIGNED_BYTE, img_data);
   free(tga_buf);
+  
+//   ngine_intense()->num_textures += 1;
 
 //   // map texture into shader variable
 //   glUseProgram(shaderProgHandle);

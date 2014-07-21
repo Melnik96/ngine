@@ -34,10 +34,23 @@ CMakeFiles/ngine.dir/source/entity.c.o
  /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/scene.h
  /home/melnik/projects/ngine/source/shader_prog.h
+CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o
+ ../source/cntr/tree.h
+ ../source/entity.h
+ ../source/light.h
+ ../source/log.h
+ ../source/math/matrix.h
+ ../source/math/vector.h
+ ../source/mesh.h
+ ../source/sc_obj.h
+ ../source/scene.h
+ /home/melnik/projects/ngine/source/import/asmp/asmp.c
+ /home/melnik/projects/ngine/source/import/asmp/asmp.h
 CMakeFiles/ngine.dir/source/import/obj/awol/awol.c.o
  /home/melnik/projects/ngine/source/import/obj/awol/awol.c
  /home/melnik/projects/ngine/source/import/obj/awol/awol.h
 CMakeFiles/ngine.dir/source/import/obj/obj.c.o
+ ../source/log.h
  ../source/material.h
  ../source/math/vector.h
  ../source/mesh.h
@@ -70,6 +83,7 @@ CMakeFiles/ngine.dir/source/iohand/window.c.o
 CMakeFiles/ngine.dir/source/light.c.o
  /home/melnik/projects/ngine/source/light.c
  /home/melnik/projects/ngine/source/light.h
+ /home/melnik/projects/ngine/source/math/vector.h
 CMakeFiles/ngine.dir/source/log.c.o
  /home/melnik/projects/ngine/source/log.c
  /home/melnik/projects/ngine/source/log.h
@@ -131,6 +145,7 @@ CMakeFiles/ngine.dir/source/render/render.c.o
  ../source/mesh.h
  ../source/sc_obj.h
  ../source/shader_prog.h
+ ../source/texture.h
  /home/melnik/projects/ngine/source/render/pass.h
  /home/melnik/projects/ngine/source/render/render.c
  /home/melnik/projects/ngine/source/render/render.h
@@ -185,10 +200,14 @@ CMakeFiles/ngine.dir/source/sound_mgr.c.o
 CMakeFiles/ngine.dir/source/sys_info.c.o
  /home/melnik/projects/ngine/source/sys_info.c
  /home/melnik/projects/ngine/source/sys_info.h
+CMakeFiles/ngine.dir/source/text.c.o
+ /home/melnik/projects/ngine/source/text.c
 CMakeFiles/ngine.dir/source/texture.c.o
  /home/melnik/projects/ngine/source/assets_mgr.h
+ /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/import/targa/tga.h
  /home/melnik/projects/ngine/source/iofile.h
+ /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/texture.c
  /home/melnik/projects/ngine/source/texture.h
 CMakeFiles/ngine.dir/source/viewport.c.o

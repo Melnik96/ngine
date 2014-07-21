@@ -4,6 +4,7 @@
 #include "iofile.h"
 #include "viewport.h"
 #include "dynlib.h"
+#include "log.h"
 #include "sc_obj.h"
 #include "sound_mgr.h"
 #include "iohand/input.h"
@@ -24,7 +25,7 @@ int main(int argc, char *argv[]) {
   struct neditor* neditor = malloc(sizeof(struct neditor));
   neditor->engine = ngine_create();
   struct ngine* ngine = neditor->engine;
-  neditor->engine->windows = ngine_window_create("Nutty Engine Editor", 640, 480);
+  neditor->engine->windows = ngine_window_create("Nutty Engine Editor", 1024, 600);
   neditor->engine->input = ngine_input_create(neditor->engine->windows);
   neditor->engine->render = ngine_render_create();
   
@@ -58,7 +59,6 @@ int main(int argc, char *argv[]) {
   struct timeval last_time;
   gettimeofday(&last_time, NULL);
   double last_time_d = (double)last_time.tv_sec+(double)last_time.tv_usec/1000000.0;
-  
   struct timeval cur_time;
   double cur_time_d;
   double diff;
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
     last_time_d = cur_time_d;
     
     ngine_frame(neditor->engine, diff);
-    printf("fps %f elapsed time %f\n", 1/diff, diff);
+//     printf("fps %f elapsed time %f\n", 1/diff, diff);
   }
   ngine_shutdown(neditor->engine);
 }

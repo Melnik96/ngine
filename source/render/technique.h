@@ -27,13 +27,13 @@ struct ngine_tech {
   struct ngine_render_pass* 	render_passes;
   
   // requirements
-  uint8_t gl_ver;
-  uint8_t glsl_ver;
-  uint8_t gl_vendor;
+  uint8_t 			gl_ver;
+  uint8_t 			glsl_ver;
+  uint8_t 			gl_vendor;
   
   // features
-  char deferred;
-  char ssao;
+  char 				deferred;
+  char 				ssao;
 };
 
 // TODO write editor of serialized data, to write technique impl structs.
