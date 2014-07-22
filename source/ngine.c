@@ -102,7 +102,7 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
       tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
       if(_self->scenes->dyn_world) {
-// 	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
+	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
       }
       ngine_render_frame(_self->render, _elapsed);
       //http://gameprogrammingpatterns.com/
@@ -182,6 +182,7 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
 
       struct ngine_render_op* rop = calloc(1, sizeof(struct ngine_render_op));
       rop->entity = _obj;
+      rop->lights;
       rop->mvp_mat = mvp;
       rop->model_mat = &_obj->matrix;
 //       rop->// render target

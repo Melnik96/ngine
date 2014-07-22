@@ -39,7 +39,8 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
   struct aiScene* sc = aiImportFile(_file, 
 				    aiProcessPreset_TargetRealtime_MaxQuality |
 				    aiProcess_Triangulate |
-				    aiProcess_ImproveCacheLocality
+				    aiProcess_ImproveCacheLocality |
+				    aiProcess_GenNormals
   );
   if(sc == NULL) {
     error("import asmp failed: %s", aiGetErrorString());
@@ -106,6 +107,15 @@ void for_each_ainode(struct aiScene* sc, struct aiNode* ai_node, struct ngine_sc
 	mesh->uvs[i].x = paiMesh->mTextureCoords[0][i].x;
 	mesh->uvs[i].y = paiMesh->mTextureCoords[0][i].y;
       }
+    }
+    
+    if(paiMesh->mNormals) {
+      mesh->normals = malloc(paiMesh->mNumVertices*sizeof(vec3));
+      for(uint32_t i = 0; i != paiMesh->mNumVertices; ++i) {
+	mesh->normals[i].x = paiMesh->mNormals[i].x;
+	mesh->normals[i].y = paiMesh->mNormals[i].y;
+      }
+      printf("mesh have normals\n");
     }
     
     mesh->num_chunks += 1;

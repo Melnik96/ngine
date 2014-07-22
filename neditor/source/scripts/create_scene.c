@@ -183,7 +183,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   
   node_suzy->attached_obj = (struct list*)ent_suzy;
   node_suzy->pos.x = 3.0;
-  node_suzy->pos.y = -1.5;
+  node_suzy->pos.y = 2.5;
   node_suzy->pos.z = -4.0;
 //   kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(-45), 0);
   node_suzy->orient.w = 1;
