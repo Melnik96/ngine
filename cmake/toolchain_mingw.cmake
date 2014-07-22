@@ -16,7 +16,11 @@
 # the name of the target operating system
 set(CMAKE_SYSTEM_NAME Windows)
 
-set(CMAKE_SYSTEM_LIBRARY_PATH ${CMAKE_SYSTEM_LIBRARY_PATH};"deps/mingw/glew-1.10.0/lib/")
+set(CMAKE_SYSTEM_LIBRARY_PATH ${CMAKE_SYSTEM_LIBRARY_PATH};
+  "deps/mingw/glew-1.10.0/lib/"
+  "deps/mingw/glfw-3.0.4/src/"
+  "deps/mingw/fmod/api/lib/"
+)
 
 # Assume the target architecture.
 # XXX for some reason the value set here gets cleared before we reach the

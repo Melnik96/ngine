@@ -30,6 +30,13 @@ struct ngine_render_pass {
   uint32_t fbo_read;
   uint32_t fbo_draw;
   
+  uint32_t num_out_texs;
+  uint32_t* out_texs;
+  
+  uint32_t num_in_texs;
+  uint32_t* in_texs;
+  uint32_t* in_tex_ulocs;
+  
   // vertex data attribs
   char a_vert;
   char a_color;
@@ -41,17 +48,6 @@ struct ngine_render_pass {
   char u_model;
   char u_tex;
   char u_time;
-  
-  // input textures
-  uint32_t num_tex_in;
-  uint32_t tex_in_type;// GLRGB
-  // in_textures
-//   uint32_t* frag_data_locs;
-  
-  // output textures
-  uint32_t num_tex_out;
-  uint32_t tex_out_type;
-  uint32_t* frag_data_locs;
   
   // gl active states
   uint32_t* active_states;

@@ -40,7 +40,7 @@ struct ngine_tech* ngine_create_tech_gl44();
 struct ngine_tech* ngine_create_tech_gl44_low();
 struct ngine_tech* ngine_create_tech_gl30();
 struct ngine_tech* ngine_create_tech_gl21_low();
-uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight);
+uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight, int num_texs, uint32_t* texs);
 void gl_debug_callback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam) {
   debug("GL debug msg: %s", message);
 }
@@ -143,6 +143,11 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
       
       if(cur_pass->fbo_read) {
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, cur_pass->fbo_read);
+	for(uint32_t i = 0 ; i != cur_pass->num_in_texs; ++i) {
+	  glActiveTexture(GL_TEXTURE0 + i);
+	  glBindTexture(GL_TEXTURE_2D, cur_pass->in_texs[i]);
+	  glUniform1i(cur_pass->in_tex_ulocs[i], i);
+	}
       } else {
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
       }
@@ -168,9 +173,9 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	  
 	  if(cur_pass->u_tex) {
 	    if(cur_entity->mesh->chunk[i4].mtl && cur_entity->mesh->chunk[i4].mtl->tex_color) {
-	      glActiveTexture(GL_TEXTURE0 /*+ cur_entity->mesh->chunk[i4].mtl->tex_color->id*/);
+	      glActiveTexture(GL_TEXTURE0 + cur_entity->mesh->chunk[i4].mtl->tex_color->id + cur_pass->num_in_texs);
 	      glBindTexture(GL_TEXTURE_2D, cur_entity->mesh->chunk[i4].mtl->tex_color->id);
-	      glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], /*cur_entity->mesh->chunk[i4].mtl->tex_color->id*/0);
+	      glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], cur_entity->mesh->chunk[i4].mtl->tex_color->id + cur_pass->num_out_texs);
 	    }
 	  }
 	  
@@ -180,7 +185,6 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
       }
       if(i2 == _self->tech->num_render_passes-1) {// last pass
 	_self->render_queue[i].num_render_ops = 0;
-	printf("clear render op");
       }
     }
   }
@@ -309,7 +313,9 @@ struct ngine_tech* ngine_create_tech_gl30() {
     error("shader program: get uniform failled");
   }
   
-  pass_geom->fbo_draw = gbuf(640, 480);
+  pass_geom->out_texs = calloc(2, sizeof(uint32_t));
+  pass_geom->num_out_texs = 2;
+  pass_geom->fbo_draw = gbuf(1024, 600, 2, pass_geom->out_texs);
   
   
   pass_light->a_vert = 1;
@@ -317,7 +323,8 @@ struct ngine_tech* ngine_create_tech_gl30() {
   pass_light->u_mvp = 1;
   pass_light->u_tex = 0;
   
-  pass_light->shdr_prog = shdr = ngine_shdr_prog_create("gl30_light");
+  pass_light->shdr_prog = ngine_shdr_prog_create("gl30_light");
+  shdr = pass_light->shdr_prog;
   
   ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_light.vert"), GL_VERTEX_SHADER);
   ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_light.frag"), GL_FRAGMENT_SHADER);
@@ -331,6 +338,18 @@ struct ngine_tech* ngine_create_tech_gl30() {
   if(shdr->uniform_locs[NGINE_UNIFORM_MVP] == -1) {
     error("shader program: get uniform failled");
   }
+  
+  pass_light->fbo_read = pass_geom->fbo_draw;
+  pass_light->in_texs = pass_geom->out_texs;
+  pass_light->num_in_texs = pass_geom->num_out_texs;
+  
+  pass_light->in_tex_ulocs = calloc(pass_light->num_in_texs, sizeof(uint32_t));
+  
+  pass_light->in_tex_ulocs[0] = glGetUniformLocation(shdr->id, "g_difuse_map");
+  if(pass_light->in_tex_ulocs[0] == -1) {error("shader program: get uniform 'g_difuse_map' failled");}
+  
+  pass_light->in_tex_ulocs[1] = glGetUniformLocation(shdr->id, "g_wpos_map");
+  if(pass_light->in_tex_ulocs[1] == -1) {error("shader program: get uniform 'g_wpos_map' failled");}
   
 //   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
   glEnable(GL_CULL_FACE);
@@ -440,7 +459,7 @@ struct ngine_tech* ngine_create_tech_gl44() {
     error("shader program: get uniform failled");
   }
   
-  pass_geom->fbo_draw = gbuf(1024, 600);
+  pass_geom->fbo_draw = gbuf(1024, 600, 2, pass_geom->out_texs);
   
   
   pass_light->a_vert = 1;
@@ -477,22 +496,27 @@ struct ngine_tech* ngine_create_tech_gl44() {
 
 
 
-uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight) {
-  uint32_t g_texs[2];
+uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight, int num_texs, uint32_t* texs) {
   uint32_t depth_tex;
   // Create the FBO
   uint32_t fbo;
-  glGenFramebuffers(1, &fbo); 
+  glGenFramebuffers(1, &fbo);
   glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fbo);
 
     // Create the gbuffer textures
+<<<<<<< HEAD
+    glGenTextures(2, texs);
+=======
     glGenTextures(2, g_texs);
+>>>>>>> 266a80cd40978b1ada3a32907ec1e3ef9edd12a3
     glGenTextures(1, &depth_tex);
 
-    for (uint32_t i = 0 ; i != 2 ; ++i) {
-       glBindTexture(GL_TEXTURE_2D, g_texs[i]);
+    for (uint32_t i = 0 ; i != num_texs ; ++i) {
+       glBindTexture(GL_TEXTURE_2D, texs[i]);
        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, WindowWidth, WindowHeight, 0, GL_RGB, GL_FLOAT, NULL);
-       glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, g_texs[i], 0);
+       glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+       glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+       glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texs[i], 0);
     }
 
     // depth

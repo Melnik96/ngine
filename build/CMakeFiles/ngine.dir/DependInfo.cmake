@@ -1,10 +1,10 @@
 # The set of languages for which implicit dependencies are needed:
-SET(CMAKE_DEPENDS_LANGUAGES
+set(CMAKE_DEPENDS_LANGUAGES
   "C"
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
-SET(CMAKE_DEPENDS_CHECK_C
+set(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/ngine/source/assets_mgr.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/assets_mgr.c.o"
   "/home/melnik/projects/ngine/source/camera.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/camera.c.o"
   "/home/melnik/projects/ngine/source/cntr/array.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/cntr/array.c.o"
@@ -45,23 +45,23 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/ngine/source/viewport.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/viewport.c.o"
   "/home/melnik/projects/ngine/source/window.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/window.c.o"
   )
-SET(CMAKE_C_COMPILER_ID "GNU")
-SET(CMAKE_DEPENDS_CHECK_CXX
+set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_DEPENDS_CHECK_CXX
   "/home/melnik/projects/ngine/source/physics/rigidbody/rb_bullet_api.cpp" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/physics/rigidbody/rb_bullet_api.cpp.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
-SET(CMAKE_TARGET_LINKED_INFO_FILES
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # The include file search paths:
-SET(CMAKE_C_TARGET_INCLUDE_PATH
+set(CMAKE_C_TARGET_INCLUDE_PATH
   "../source"
   "../source/math"
   "../source/import/blender"
   "/usr/include/bullet"
   )
-SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

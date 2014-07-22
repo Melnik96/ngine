@@ -45,8 +45,6 @@ void ngine_texture_image(struct ngine_texture* _self, const char* _img_name) {
   img_data = &tga_buf[img_data_off];
   
   // create and enable a texture in GL
-//   glActiveTexture(GL_TEXTURE0 + ngine_intense()->num_textures);
-  glActiveTexture(GL_TEXTURE0 /*+ _self->id*/);
   glGenTextures(1, &_self->id);
   glBindTexture(GL_TEXTURE_2D, _self->id);
   printf("%i\n", _self->id);
