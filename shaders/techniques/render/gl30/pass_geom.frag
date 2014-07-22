@@ -12,6 +12,6 @@ void main() {
 //   NormalOut = normalize(frag_wnorm);
 //   TexCoordOut = vec3(frag_uv, 0.0);
   
-  gl_FragData[0] = vec4(1.0, 0,0, 0)/*texture(u_tex, frag_uv).xyzw*/;
-  gl_FragData[1] = vec4(0, 1.0, 0, 0)/*vec4(frag_wpos, 0)*/;
-} 
+  gl_FragData[0] = texture2D(u_tex, frag_uv).xyzw;
+  gl_FragData[1] = vec4(frag_wpos, 0);
+}

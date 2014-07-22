@@ -31,7 +31,6 @@ set(engine_sources
   source/import/targa/tga.c
   source/physics/rigidbody/rb_bullet_api.cpp
 )
-message(${engine_sources})
 
 add_library(ngine SHARED ${engine_sources})
 target_link_libraries(ngine

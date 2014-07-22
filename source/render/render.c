@@ -144,15 +144,18 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
       if(cur_pass->fbo_read) {
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, cur_pass->fbo_read);
 	for(uint32_t i = 0 ; i != cur_pass->num_in_texs; ++i) {
-	  glActiveTexture(GL_TEXTURE0 + i);
+	  glActiveTexture(GL_TEXTURE0 + cur_pass->in_texs[i]);
 	  glBindTexture(GL_TEXTURE_2D, cur_pass->in_texs[i]);
-	  glUniform1i(cur_pass->in_tex_ulocs[i], i);
+	  glUniform1i(cur_pass->in_tex_ulocs[i], cur_pass->in_texs[i]);
 	}
+	glDrawBuffer(GL_BACK);
       } else {
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
       }
       if(cur_pass->fbo_draw) {
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, cur_pass->fbo_draw);
+	GLenum DrawBuffers[] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1/*, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3*/ }; 
+	glDrawBuffers(2, DrawBuffers);
       } else {
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
       }
@@ -173,9 +176,9 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	  
 	  if(cur_pass->u_tex) {
 	    if(cur_entity->mesh->chunk[i4].mtl && cur_entity->mesh->chunk[i4].mtl->tex_color) {
-	      glActiveTexture(GL_TEXTURE0 + cur_entity->mesh->chunk[i4].mtl->tex_color->id + cur_pass->num_in_texs);
+	      glActiveTexture(GL_TEXTURE0 + cur_entity->mesh->chunk[i4].mtl->tex_color->id);
 	      glBindTexture(GL_TEXTURE_2D, cur_entity->mesh->chunk[i4].mtl->tex_color->id);
-	      glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], cur_entity->mesh->chunk[i4].mtl->tex_color->id + cur_pass->num_out_texs);
+	      glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], cur_entity->mesh->chunk[i4].mtl->tex_color->id);
 	    }
 	  }
 	  
@@ -288,6 +291,7 @@ struct ngine_tech* ngine_create_tech_gl30() {
   pass_geom->a_vert = 1;
   pass_geom->u_mvp = 1;
   pass_geom->u_model = 1;
+  pass_geom->u_tex = 1;
   pass_geom->a_norm= 1;
   
   pass_geom->shdr_prog = shdr = ngine_shdr_prog_create("gl30_geom");
@@ -504,19 +508,16 @@ uint32_t gbuf(unsigned int WindowWidth, unsigned int WindowHeight, int num_texs,
   glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fbo);
 
     // Create the gbuffer textures
-<<<<<<< HEAD
     glGenTextures(2, texs);
-=======
-    glGenTextures(2, g_texs);
->>>>>>> 266a80cd40978b1ada3a32907ec1e3ef9edd12a3
     glGenTextures(1, &depth_tex);
 
     for (uint32_t i = 0 ; i != num_texs ; ++i) {
        glBindTexture(GL_TEXTURE_2D, texs[i]);
-       glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, WindowWidth, WindowHeight, 0, GL_RGB, GL_FLOAT, NULL);
        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+       glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, WindowWidth, WindowHeight, 0, GL_RGBA, GL_FLOAT, NULL);
        glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texs[i], 0);
+       printf("gbuf tex id %i\n", texs[i]);
     }
 
     // depth

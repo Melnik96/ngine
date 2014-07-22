@@ -16,7 +16,7 @@ Extra Arguments=
 Install Directory=file:///usr/local
 
 [Launch]
-Launch Configurations=Launch Configuration 0,Launch Configuration 1,Launch Configuration 2,Launch Configuration 3,Launch Configuration 4
+Launch Configurations=Launch Configuration 0,Launch Configuration 1,Launch Configuration 2,Launch Configuration 3,Launch Configuration 4,Launch Configuration 5
 
 [Launch][Launch Configuration 0]
 Configured Launch Modes=execute
@@ -105,6 +105,24 @@ Executable=file:///home/melnik/projects/ngine/neditor/bin/neditor
 External Terminal=konsole --noclose --workdir %workdir -e %exe
 Project Target=ngine,neditor
 Use External Terminal=false
+Working Directory=
+isExecutable=true
+
+[Launch][Launch Configuration 5]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=neditor_soft
+Type=Native Application
+
+[Launch][Launch Configuration 5][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\n\x00n\x00g\x00i\x00n\x00e\x00\x00\x00\x0e\x00n\x00e\x00d\x00i\x00t\x00o\x00r)
+Dependency Action=Build
+EnvironmentGroup=default
+Executable=file:///home/melnik/projects/ngine/neditor/bin/neditor
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=ngine,neditor
+Use External Terminal=true
 Working Directory=
 isExecutable=true
 
