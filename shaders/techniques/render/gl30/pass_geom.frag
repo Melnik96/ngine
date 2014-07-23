@@ -1,4 +1,4 @@
-#version 430
+#version 130
 
 uniform sampler2D u_tex;
 
@@ -6,9 +6,9 @@ varying vec2 frag_uv;
 varying vec3 frag_wnorm;
 varying vec3 frag_wpos;
 
-layout (location = 0) out vec3 g_difuse_map;
-layout (location = 1) out vec3 g_wpos_map;
-layout (location = 2) out vec3 g_norm_map;
+out vec3 g_difuse_map;
+out vec3 g_wpos_map;
+out vec3 g_norm_map;
 
 void main() {
 //   TexCoordOut = vec3(frag_uv, 0.0);

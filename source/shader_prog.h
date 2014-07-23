@@ -34,6 +34,14 @@ enum {
   NGINE_UNIFORM_MODEL  = 1,
   NGINE_UNIFORM_TIME = 2,
   NGINE_UNIFORM_TEX = 3,
+  NGINE_UNIFORM_GTEX0,
+  NGINE_UNIFORM_GTEX1,
+  NGINE_UNIFORM_GTEX2,
+  NGINE_UNIFORM_GTEX3,
+  NGINE_UNIFORM_GTEX4,
+  NGINE_UNIFORM_GTEX5,
+  NGINE_UNIFORM_GTEX6,
+  NGINE_UNIFORM_GTEX7,
   NGINE_UNIFORMS_NUM
 };
 
@@ -57,6 +65,7 @@ void 			ngine_shdr_prog_binary(struct ngine_shdr_prog* _self, void* _bin, uint32
 // void 			ngine_shdr_prog_source(struct ngine_shdr_prog* _self, uint32_t _type, const char* _source);
 int	 		ngine_shdr_prog_compile(struct ngine_shdr_prog* _self, const char* _source, uint32_t _type);
 void 			ngine_shdr_prog_bind_attr(struct ngine_shdr_prog* _self, uint32_t _index, const char* _name);
+int32_t 		ngine_shdr_prog_get_unf_loc(struct ngine_shdr_prog* _self, const char* _name);
 int 			ngine_shdr_prog_link(struct ngine_shdr_prog* _self);
 struct buffer* 		ngine_shdr_prog_get_binary(struct ngine_shdr_prog* _self);
 

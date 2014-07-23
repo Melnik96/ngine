@@ -112,6 +112,14 @@ void ngine_shdr_prog_bind_attr(struct ngine_shdr_prog* _self, uint32_t _index, c
   glBindAttribLocation(_self->id, _index, _name);
 }
 
+int32_t ngine_shdr_prog_get_unf_loc(struct ngine_shdr_prog* _self, const char* _name) {
+  int32_t u_loc = glGetUniformLocation(_self->id, _name);
+  if(u_loc == -1) {
+    error("shader program: get uniform '%s' failled", _name);
+  }
+  return u_loc;
+}
+
 // struct buffer* ngine_shdr_prog_get_binary(struct ngine_shdr_prog* _self) {
 //   
 // }

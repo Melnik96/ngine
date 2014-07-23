@@ -61,13 +61,6 @@ int ngine_init(struct ngine* _self) {
   FMOD_System_Create(&_self->fmod_sound);
   FMOD_System_Init(_self->fmod_sound, 32, FMOD_INIT_NORMAL, NULL);
   
-  // init base shaders
-//   ngine_assets_mgr_get_file(ngine, NGINE_SHADER_ASSET, "base.vert.glsl");
-//   ngine_shdr_prog_create();
-//   ngine_shdr_source();
-//   ngine_shdr_prog_bind_attr();
-//   ngine_shdr_prog_link();
-  
   return 1;
 }
 
@@ -102,7 +95,7 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
       tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
       
       if(_self->scenes->dyn_world) {
-	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
+// 	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
       }
       ngine_render_frame(_self->render, _elapsed);
       //http://gameprogrammingpatterns.com/
@@ -181,18 +174,15 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
       kmMat4Multiply(mvp, &_ngine->rend_target->mat_proj, &tmp_mat);
 
       struct ngine_render_op* rop = calloc(1, sizeof(struct ngine_render_op));
-      rop->entity = _obj;
-      rop->lights;
+      rop->ent_node = _obj;
       rop->mvp_mat = mvp;
-      rop->model_mat = &_obj->matrix;
-//       rop->// render target
       ngine_render_queue_add_op(_ngine->render->render_queue, rop);
   }
+  else if(_obj->type == NGINE_SC_OBJ_LIGHT) {
+    ngine_render_queue_add_light(_ngine->render->render_queue, _obj);
+  }
   else if(_obj->type == NGINE_SC_OBJ_SPEAKER) {
-//     debug("procces snd_speaker obj");
     FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix velocity
   }
-  else if(_obj->type == NGINE_SC_OBJ_CAMERA) {
-    ngine_sc_node_upd_mat(_obj);
-  }
+  else if(_obj->type == NGINE_SC_OBJ_CAMERA) {}
 }

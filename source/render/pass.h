@@ -27,15 +27,11 @@ struct ngine_render_pass {
   // subroutines needs to be active
   uint32_t* subroutine_ids;
   
-  uint32_t fbo_read;
-  uint32_t fbo_draw;
+  struct ngine_framebuffer* fbuf_read;
+  struct ngine_framebuffer* fbuf_draw;
   
-  uint32_t num_out_texs;
-  uint32_t* out_texs;
-  
-  uint32_t num_in_texs;
-  uint32_t* in_texs;
-  uint32_t* in_tex_ulocs;
+  void (*pass_start)();
+  void (*pass_end)();
   
   // vertex data attribs
   char a_vert;
@@ -50,7 +46,7 @@ struct ngine_render_pass {
   char u_time;
   
   // gl active states
-  uint32_t* active_states;
+  uint16_t* active_states;
   uint32_t polygon_mode;
 };
 

@@ -28,13 +28,11 @@ enum {
 };
 
 struct ngine_render_op {
-  mat4* 		mvp_mat;
-  mat4* 		model_mat;
+  mat4* 		mvp_mat;  
+  struct ngine_sc_node* ent_node;
   
-  struct ngine_sc_node* entity;
-  
-  uint32_t 		num_lights;
-  struct ngine_sc_node* lights;// affect lights
+//   uint32_t 		num_lights;
+//   struct ngine_sc_node* lights;// affect lights
   
 };
 
@@ -44,6 +42,10 @@ struct ngine_render_queue {
   mat4* 		view_mat;
   mat4* 		proj_mat;
   
+  uint32_t 		alloc_lights;
+  uint32_t 		num_lights;
+  struct ngine_sc_node* lights;
+  
   // TODO change to array
   uint32_t 			alloc_render_ops;
   uint32_t 			num_render_ops;
@@ -51,6 +53,7 @@ struct ngine_render_queue {
 };// one per render target
 
 void ngine_render_queue_add_op(struct ngine_render_queue* _self, struct ngine_render_op* _op);
+void ngine_render_queue_add_light(struct ngine_render_queue* _self, struct ngine_sc_node* _light_node);
 
 struct ngine_render {
   // gl version and exensions

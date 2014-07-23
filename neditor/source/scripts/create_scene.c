@@ -92,7 +92,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   ngine_input_bind_key(_ngine->input, GLFW_KEY_M, 0, node_cam, fov_none);
   
 //   {
-    ngine_scene_add_import_assimp(nscene, "media/models/test_scene.dae");
+    ngine_scene_add_import_assimp(nscene, "media/models/MENU_LEVEL.obj");
 //   }
 { 
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/uv_test.obj");

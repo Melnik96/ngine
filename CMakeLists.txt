@@ -30,6 +30,7 @@ set(engine_sources
   source/import/asmp/asmp.c
   source/import/targa/tga.c
   source/physics/rigidbody/rb_bullet_api.cpp
+  source/render/techs/gl30_tech.c
 )
 
 add_library(ngine SHARED ${engine_sources})

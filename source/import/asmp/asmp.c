@@ -39,8 +39,8 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
   struct aiScene* sc = aiImportFile(_file, 
 				    aiProcessPreset_TargetRealtime_MaxQuality |
 				    aiProcess_Triangulate |
-				    aiProcess_ImproveCacheLocality |
-				    aiProcess_GenNormals
+				    aiProcess_ImproveCacheLocality/* |
+				    aiProcess_GenNormals*/
   );
   if(sc == NULL) {
     error("import asmp failed: %s", aiGetErrorString());
@@ -70,9 +70,15 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
       light->type = NGINE_LIGHT_SPOT;
     }
     
-//     light->ambient = sc->mLights[i]->mColorAmbient;
-//     light->diffuse = sc->mLights[i]->mColorDiffuse;
-//     light->specular = sc->mLights[i]->mColorSpecular;
+    light->ambient.x = sc->mLights[i]->mColorAmbient.r;
+    light->ambient.y = sc->mLights[i]->mColorAmbient.g;
+    light->ambient.z = sc->mLights[i]->mColorAmbient.b;
+    light->diffuse.x = sc->mLights[i]->mColorDiffuse.r;
+    light->diffuse.y = sc->mLights[i]->mColorDiffuse.g;
+    light->diffuse.z = sc->mLights[i]->mColorDiffuse.b;
+    light->specular.x = sc->mLights[i]->mColorSpecular.r;
+    light->specular.y = sc->mLights[i]->mColorSpecular.g;
+    light->specular.z = sc->mLights[i]->mColorSpecular.b;
     // it not all!!
     
     node_light->pos.x = sc->mLights[i]->mPosition.x;
