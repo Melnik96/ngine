@@ -40,12 +40,13 @@
 #include "render_target.h"
 #include "camera.h"
 #include "physics/rigidbody/RBI_api.h"
+#include "light.h"
 
 #include <kazmath/kazmath.h>
 
 //intern
 static struct ngine* ngine_intense_var;
-void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine* _ngine);
+void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine_render_target* _render_target);
 
 int ngine_init(struct ngine* _self) {
   debug("ngine init");
@@ -83,30 +84,24 @@ int ngine_shutdown(struct ngine* _self) {
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
+  // for each render target (MRT)
+  struct ngine_render_target* render_target = _self->windows->render_target;
+  
+  ngine_render_target_update(render_target);
+  
+  _self->render->render_queue->render_target = render_target;
+
+  tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, render_target);
+      
+  if(_self->scenes->dyn_world) {
+//     RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
+  }
+  ngine_render_frame(_self->render, _elapsed);
+  //http://gameprogrammingpatterns.com/
+      
+  glfwSwapBuffers(_self->windows->win);
   glfwPollEvents();
-  //for each render target
-//   for(int i = 0; ; ++i) {
-/*    if(&_self->windows[i] != NULL && 
-       &_self->windows[i] != NULL &&
-       _self->windows[i].viewport != NULL &&
-       _self->windows[i].viewport->camera != NULL)*/ 
-//     {
-//       struct ngine_sc_node* root_sc_obj = tree_get_head(_self->windows[i].viewport->camera);
-      tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, _self);
-      
-      if(_self->scenes->dyn_world) {
-// 	RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
-      }
-      ngine_render_frame(_self->render, _elapsed);
-      //http://gameprogrammingpatterns.com/
-//       RB_dworld_export(_self->scenes->dyn_world, "bullet_world.bullet");
-      
-      glfwSwapBuffers(_self->windows->win);
-//       glfwPollEvents();
-//     } /*else {
-//       break;
-//     }*/
-//   }
+
   FMOD_System_Update(_self->fmod_sound);
 }
 
@@ -123,31 +118,10 @@ int sc_obj_check_visible(aabb* _aabb, vec3* _proj_mat) {
   return 1;
 }
 
-void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine* _ngine) {
-  // pipeline
-  // - get array of active lights
-  // - get visible sc_objs(entities)
-  // - for each sc_obj
-  // -   get lights for sc_obj
-  // -   set gl_render_data
-  // -   gl_draw
-  
-//   if(1/*_obj->translated*/) {
-//     if(_obj->dynamic) {
-//       RB_body_set_loc_rot();
-//     } else {
-//       ngine_sc_node_upd_mat(_obj);
-//     }
-//   }
-  
+void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct ngine_render_target* _render_target) {
   if(_obj->dynamic) {
     RB_body_get_position(_obj->rigid_body, _obj->pos.val);
     RB_body_get_orientation(_obj->rigid_body, _obj->orient.val);
-//     _obj->pos.z *= -1;
-//     _obj->orient.z *= -1;
-//     _obj->orient.w *= -1;
-//     _obj->translated = 1;
-//     RB_body_get_transform_matrix(_obj->rigid_body, _obj->matrix.m);
   } 
   
   if(_obj->listener->on_update) {
@@ -155,31 +129,25 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   }
   
   if(1/*_obj->translated*/) {
+    if(_obj->type == NGINE_SC_OBJ_LIGHT) {
+      ngine_light_update(_obj->attached_obj);
+    }
     ngine_sc_node_upd_mat(_obj);
   }
   
-  if(_obj->type == NGINE_SC_OBJ_ENTITY/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
-//     debug("procces entity obj '%s'", _obj->name);
-    /*else if(_obj->phys_active) { 
-    RB_get_transform_matrix();
-    }*/
+  if(_obj->type == NGINE_SC_OBJ_ENTITY || _obj->type == NGINE_SC_OBJ_LIGHT/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
     
-      struct ngine_camera* __cam = ((struct ngine_camera*)_ngine->rend_target->camera->attached_obj);
-      kmMat4PerspectiveProjection(&_ngine->rend_target->mat_proj, __cam->fov, (float)_ngine->rend_target->width/(float)_ngine->rend_target->height, __cam->near, __cam->far);
-      
-    kmMat4* mvp = calloc(1, sizeof(kmMat4));
-      mat4 tmp_mat;
-      kmMat4Inverse(&tmp_mat, &_ngine->rend_target->camera->matrix);
-      kmMat4Multiply(&tmp_mat, &tmp_mat, &_obj->matrix);
-      kmMat4Multiply(mvp, &_ngine->rend_target->mat_proj, &tmp_mat);
+    mat4* proj_mat = _render_target->proj_mat;
+    mat4* mvp = calloc(1, sizeof(kmMat4));
+    mat4 tmp_mat;
+    kmMat4Inverse(&tmp_mat, &_render_target->camera->matrix);
+    kmMat4Multiply(&tmp_mat, &tmp_mat, &_obj->matrix);
+    kmMat4Multiply(mvp, &_render_target->proj_mat, &tmp_mat);
 
-      struct ngine_render_op* rop = calloc(1, sizeof(struct ngine_render_op));
-      rop->ent_node = _obj;
-      rop->mvp_mat = mvp;
-      ngine_render_queue_add_op(_ngine->render->render_queue, rop);
-  }
-  else if(_obj->type == NGINE_SC_OBJ_LIGHT) {
-    ngine_render_queue_add_light(_ngine->render->render_queue, _obj);
+    struct ngine_render_item* render_item = calloc(1, sizeof(struct ngine_render_item));
+    render_item->sc_node = _obj;
+    render_item->mvp_mat = mvp;
+    ngine_render_queue_add_item(ngine_intense()->render->render_queue, _obj->type, render_item);
   }
   else if(_obj->type == NGINE_SC_OBJ_SPEAKER) {
     FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix velocity

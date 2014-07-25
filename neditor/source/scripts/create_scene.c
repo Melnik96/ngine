@@ -21,6 +21,7 @@
 #include "node.h"
 #include "iohand/input.h"
 #include <window.h>
+#include <light.h>
 
 #include <stdlib.h>
 #include <math.h>
@@ -73,7 +74,8 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   node_cam->pos.y = 0;
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_cam);
   
-  _ngine->rend_target = ngine_render_target_create(node_cam, 1440, 900);
+  _ngine->windows->render_target->camera = node_cam;
+  _ngine->windows->render_target->need_update = 1;
   
   ngine_input_bind_mouse_move(_ngine->input, node_cam, cam_rot);
   ngine_input_bind_key(_ngine->input, GLFW_KEY_W, 1, node_cam, move_forward);
@@ -92,7 +94,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   ngine_input_bind_key(_ngine->input, GLFW_KEY_M, 0, node_cam, fov_none);
   
 //   {
-    ngine_scene_add_import_assimp(nscene, "media/models/MENU_LEVEL.obj");
+    ngine_scene_add_import_assimp(nscene, "media/models/MENU_LEVEL.dae");
 //   }
 { 
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/uv_test.obj");
@@ -115,6 +117,18 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_suzy);
   
   node_suzy->listener->on_update = node_rotation;
+}
+{
+  struct ngine_light* light = ngine_light_create(NGINE_LIGHT_POINT);
+  struct ngine_sc_node* node_suzy = ngine_sc_node_create(nscene, "light", NGINE_SC_OBJ_LIGHT);
+  
+  node_suzy->attached_obj = (struct list*)light;
+  node_suzy->pos.x = 0.0;
+  node_suzy->pos.y = 0.0;
+  node_suzy->pos.z = -5.0;
+  kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
+  
+  tree_add_child((struct tree*)node_cam, (struct tree*)node_suzy);
 }
 // {
 //   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");

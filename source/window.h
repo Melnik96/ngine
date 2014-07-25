@@ -39,13 +39,13 @@ struct window_input_listener {
 
 struct ngine_window {
   struct GLFWwindow* win;
-  struct viewport*   viewport;
+  struct ngine_render_target* render_target;
   
   struct window_listener* listener;
   struct window_input_listener* input_listener;
 };
 
-struct ngine_window* 	ngine_window_create(char* _win_name, int _width, int _height);
+struct ngine_window* 	ngine_window_create(char* _win_name, char _fullscrean, int _width, int _height);
 int 			ngine_window_destroy(struct ngine_window* _win);
 
 #endif // WINDOW_H

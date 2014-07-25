@@ -17,4 +17,16 @@
  * 
  */
 
-#include "sys_info.h"
+#include "func_bind.h"
+
+struct ngine_func_bind* ngine_func_bind(void* _func, uint8_t _num_args, void* _args) {
+  struct ngine_func_bind* new_bind = malloc(sizeof(struct ngine_func_bind*));
+  
+  new_bind->func = _func;
+  new_bind->num_args = _num_args;
+//   new_bind->args = malloc();
+}
+
+void* ngine_func_call(struct ngine_func_bind* _self) {
+
+}

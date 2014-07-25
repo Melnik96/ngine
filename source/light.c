@@ -17,4 +17,39 @@
  * 
  */
 
+#include <math.h>
+
+#include "math/vector.h"
+
 #include "light.h"
+
+float calc_plight_rad(vec3 _color, float _intensity);
+
+struct ngine_light* ngine_light_create(uint32_t _type) {
+  struct ngine_light* new_light = calloc(1, sizeof(struct ngine_light));
+  
+  new_light->type = _type;
+  new_light->ambient = (vec3){11.,11.,11.};
+  
+  new_light->need_update = 1;
+  
+  return new_light;
+}
+
+void ngine_light_delete(struct ngine_light* _self) {
+
+}
+
+inline void ngine_light_update(struct ngine_light* _self) {
+  if(_self->need_update) {
+    if(_self->type == NGINE_LIGHT_POINT) {
+      _self->radius = 1.0/*calc_plight_rad(_self->diffuse, _intensity)*/;
+    }
+  }
+}
+
+float calc_plight_rad(vec3 _color, float _intensity) {
+    float MaxChannel = fmax(fmax(_color.x, _color.y), _color.z);
+    float c = MaxChannel * _intensity;
+    return (8.0f * sqrt(c) + 1.0f);
+}

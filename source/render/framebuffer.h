@@ -24,6 +24,8 @@
 
 struct ngine_framebuffer {
   uint32_t 		id;
+  uint32_t 		width;
+  uint32_t 		height;
   uint32_t 		num_draw_texs;
   struct ngine_texture* draw_texs;
   struct ngine_texture* depth_tex;

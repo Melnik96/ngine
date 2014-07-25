@@ -18,10 +18,18 @@
  */
 
 #include <GL/glew.h>
+#include <math.h>
 
+#include <../obj/obj.h>
+#include "iofile.h"
 #include "shader_prog.h"
 #include "texture.h"
+#include "mesh.h"
+#include "sc_obj.h"
 
+#include "math/vector.h"
+
+#include "render/render.h"
 #include "render/technique.h"
 #include "render/pass.h"
 #include "render/framebuffer.h"
@@ -51,6 +59,8 @@ struct ngine_tech* ngine_create_tech_gl30() {
   pass_light = &new_tech->render_passes[1];
 //   pass_ssao = &new_tech->render_passes[0];
   
+  pass_geom->render_ents = 1;
+  
   pass_geom->a_vert = 1;
   pass_geom->a_norm= 1;
   pass_geom->u_mvp = 1;
@@ -73,8 +83,13 @@ struct ngine_tech* ngine_create_tech_gl30() {
   
   pass_geom->fbuf_draw = ngine_framebuffer_create(1, 3, GL_RGB32F, GL_RGB, GL_FLOAT, 1024, 600);
   
+  pass_light->render_ents = 1;
+  pass_light->render_lights = 1;
+  
   pass_light->a_vert = 1;
   pass_light->u_mvp = 1;
+  pass_light->u_light_dcolor = 1;
+  pass_light->u_light_pos = 1;
   
   pass_light->shdr_prog = ngine_shdr_prog_create("gl30_light");
   shdr = pass_light->shdr_prog;
@@ -88,10 +103,10 @@ struct ngine_tech* ngine_create_tech_gl30() {
   shdr->uniform_locs[NGINE_UNIFORM_GTEX0] = ngine_shdr_prog_get_unf_loc(shdr, "g_difuse_map");
   shdr->uniform_locs[NGINE_UNIFORM_GTEX1] = ngine_shdr_prog_get_unf_loc(shdr, "g_wpos_map");
   shdr->uniform_locs[NGINE_UNIFORM_GTEX2] = ngine_shdr_prog_get_unf_loc(shdr, "g_norm_map");
+  shdr->uniform_locs[NGINE_UNIFORM_LIGHT_DIFUSE] = ngine_shdr_prog_get_unf_loc(shdr, "u_light_dcolor");
+  shdr->uniform_locs[NGINE_UNIFORM_LIGHT_POS] = ngine_shdr_prog_get_unf_loc(shdr, "u_light_pos");
   
   pass_light->fbuf_read = pass_geom->fbuf_draw;
-  
-  pass_light->pass_start = light_pass_start;
 
 //   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
   glEnable(GL_CULL_FACE);
@@ -100,8 +115,4 @@ struct ngine_tech* ngine_create_tech_gl30() {
   glDepthFunc(GL_LESS); 
   
   return new_tech;
-}
-
-void light_pass_start() {
-  // draw sphares around all lights
 }

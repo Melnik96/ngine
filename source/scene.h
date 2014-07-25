@@ -26,7 +26,6 @@ struct ngine_scene {
   char* 			name;
   struct ngine_sc_node* 	root_object;
   struct rbDynamicsWorld* 	dyn_world;
-  struct snd_listener* 		cur_snd_listener;// !!bed architect
 };
 
 struct ngine_scene* 	ngine_scene_create(char* _name, char _dynamics, char auto_create_root_obj);

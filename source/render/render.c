@@ -29,6 +29,8 @@
 #include "material.h"
 #include "shader_prog.h"
 
+#include "import/obj/obj.h"
+
 #include "framebuffer.h"
 #include "texture.h"
 
@@ -38,6 +40,7 @@
 #include "techs/gl30_tech.h"
 
 #include "render.h"
+#include <light.h>
 
 // internal
 struct ngine_tech* ngine_create_tech_gl21_low();
@@ -105,6 +108,11 @@ struct ngine_render* ngine_render_create() {
     error("render: all render techniques not supported on this device");
   }
   
+  if(new_render->tech->deferred) {
+    new_render->sphere_mesh = ngine_mesh_import_obj("media/models/sphere.obj");
+    ngine_mesh_update(new_render->sphere_mesh);
+  }
+  
   // create first time render queue
   new_render->render_queue = calloc(1, sizeof(struct ngine_render_queue));
   new_render->num_queues = 1;
@@ -121,16 +129,20 @@ void ngine_render_update(struct ngine_render* _self) {
 }
 
 void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
+  struct ngine_render_queue* 	cur_queue = NULL;
   struct ngine_render_pass* 	cur_pass = NULL;
-  struct ngine_render_op* 	cur_op = NULL;
+  struct ngine_render_item* 	cur_item = NULL;
   struct ngine_entity* 		cur_entity = NULL;
   struct ngine_shdr_prog* 	last_shdr_prog = NULL;
   
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   
   for(uint32_t i = 0; i != _self->num_queues; ++i) {				// queue
+    cur_queue = &_self->render_queue[i];
     for(uint32_t i2 = 0; i2 != _self->tech->num_render_passes; ++i2) {		// pass
       cur_pass = &_self->tech->render_passes[i2];
+      
+      if(cur_pass->pass_start) { cur_pass->pass_start(); }
       
       if(cur_pass->shdr_prog != last_shdr_prog) {
 	last_shdr_prog = cur_pass->shdr_prog;
@@ -149,71 +161,82 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
       }
       
-      if(cur_pass->pass_start) {
-	cur_pass->pass_start();
-      }
-      
       // render entities
-      for(uint32_t i3 = 0; i3 != _self->render_queue[i].num_render_ops; ++i3) {	// render_op
-	cur_op = &_self->render_queue[i].render_ops[i3];
+      if(cur_pass->render_ents) {
+	for(uint32_t i3 = 0; i3 != _self->render_queue[i].num_entities; ++i3) {	// render_op
+	  cur_item = &cur_queue->entities[i3];
 	
-	// calc affected lights
-	for(uint32_t i = 0; i != _self->render_queue[i].num_lights; ++i) {
-	  // if |ent_pos - light_pos| < ent_radius + light_radius
-	}
-	
-	if(cur_pass->u_mvp) {
-	  glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_op->mvp_mat);
-	}
-	if(cur_pass->u_model) {
-	  glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MODEL], 1, 0, &cur_op->ent_node->matrix);
-	}
-	
-	cur_entity = (struct ngine_entity*)cur_op->ent_node->attached_obj;
-	
-	for(uint32_t i4 = 0; i4 != cur_entity->mesh->num_chunks; ++i4) {
-	  if(cur_pass->u_tex) {
-	    if(cur_entity->mesh->chunk[i4].mtl && cur_entity->mesh->chunk[i4].mtl->tex_color) {
-	      glActiveTexture(GL_TEXTURE0 + cur_entity->mesh->chunk[i4].mtl->tex_color->id);
-	      glBindTexture(GL_TEXTURE_2D, cur_entity->mesh->chunk[i4].mtl->tex_color->id);
-	      glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], cur_entity->mesh->chunk[i4].mtl->tex_color->id);
-	    }
+	  if(cur_pass->u_mvp) {
+	    glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_item->mvp_mat);
 	  }
+	  if(cur_pass->u_model) {
+	    glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MODEL], 1, 0, &cur_item->sc_node->matrix);
+	  }
+	
+	
+	  cur_entity = (struct ngine_entity*)cur_item->sc_node->attached_obj;
+	  for(uint32_t i4 = 0; i4 != cur_entity->mesh->num_chunks; ++i4) {
+	    if(cur_pass->u_tex) {
+	      if(cur_entity->mesh->chunk[i4].mtl && cur_entity->mesh->chunk[i4].mtl->tex_color) {
+		glActiveTexture(GL_TEXTURE0 + cur_entity->mesh->chunk[i4].mtl->tex_color->id);
+		glBindTexture(GL_TEXTURE_2D, cur_entity->mesh->chunk[i4].mtl->tex_color->id);
+		glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_TEX], cur_entity->mesh->chunk[i4].mtl->tex_color->id);
+	      }
+	    }
 	  
-	  glBindVertexArray(cur_entity->mesh->chunk[i4].hw_vao);
-	  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cur_entity->mesh->chunk[i4].hw_index);
-	  glDrawElements(GL_TRIANGLES, cur_entity->mesh->chunk[i4].num_indices, GL_UNSIGNED_INT, NULL);
+	    // send material to shader
+	  
+	    glBindVertexArray(cur_entity->mesh->chunk[i4].hw_vao);
+	    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cur_entity->mesh->chunk[i4].hw_index);
+	    glDrawElements(GL_TRIANGLES, cur_entity->mesh->chunk[i4].num_indices, GL_UNSIGNED_INT, NULL);
+	  }
 	}
       }
+	
+      if(cur_pass->render_lights) {
+	// draw sphares around all lights
+	for(uint32_t i = 0; i != cur_queue->num_lights; ++i) {
+	  struct ngine_light* l = cur_queue->lights[i].sc_node->attached_obj;
+	  vec3* l_pos = &cur_queue->lights[i].sc_node->pos;
+	  glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_queue->lights[i].mvp_mat);
+	  glUniform3f(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_DIFUSE], l->diffuse.x, l->diffuse.y, l->diffuse.z);
+	  glUniform3f(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_POS], l_pos->x, l_pos->y, l_pos->z);
+	  
+	  glBindVertexArray(_self->sphere_mesh->chunk->hw_vao);
+	  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _self->sphere_mesh->chunk->hw_index);
+	  glDrawElements(GL_TRIANGLES, _self->sphere_mesh->chunk->num_indices, GL_UNSIGNED_INT, NULL);
+	}
+      }
+      if(cur_pass->pass_end) { cur_pass->pass_end(); }
     }
-    _self->render_queue[i].num_render_ops = 0;
+      _self->render_queue[i].num_entities = 0;
+      _self->render_queue[i].num_lights = 0;
   }
 #ifndef NDEBUG
-//   uint32_t err = 0;
-//   if((err = glGetError()) != GL_NO_ERROR) {
-//     error("OpenGL error: %s", glewGetErrorString(err));
-//   }
+  uint32_t err = 0;
+  if((err = glGetError()) != GL_NO_ERROR) {
+    error("OpenGL error: %s", glewGetErrorString(err));
+  }
 #endif
 }
 
-void ngine_render_queue_add_op(struct ngine_render_queue* _self, struct ngine_render_op* _op) {
-  if(_self->num_render_ops == _self->alloc_render_ops) {
-    _self->render_ops = realloc(_self->render_ops, sizeof(struct ngine_render_op)*(_self->num_render_ops+1));
+void ngine_render_queue_add_item(struct ngine_render_queue* _self, uint32_t _type, struct ngine_render_item* _item) {
+  if(_type == NGINE_SC_OBJ_ENTITY) {
+    if(_self->num_entities == _self->alloc_entities) {
+      _self->entities = realloc(_self->entities, sizeof(struct ngine_render_item)*(_self->num_entities+1));
+    }
+    _self->entities[_self->num_entities] = *_item;
+    _self->num_entities++;
+    _self->alloc_entities++;
+  } else if(_type == NGINE_SC_OBJ_LIGHT) {
+    if(_self->num_lights == _self->alloc_lights) {
+      _self->lights = realloc(_self->lights, sizeof(struct ngine_render_item)*(_self->num_lights+1));
+    }
+    _self->lights[_self->num_lights] = *_item;
+    _self->num_lights++;
+    _self->alloc_lights++;
   }
-  _self->render_ops[_self->num_render_ops] = *_op;
-  _self->num_render_ops++;
-  _self->alloc_render_ops++;
 }
-
-void ngine_render_queue_add_light(struct ngine_render_queue* _self, struct ngine_sc_node* _light_node) {
-  if(_self->num_lights == _self->alloc_lights) {
-    _self->lights = realloc(_self->lights, sizeof(struct ngine_render_op)*(_self->num_lights+1));
-  }
-  _self->lights[_self->num_lights] = *_light_node;
-  _self->num_lights++;
-  _self->alloc_lights++;
-}
-
 
 // internal
 struct ngine_tech* ngine_create_tech_gl21_low() {
@@ -232,6 +255,11 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   new_tech->num_render_passes = 1;
   
   new_tech->render_passes = pass0;
+  
+  pass0->render_ents = 1;
+  
+  new_tech->deferred = 1;
+  pass0->render_lights = 1;
   
   pass0->a_vert = 1;
   pass0->u_mvp = 1;

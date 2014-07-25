@@ -30,8 +30,12 @@ struct ngine_render_pass {
   struct ngine_framebuffer* fbuf_read;
   struct ngine_framebuffer* fbuf_draw;
   
-  void (*pass_start)();
-  void (*pass_end)();
+//   void (*procces)(struct ngine_render_pass* _pass, struct ngine_render_queue* _queue);
+  void (*pass_start)(void);
+  void (*pass_end)(void);
+  
+  char render_ents;
+  char render_lights;
   
   // vertex data attribs
   char a_vert;
@@ -43,6 +47,8 @@ struct ngine_render_pass {
   char u_mvp;
   char u_model;
   char u_tex;
+  char u_light_pos;
+  char u_light_dcolor;
   char u_time;
   
   // gl active states

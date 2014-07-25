@@ -320,6 +320,30 @@ source/entity.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/entity.c.s
 .PHONY : source/entity.c.s
 
+source/func_bind.o: source/func_bind.c.o
+.PHONY : source/func_bind.o
+
+# target to build an object file
+source/func_bind.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/func_bind.c.o
+.PHONY : source/func_bind.c.o
+
+source/func_bind.i: source/func_bind.c.i
+.PHONY : source/func_bind.i
+
+# target to preprocess a source file
+source/func_bind.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/func_bind.c.i
+.PHONY : source/func_bind.c.i
+
+source/func_bind.s: source/func_bind.c.s
+.PHONY : source/func_bind.s
+
+# target to generate assembly for a file
+source/func_bind.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/func_bind.c.s
+.PHONY : source/func_bind.c.s
+
 source/import/asmp/asmp.o: source/import/asmp/asmp.c.o
 .PHONY : source/import/asmp/asmp.o
 
@@ -1040,30 +1064,6 @@ source/sound_mgr.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sound_mgr.c.s
 .PHONY : source/sound_mgr.c.s
 
-source/sys_info.o: source/sys_info.c.o
-.PHONY : source/sys_info.o
-
-# target to build an object file
-source/sys_info.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.o
-.PHONY : source/sys_info.c.o
-
-source/sys_info.i: source/sys_info.c.i
-.PHONY : source/sys_info.i
-
-# target to preprocess a source file
-source/sys_info.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.i
-.PHONY : source/sys_info.c.i
-
-source/sys_info.s: source/sys_info.c.s
-.PHONY : source/sys_info.s
-
-# target to generate assembly for a file
-source/sys_info.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.s
-.PHONY : source/sys_info.c.s
-
 source/text.o: source/text.c.o
 .PHONY : source/text.o
 
@@ -1194,6 +1194,9 @@ help:
 	@echo "... source/entity.o"
 	@echo "... source/entity.i"
 	@echo "... source/entity.s"
+	@echo "... source/func_bind.o"
+	@echo "... source/func_bind.i"
+	@echo "... source/func_bind.s"
 	@echo "... source/import/asmp/asmp.o"
 	@echo "... source/import/asmp/asmp.i"
 	@echo "... source/import/asmp/asmp.s"
@@ -1284,9 +1287,6 @@ help:
 	@echo "... source/sound_mgr.o"
 	@echo "... source/sound_mgr.i"
 	@echo "... source/sound_mgr.s"
-	@echo "... source/sys_info.o"
-	@echo "... source/sys_info.i"
-	@echo "... source/sys_info.s"
 	@echo "... source/text.o"
 	@echo "... source/text.i"
 	@echo "... source/text.s"

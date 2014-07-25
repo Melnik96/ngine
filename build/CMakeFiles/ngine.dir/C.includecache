@@ -12,17 +12,9 @@ stdlib.h
 stdint.h
 -
 
-../source/entity.h
+../source/import/obj/obj.h
 
 ../source/iofile.h
-
-../source/log.h
-stdio.h
--
-
-../source/material.h
-math/vector.h
-../source/math/vector.h
 
 ../source/math/matrix.h
 
@@ -35,6 +27,20 @@ stdint.h
 -
 math/vector.h
 ../source/math/vector.h
+
+../source/render/framebuffer.h
+stdint.h
+-
+
+../source/render/pass.h
+stdint.h
+-
+
+../source/render/render.h
+
+../source/render/technique.h
+stdint.h
+-
 
 ../source/sc_obj.h
 math/vector.h
@@ -52,53 +58,35 @@ stdint.h
 stdint.h
 -
 
-/home/melnik/projects/ngine/source/render/framebuffer.h
-stdint.h
--
-
-/home/melnik/projects/ngine/source/render/pass.h
-stdint.h
--
-
-/home/melnik/projects/ngine/source/render/render.c
+/home/melnik/projects/ngine/source/render/techs/gl30_tech.c
 GL/glew.h
 -
-malloc.h
+math.h
 -
-tiff.h
+../obj/obj.h
 -
-log.h
-/home/melnik/projects/ngine/source/render/log.h
 iofile.h
-/home/melnik/projects/ngine/source/render/iofile.h
-sc_obj.h
-/home/melnik/projects/ngine/source/render/sc_obj.h
-entity.h
-/home/melnik/projects/ngine/source/render/entity.h
-mesh.h
-/home/melnik/projects/ngine/source/render/mesh.h
-material.h
-/home/melnik/projects/ngine/source/render/material.h
+/home/melnik/projects/ngine/source/render/techs/iofile.h
 shader_prog.h
-/home/melnik/projects/ngine/source/render/shader_prog.h
-framebuffer.h
-/home/melnik/projects/ngine/source/render/framebuffer.h
+/home/melnik/projects/ngine/source/render/techs/shader_prog.h
 texture.h
-/home/melnik/projects/ngine/source/render/texture.h
-technique.h
-/home/melnik/projects/ngine/source/render/technique.h
-pass.h
-/home/melnik/projects/ngine/source/render/pass.h
-techs/gl30_tech.h
+/home/melnik/projects/ngine/source/render/techs/texture.h
+mesh.h
+/home/melnik/projects/ngine/source/render/techs/mesh.h
+sc_obj.h
+/home/melnik/projects/ngine/source/render/techs/sc_obj.h
+math/vector.h
+/home/melnik/projects/ngine/source/render/techs/math/vector.h
+render/render.h
+/home/melnik/projects/ngine/source/render/techs/render/render.h
+render/technique.h
+/home/melnik/projects/ngine/source/render/techs/render/technique.h
+render/pass.h
+/home/melnik/projects/ngine/source/render/techs/render/pass.h
+render/framebuffer.h
+/home/melnik/projects/ngine/source/render/techs/render/framebuffer.h
+gl30_tech.h
 /home/melnik/projects/ngine/source/render/techs/gl30_tech.h
-render.h
-/home/melnik/projects/ngine/source/render/render.h
-
-/home/melnik/projects/ngine/source/render/render.h
-
-/home/melnik/projects/ngine/source/render/technique.h
-stdint.h
--
 
 /home/melnik/projects/ngine/source/render/techs/gl30_tech.h
 

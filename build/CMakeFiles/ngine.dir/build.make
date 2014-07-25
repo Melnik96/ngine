@@ -348,32 +348,9 @@ CMakeFiles/ngine.dir/source/camera.c.o.provides: CMakeFiles/ngine.dir/source/cam
 
 CMakeFiles/ngine.dir/source/camera.c.o.provides.build: CMakeFiles/ngine.dir/source/camera.c.o
 
-CMakeFiles/ngine.dir/source/sys_info.c.o: CMakeFiles/ngine.dir/flags.make
-CMakeFiles/ngine.dir/source/sys_info.c.o: ../source/sys_info.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/sys_info.c.o"
-	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/sys_info.c.o   -c /home/melnik/projects/ngine/source/sys_info.c
-
-CMakeFiles/ngine.dir/source/sys_info.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/sys_info.c.i"
-	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/sys_info.c > CMakeFiles/ngine.dir/source/sys_info.c.i
-
-CMakeFiles/ngine.dir/source/sys_info.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/sys_info.c.s"
-	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/sys_info.c -o CMakeFiles/ngine.dir/source/sys_info.c.s
-
-CMakeFiles/ngine.dir/source/sys_info.c.o.requires:
-.PHONY : CMakeFiles/ngine.dir/source/sys_info.c.o.requires
-
-CMakeFiles/ngine.dir/source/sys_info.c.o.provides: CMakeFiles/ngine.dir/source/sys_info.c.o.requires
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/sys_info.c.o.provides.build
-.PHONY : CMakeFiles/ngine.dir/source/sys_info.c.o.provides
-
-CMakeFiles/ngine.dir/source/sys_info.c.o.provides.build: CMakeFiles/ngine.dir/source/sys_info.c.o
-
 CMakeFiles/ngine.dir/source/log.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/log.c.o: ../source/log.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/log.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/log.c.o   -c /home/melnik/projects/ngine/source/log.c
 
@@ -396,7 +373,7 @@ CMakeFiles/ngine.dir/source/log.c.o.provides.build: CMakeFiles/ngine.dir/source/
 
 CMakeFiles/ngine.dir/source/serialize.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/serialize.c.o: ../source/serialize.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/serialize.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/serialize.c.o   -c /home/melnik/projects/ngine/source/serialize.c
 
@@ -419,7 +396,7 @@ CMakeFiles/ngine.dir/source/serialize.c.o.provides.build: CMakeFiles/ngine.dir/s
 
 CMakeFiles/ngine.dir/source/entity.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/entity.c.o: ../source/entity.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/entity.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/entity.c.o   -c /home/melnik/projects/ngine/source/entity.c
 
@@ -442,7 +419,7 @@ CMakeFiles/ngine.dir/source/entity.c.o.provides.build: CMakeFiles/ngine.dir/sour
 
 CMakeFiles/ngine.dir/source/node.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/node.c.o: ../source/node.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/node.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/node.c.o   -c /home/melnik/projects/ngine/source/node.c
 
@@ -465,7 +442,7 @@ CMakeFiles/ngine.dir/source/node.c.o.provides.build: CMakeFiles/ngine.dir/source
 
 CMakeFiles/ngine.dir/source/texture.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/texture.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/texture.c.o   -c /home/melnik/projects/ngine/source/texture.c
 
@@ -488,7 +465,7 @@ CMakeFiles/ngine.dir/source/texture.c.o.provides.build: CMakeFiles/ngine.dir/sou
 
 CMakeFiles/ngine.dir/source/mesh.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/mesh.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/mesh.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/mesh.c.o   -c /home/melnik/projects/ngine/source/mesh.c
 
@@ -511,7 +488,7 @@ CMakeFiles/ngine.dir/source/mesh.c.o.provides.build: CMakeFiles/ngine.dir/source
 
 CMakeFiles/ngine.dir/source/scene.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/scene.c.o: ../source/scene.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/scene.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/scene.c.o   -c /home/melnik/projects/ngine/source/scene.c
 
@@ -534,7 +511,7 @@ CMakeFiles/ngine.dir/source/scene.c.o.provides.build: CMakeFiles/ngine.dir/sourc
 
 CMakeFiles/ngine.dir/source/shader_prog.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/shader_prog.c.o: ../source/shader_prog.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_21)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/shader_prog.c.o"
 	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/shader_prog.c.o   -c /home/melnik/projects/ngine/source/shader_prog.c
 
@@ -554,6 +531,29 @@ CMakeFiles/ngine.dir/source/shader_prog.c.o.provides: CMakeFiles/ngine.dir/sourc
 .PHONY : CMakeFiles/ngine.dir/source/shader_prog.c.o.provides
 
 CMakeFiles/ngine.dir/source/shader_prog.c.o.provides.build: CMakeFiles/ngine.dir/source/shader_prog.c.o
+
+CMakeFiles/ngine.dir/source/func_bind.c.o: CMakeFiles/ngine.dir/flags.make
+CMakeFiles/ngine.dir/source/func_bind.c.o: ../source/func_bind.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_22)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/ngine.dir/source/func_bind.c.o"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine.dir/source/func_bind.c.o   -c /home/melnik/projects/ngine/source/func_bind.c
+
+CMakeFiles/ngine.dir/source/func_bind.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine.dir/source/func_bind.c.i"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/source/func_bind.c > CMakeFiles/ngine.dir/source/func_bind.c.i
+
+CMakeFiles/ngine.dir/source/func_bind.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine.dir/source/func_bind.c.s"
+	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/source/func_bind.c -o CMakeFiles/ngine.dir/source/func_bind.c.s
+
+CMakeFiles/ngine.dir/source/func_bind.c.o.requires:
+.PHONY : CMakeFiles/ngine.dir/source/func_bind.c.o.requires
+
+CMakeFiles/ngine.dir/source/func_bind.c.o.provides: CMakeFiles/ngine.dir/source/func_bind.c.o.requires
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/func_bind.c.o.provides.build
+.PHONY : CMakeFiles/ngine.dir/source/func_bind.c.o.provides
+
+CMakeFiles/ngine.dir/source/func_bind.c.o.provides.build: CMakeFiles/ngine.dir/source/func_bind.c.o
 
 CMakeFiles/ngine.dir/source/cntr/tree.c.o: CMakeFiles/ngine.dir/flags.make
 CMakeFiles/ngine.dir/source/cntr/tree.c.o: ../source/cntr/tree.c
@@ -1030,7 +1030,6 @@ ngine_OBJECTS = \
 "CMakeFiles/ngine.dir/source/assets_mgr.c.o" \
 "CMakeFiles/ngine.dir/source/sound_mgr.c.o" \
 "CMakeFiles/ngine.dir/source/camera.c.o" \
-"CMakeFiles/ngine.dir/source/sys_info.c.o" \
 "CMakeFiles/ngine.dir/source/log.c.o" \
 "CMakeFiles/ngine.dir/source/serialize.c.o" \
 "CMakeFiles/ngine.dir/source/entity.c.o" \
@@ -1039,6 +1038,7 @@ ngine_OBJECTS = \
 "CMakeFiles/ngine.dir/source/mesh.c.o" \
 "CMakeFiles/ngine.dir/source/scene.c.o" \
 "CMakeFiles/ngine.dir/source/shader_prog.c.o" \
+"CMakeFiles/ngine.dir/source/func_bind.c.o" \
 "CMakeFiles/ngine.dir/source/cntr/tree.c.o" \
 "CMakeFiles/ngine.dir/source/cntr/list.c.o" \
 "CMakeFiles/ngine.dir/source/cntr/array.c.o" \
@@ -1076,7 +1076,6 @@ ngine_EXTERNAL_OBJECTS =
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/assets_mgr.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/sound_mgr.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/camera.c.o
-../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/sys_info.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/log.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/serialize.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/entity.c.o
@@ -1085,6 +1084,7 @@ ngine_EXTERNAL_OBJECTS =
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/mesh.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/scene.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/shader_prog.c.o
+../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/func_bind.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/cntr/tree.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/cntr/list.c.o
 ../bin/lib/x86/libngine.so: CMakeFiles/ngine.dir/source/cntr/array.c.o
@@ -1129,7 +1129,6 @@ CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/viewport.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/assets_mgr.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/sound_mgr.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/camera.c.o.requires
-CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/sys_info.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/log.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/serialize.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/entity.c.o.requires
@@ -1138,6 +1137,7 @@ CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/texture.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/mesh.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/scene.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/shader_prog.c.o.requires
+CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/func_bind.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/cntr/tree.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/cntr/list.c.o.requires
 CMakeFiles/ngine.dir/requires: CMakeFiles/ngine.dir/source/cntr/array.c.o.requires

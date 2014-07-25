@@ -50,7 +50,7 @@ struct ngine_sc_node {
   struct tree 		link;
   
   char* 		name;
-  int 			type;// sc_obj_type
+  uint32_t 		type;
   
   struct ngine_scene* 	scene;
   // translation

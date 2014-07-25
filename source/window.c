@@ -22,6 +22,8 @@
 #include <malloc.h>
 
 #include "log.h"
+#include "render_target.h"
+#include "render/framebuffer.h"
 
 #include "window.h"
 
@@ -30,8 +32,14 @@ void event_window_closed(GLFWwindow* _glfw_win);
 void event_cursor_pos_changed(GLFWwindow* _glfw_win, double _x, double _y);
 void event_key(GLFWwindow* _glfw_win, int _key, int _scancode, int _action, int _mod);
 
-struct ngine_window* ngine_window_create(char* _win_name, int _width, int _height) {
+struct ngine_window* ngine_window_create(char* _win_name, char _fullscrean, int _width, int _height) {
   struct ngine_window* new_win = calloc(1, sizeof(struct ngine_window));
+  
+  new_win->render_target = ngine_render_target_create(0, 0, 0);
+  new_win->render_target->fbuf = calloc(1, sizeof(struct ngine_framebuffer));
+  new_win->render_target->fbuf->id = 0;
+  new_win->render_target->fbuf->width = _width;
+  new_win->render_target->fbuf->height = _height;
   
   new_win->listener = calloc(1, sizeof(struct window_listener));
   new_win->input_listener = calloc(1, sizeof(struct window_input_listener));
@@ -41,7 +49,10 @@ struct ngine_window* ngine_window_create(char* _win_name, int _width, int _heigh
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 //   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
 
-  GLFWmonitor* monitor = /*glfwGetPrimaryMonitor()*/0;
+  GLFWmonitor* monitor = 0;
+  if(_fullscrean) {
+    monitor = glfwGetPrimaryMonitor();
+  }
   new_win->win = glfwCreateWindow(_width, _height, _win_name, monitor, NULL);
   if(!new_win->win) {
     error("cannot create window '%s'", _win_name);

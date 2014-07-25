@@ -26,24 +26,23 @@
 
 struct ngine_render_target* ngine_render_target_create(struct ngine_sc_node* _camera, uint32_t _w, uint32_t _h) {
   struct ngine_render_target* new_target = calloc(1, sizeof(struct ngine_render_target));
-  new_target->width = _w;
-  new_target->height = _h;
-  new_target->camera = _camera;
   
-  struct ngine_camera* cam = (struct ngine_camera*)(_camera->attached_obj);
-  
-  kmMat4PerspectiveProjection(&new_target->mat_proj, cam->fov, (float)_w/(float)_h, cam->near, cam->far);
+  if(_camera) {
+    new_target->camera = _camera;
+    struct ngine_camera* cam = (struct ngine_camera*)(_camera->attached_obj);
+    kmMat4PerspectiveProjection(&new_target->proj_mat, cam->fov, (float)_w/(float)_h, cam->near, cam->far);
+  }
   
   return new_target;
 }
 
-// void ngine_render_target_create(struct ngine_sc_node* _camera, uint32_t _w, uint32_t _h) {
-//   struct ngine_render_target* new_target = calloc(1, sizeof(struct ngine_render_target));
-//   new_target->width = _w;
-//   new_target->height = _h;
-//   new_target->camera = _camera;
-//   
-//   struct ngine_camera* cam = (struct ngine_camera*)(_camera->attached_obj);
-//   
-//   kmMat4PerspectiveProjection(&new_target->mat_proj, cam->fov, (float)_w/(float)_h, cam->near, cam->far);
-// }
+void ngine_render_target_delete(struct ngine_render_target* _self) {
+
+}
+
+inline void ngine_render_target_update(struct ngine_render_target* _self) {
+  if(_self->need_update) {
+    struct ngine_camera* cam = (struct ngine_camera*)(_self->camera->attached_obj);
+    kmMat4PerspectiveProjection(&_self->proj_mat, cam->fov, (float)_self->fbuf->width/(float)_self->fbuf->height, cam->near, cam->far);
+  }
+}

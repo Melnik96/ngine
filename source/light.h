@@ -24,19 +24,32 @@
 
 enum ngine_light_type {
   NGINE_LIGHT_POINT = 0,
+  NGINE_LIGHT_DIRECTION,
   NGINE_LIGHT_SPOT
 };
 
 struct ngine_light {
-  uint32_t type;
+  uint32_t 	type;
   
-  vec3 ambient;
-  vec3 diffuse;
-  vec3 specular;
-  vec3 attenuation[3];
-
-  float intensity;
+  vec3 		ambient;
+  vec3 		diffuse;
+  vec3 		specular;
+  
+  union {
+    float 	radius;
+    float 	cone_info;
+  };
+  
+  char 		need_update;
+  
+//   float 	attenuation;
+  
+//   float 	intensity;
 };
+
+struct ngine_light* 	ngine_light_create(uint32_t _type);
+void 			ngine_light_delete(struct ngine_light* _self);
+void 			ngine_light_update(struct ngine_light* _self);
 
 // todo antilight -rgb
 

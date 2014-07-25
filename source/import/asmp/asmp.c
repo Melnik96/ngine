@@ -85,6 +85,8 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
     node_light->pos.y = sc->mLights[i]->mPosition.y;
     node_light->pos.z = sc->mLights[i]->mPosition.z;
 //     sc->mLights[i]->mDirection;
+    
+    tree_add_child((struct tree*)_self->root_object, (struct tree*)node_light);
   }
   
   debug("num materials %i", sc->mNumMaterials);

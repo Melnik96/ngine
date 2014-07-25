@@ -30,6 +30,7 @@
 #include "log.h"
 #include "scene.h"
 #include "entity.h"
+#include "light.h"
 
 #include "sc_obj.h"
 #include "mesh.h"
@@ -120,6 +121,12 @@ struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self) {
 //   kmMat4Identity(tmp_mat);
   kmMat4Identity(&_self->matrix);
 
+//   if(_self->type == NGINE_SC_OBJ_LIGHT) {
+//     float radius = ((struct ngine_light*)_self->attached_obj)->radius;
+//     printf("radius = %f\n", radius);
+//     kmMat4Scaling(tmp_mat, radius, radius, radius);
+//     kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);
+//   }
 //   kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
 //   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
   

@@ -34,6 +34,9 @@ CMakeFiles/ngine.dir/source/entity.c.o
  /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/scene.h
  /home/melnik/projects/ngine/source/shader_prog.h
+CMakeFiles/ngine.dir/source/func_bind.c.o
+ /home/melnik/projects/ngine/source/func_bind.c
+ /home/melnik/projects/ngine/source/func_bind.h
 CMakeFiles/ngine.dir/source/import/asmp/asmp.c.o
  ../source/cntr/tree.h
  ../source/entity.h
@@ -113,6 +116,7 @@ CMakeFiles/ngine.dir/source/ngine.c.o
  /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/cntr/tree.h
  /home/melnik/projects/ngine/source/entity.h
+ /home/melnik/projects/ngine/source/light.h
  /home/melnik/projects/ngine/source/log.h
  /home/melnik/projects/ngine/source/material.h
  /home/melnik/projects/ngine/source/math/matrix.h
@@ -120,6 +124,7 @@ CMakeFiles/ngine.dir/source/ngine.c.o
  /home/melnik/projects/ngine/source/ngine.c
  /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/physics/rigidbody/RBI_api.h
+ /home/melnik/projects/ngine/source/render/framebuffer.h
  /home/melnik/projects/ngine/source/render/render.h
  /home/melnik/projects/ngine/source/render_target.h
  /home/melnik/projects/ngine/source/sc_obj.h
@@ -142,7 +147,9 @@ CMakeFiles/ngine.dir/source/render/pass.c.o
 CMakeFiles/ngine.dir/source/render/render.c.o
  ../source/cntr/tree.h
  ../source/entity.h
+ ../source/import/obj/obj.h
  ../source/iofile.h
+ ../source/light.h
  ../source/log.h
  ../source/material.h
  ../source/math/matrix.h
@@ -161,9 +168,17 @@ CMakeFiles/ngine.dir/source/render/technique.c.o
  /home/melnik/projects/ngine/source/render/technique.c
  /home/melnik/projects/ngine/source/render/technique.h
 CMakeFiles/ngine.dir/source/render/techs/gl30_tech.c.o
+ ../source/cntr/tree.h
+ ../source/import/obj/obj.h
+ ../source/iofile.h
+ ../source/math/matrix.h
+ ../source/math/vector.h
+ ../source/mesh.h
  ../source/render/framebuffer.h
  ../source/render/pass.h
+ ../source/render/render.h
  ../source/render/technique.h
+ ../source/sc_obj.h
  ../source/shader_prog.h
  ../source/texture.h
  /home/melnik/projects/ngine/source/render/techs/gl30_tech.c
@@ -173,6 +188,7 @@ CMakeFiles/ngine.dir/source/render_target.c.o
  /home/melnik/projects/ngine/source/cntr/tree.h
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
+ /home/melnik/projects/ngine/source/render/framebuffer.h
  /home/melnik/projects/ngine/source/render_target.c
  /home/melnik/projects/ngine/source/render_target.h
  /home/melnik/projects/ngine/source/sc_obj.h
@@ -181,6 +197,7 @@ CMakeFiles/ngine.dir/source/sc_obj.c.o
  /home/melnik/projects/ngine/source/cntr/list.h
  /home/melnik/projects/ngine/source/cntr/tree.h
  /home/melnik/projects/ngine/source/entity.h
+ /home/melnik/projects/ngine/source/light.h
  /home/melnik/projects/ngine/source/log.h
  /home/melnik/projects/ngine/source/math/matrix.h
  /home/melnik/projects/ngine/source/math/vector.h
@@ -212,9 +229,6 @@ CMakeFiles/ngine.dir/source/sound_mgr.c.o
  /home/melnik/projects/ngine/source/sc_obj.h
  /home/melnik/projects/ngine/source/sound_mgr.c
  /home/melnik/projects/ngine/source/sound_mgr.h
-CMakeFiles/ngine.dir/source/sys_info.c.o
- /home/melnik/projects/ngine/source/sys_info.c
- /home/melnik/projects/ngine/source/sys_info.h
 CMakeFiles/ngine.dir/source/text.c.o
  /home/melnik/projects/ngine/source/text.c
 CMakeFiles/ngine.dir/source/texture.c.o
@@ -231,6 +245,9 @@ CMakeFiles/ngine.dir/source/viewport.c.o
  /home/melnik/projects/ngine/source/viewport.h
 CMakeFiles/ngine.dir/source/window.c.o
  /home/melnik/projects/ngine/source/log.h
+ /home/melnik/projects/ngine/source/math/matrix.h
+ /home/melnik/projects/ngine/source/render/framebuffer.h
+ /home/melnik/projects/ngine/source/render_target.h
  /home/melnik/projects/ngine/source/window.c
  /home/melnik/projects/ngine/source/window.h
 CMakeFiles/ngine.dir/source/physics/rigidbody/rb_bullet_api.cpp.o

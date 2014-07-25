@@ -27,6 +27,9 @@
 struct ngine_framebuffer* ngine_framebuffer_create(char _create_depth, uint32_t _num_texs, int _intern_format, uint32_t _format, uint32_t _type, uint32_t _w, uint32_t _h) {
   struct ngine_framebuffer* new_fbuf = calloc(1, sizeof(struct ngine_framebuffer));
   
+  new_fbuf->width = _w;
+  new_fbuf->height = _h;
+  
   glGenFramebuffers(1, &new_fbuf->id);
   glBindFramebuffer(GL_DRAW_FRAMEBUFFER, new_fbuf->id);
 

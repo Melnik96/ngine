@@ -27,33 +27,25 @@ enum {
   GL_VENDOR_INTEL,
 };
 
-struct ngine_render_op {
+struct ngine_render_item {
   mat4* 		mvp_mat;  
-  struct ngine_sc_node* ent_node;
-  
-//   uint32_t 		num_lights;
-//   struct ngine_sc_node* lights;// affect lights
-  
+  struct ngine_sc_node* sc_node;
 };
 
 struct ngine_render_queue {
   struct ngine_render_target* 	render_target;
   
-  mat4* 		view_mat;
-  mat4* 		proj_mat;
-  
-  uint32_t 		alloc_lights;
-  uint32_t 		num_lights;
-  struct ngine_sc_node* lights;
+  uint32_t 			alloc_lights;
+  uint32_t 			num_lights;
+  struct ngine_render_item* 	lights;
   
   // TODO change to array
-  uint32_t 			alloc_render_ops;
-  uint32_t 			num_render_ops;
-  struct ngine_render_op* 	render_ops;
-};// one per render target
+  uint32_t 			alloc_entities;
+  uint32_t 			num_entities;
+  struct ngine_render_item* 	entities;
+};
 
-void ngine_render_queue_add_op(struct ngine_render_queue* _self, struct ngine_render_op* _op);
-void ngine_render_queue_add_light(struct ngine_render_queue* _self, struct ngine_sc_node* _light_node);
+void ngine_render_queue_add_item(struct ngine_render_queue* _self, uint32_t _type, struct ngine_render_item* _item);
 
 struct ngine_render {
   // gl version and exensions
@@ -72,6 +64,8 @@ struct ngine_render {
   // render target contain queue
   
   struct ngine_tech* tech;
+  
+  struct ngine_mesh* sphere_mesh;
   
   // options
   struct {

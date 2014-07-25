@@ -26,44 +26,22 @@
 
 #include "cntr/list.h"
 
-struct job {
-  struct list link;
-  void*(*handler)(void*);
-  void* args;
-};
-
 struct ngine {
-  struct ngine_window* 	windows;
-  struct ngine_render_target* rend_target;// array
-  struct ngine_scene* 	scenes;
-  
-  // resources
-  struct dynlib* 	dynlibs;
-  struct shader_prog* 	shaders;
-  uint32_t 		num_textures;
-  struct texture*	textures;
-  struct material*	materials;
-  struct sound* 	sounds;
-  //mesh, anim, skel
+  struct ngine_window* 		windows;
+  struct ngine_scene* 		scenes;
+  struct ngine_render_target* 	render_targets;
   
   struct assets_mgr* 	assets_mgr;
-  struct ngine_input* 	input;
-  
   struct ngine_render* 	render;
+  struct ngine_input* 	input;
   struct FMOD_SYSTEM*	fmod_sound;
   
-  int 			active_render;
-  uint8_t 		fixed_fps;//60fps
-  
-  struct list* 		jobs;//list
-  
-  //threads
+  pthread_t 		thr_render;
   pthread_t 		thr_input;//60fps
   pthread_t 		thr_physics;//30fps
-  pthread_t 		thr_sound;
-  pthread_t* 		thr_workers;//one worker per free core
-  pthread_mutex_t 	mutex_workers;
-  pthread_cond_t 	cond_workers;
+  
+  char 			active_render;
+  uint8_t 		fixed_fps;//60fps
 };
 
 int 			ngine_init(struct ngine* _self);
