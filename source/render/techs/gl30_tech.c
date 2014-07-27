@@ -109,7 +109,7 @@ struct ngine_tech* ngine_create_tech_gl30() {
   pass_light->fbuf_read = pass_geom->fbuf_draw;
 
 //   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
-  glEnable(GL_CULL_FACE);
+//   glEnable(GL_CULL_FACE);
   glClearDepth(1.0f);
   glEnable(GL_DEPTH_TEST);
   glDepthFunc(GL_LESS); 

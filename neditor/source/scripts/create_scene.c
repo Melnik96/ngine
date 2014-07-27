@@ -125,7 +125,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   node_suzy->attached_obj = (struct list*)light;
   node_suzy->pos.x = 0.0;
   node_suzy->pos.y = 0.0;
-  node_suzy->pos.z = -5.0;
+  node_suzy->pos.z = -0.0;
   kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
   
   tree_add_child((struct tree*)node_cam, (struct tree*)node_suzy);
