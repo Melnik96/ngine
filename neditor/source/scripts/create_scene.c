@@ -94,7 +94,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   ngine_input_bind_key(_ngine->input, GLFW_KEY_M, 0, node_cam, fov_none);
   
 //   {
-    ngine_scene_add_import_assimp(nscene, "media/models/MENU_LEVEL.dae");
+    ngine_scene_add_import_assimp(nscene, "media/models/light_test.dae");
 //   }
 { 
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/uv_test.obj");
@@ -125,7 +125,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   node_suzy->attached_obj = (struct list*)light;
   node_suzy->pos.x = 0.0;
   node_suzy->pos.y = 0.0;
-  node_suzy->pos.z = -0.0;
+  node_suzy->pos.z = -1.0;
   kmQuaternionRotationPitchYawRoll(&node_suzy->orient, 0, deg2rad(0), 0);
   
   tree_add_child((struct tree*)node_cam, (struct tree*)node_suzy);

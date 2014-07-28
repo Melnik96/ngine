@@ -198,11 +198,11 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	for(uint32_t i = 0; i != cur_queue->num_lights; ++i) {
 	  struct ngine_light* l = cur_queue->lights[i].sc_node->attached_obj;
 	  vec3* l_pos = &cur_queue->lights[i].sc_node->pos;
-	  glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_queue->lights[i].mvp_mat);
-	  glUniform3f(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_DIFUSE], l->diffuse.x, l->diffuse.y, l->diffuse.z);
-	  glUniform3f(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_POS], l_pos->x, l_pos->y, l_pos->z);
-	  
 	  glBindVertexArray(_self->sphere_mesh->chunk->hw_vao);
+	  glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_queue->lights[i].mvp_mat);
+	  glUniform3fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_DIFUSE], 1, &l->diffuse);
+	  glUniform3fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_POS], 1, l_pos);
+	  
 	  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _self->sphere_mesh->chunk->hw_index);
 	  glDrawElements(GL_TRIANGLES, _self->sphere_mesh->chunk->num_indices, GL_UNSIGNED_INT, NULL);
 	}

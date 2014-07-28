@@ -12,9 +12,15 @@ stdlib.h
 stdint.h
 -
 
-../source/import/obj/obj.h
+../source/entity.h
 
-../source/iofile.h
+../source/light.h
+math/vector.h
+../source/math/vector.h
+
+../source/log.h
+stdio.h
+-
 
 ../source/math/matrix.h
 
@@ -28,20 +34,6 @@ stdint.h
 math/vector.h
 ../source/math/vector.h
 
-../source/render/framebuffer.h
-stdint.h
--
-
-../source/render/pass.h
-stdint.h
--
-
-../source/render/render.h
-
-../source/render/technique.h
-stdint.h
--
-
 ../source/sc_obj.h
 math/vector.h
 ../source/math/vector.h
@@ -50,43 +42,35 @@ math/matrix.h
 cntr/tree.h
 ../source/cntr/tree.h
 
-../source/shader_prog.h
-stdint.h
--
-
-../source/texture.h
-stdint.h
--
-
-/home/melnik/projects/ngine/source/render/techs/gl30_tech.c
-GL/glew.h
--
-math.h
--
-../obj/obj.h
--
-iofile.h
-/home/melnik/projects/ngine/source/render/techs/iofile.h
-shader_prog.h
-/home/melnik/projects/ngine/source/render/techs/shader_prog.h
-texture.h
-/home/melnik/projects/ngine/source/render/techs/texture.h
-mesh.h
-/home/melnik/projects/ngine/source/render/techs/mesh.h
-sc_obj.h
-/home/melnik/projects/ngine/source/render/techs/sc_obj.h
+../source/scene.h
 math/vector.h
-/home/melnik/projects/ngine/source/render/techs/math/vector.h
-render/render.h
-/home/melnik/projects/ngine/source/render/techs/render/render.h
-render/technique.h
-/home/melnik/projects/ngine/source/render/techs/render/technique.h
-render/pass.h
-/home/melnik/projects/ngine/source/render/techs/render/pass.h
-render/framebuffer.h
-/home/melnik/projects/ngine/source/render/techs/render/framebuffer.h
-gl30_tech.h
-/home/melnik/projects/ngine/source/render/techs/gl30_tech.h
+../source/math/vector.h
 
-/home/melnik/projects/ngine/source/render/techs/gl30_tech.h
+/home/melnik/projects/ngine/source/import/asmp/asmp.c
+assimp/scene.h
+-
+assimp/postprocess.h
+-
+assimp/cimport.h
+-
+kazmath/kazmath.h
+-
+kazmath/mat4.h
+-
+log.h
+/home/melnik/projects/ngine/source/import/asmp/log.h
+scene.h
+/home/melnik/projects/ngine/source/import/asmp/scene.h
+asmp.h
+/home/melnik/projects/ngine/source/import/asmp/asmp.h
+sc_obj.h
+/home/melnik/projects/ngine/source/import/asmp/sc_obj.h
+light.h
+/home/melnik/projects/ngine/source/import/asmp/light.h
+entity.h
+/home/melnik/projects/ngine/source/import/asmp/entity.h
+mesh.h
+/home/melnik/projects/ngine/source/import/asmp/mesh.h
+
+/home/melnik/projects/ngine/source/import/asmp/asmp.h
 

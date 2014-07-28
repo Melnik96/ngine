@@ -83,7 +83,7 @@ struct ngine_tech* ngine_create_tech_gl30() {
   
   pass_geom->fbuf_draw = ngine_framebuffer_create(1, 3, GL_RGB32F, GL_RGB, GL_FLOAT, 1024, 600);
   
-  pass_light->render_ents = 1;
+//   pass_light->render_ents = 1;
   pass_light->render_lights = 1;
   
   pass_light->a_vert = 1;

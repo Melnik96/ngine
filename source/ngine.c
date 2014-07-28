@@ -136,7 +136,6 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   }
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY || _obj->type == NGINE_SC_OBJ_LIGHT/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
-    
     mat4* proj_mat = _render_target->proj_mat;
     mat4* mvp = calloc(1, sizeof(kmMat4));
     mat4 tmp_mat;

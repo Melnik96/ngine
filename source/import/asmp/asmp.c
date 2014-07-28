@@ -46,7 +46,7 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
     error("import asmp failed: %s", aiGetErrorString());
   }
   
-  debug("num cameras %i", sc->mNumCameras);
+//   debug("num cameras %i", sc->mNumCameras);
   for(uint32_t i = 0; i != sc->mNumCameras; ++i) {
     struct ngine_sc_node* node_cam = ngine_sc_node_create(_self, "camera", NGINE_SC_OBJ_CAMERA);
     node_cam->name = sc->mCameras[i]->mName.data;
@@ -58,7 +58,10 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
     tree_add_child((struct tree*)_self->root_object, (struct tree*)node_cam);
   }
   
-  debug("num lights %i", sc->mNumLights);
+//   debug("num meshes %i", sc->mNumMeshes);
+  for_each_ainode(sc, sc->mRootNode, _self->root_object);
+  
+//   debug("num lights %i", sc->mNumLights);
   for(uint32_t i = 0; i != sc->mNumLights; ++i) {
     struct ngine_sc_node* node_light = ngine_sc_node_create(_self, "light", NGINE_SC_OBJ_LIGHT);
     struct ngine_light* light = calloc(1, sizeof(struct ngine_light));
@@ -81,27 +84,35 @@ void ngine_scene_add_import_assimp(struct ngine_scene* _self, const char* _file)
     light->specular.z = sc->mLights[i]->mColorSpecular.b;
     // it not all!!
     
-    node_light->pos.x = sc->mLights[i]->mPosition.x;
-    node_light->pos.y = sc->mLights[i]->mPosition.y;
-    node_light->pos.z = sc->mLights[i]->mPosition.z;
+    node_light->pos.x = sc->mLights[i]->mPosition.x/1000.;
+    node_light->pos.y = sc->mLights[i]->mPosition.y/1000.;
+    node_light->pos.z = sc->mLights[i]->mPosition.z/1000.;
 //     sc->mLights[i]->mDirection;
     
     tree_add_child((struct tree*)_self->root_object, (struct tree*)node_light);
   }
   
-  debug("num materials %i", sc->mNumMaterials);
+//   debug("num materials %i", sc->mNumMaterials);
   for(uint32_t i = 0; i != sc->mNumMaterials; ++i) {
     // nop
   }
-  
-  debug("num meshes %i", sc->mNumMeshes);
-  for_each_ainode(sc, sc->mRootNode, _self->root_object);
 }
 
 // intern
+int light_index = -1;
 void for_each_ainode(struct aiScene* sc, struct aiNode* ai_node, struct ngine_sc_node* sc_node) {
   struct ngine_mesh* mesh = calloc(1, sizeof(struct ngine_mesh));
-  
+  if(ai_node->mNumMeshes == 0) {
+    if(light_index == -1) {
+      light_index++;
+    } else {
+      printf("empty node %f,%f,%f\n", ai_node->mTransformation.a4, ai_node->mTransformation.b4, ai_node->mTransformation.c4);
+      sc->mLights[light_index]->mPosition.x = ai_node->mTransformation.a4;
+      sc->mLights[light_index]->mPosition.y = ai_node->mTransformation.b4;
+      sc->mLights[light_index]->mPosition.z = ai_node->mTransformation.c4;
+      light_index++;
+    }
+  }
   for(uint32_t i = 0; i != ai_node->mNumMeshes; ++i) {
     struct aiMesh* paiMesh = sc->mMeshes[ai_node->mMeshes[i]];
   
@@ -122,8 +133,9 @@ void for_each_ainode(struct aiScene* sc, struct aiNode* ai_node, struct ngine_sc
       for(uint32_t i = 0; i != paiMesh->mNumVertices; ++i) {
 	mesh->normals[i].x = paiMesh->mNormals[i].x;
 	mesh->normals[i].y = paiMesh->mNormals[i].y;
+	mesh->normals[i].z = paiMesh->mNormals[i].z;
       }
-      printf("mesh have normals\n");
+//       printf("mesh have normals\n");
     }
     
     mesh->num_chunks += 1;
@@ -132,7 +144,7 @@ void for_each_ainode(struct aiScene* sc, struct aiNode* ai_node, struct ngine_sc
   
     uint32_t c_i = mesh->num_chunks - 1;
     mesh->chunk[c_i].num_indices = 3*paiMesh->mNumFaces;
-    debug("num faces: %i", mesh->chunk[c_i].num_indices);
+//     debug("num faces: %i", mesh->chunk[c_i].num_indices);
     mesh->chunk[c_i].indices = calloc(1, mesh->chunk[c_i].num_indices*sizeof(uint32_t));
   
     for (unsigned int i = 0 ; i < paiMesh->mNumFaces; ++i) {
@@ -149,8 +161,8 @@ void for_each_ainode(struct aiScene* sc, struct aiNode* ai_node, struct ngine_sc
   }
   
   
-  debug("mesh num verts: %i", mesh->num_vertices);
-  struct ngine_sc_node* new_node = sc_node;
+//   debug("mesh num verts: %i", mesh->num_vertices);
+  struct ngine_sc_node* new_node = 0;
   if(ai_node->mNumMeshes != 0) {
     ngine_mesh_update(mesh);
   // create entity
@@ -171,10 +183,10 @@ void for_each_ainode(struct aiScene* sc, struct aiNode* ai_node, struct ngine_sc
     kmQuaternionRotationMatrix(&new_node->orient, &n_mat);
     
     tree_add_child(sc_node, new_node);
-    debug("sc_node added");
+//     debug("sc_node added");
   }
   
   for(unsigned int n = 0; n != ai_node->mNumChildren; ++n) {
-    for_each_ainode(sc, ai_node->mChildren[n], new_node);
+    for_each_ainode(sc, ai_node->mChildren[n], sc_node);
   }
 }
