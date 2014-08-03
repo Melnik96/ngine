@@ -49,15 +49,15 @@ struct ngine_tech* ngine_create_tech_gl30() {
   new_tech->glsl_ver = 130;
   
   new_tech->deferred = 1;
-  new_tech->ssao = 0;// 1
+  new_tech->ssao = 1;
   
-  new_tech->num_render_passes = 2;// 3
+  new_tech->num_render_passes = 3;
   
-  new_tech->render_passes = calloc(2/*3*/, sizeof(struct ngine_render_pass));
+  new_tech->render_passes = calloc(3, sizeof(struct ngine_render_pass));
   
   pass_geom = &new_tech->render_passes[0];
-  pass_light = &new_tech->render_passes[1];
-//   pass_ssao = &new_tech->render_passes[0];
+  pass_ssao = &new_tech->render_passes[1];
+  pass_light = &new_tech->render_passes[2];
   
   pass_geom->render_ents = 1;
   
@@ -81,7 +81,39 @@ struct ngine_tech* ngine_create_tech_gl30() {
   shdr->uniform_locs[NGINE_UNIFORM_MODEL] = ngine_shdr_prog_get_unf_loc(shdr, "u_model");
   shdr->uniform_locs[NGINE_UNIFORM_TEX] = ngine_shdr_prog_get_unf_loc(shdr, "u_tex");
   
-  pass_geom->fbuf_draw = ngine_framebuffer_create(1, 3, GL_RGB32F, GL_RGB, GL_FLOAT, 1024, 600);
+  pass_geom->fbuf_draw = ngine_framebuffer_create(1, 4, GL_RGB32F, GL_RGB, GL_FLOAT, 1024, 600);
+  
+  
+  pass_ssao->render_screen_quad = 1;
+  
+  pass_ssao->a_vert = 1;
+  pass_ssao->u_mvp = 0;
+  
+  pass_ssao->shdr_prog = ngine_shdr_prog_create("gl30_ssao");
+  shdr = pass_ssao->shdr_prog;
+  
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_ssao.vert"), GL_VERTEX_SHADER);
+  ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_ssao.frag"), GL_FRAGMENT_SHADER);
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
+  ngine_shdr_prog_link(shdr);
+  
+  shdr->uniform_locs[NGINE_UNIFORM_PROJ] = ngine_shdr_prog_get_unf_loc(shdr, "u_proj");
+  shdr->uniform_locs[NGINE_UNIFORM_VIEW] = ngine_shdr_prog_get_unf_loc(shdr, "u_view");
+  shdr->uniform_locs[NGINE_UNIFORM_GTEX0] = ngine_shdr_prog_get_unf_loc(shdr, "rnm");
+  shdr->uniform_locs[NGINE_UNIFORM_GTEX1] = ngine_shdr_prog_get_unf_loc(shdr, "g_norm_map");
+  shdr->uniform_locs[NGINE_UNIFORM_GTEX2] = ngine_shdr_prog_get_unf_loc(shdr, "g_lindepth_map");
+  
+  struct ngine_texture* rnm_tex = ngine_texture_create(0);
+  ngine_texture_image(rnm_tex, "media/textures/noise.tga");
+  
+  pass_ssao->fbuf_draw = ngine_framebuffer_create(0, 1, GL_RGB32F, GL_RGB, GL_FLOAT, 1024, 600);
+  
+  pass_ssao->num_texs_read = 3;
+  pass_ssao->texs_read = malloc(pass_ssao->num_texs_read*sizeof(struct ngine_texture*));
+  pass_ssao->texs_read[0] = rnm_tex;
+  pass_ssao->texs_read[1] = &pass_geom->fbuf_draw->draw_texs[2];
+  pass_ssao->texs_read[2] = &pass_geom->fbuf_draw->draw_texs[3];
+  
   
 //   pass_light->render_ents = 1;
   pass_light->render_lights = 1;
@@ -103,16 +135,22 @@ struct ngine_tech* ngine_create_tech_gl30() {
   shdr->uniform_locs[NGINE_UNIFORM_GTEX0] = ngine_shdr_prog_get_unf_loc(shdr, "g_difuse_map");
   shdr->uniform_locs[NGINE_UNIFORM_GTEX1] = ngine_shdr_prog_get_unf_loc(shdr, "g_wpos_map");
   shdr->uniform_locs[NGINE_UNIFORM_GTEX2] = ngine_shdr_prog_get_unf_loc(shdr, "g_norm_map");
+  shdr->uniform_locs[NGINE_UNIFORM_GTEX3] = ngine_shdr_prog_get_unf_loc(shdr, "g_ssao_map");
   shdr->uniform_locs[NGINE_UNIFORM_LIGHT_DIFUSE] = ngine_shdr_prog_get_unf_loc(shdr, "u_light_dcolor");
   shdr->uniform_locs[NGINE_UNIFORM_LIGHT_POS] = ngine_shdr_prog_get_unf_loc(shdr, "u_light_pos");
   
-  pass_light->fbuf_read = pass_geom->fbuf_draw;
-
+  pass_light->num_texs_read = 4;
+  pass_light->texs_read = malloc(pass_light->num_texs_read*sizeof(struct ngine_texture*));
+  pass_light->texs_read[0] = &pass_geom->fbuf_draw->draw_texs[0];
+  pass_light->texs_read[1] = &pass_geom->fbuf_draw->draw_texs[1];
+  pass_light->texs_read[2] = &pass_geom->fbuf_draw->draw_texs[2];
+  pass_light->texs_read[3] = &pass_ssao->fbuf_draw->draw_texs[0];
+  
 //   glClearColor(.4f, 0.2f, 0.0f, 1.0f);
 //   glEnable(GL_CULL_FACE);
   glClearDepth(1.0f);
   glEnable(GL_DEPTH_TEST);
-  glDepthFunc(GL_LESS); 
+  glDepthFunc(GL_LESS);
   
   return new_tech;
 }

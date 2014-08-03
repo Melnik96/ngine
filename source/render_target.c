@@ -44,5 +44,6 @@ inline void ngine_render_target_update(struct ngine_render_target* _self) {
   if(_self->need_update) {
     struct ngine_camera* cam = (struct ngine_camera*)(_self->camera->attached_obj);
     kmMat4PerspectiveProjection(&_self->proj_mat, cam->fov, (float)_self->fbuf->width/(float)_self->fbuf->height, cam->near, cam->far);
+    kmMat4Inverse(&_self->view_mat, &_self->camera->matrix);
   }
 }

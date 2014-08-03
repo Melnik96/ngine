@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
   // cinterp to console(stdio) and rconsole(socket)
   
   // create scene in script 'create_scene.c'
+//   struct dynlib* cs = dynlib_open(neditor->engine, "create_scene_carusel");
   struct dynlib* cs = dynlib_open(neditor->engine, "create_scene");
   struct ngine_scene*(*create_scene)(struct ngine*) = dynlib_getsym(cs, "create_scene");
   void(*print_win_closed)(void) = dynlib_getsym(cs, "print_win_closed");
@@ -69,7 +70,7 @@ int main(int argc, char *argv[]) {
     last_time_d = cur_time_d;
     
     ngine_frame(neditor->engine, diff);
-//     printf("fps %f elapsed time %f\n", 1/diff, diff);
+    printf("fps %f elapsed time %f\n", 1/diff, diff);
   }
   ngine_shutdown(neditor->engine);
 }

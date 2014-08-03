@@ -37,7 +37,8 @@
 struct ngine_render_target {
   struct ngine_sc_node* 	camera;
   struct ngine_framebuffer* 	fbuf;
-  mat4* 			proj_mat;
+  mat4 				proj_mat;
+  mat4 				view_mat;
   char 				need_update;
 };
 

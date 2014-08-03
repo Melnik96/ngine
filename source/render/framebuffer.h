@@ -33,6 +33,6 @@ struct ngine_framebuffer {
 
 struct ngine_framebuffer* 	ngine_framebuffer_create(char _create_depth, uint32_t _num_texs, int _intern_format, uint32_t _format, uint32_t _type, uint32_t _w, uint32_t _h);
 void 				ngine_framebuffer_bind_draw(struct ngine_framebuffer* _self);
-void 				ngine_framebuffer_bind_read(struct ngine_framebuffer* _self, struct ngine_shdr_prog* _shdr);
+void 				ngine_framebuffer_bind_read(struct ngine_framebuffer* _self, struct ngine_shdr_prog* _shdr, uint32_t _unf_gtex_off);
 
 #endif // FRAMEBUFFER_H

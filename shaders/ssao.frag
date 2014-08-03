@@ -16,8 +16,7 @@ uniform float u_farDistance;
 varying vec3 v_vertex;
 varying vec2 v_texCoord;
 
-vec3 reconstruct_position(float depth, vec2 tex_coord)
-{
+vec3 reconstruct_position(float depth, vec2 tex_coord) {
   vec4 pos = vec4( (tex_coord.x-0.5)*2, (tex_coord.y-0.5)*2, 1, 1 );
   vec4 ray = u_inverseProjMatrix * pos;
   return ray.xyz * depth;

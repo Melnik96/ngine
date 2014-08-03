@@ -32,6 +32,9 @@ struct ngine_material {
   vec3 emissive_color;// light
   
   struct ngine_texture* tex_color;
+  struct ngine_texture* tex_hight;
+  struct ngine_texture* tex_difuse;
+  struct ngine_texture* tex_specular;
   
   /**
    * if tech == NULL then use default renderer techniqueue.

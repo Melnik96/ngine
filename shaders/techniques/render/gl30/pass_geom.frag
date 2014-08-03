@@ -9,6 +9,7 @@ varying vec3 frag_wpos;
 out vec3 g_difuse_map;
 out vec3 g_wpos_map;
 out vec3 g_norm_map;
+out vec3 g_lindepth_map;
 
 void main() {
 //   TexCoordOut = vec3(frag_uv, 0.0);
@@ -18,4 +19,11 @@ void main() {
   g_norm_map = normalize(frag_wnorm);
   g_difuse_map = texture2D(u_tex, frag_uv).xyz;
   g_wpos_map = frag_wpos;
+  
+  float z = gl_FragCoord.z;      // fetch the z-value from our depth texture
+  float n = 0.1;                                // the near plane
+  float f = 100.0;                               // the far plane
+  float c = (2.0 * n) / (f + n - z * (f - n));  // convert to linear values 
+ 
+  g_lindepth_map = vec3(c);                      // linear
 }

@@ -49,7 +49,7 @@ inline void ngine_light_update(struct ngine_light* _self) {
 }
 
 float calc_plight_rad(vec3 _color, float _intensity) {
-    float MaxChannel = fmax(fmax(_color.x, _color.y), _color.z);
-    float c = MaxChannel * _intensity;
-    return (8.0f * sqrt(c) + 1.0f);
+  float MaxChannel = fmax(fmax(_color.x, _color.y), _color.z);
+  float c = MaxChannel * _intensity;
+  return (8.0f * sqrt(c) + 1.0f);
 }

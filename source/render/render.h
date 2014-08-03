@@ -66,10 +66,18 @@ struct ngine_render {
   struct ngine_tech* tech;
   
   struct ngine_mesh* sphere_mesh;
+  struct ngine_mesh* quad_mesh;
+  
+  struct ngine_texture* rnm_tex;
   
   // options
   struct {
     char ssao;
+    float ssao_totStrength;
+    float ssao_strength;
+    float ssao_offset;
+    float ssao_falloff;
+    float ssao_rad;
   } otps;
 };
 

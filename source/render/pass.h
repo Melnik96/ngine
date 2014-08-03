@@ -23,12 +23,13 @@
 #include <stdint.h>
 
 struct ngine_render_pass {
-  struct ngine_shdr_prog* shdr_prog;
+  struct ngine_shdr_prog* 	shdr_prog;
   // subroutines needs to be active
   uint32_t* subroutine_ids;
   
-  struct ngine_framebuffer* fbuf_read;
-  struct ngine_framebuffer* fbuf_draw;
+  uint32_t 			num_texs_read;
+  struct ngine_texture** 	texs_read;
+  struct ngine_framebuffer* 	fbuf_draw;
   
 //   void (*procces)(struct ngine_render_pass* _pass, struct ngine_render_queue* _queue);
   void (*pass_start)(void);
@@ -36,6 +37,7 @@ struct ngine_render_pass {
   
   char render_ents;
   char render_lights;
+  char render_screen_quad;
   
   // vertex data attribs
   char a_vert;

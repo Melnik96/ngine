@@ -68,7 +68,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   
   
   struct ngine_sc_node* node_cam = ngine_sc_node_create(nscene, "camera", NGINE_SC_OBJ_CAMERA);
-  node_cam->attached_obj = ngine_camera_create(45.0, 0.1, 1000.0);
+  node_cam->attached_obj = ngine_camera_create(45.0, 0.1, 100.0);
   node_cam->pos.z = 0.5;
   node_cam->pos.x = 0;
   node_cam->pos.y = 0;
@@ -233,10 +233,11 @@ void cam_rot(struct ngine_window* win, struct ngine_sc_node* _node, double _x, d
   cx += deg2rad(_x*-0.1 - (640/2)*-0.1);
   cy += deg2rad(_y*-0.1 - (480/2)*-0.1);
   
+  if(cx >= 2*M_PI) {
+    cx -= 2*M_PI;
+  }
+  
   kmQuaternionRotationPitchYawRoll(&_node->orient, cy, cx, 0.);
-  
-//   printf("last x: %f y: %f\n", _x, _y);
-  
   glfwSetCursorPos(win->win, 640/2, 480/2);
 }
 

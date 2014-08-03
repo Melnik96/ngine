@@ -6,6 +6,7 @@
 #include "sc_obj.h"
 #include "entity.h"
 #include "camera.h"
+#include "light.h"
 #include "mesh.h"
 #include "material.h"
 #include "texture.h"
@@ -64,7 +65,7 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   node_cam->pos.y = 0;
   tree_add_child((struct tree*)nscene->root_object, (struct tree*)node_cam);
   
-  _ngine->rend_target = ngine_render_target_create(node_cam, 1440, 900);
+  _ngine->windows->render_target = ngine_render_target_create(node_cam, 1440, 900);
   
   ngine_input_bind_mouse_move(_ngine->input, node_cam, cam_rot);
   ngine_input_bind_key(_ngine->input, GLFW_KEY_W, 1, node_cam, move_forward);

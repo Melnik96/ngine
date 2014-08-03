@@ -65,16 +65,24 @@ struct ngine_framebuffer* ngine_framebuffer_create(char _create_depth, uint32_t 
 }
 
 void ngine_framebuffer_bind_draw(struct ngine_framebuffer* _self) {
-  glBindFramebuffer(GL_DRAW_FRAMEBUFFER, _self->id);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glBindFramebuffer(GL_FRAMEBUFFER, _self->id);
+  if(_self->depth_tex) {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  } else {
+    glClear(GL_COLOR_BUFFER_BIT);
+  }
 }
 
-void ngine_framebuffer_bind_read(struct ngine_framebuffer* _self, struct ngine_shdr_prog* _shdr) {
-  glBindFramebuffer(GL_READ_FRAMEBUFFER, _self->id);
+void ngine_framebuffer_bind_read(struct ngine_framebuffer* _self, struct ngine_shdr_prog* _shdr, uint32_t _unf_gtex_off) {
+//   glBindFramebuffer(GL_READ_FRAMEBUFFER, _self->id);
   for(uint32_t i = 0 ; i != _self->num_draw_texs; ++i) {
-    glActiveTexture(GL_TEXTURE0 + _self->draw_texs[i].id);
-    glBindTexture(GL_TEXTURE_2D, _self->draw_texs[i].id);
-    glUniform1i(_shdr->uniform_locs[NGINE_UNIFORM_GTEX0+i], _self->draw_texs[i].id);
+    glActiveTexture(GL_TEXTURE0 + _self->draw_texs[i+_unf_gtex_off].id);
+    glBindTexture(GL_TEXTURE_2D, _self->draw_texs[i+_unf_gtex_off].id);
+    if(_shdr->uniform_locs[NGINE_UNIFORM_GTEX0+i] >= 0 && i != 0) {
+      glUniform1i(_shdr->uniform_locs[NGINE_UNIFORM_GTEX0+i], _self->draw_texs[i+_unf_gtex_off].id);
+    } else if(i == 0) {
+      glUniform1i(_shdr->uniform_locs[NGINE_UNIFORM_GTEX0+i], _self->draw_texs[i+_unf_gtex_off].id);
+    }
   }
 }
 

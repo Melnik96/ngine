@@ -30,6 +30,7 @@
 #include "shader_prog.h"
 
 #include "import/obj/obj.h"
+#include <../targa/tga.h>
 
 #include "framebuffer.h"
 #include "texture.h"
@@ -41,12 +42,17 @@
 
 #include "render.h"
 #include <light.h>
+#include <render_target.h>
 
 // internal
 struct ngine_tech* ngine_create_tech_gl21_low();
-void gl_debug_callback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam) {
-  debug("GL debug msg: %s", message);
-}
+void gl_debug_callback(GLenum source,
+                                           GLenum type,
+                                           GLuint id,
+                                           GLenum severity,
+                                           GLsizei length,
+                                           const GLchar* message,
+                                           void* userParam);
 
 struct ngine_render* ngine_render_create() {
   struct ngine_render* new_render = calloc(1, sizeof(struct ngine_render));
@@ -85,12 +91,13 @@ struct ngine_render* ngine_render_create() {
 #ifndef NDEBUG
   if(GLEW_KHR_debug) {
     glDebugMessageCallback(gl_debug_callback, new_render);
+    glEnable(GL_DEBUG_OUTPUT);
     debug("render: gl debug message callback set");
   } else if(GLEW_ARB_debug_output) {
-    debug("render: gl debug message callback set");
+    debug("render: gl debug message callback not set");
   } else if(GLEW_AMD_debug_output) {
 //     glDebugMessageCallbackAMD();
-    debug("render: gl debug message callback set");
+    debug("render: gl debug message callback not set");
   }
 #endif
   
@@ -110,6 +117,17 @@ struct ngine_render* ngine_render_create() {
   
   if(new_render->tech->deferred) {
     new_render->sphere_mesh = ngine_mesh_import_obj("media/models/sphere.obj");
+    ngine_mesh_update(new_render->sphere_mesh);
+  }
+  if(new_render->tech->ssao) {
+    new_render->quad_mesh = ngine_mesh_create(1);
+    new_render->quad_mesh->vertices = (vec3[]){
+      {-1, -1, 0},
+      {-1,  1, 0},
+      { 1,  1, 0},
+      { 1, -1, 0}
+    };
+    new_render->quad_mesh->chunk->indices = (uint32_t[]){0,1,2, 0,2,3};
     ngine_mesh_update(new_render->sphere_mesh);
   }
   
@@ -150,10 +168,12 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	// if subroutines supported, change subroutine and not switch shader
       }
       
-      if(cur_pass->fbuf_read) {
-	ngine_framebuffer_bind_read(cur_pass->fbuf_read, cur_pass->shdr_prog);
-      } else {
-	glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+      if(cur_pass->texs_read) {
+	for(int i = 0; i != cur_pass->num_texs_read; ++i) {
+	  glActiveTexture(GL_TEXTURE0 + cur_pass->texs_read[i]->id);
+	  glBindTexture(GL_TEXTURE_2D, cur_pass->texs_read[i]->id);
+	  glUniform1i(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_GTEX0+i], cur_pass->texs_read[i]->id);
+	}
       }
       if(cur_pass->fbuf_draw) {
 	ngine_framebuffer_bind_draw(cur_pass->fbuf_draw);
@@ -172,7 +192,6 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	  if(cur_pass->u_model) {
 	    glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MODEL], 1, 0, &cur_item->sc_node->matrix);
 	  }
-	
 	
 	  cur_entity = (struct ngine_entity*)cur_item->sc_node->attached_obj;
 	  for(uint32_t i4 = 0; i4 != cur_entity->mesh->num_chunks; ++i4) {
@@ -198,15 +217,26 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
 	for(uint32_t i = 0; i != cur_queue->num_lights; ++i) {
 	  struct ngine_light* l = cur_queue->lights[i].sc_node->attached_obj;
 	  vec3* l_pos = &cur_queue->lights[i].sc_node->pos;
-	  glBindVertexArray(_self->sphere_mesh->chunk->hw_vao);
 	  glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_MVP], 1, 0, cur_queue->lights[i].mvp_mat);
 	  glUniform3fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_DIFUSE], 1, &l->diffuse);
 	  glUniform3fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_LIGHT_POS], 1, l_pos);
 	  
+	  glBindVertexArray(_self->sphere_mesh->chunk->hw_vao);
 	  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _self->sphere_mesh->chunk->hw_index);
 	  glDrawElements(GL_TRIANGLES, _self->sphere_mesh->chunk->num_indices, GL_UNSIGNED_INT, NULL);
 	}
       }
+      
+      if(cur_pass->render_screen_quad) {
+// 	ngine_shder_prog_unf(NGINE_UNIFORM_PROJ, ptr*);
+	glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_PROJ], 1, 0, &cur_queue->render_target->proj_mat);
+	glUniformMatrix4fv(cur_pass->shdr_prog->uniform_locs[NGINE_UNIFORM_VIEW], 1, 0, &cur_queue->render_target->view_mat);
+	
+	glBindVertexArray(_self->quad_mesh->chunk->hw_vao);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _self->quad_mesh->chunk->hw_index);
+	glDrawElements(GL_TRIANGLES, _self->quad_mesh->chunk->num_indices, GL_UNSIGNED_INT, NULL);
+      }
+      
       if(cur_pass->pass_end) { cur_pass->pass_end(); }
     }
       _self->render_queue[i].num_entities = 0;
@@ -290,11 +320,60 @@ struct ngine_tech* ngine_create_tech_gl21_low() {
   glEnable(GL_CULL_FACE);
   glClearDepth(1.0f);
   glEnable(GL_DEPTH_TEST);
-  glDepthFunc(GL_LESS); 
+  glDepthFunc(GL_LESS);
   
 #if CHACHE_SHDR
   ngine_shdr_prog_get_binary();// save binary
 #endif
   
   return new_tech;
+}
+
+// intern
+void gl_debug_callback(GLenum source,
+                                           GLenum type,
+                                           GLuint id,
+                                           GLenum severity,
+                                           GLsizei length,
+                                           const GLchar* message,
+                                           void* userParam) {
+
+    debug("%s", message);
+//     debug("type: ");
+// //     switch (type) {
+// //     case GL_DEBUG_TYPE_ERROR:
+// //         cout << "ERROR";
+// //         break;
+// //     case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
+// //         cout << "DEPRECATED_BEHAVIOR";
+// //         break;
+// //     case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
+// //         cout << "UNDEFINED_BEHAVIOR";
+// //         break;
+// //     case GL_DEBUG_TYPE_PORTABILITY:
+// //         cout << "PORTABILITY";
+// //         break;
+// //     case GL_DEBUG_TYPE_PERFORMANCE:
+// //         cout << "PERFORMANCE";
+// //         break;
+// //     case GL_DEBUG_TYPE_OTHER:
+// //         cout << "OTHER";
+// //         break;
+// //     }
+// //     cout << endl;
+//  
+// //     cout << "id: "<    cout << "severity: ";
+// //     switch (severity){
+// //     case GL_DEBUG_SEVERITY_LOW:
+// //         cout << "LOW";
+// //         break;
+// //     case GL_DEBUG_SEVERITY_MEDIUM:
+// //         cout << "MEDIUM";
+// //         break;
+// //     case GL_DEBUG_SEVERITY_HIGH:
+// //         cout << "HIGH";
+// //         break;
+// //     }
+// //     cout << endl;
+//     printf("---------------------opengl-callback-end--------------\n");
 }

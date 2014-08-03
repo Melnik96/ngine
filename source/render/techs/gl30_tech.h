@@ -20,6 +20,12 @@
 #ifndef GL30_TECH_H
 #define GL30_TECH_H
 
+struct light_pass_unfs {
+  mat4 mvp_mat;
+  mat4 proj_mat;
+  vec3 light_pos;
+};
+
 struct ngine_tech* ngine_create_tech_gl30();
 
 #endif // GL30_TECH_H

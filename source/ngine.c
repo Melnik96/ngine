@@ -136,11 +136,12 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   }
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY || _obj->type == NGINE_SC_OBJ_LIGHT/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
-    mat4* proj_mat = _render_target->proj_mat;
+    mat4* proj_mat = &_render_target->proj_mat;
+    mat4* view_mat = malloc(sizeof(mat4));
     mat4* mvp = calloc(1, sizeof(kmMat4));
     mat4 tmp_mat;
-    kmMat4Inverse(&tmp_mat, &_render_target->camera->matrix);
-    kmMat4Multiply(&tmp_mat, &tmp_mat, &_obj->matrix);
+    kmMat4Inverse(view_mat, &_render_target->camera->matrix);
+    kmMat4Multiply(&tmp_mat, view_mat, &_obj->matrix);
     kmMat4Multiply(mvp, &_render_target->proj_mat, &tmp_mat);
 
     struct ngine_render_item* render_item = calloc(1, sizeof(struct ngine_render_item));
