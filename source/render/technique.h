@@ -22,6 +22,8 @@
 
 #include <stdint.h>
 
+#include "pass.h"
+
 struct ngine_tech {
   uint32_t 			num_render_passes;
   struct ngine_render_pass* 	render_passes;
@@ -32,9 +34,13 @@ struct ngine_tech {
   uint8_t 			gl_vendor;
   
   // features
-  char 				deferred;
+  char 				deferred;// multipass
   char 				ssao;
 };
+
+struct ngine_tech* 	ngine_tech_create();
+void 			ngine_tech_delete(struct ngine_tech* _self);
+void 			ngine_tech_add_pass(struct ngine_tech* _self, struct ngine_render_pass* _pass);
 
 // TODO write editor of serialized data, to write technique impl structs.
 

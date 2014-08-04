@@ -48,6 +48,7 @@ struct ngine_window* ngine_window_create(char* _win_name, char _fullscrean, int 
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 //   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
+  glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
   GLFWmonitor* monitor = 0;
   if(_fullscrean) {

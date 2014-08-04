@@ -8,7 +8,7 @@ uniform mat4 u_view;
 uniform mat4 u_proj;
 
 in vec2 uv;
-out vec3 frag_color;
+out float frag_color;
 
 const float totStrength = 1.38;
 const float strength = 0.07;
@@ -34,7 +34,7 @@ void main(void) {
   // current fragment coords in screen space
   vec3 ep = vec3(uv.xy,currentPixelDepth);
   // get the normal of current fragment
-  vec3 norm = (u_proj * u_view * vec4(normalize(currentPixelSample.xyz), 1.0)).xyz;
+  vec3 norm = (/*u_proj * u_view * */vec4(normalize(currentPixelSample.xyz), 1.0)).xyz;
   
   float bl = 0.0;
   // adjust for the depth ( not shure if this is good..)
@@ -59,5 +59,5 @@ void main(void) {
   }
   
   // output the result
-  frag_color = vec3(1.0+bl*invSamples, 0, 0);
+  frag_color = 1.0+bl*invSamples;
 }

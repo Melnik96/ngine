@@ -73,7 +73,7 @@ struct ngine_tech* ngine_create_tech_gl30() {
   ngine_shdr_prog_compile(shdr, file_rdbufp("../../shaders/techniques/render/gl30/pass_geom.frag"), GL_FRAGMENT_SHADER);
   
   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_VERTEX, "a_vert");
-//   ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_NORMAL, "a_norm");
+  ngine_shdr_prog_bind_attr(shdr, NGINE_ATTR_NORMAL, "a_norm");
   
   ngine_shdr_prog_link(shdr);
   
@@ -106,7 +106,7 @@ struct ngine_tech* ngine_create_tech_gl30() {
   struct ngine_texture* rnm_tex = ngine_texture_create(0);
   ngine_texture_image(rnm_tex, "media/textures/noise.tga");
   
-  pass_ssao->fbuf_draw = ngine_framebuffer_create(0, 1, GL_RGB32F, GL_RGB, GL_FLOAT, 1024, 600);
+  pass_ssao->fbuf_draw = ngine_framebuffer_create(0, 1, GL_R32F, GL_RGB, GL_FLOAT, 1024, 600);
   
   pass_ssao->num_texs_read = 3;
   pass_ssao->texs_read = malloc(pass_ssao->num_texs_read*sizeof(struct ngine_texture*));

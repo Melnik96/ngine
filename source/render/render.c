@@ -90,8 +90,8 @@ struct ngine_render* ngine_render_create() {
   
 #ifndef NDEBUG
   if(GLEW_KHR_debug) {
-    glDebugMessageCallback(gl_debug_callback, new_render);
     glEnable(GL_DEBUG_OUTPUT);
+    glDebugMessageCallback(gl_debug_callback, new_render);
     debug("render: gl debug message callback set");
   } else if(GLEW_ARB_debug_output) {
     debug("render: gl debug message callback not set");
@@ -121,14 +121,16 @@ struct ngine_render* ngine_render_create() {
   }
   if(new_render->tech->ssao) {
     new_render->quad_mesh = ngine_mesh_create(1);
+    new_render->quad_mesh->num_vertices = 4;
     new_render->quad_mesh->vertices = (vec3[]){
       {-1, -1, 0},
       {-1,  1, 0},
       { 1,  1, 0},
       { 1, -1, 0}
     };
-    new_render->quad_mesh->chunk->indices = (uint32_t[]){0,1,2, 0,2,3};
-    ngine_mesh_update(new_render->sphere_mesh);
+    new_render->quad_mesh->chunk->num_indices = 6;
+    new_render->quad_mesh->chunk->indices = (uint32_t[]){0,2,3, 0,1,2};
+    ngine_mesh_update(new_render->quad_mesh);
   }
   
   // create first time render queue

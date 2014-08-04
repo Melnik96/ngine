@@ -297,10 +297,10 @@ void node_rotation(struct ngine_sc_node* _sc_node, float _time) {
     cur_yaw -= 2*M_PI;
   }
 //   quat q;
-  kmQuaternionRotationPitchYawRoll(
-    &_sc_node->orient,
-    0, cur_yaw, 0.0
-  );
+//   kmQuaternionRotationPitchYawRoll(
+//     &_sc_node->orient,
+//     0, cur_yaw, 0.0
+//   );
 //   ngine_sc_node_rotate(_sc_node, &q, NGINE_TRANS_LOCAL);
 }
 
