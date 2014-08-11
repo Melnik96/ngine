@@ -130,7 +130,6 @@ CMakeFiles/ngine.dir/source/ngine.c.o: ../source/sc_obj.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/scene.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/shader_prog.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/sound_mgr.h
-CMakeFiles/ngine.dir/source/ngine.c.o: ../source/viewport.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/window.h
 
 CMakeFiles/ngine.dir/source/node.c.o: ../source/node.c
@@ -167,6 +166,7 @@ CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/render.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/technique.h
 CMakeFiles/ngine.dir/source/render/render.c.o: ../source/render/techs/gl30_tech.h
 
+CMakeFiles/ngine.dir/source/render/technique.c.o: ../source/render/pass.h
 CMakeFiles/ngine.dir/source/render/technique.c.o: ../source/render/technique.c
 CMakeFiles/ngine.dir/source/render/technique.c.o: ../source/render/technique.h
 
@@ -241,10 +241,6 @@ CMakeFiles/ngine.dir/source/texture.c.o: ../source/iofile.h
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/ngine.h
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.c
 CMakeFiles/ngine.dir/source/texture.c.o: ../source/texture.h
-
-CMakeFiles/ngine.dir/source/viewport.c.o: ../source/math/matrix.h
-CMakeFiles/ngine.dir/source/viewport.c.o: ../source/viewport.c
-CMakeFiles/ngine.dir/source/viewport.c.o: ../source/viewport.h
 
 CMakeFiles/ngine.dir/source/window.c.o: ../source/log.h
 CMakeFiles/ngine.dir/source/window.c.o: ../source/math/matrix.h

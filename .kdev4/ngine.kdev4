@@ -16,7 +16,7 @@ Extra Arguments=
 Install Directory=file:///usr/local
 
 [Launch]
-Launch Configurations=Launch Configuration 0,Launch Configuration 1,Launch Configuration 2,Launch Configuration 3,Launch Configuration 4,Launch Configuration 5
+Launch Configurations=Launch Configuration 0,Launch Configuration 1,Launch Configuration 2,Launch Configuration 3,Launch Configuration 4,Launch Configuration 5,Launch Configuration 6
 
 [Launch][Launch Configuration 0]
 Configured Launch Modes=execute
@@ -123,6 +123,24 @@ Executable=file:///home/melnik/projects/ngine/neditor/bin/neditor
 External Terminal=konsole --noclose --workdir %workdir -e %exe
 Project Target=ngine,neditor
 Use External Terminal=true
+Working Directory=
+isExecutable=true
+
+[Launch][Launch Configuration 6]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=serialize
+Type=Native Application
+
+[Launch][Launch Configuration 6][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
+Dependency Action=Nothing
+EnvironmentGroup=default
+Executable=file:///home/melnik/projects/ngine/neditor/bin/serialize
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=ngine,serialize
+Use External Terminal=false
 Working Directory=
 isExecutable=true
 

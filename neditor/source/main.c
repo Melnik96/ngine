@@ -2,7 +2,6 @@
 #include "window.h"
 #include "scene.h"
 #include "iofile.h"
-#include "viewport.h"
 #include "dynlib.h"
 #include "log.h"
 #include "sc_obj.h"

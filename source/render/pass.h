@@ -58,4 +58,6 @@ struct ngine_render_pass {
   uint32_t polygon_mode;
 };
 
+struct ngine_render_pass* ngine_render_pass_create();
+
 #endif // PASS_H

@@ -8,7 +8,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ngine.dir/source/dynlib.c.o"
   "CMakeFiles/ngine.dir/source/material.c.o"
   "CMakeFiles/ngine.dir/source/light.c.o"
-  "CMakeFiles/ngine.dir/source/viewport.c.o"
   "CMakeFiles/ngine.dir/source/assets_mgr.c.o"
   "CMakeFiles/ngine.dir/source/sound_mgr.c.o"
   "CMakeFiles/ngine.dir/source/camera.c.o"

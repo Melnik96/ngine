@@ -55,4 +55,7 @@ target_link_libraries(neditor
   ngine
 )
 
+add_executable(serialize examples/serialize/main.c)
+target_link_libraries(serialize ngine)
+
 # install(TARGETS ngine LIBRARY DESTINATION lib)

@@ -72,10 +72,6 @@ math/vector.h
 fmodex/fmod.h
 -
 
-../source/viewport.h
-math/matrix.h
-../source/math/matrix.h
-
 ../source/window.h
 
 /home/melnik/projects/ngine/neditor/source/main.c
@@ -87,8 +83,6 @@ scene.h
 /home/melnik/projects/ngine/neditor/source/scene.h
 iofile.h
 /home/melnik/projects/ngine/neditor/source/iofile.h
-viewport.h
-/home/melnik/projects/ngine/neditor/source/viewport.h
 dynlib.h
 /home/melnik/projects/ngine/neditor/source/dynlib.h
 log.h

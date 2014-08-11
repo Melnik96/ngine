@@ -29,7 +29,6 @@
 #include "ngine.h"
 #include "window.h"
 #include "log.h"
-#include "viewport.h"
 #include "sc_obj.h"
 #include "scene.h"
 #include "entity.h"

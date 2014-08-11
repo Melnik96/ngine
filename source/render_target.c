@@ -41,9 +41,15 @@ void ngine_render_target_delete(struct ngine_render_target* _self) {
 }
 
 inline void ngine_render_target_update(struct ngine_render_target* _self) {
-  if(_self->need_update) {
-    struct ngine_camera* cam = (struct ngine_camera*)(_self->camera->attached_obj);
-    kmMat4PerspectiveProjection(&_self->proj_mat, cam->fov, (float)_self->fbuf->width/(float)_self->fbuf->height, cam->near, cam->far);
+  struct ngine_camera* cam = (struct ngine_camera*)_self->camera->attached_obj;
+  if(_self->need_update || cam->updated) {
+    if(cam->orto) {
+      kmMat4OrthographicProjection(&_self->proj_mat, cam->left, cam->right, cam->bottom, cam->top, cam->near, cam->far);
+    } else {
+      kmMat4PerspectiveProjection(&_self->proj_mat, cam->fov, (float)_self->fbuf->width/(float)_self->fbuf->height, cam->near, cam->far);
+    }
+  }
+  if(_self->camera->translated) {
     kmMat4Inverse(&_self->view_mat, &_self->camera->matrix);
   }
 }

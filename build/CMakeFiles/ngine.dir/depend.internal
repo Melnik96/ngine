@@ -131,7 +131,6 @@ CMakeFiles/ngine.dir/source/ngine.c.o
  /home/melnik/projects/ngine/source/scene.h
  /home/melnik/projects/ngine/source/shader_prog.h
  /home/melnik/projects/ngine/source/sound_mgr.h
- /home/melnik/projects/ngine/source/viewport.h
  /home/melnik/projects/ngine/source/window.h
 CMakeFiles/ngine.dir/source/node.c.o
  /home/melnik/projects/ngine/source/node.c
@@ -168,6 +167,7 @@ CMakeFiles/ngine.dir/source/render/render.c.o
  /home/melnik/projects/ngine/source/render/technique.h
  /home/melnik/projects/ngine/source/render/techs/gl30_tech.h
 CMakeFiles/ngine.dir/source/render/technique.c.o
+ /home/melnik/projects/ngine/source/render/pass.h
  /home/melnik/projects/ngine/source/render/technique.c
  /home/melnik/projects/ngine/source/render/technique.h
 CMakeFiles/ngine.dir/source/render/techs/gl30_tech.c.o
@@ -242,10 +242,6 @@ CMakeFiles/ngine.dir/source/texture.c.o
  /home/melnik/projects/ngine/source/ngine.h
  /home/melnik/projects/ngine/source/texture.c
  /home/melnik/projects/ngine/source/texture.h
-CMakeFiles/ngine.dir/source/viewport.c.o
- /home/melnik/projects/ngine/source/math/matrix.h
- /home/melnik/projects/ngine/source/viewport.c
- /home/melnik/projects/ngine/source/viewport.h
 CMakeFiles/ngine.dir/source/window.c.o
  /home/melnik/projects/ngine/source/log.h
  /home/melnik/projects/ngine/source/math/matrix.h

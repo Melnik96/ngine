@@ -44,7 +44,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/ngine/source/sound_mgr.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/sound_mgr.c.o"
   "/home/melnik/projects/ngine/source/text.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/text.c.o"
   "/home/melnik/projects/ngine/source/texture.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/texture.c.o"
-  "/home/melnik/projects/ngine/source/viewport.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/viewport.c.o"
   "/home/melnik/projects/ngine/source/window.c" "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/source/window.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

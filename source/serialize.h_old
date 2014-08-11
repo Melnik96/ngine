@@ -25,6 +25,18 @@
 #include <string.h>
 #include <malloc.h>
 
+struct buffer {
+  size_t size;
+  void*  data;
+};
+
+struct ptr_offset {
+  intptr_t ptr;
+  intptr_t offset;
+};
+
+struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, void* _ptr);
+
 #define defsfun(struct_name, mod) 		struct buffer* struct_name##_##mod##_serializer(struct struct_name* s, struct ptr_offset* _ptr_os, size_t* _po_num, struct buffer* _r_buf, void* _cur_pos);\
 						struct struct_name* struct_name##_##mod##_deserializer(void* sdata,struct ptr_offset* _ptr_os, size_t* _po_num, struct ptr_offset* _ptr_os_ds, size_t* _po_last_ds, int _r_ser);
 
@@ -117,80 +129,20 @@
 						}
 
 
+#define serialize(obj_ptr, struct_name, mod)		struct_name##_##mod##_serializer(obj_ptr, NULL, NULL, NULL, NULL)
+
+#define deserialize(sdata_ptr, struct_name, mod)	struct_name##_##mod##_deserializer(sdata_ptr, NULL, NULL, NULL, NULL, 1)
 
 /**
- * uint32 		buf_size
- * byte[buf_size] 	sdata
- * ptr_offset[num_ptrs] ptr_os
+ * 
  */
 
-struct buffer {
-  size_t size;
-  char*  data;
-};
-
-struct ptr_offset {
-  intptr_t ptr;
-  intptr_t offset;
-};
-
-struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, void* _ptr);
 
 struct ngine_serialize {
+  uint32_t 		buf_size;
   struct buffer* 	buf;
   
-  uint32_t 		num_ptr_os;
-  struct ptr_offset* 	ptr_os;
-  
-  char* 		last_offset;
+  uint32_t 		last_offset;
 };
-
-#define sfunc_def(struct_name, mod) 		struct buffer* struct_name##_##mod##_serializer(struct struct_name* s, struct ngine_serialize* _self);\
-						struct struct_name* struct_name##_##mod##_deserializer(void* sdata,struct ptr_offset* _ptr_os, size_t* _po_num, struct ptr_offset* _ptr_os_ds, size_t* _po_last_ds, int _r_ser);
-
-#define sfunc_begin(struct_name, mod) struct buffer* struct_name##_##mod##_serializer(struct struct_name* s, struct ngine_serialize* _self) {\
-  char root = 0;\
-  if(_self == 0) {\
-    root = 1;\
-    _self = malloc(sizeof(struct ngine_serialize));\
-    _self->buf = malloc(sizeof(struct buffer));\
-    _self->buf->size = sizeof(uint32_t)+sizeof(struct struct_name);\
-    _self->buf->data = malloc(_self->buf->size);\
-    printf("data = %x\n", _self->buf->data);\
-    _self->last_offset = _self->buf->data+sizeof(uint32_t);\
-  } else {\
-    uint32_t off = _self->last_offset - _self->buf->data;\
-    _self->buf->size += sizeof(struct struct_name);\
-    _self->buf->data = realloc(_self->buf->data, _self->buf->size);\
-    _self->last_offset = _self->buf->data + off;\
-  }\
-  _self->ptr_os = realloc(_self->ptr_os, sizeof(struct ptr_offset)*(_self->num_ptr_os+1));\
-  _self->ptr_os[_self->num_ptr_os].ptr = s;\
-  _self->ptr_os[_self->num_ptr_os].offset = _self->last_offset - _self->buf->data + sizeof(uint32_t);\
-  _self->num_ptr_os += 1;
-
-#define sattr(attr)\
-  *((__typeof(s->attr)*)_self->last_offset) = s->attr; 	_self->last_offset += sizeof(s->attr);
-  
-#define sstruct_ptr(attr, struct_name, mod)\
-  *((void**)_self->last_offset) = s->attr;		_self->last_offset += sizeof(void*);\
-  if(!check_ptr_in_po(_self->num_ptr_os, _self->ptr_os, s->attr)) {\
-    struct_name##_##mod##_serializer(s->attr, _self);\
-  }
-
-#define sfunc_end \
-  if(root) {\
-    _self->buf->size += sizeof(struct ptr_offset) * _self->num_ptr_os;\
-    _self->buf->data = realloc(_self->buf->data, _self->buf->size);\
-    printf("loff = %x\n off = %x", _self->last_offset, _self->ptr_os->offset);\
-    memcpy(_self->last_offset, _self->ptr_os, sizeof(struct ptr_offset) * _self->num_ptr_os);\
-    *(uint32_t*)_self->buf->data = _self->buf->size;\
-    return _self->buf;\
-  }\
-  printf("loff = %x\n", _self->last_offset);\
-}
-
-#define serialize(obj_ptr, struct_name, mod)		struct_name##_##mod##_serializer(obj_ptr, NULL)
-#define deserialize(sdata_ptr, struct_name, mod)	struct_name##_##mod##_deserializer(sdata_ptr, NULL, NULL, NULL, NULL, 1)
 
 #endif /* __SERIALIZE_H__ */

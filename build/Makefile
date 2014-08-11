@@ -128,6 +128,43 @@ ngine/fast:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
 .PHONY : ngine/fast
 
+#=============================================================================
+# Target rules for targets named serialize
+
+# Build rule for target.
+serialize: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 serialize
+.PHONY : serialize
+
+# fast build rule for target.
+serialize/fast:
+	$(MAKE) -f CMakeFiles/serialize.dir/build.make CMakeFiles/serialize.dir/build
+.PHONY : serialize/fast
+
+examples/serialize/main.o: examples/serialize/main.c.o
+.PHONY : examples/serialize/main.o
+
+# target to build an object file
+examples/serialize/main.c.o:
+	$(MAKE) -f CMakeFiles/serialize.dir/build.make CMakeFiles/serialize.dir/examples/serialize/main.c.o
+.PHONY : examples/serialize/main.c.o
+
+examples/serialize/main.i: examples/serialize/main.c.i
+.PHONY : examples/serialize/main.i
+
+# target to preprocess a source file
+examples/serialize/main.c.i:
+	$(MAKE) -f CMakeFiles/serialize.dir/build.make CMakeFiles/serialize.dir/examples/serialize/main.c.i
+.PHONY : examples/serialize/main.c.i
+
+examples/serialize/main.s: examples/serialize/main.c.s
+.PHONY : examples/serialize/main.s
+
+# target to generate assembly for a file
+examples/serialize/main.c.s:
+	$(MAKE) -f CMakeFiles/serialize.dir/build.make CMakeFiles/serialize.dir/examples/serialize/main.c.s
+.PHONY : examples/serialize/main.c.s
+
 neditor/source/main.o: neditor/source/main.c.o
 .PHONY : neditor/source/main.o
 
@@ -1112,30 +1149,6 @@ source/texture.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/texture.c.s
 .PHONY : source/texture.c.s
 
-source/viewport.o: source/viewport.c.o
-.PHONY : source/viewport.o
-
-# target to build an object file
-source/viewport.c.o:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.o
-.PHONY : source/viewport.c.o
-
-source/viewport.i: source/viewport.c.i
-.PHONY : source/viewport.i
-
-# target to preprocess a source file
-source/viewport.c.i:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.i
-.PHONY : source/viewport.c.i
-
-source/viewport.s: source/viewport.c.s
-.PHONY : source/viewport.s
-
-# target to generate assembly for a file
-source/viewport.c.s:
-	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/viewport.c.s
-.PHONY : source/viewport.c.s
-
 source/window.o: source/window.c.o
 .PHONY : source/window.o
 
@@ -1170,6 +1183,10 @@ help:
 	@echo "... neditor"
 	@echo "... ngine"
 	@echo "... rebuild_cache"
+	@echo "... serialize"
+	@echo "... examples/serialize/main.o"
+	@echo "... examples/serialize/main.i"
+	@echo "... examples/serialize/main.s"
 	@echo "... neditor/source/main.o"
 	@echo "... neditor/source/main.i"
 	@echo "... neditor/source/main.s"
@@ -1293,9 +1310,6 @@ help:
 	@echo "... source/texture.o"
 	@echo "... source/texture.i"
 	@echo "... source/texture.s"
-	@echo "... source/viewport.o"
-	@echo "... source/viewport.i"
-	@echo "... source/viewport.s"
 	@echo "... source/window.o"
 	@echo "... source/window.i"
 	@echo "... source/window.s"

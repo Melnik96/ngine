@@ -36,10 +36,20 @@ struct ngine_input* ngine_input_create(struct ngine_window* _win) {
   return new_input;
 }
 
+// void ngine_input_bind_key_listener(ngine_input* _self, ngine_input_key_listener* _lis) {
+//   if(_self->num_key_listeners == _self->alloc_key_callbacks) {
+//     _self->key_listeners = realloc(_self->key_listeners, sizeof(struct ngine_input_key_listener)*(_self->num_key_callbacks+1));
+//   }
+//   _self->key_listeners[_self->num_key_listeners]. = _key;
+//   
+//   _self->num_key_listeners++;
+//   _self->alloc_key_listeners++;
+// }
+
 // TODO!!! key states array[]
 void ngine_input_bind_key(struct ngine_input* _self, uint32_t _key, char _pressed, void* _args, void(*_callback)(void*)) {
   if(_self->num_key_callbacks == _self->alloc_key_callbacks) {
-    _self->key_callbacks = realloc(_self->key_callbacks, sizeof(struct ngine_input_key_callback)*(_self->num_key_callbacks+1));
+    _self->key_callbacks = realloc(_self->key_callbacks, sizeof(struct ngine_input_key_binding)*(_self->num_key_callbacks+1));
   }
   _self->key_callbacks[_self->num_key_callbacks].key = _key;
   _self->key_callbacks[_self->num_key_callbacks].pressed = _pressed;
@@ -65,7 +75,7 @@ void ngine_input_bind_mouse_move(struct ngine_input* _self, void* _args, void(*_
 
 // intern
 void key_pressed(struct ngine_input* _input, uint32_t _key) {
-  struct ngine_input_key_callback* pos;
+  struct ngine_input_key_binding* pos;
   for(pos = _input->key_callbacks; pos < &_input->key_callbacks[_input->num_key_callbacks]; pos++) {
     if(pos->key == _key && pos->pressed == 1) {
       pos->callback(pos->args);
@@ -74,7 +84,7 @@ void key_pressed(struct ngine_input* _input, uint32_t _key) {
   }
 }
 void key_relased(struct ngine_input* _input, uint32_t _key) {
-  struct ngine_input_key_callback* pos;
+  struct ngine_input_key_binding* pos;
   for(pos = _input->key_callbacks; pos < &_input->key_callbacks[_input->num_key_callbacks]; ++pos) {
     if(pos->key == _key && pos->pressed == 0) {
       pos->callback(pos->args);

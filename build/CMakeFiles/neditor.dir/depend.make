@@ -16,7 +16,6 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/render/render.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/sc_obj.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/scene.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/sound_mgr.h
-CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/viewport.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../source/window.h
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../neditor/source/main.c
 CMakeFiles/neditor.dir/neditor/source/main.c.o: ../neditor/source/neditor.h

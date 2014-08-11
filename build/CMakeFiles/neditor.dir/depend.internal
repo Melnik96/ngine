@@ -17,7 +17,6 @@ CMakeFiles/neditor.dir/neditor/source/main.c.o
  ../source/sc_obj.h
  ../source/scene.h
  ../source/sound_mgr.h
- ../source/viewport.h
  ../source/window.h
  /home/melnik/projects/ngine/neditor/source/main.c
  /home/melnik/projects/ngine/neditor/source/neditor.h

@@ -41,4 +41,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/neditor.dir/DependInfo.cmake"
   "CMakeFiles/ngine.dir/DependInfo.cmake"
+  "CMakeFiles/serialize.dir/DependInfo.cmake"
   )

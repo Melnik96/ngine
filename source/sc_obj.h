@@ -28,6 +28,11 @@
 struct ngine_sc_node_listener {
   void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
   void(*on_colide)();
+  // gui
+  void(*on_active)();
+  void(*on_deactive)();
+  void(*on_key_press)();
+  void(*on_key_release)();
 };
 
 enum sc_obj_type {

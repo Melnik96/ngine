@@ -19,16 +19,10 @@
 
 #include "serialize.h"
 
-inline struct ptr_offset* check_ptr_in_list(size_t _ptr_num, struct ptr_offset* _list, void* _ptr) {
+struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, void* _ptr) {
   for(size_t i = 0; i < _ptr_num; ++i) {
-    if(_list[i].ptr == _ptr) { return &_list[i]; }
+    printf("check_ptr_in_po %x,  %x\n", _ptr_os[i].ptr, _ptr);
+    if(_ptr_os[i].ptr == _ptr) { return &_ptr_os[i]; }
   }
   return 0;
-}
-
-void* find_ptr_in_array(size_t _num_ptrs, void** _ptrs, void* _ptr) {
-  for(size_t i = 0; i < _num_ptrs; ++i) {
-    if(_ptrs[i] == _ptr) { return _ptr; }
-  }
-  return NULL;
 }
