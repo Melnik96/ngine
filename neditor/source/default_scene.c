@@ -3,7 +3,7 @@
 #include "render_target.h"
 
 #include "scene.h"
-#include "sc_obj.h"
+#include "sc_node.h"
 #include "entity.h"
 #include "camera.h"
 #include "mesh.h"
@@ -63,7 +63,8 @@ void moveing_right(struct ngine_sc_node* _sc_node, float _time);
 
 void node_rotation(struct ngine_sc_node* _sc_node, float _time);
 
-struct ngine_scene* create_scene(struct ngine* _ngine) {
+void neditor_default_scene_create() {
+  struct ngine* _ngine = ngine_intense();
   struct ngine_scene* nscene = ngine_scene_create("neditor", 0, 1);
   debug("scene 'neditor' created");
   
@@ -102,9 +103,9 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
 { 
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/uv_test.obj");
 //   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
-  mesh_suzy->chunk->mtl = ngine_material_create();
-  mesh_suzy->chunk->mtl->tex_color = ngine_texture_create(0);
-  ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/mapgrid.tga");
+//   mesh_suzy->chunk->mtl = ngine_material_create();
+//   mesh_suzy->chunk->mtl->tex_color = ngine_texture_create(0);
+//   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/monkeymap.tga");
   ngine_mesh_update(mesh_suzy);
   
   struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
@@ -191,9 +192,9 @@ struct ngine_scene* create_scene(struct ngine* _ngine) {
   struct ngine_mesh* mesh_suzy = ngine_mesh_import_obj("media/models/suzanne.obj");
   ngine_mesh_make_coll_shape(mesh_suzy, NGINE_SHAPE_GIMPACT);
   ngine_mesh_update(mesh_suzy);
-  mesh_suzy->chunk->mtl = ngine_material_create();
-  mesh_suzy->chunk->mtl->tex_color = ngine_texture_create(0);
-  ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/floor.tga");
+//   mesh_suzy->chunk->mtl = ngine_material_create();
+//   mesh_suzy->chunk->mtl->tex_color = ngine_texture_create(0);
+//   ngine_texture_image(mesh_suzy->chunk->mtl->tex_color, "media/textures/floor.tga");
   
   struct ngine_entity* ent_suzy = ngine_entity_create("sphere", mesh_suzy);
   struct ngine_sc_node* node_suzy = ngine_sc_node_create(nscene, "suzanne", NGINE_SC_OBJ_ENTITY);

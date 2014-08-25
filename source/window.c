@@ -35,11 +35,10 @@ void event_key(GLFWwindow* _glfw_win, int _key, int _scancode, int _action, int 
 struct ngine_window* ngine_window_create(char* _win_name, char _fullscrean, int _width, int _height) {
   struct ngine_window* new_win = calloc(1, sizeof(struct ngine_window));
   
-  new_win->render_target = ngine_render_target_create(0, 0, 0);
-  new_win->render_target->fbuf = calloc(1, sizeof(struct ngine_framebuffer));
-  new_win->render_target->fbuf->id = 0;
-  new_win->render_target->fbuf->width = _width;
-  new_win->render_target->fbuf->height = _height;
+  new_win->fbuf = calloc(1, sizeof(struct ngine_framebuffer));
+  
+  new_win->fbuf->width = _width;
+  new_win->fbuf->height = _height;
   
   new_win->listener = calloc(1, sizeof(struct window_listener));
   new_win->input_listener = calloc(1, sizeof(struct window_input_listener));
@@ -48,7 +47,8 @@ struct ngine_window* ngine_window_create(char* _win_name, char _fullscrean, int 
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 //   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 //   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API);
-  glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+//   glfwWindowHint(GLFW_DECORATED, 0);
+//   glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
   GLFWmonitor* monitor = 0;
   if(_fullscrean) {

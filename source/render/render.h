@@ -20,6 +20,8 @@
 #ifndef RENDER_H
 #define RENDER_H
 
+#include "math/matrix.h"
+
 enum {
   GL_VENDOR_NONE = 0,
   GL_VENDOR_NV,
@@ -45,7 +47,9 @@ struct ngine_render_queue {
   struct ngine_render_item* 	entities;
 };
 
-void ngine_render_queue_add_item(struct ngine_render_queue* _self, uint32_t _type, struct ngine_render_item* _item);
+void ngine_render_queue_add_item(struct ngine_render_queue* _self, uint32_t 			_type,
+								   mat4*        		_mvp,
+								   struct ngine_sc_node* 	_sc_node);
 
 struct ngine_render {
   // gl version and exensions

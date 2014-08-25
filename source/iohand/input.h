@@ -61,13 +61,19 @@ struct ngine_input {
 struct ngine_input* 	ngine_input_create(struct ngine_window* _win);
 void 			ngine_input_bind_key_listener(struct ngine_input* _self, struct ngine_input_key_listener* _lis);
 
+
+// void 			ngine_input_push_key_listener(struct ngine_input* _self, struct ngine_input_key_listener* _lis);
+// void 			ngine_input_pop_key_listener(struct ngine_input* _self);
+// 
+// void 			ngine_input_push_key_bind(struct ngine_input* _self, uint32_t _key, char _pressed, void* _args, void(*_callback)(void*));
+// void 			ngine_input_pop_key_bind(struct ngine_input* _self, uint32_t _key, char _pressed);
+
+
 void 			ngine_input_bind_key(struct ngine_input* _self, uint32_t _key, char _pressed, void* _args, void(*_callback)(void*));
 void 			ngine_input_unbind_key(struct ngine_input* _self, uint32_t _key, char _pressed);
 void 			ngine_input_bind_mouse_btn(struct ngine_input* _self, uint32_t _btn, char _pressed, void* _args, void(*_callback)(void*));
 void 			ngine_input_unbind_mouse_btn(struct ngine_input* _self, uint32_t _btn, char _pressed);
 void 			ngine_input_bind_mouse_move(struct ngine_input* _self, void* _args, void(*_callback)(struct ngine_window*, void*, double, double));
 void 			ngine_input_unbind_mouse_move(struct ngine_input* _self);
-// void 			ngine_input_push_key_bind(struct ngine_input* _self, uint32_t _key, char _pressed, void* _args, void(*_callback)(void*));
-// void 			ngine_input_pop_key_bind(struct ngine_input* _self, uint32_t _key, char _pressed);
 
 #endif // INPUT_H

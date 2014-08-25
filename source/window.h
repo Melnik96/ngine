@@ -38,10 +38,13 @@ struct window_input_listener {
 };
 
 struct ngine_window {
-  struct GLFWwindow* win;
-  struct ngine_render_target* render_target;
+//   struct ngine_render_target* render_target;
+  // realy not need
   
-  struct window_listener* listener;
+  struct ngine_framebuffer* 	fbuf;
+  struct GLFWwindow* 		win;
+  
+  struct window_listener* 	listener;
   struct window_input_listener* input_listener;
 };
 

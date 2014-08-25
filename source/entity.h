@@ -23,15 +23,13 @@
 
 struct ngine_entity {
   char 			name[32];
-  int 			updated;
   struct ngine_mesh* 	mesh;
 //   struct skel 	skel;
   struct physics* 	phys_info;
+  char 			updated;
 };
 
 int 			ngine_entity_init(struct ngine_entity* _ent, char* _name, struct ngine_mesh* _mesh);
 struct ngine_entity* 	ngine_entity_create(char* _name, struct ngine_mesh* _mesh);
-int 			ngine_entity_update_hw(struct ngine_entity* _ent);//call in engine.c if entity.updated == 1
-//note: mesh may never change in cpu. Animation, soft body and teselation may compute on gpu.
 
 #endif /* __ENTITY_H__ */

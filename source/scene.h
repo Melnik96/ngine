@@ -26,6 +26,8 @@ struct ngine_scene {
   char* 			name;
   struct ngine_sc_node* 	root_object;
   struct rbDynamicsWorld* 	dyn_world;
+  
+  void(*update_sc_node_handler)(struct ngine_sc_node*);
 };
 
 struct ngine_scene* 	ngine_scene_create(char* _name, char _dynamics, char auto_create_root_obj);

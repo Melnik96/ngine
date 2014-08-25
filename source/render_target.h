@@ -24,8 +24,6 @@
 
 #include "math/matrix.h"
 
-#include "render/framebuffer.h"
-
 /**
  * render tardet texture connet to some material texture slot
  * 
@@ -45,6 +43,6 @@ struct ngine_render_target {
 struct ngine_render_target* 	ngine_render_target_create(struct ngine_sc_node* _camera, uint32_t _w, uint32_t _h);
 void 				ngine_render_target_delete(struct ngine_render_target* _self);
 void 				ngine_render_target_update(struct ngine_render_target* _self);
-inline void 			ngine_render_target_attach_cam(struct ngine_render_target* _self, struct ngine_sc_mode* _cam_node);
+void 				ngine_render_target_attach_cam(struct ngine_render_target* _self, struct ngine_sc_node* _cam_node);
 
 #endif // RENDER_TARGET_H

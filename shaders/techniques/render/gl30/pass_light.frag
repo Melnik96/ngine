@@ -28,5 +28,5 @@ void main() {
   float brightness = dot(wnorm, surfaceToLight) / (length(surfaceToLight) * length(wnorm));
   brightness = clamp(brightness, 0, 1);
   
-  frag_color = (brightness * vec4(u_light_dcolor, 1) * vec4(color, 1.0)) * ssao;
+  frag_color = (brightness * vec4(u_light_dcolor, 1)/* * vec4(color, 1.0)) */* ssao;
 }

@@ -17,8 +17,6 @@
  *
  */
 
-#include <GL/glew.h>
-#include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
 #include <fmodex/fmod.h>
@@ -26,22 +24,24 @@
 #include <kazmath/mat4.h>
 #include <kazmath/vec3.h>
 
+#include <sys/time.h>
+
 #include "ngine.h"
 #include "window.h"
 #include "log.h"
-#include "sc_obj.h"
+#include "sc_node.h"
 #include "scene.h"
 #include "entity.h"
+#include "camera.h"
 #include "sound_mgr.h"
 #include "material.h"
 #include "shader_prog.h"
-#include "render/render.h"
 #include "render_target.h"
-#include "camera.h"
-#include "physics/rigidbody/RBI_api.h"
 #include "light.h"
 
-#include <kazmath/kazmath.h>
+#include "physics/rigidbody/RBI_api.h"
+#include "render/render.h"
+#include "cntr/array.h"
 
 //intern
 static struct ngine* ngine_intense_var;
@@ -80,21 +80,44 @@ struct ngine* ngine_intense() {
 
 int ngine_shutdown(struct ngine* _self) {
   FMOD_System_Close(_self->fmod_sound);
+  glfwTerminate();
+  array_release(&_self->render_targets);
+  free(_self);
+}
+
+void ngine_start(struct ngine* _self) {
+  // create all threads
+  
+  struct timeval last_time;
+  gettimeofday(&last_time, NULL);
+  double last_time_d = (double)last_time.tv_sec+(double)last_time.tv_usec/1000000.0;
+  struct timeval cur_time;
+  double cur_time_d;
+  double diff;
+  while(1) {
+    gettimeofday(&cur_time, NULL);
+    cur_time_d = (double)cur_time.tv_sec+(double)cur_time.tv_usec/1000000.0;
+    diff = cur_time_d - last_time_d;
+    last_time_d = cur_time_d;
+    
+    ngine_frame(_self, diff);
+//     printf("fps %f elapsed time %f\n", 1/diff, diff);
+  }
 }
 
 int ngine_frame(struct ngine* _self, float _elapsed) {
-  // for each render target (MRT)
-  struct ngine_render_target* render_target = _self->windows->render_target;
-  
-  ngine_render_target_update(render_target);
-  
-  _self->render->render_queue->render_target = render_target;
-
-  tree_for_each3(_self->scenes->root_object, update_obj_handler, &_elapsed, render_target);
-      
-  if(_self->scenes->dyn_world) {
-//     RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
+  struct ngine_render_target* cur_rt = 0;
+  array_for_each(cur_rt, &_self->render_targets) {
+    ngine_render_target_update(cur_rt);
+    _self->render->render_queue->render_target = cur_rt;
+    
+    tree_for_each3(cur_rt->camera->scene->root_object, update_obj_handler, &_elapsed, cur_rt);
+    
+    if(/*cur_rt->camera->scene->dyn_world*/0) {
+      RB_dworld_step_simulation(_self->scenes->dyn_world, _elapsed, 5, 0.01);
+    }
   }
+      
   ngine_render_frame(_self->render, _elapsed);
   //http://gameprogrammingpatterns.com/
       
@@ -102,6 +125,11 @@ int ngine_frame(struct ngine* _self, float _elapsed) {
   glfwPollEvents();
 
   FMOD_System_Update(_self->fmod_sound);
+  // threads
+  //   scene update
+  //   render
+  //   sound
+  //   physics
 }
 
 //intern
@@ -121,7 +149,7 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   if(_obj->dynamic) {
     RB_body_get_position(_obj->rigid_body, _obj->pos.val);
     RB_body_get_orientation(_obj->rigid_body, _obj->orient.val);
-  } 
+  }
   
   if(_obj->listener->on_update) {
     _obj->listener->on_update(_obj, *_time_elapsed);
@@ -135,18 +163,16 @@ void update_obj_handler(struct ngine_sc_node* _obj, float* _time_elapsed, struct
   }
   
   if(_obj->type == NGINE_SC_OBJ_ENTITY || _obj->type == NGINE_SC_OBJ_LIGHT/* && sc_obj_check_visible(_obj, _viewport->camera)*/) {
-    mat4* proj_mat = &_render_target->proj_mat;
-    mat4* view_mat = malloc(sizeof(mat4));
+    // !!!maybe it(mvp..) need to be in render
     mat4* mvp = calloc(1, sizeof(kmMat4));
+    mat4 view_mat;
     mat4 tmp_mat;
-    kmMat4Inverse(view_mat, &_render_target->camera->matrix);
-    kmMat4Multiply(&tmp_mat, view_mat, &_obj->matrix);
+    mat4* proj_mat = &_render_target->proj_mat;
+    kmMat4Inverse(&view_mat, &_render_target->camera->matrix);
+    kmMat4Multiply(&tmp_mat, &view_mat, &_obj->matrix);
     kmMat4Multiply(mvp, &_render_target->proj_mat, &tmp_mat);
 
-    struct ngine_render_item* render_item = calloc(1, sizeof(struct ngine_render_item));
-    render_item->sc_node = _obj;
-    render_item->mvp_mat = mvp;
-    ngine_render_queue_add_item(ngine_intense()->render->render_queue, _obj->type, render_item);
+    ngine_render_queue_add_item(ngine_intense()->render->render_queue, _obj->type, mvp, _obj);
   }
   else if(_obj->type == NGINE_SC_OBJ_SPEAKER) {
     FMOD_Channel_Set3DAttributes(_obj->attached_obj, &_obj->pos, &(vec3){0,0,0});//TODO fix velocity

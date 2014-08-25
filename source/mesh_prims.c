@@ -31,6 +31,11 @@ struct ngine_mesh* ngine_mesh_create_quad(float l, float r, float b, float t) {
     {r, b, 0}
   };
   quad_mesh->chunk->num_indices = 6;
-  quad_mesh->chunk->indices = (uint32_t[]){0,2,3, 0,1,2};
+  quad_mesh->chunk->indices = (uint32_t[]){0,2,1, 0,3,2};
+  
+  quad_mesh->plane_size = (vec2){r-l, t-b};
+  
   ngine_mesh_update(quad_mesh);
+  
+  return quad_mesh;
 }

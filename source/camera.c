@@ -19,15 +19,13 @@
 
 #include "camera.h"
 
-struct ngine_camera* ngine_camera_create(float _fov, float _near, float _far) {
+struct ngine_camera* ngine_camera_create() {
   struct ngine_camera* new_cam = calloc(1, sizeof(struct ngine_camera));
   return new_cam;
 }
 
-void ngine_camera_persp(struct ngine_camera* _self, float _fov, float _near, float _far) {
+void ngine_camera_persp(struct ngine_camera* _self, float _fov) {
   _self->fov = _fov;
-  _self->near = _near;
-  _self->far = _far;
   _self->updated = 1;
 }
 
@@ -37,5 +35,11 @@ void ngine_camera_orto(struct ngine_camera* _self, float _left, float _right, fl
   _self->bottom = _bottom;
   _self->top = _top;
   _self->orto = 1;
+  _self->updated = 1;
+}
+
+void ngine_camera_nearfar(struct ngine_camera* _self, float _near, float _far) {
+  _self->near = _near;
+  _self->far = _far;
   _self->updated = 1;
 }

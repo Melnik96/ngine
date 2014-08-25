@@ -43,7 +43,11 @@ struct ngine_mesh {
     uint32_t 			hw_index;
   } *chunk;
   
-  aabb 			aabb;
+  union {
+    aabb 			aabb;
+    vec2 			plane_size;
+  };
+  
   struct rbCollisionShape* coll_shape;
   
   struct {

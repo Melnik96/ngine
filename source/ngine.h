@@ -24,12 +24,12 @@
 #include <stdint.h>
 #include <pthread.h>
 
-#include "cntr/list.h"
+#include "cntr/array.h"
 
 struct ngine {
   struct ngine_window* 		windows;
   struct ngine_scene* 		scenes;
-  struct ngine_render_target* 	render_targets;
+  struct array 			render_targets;
   
   struct assets_mgr* 	assets_mgr;
   struct ngine_render* 	render;
@@ -49,5 +49,6 @@ struct ngine* 		ngine_create();
 struct ngine* 		ngine_intense();
 int 			ngine_shutdown(struct ngine* _self);
 int 			ngine_frame(struct ngine* _self, float _elapsed);
+void 			ngine_start(struct ngine* _self);
 
 #endif /* __ENGINE_H__ */

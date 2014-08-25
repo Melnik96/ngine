@@ -23,7 +23,7 @@
 
 #include "log.h"
 #include "iofile.h"
-#include "sc_obj.h"
+#include "sc_node.h"
 #include "entity.h"
 #include "mesh.h"
 #include "material.h"
@@ -90,7 +90,7 @@ struct ngine_render* ngine_render_create() {
   
 #ifndef NDEBUG
   if(GLEW_KHR_debug) {
-    glEnable(GL_DEBUG_OUTPUT);
+//     glEnable(GL_DEBUG_OUTPUT);
     glDebugMessageCallback(gl_debug_callback, new_render);
     debug("render: gl debug message callback set");
   } else if(GLEW_ARB_debug_output) {
@@ -105,10 +105,10 @@ struct ngine_render* ngine_render_create() {
   /*if(new_render->gl_ver >= 44) {
     debug("render: technique 'gl44'");
     new_render->tech = ngine_create_tech_gl44();;
-  } else */if(new_render->gl_ver >= 30) {
+  } else *//*if(new_render->gl_ver >= 30) {
     debug("render: technique 'gl30'");
     new_render->tech = ngine_create_tech_gl30();;
-  } else if(new_render->gl_ver >= 21) {
+  } else */if(new_render->gl_ver >= 21) {
     debug("render: technique 'gl21_low'");
     new_render->tech = ngine_create_tech_gl21_low();
   } else {
@@ -245,26 +245,31 @@ void ngine_render_frame(struct ngine_render* _self, double _elapsed) {
       _self->render_queue[i].num_lights = 0;
   }
 #ifndef NDEBUG
-  uint32_t err = 0;
-  if((err = glGetError()) != GL_NO_ERROR) {
-    error("OpenGL error: %s", glewGetErrorString(err));
-  }
+//   uint32_t err = 0;
+//   if((err = glGetError()) != GL_NO_ERROR) {
+//     error("OpenGL error: %s", glewGetErrorString(err));
+//   }
 #endif
 }
 
-void ngine_render_queue_add_item(struct ngine_render_queue* _self, uint32_t _type, struct ngine_render_item* _item) {
+void ngine_render_queue_add_item(struct ngine_render_queue* _self, uint32_t 			_type,
+								   mat4*        		_mvp,
+								   struct ngine_sc_node* 	_sc_node)
+{
   if(_type == NGINE_SC_OBJ_ENTITY) {
     if(_self->num_entities == _self->alloc_entities) {
       _self->entities = realloc(_self->entities, sizeof(struct ngine_render_item)*(_self->num_entities+1));
     }
-    _self->entities[_self->num_entities] = *_item;
+    _self->entities[_self->num_entities].mvp_mat = _mvp;
+    _self->entities[_self->num_entities].sc_node = _sc_node;
     _self->num_entities++;
     _self->alloc_entities++;
   } else if(_type == NGINE_SC_OBJ_LIGHT) {
     if(_self->num_lights == _self->alloc_lights) {
       _self->lights = realloc(_self->lights, sizeof(struct ngine_render_item)*(_self->num_lights+1));
     }
-    _self->lights[_self->num_lights] = *_item;
+    _self->lights[_self->num_lights].mvp_mat = _mvp;
+    _self->lights[_self->num_lights].sc_node = _sc_node;
     _self->num_lights++;
     _self->alloc_lights++;
   }

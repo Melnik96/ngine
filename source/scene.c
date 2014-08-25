@@ -21,7 +21,7 @@
 #include <malloc.h>
 
 #include "physics/rigidbody/RBI_api.h"
-#include "sc_obj.h"
+#include "sc_node.h"
 
 #include "scene.h"
 

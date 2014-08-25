@@ -25,7 +25,7 @@
 #include "shader_prog.h"
 #include "texture.h"
 #include "mesh.h"
-#include "sc_obj.h"
+#include "sc_node.h"
 
 #include "math/vector.h"
 

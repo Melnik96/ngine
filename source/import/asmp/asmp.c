@@ -27,7 +27,7 @@
 #include "scene.h"
 
 #include "asmp.h"
-#include "sc_obj.h"
+#include "sc_node.h"
 #include "light.h"
 #include "entity.h"
 #include "mesh.h"

@@ -1,6 +1,0 @@
-inputs:
-  material
-  light info
-  mesh and vertex info
-  
-surface shader

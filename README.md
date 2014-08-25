@@ -26,7 +26,7 @@ Architecture
 
 Renderer
 - lighting (point, shape lighting)
-- teselation displaysment
+- teselation displaysmen
 
 Matrix mul order: pers_proj * (cam_rot * cam_trans) * (trans * rot * scale)
 
@@ -35,13 +35,6 @@ obj:
 - (vec3)position
 - (vec4)rotatation qaut
 - (vec3)scale
-
-pso = pos*scale*rot
-world_pso = pso+child_pso
-cam_space_world_pso = world_pso+(-cam_pso)
-perspective_cswp = get_perspective(cam_space_world_pso, tan(fov/2))
-
-TODO camera_pso
 
 Resources(Asets)
 - models

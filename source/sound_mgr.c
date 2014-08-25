@@ -19,7 +19,7 @@
 
 #include <fmodex/fmod.h>
 
-#include "sc_obj.h"
+#include "sc_node.h"
 
 #include "sound_mgr.h"
 

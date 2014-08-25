@@ -23,6 +23,8 @@
 
 #include <sys/types.h>
 
+// array from wayland utils
+
 struct array {
 	size_t size;
 	size_t alloc;
@@ -34,9 +36,9 @@ struct array {
 	     (const char *) pos < ((const char *) (array)->data + (array)->size); \
 	     (pos)++)
 
-void array_init(struct array *array);
-void array_release(struct array *array);
-void *array_add(struct array *array, size_t size);
-void array_copy(struct array *array, struct array *source);
+void  array_init(struct array *array);
+void  array_release(struct array *array);
+void* array_add(struct array *array, size_t size);
+void  array_copy(struct array *array, struct array *source);
 
 #endif /* __ARRAY_H__ */

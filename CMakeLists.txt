@@ -25,6 +25,7 @@ set(engine_sources
   ${engine_sources_math}
   ${engine_sources_render}
   ${engine_sources_iohand}
+  source/gui/bltile.c
   source/import/obj/obj.c
   source/import/obj/awol/awol.c
   source/import/asmp/asmp.c
@@ -48,9 +49,9 @@ target_link_libraries(ngine
   "dl"
 )
 
-add_executable(neditor 
-#   neditor/source/cam_control.c neditor/source/neditor.c 
-  neditor/source/main.c)
+aux_source_directory("neditor/source/" neditor_sources)
+
+add_executable(neditor ${neditor_sources})
 target_link_libraries(neditor
   ngine
 )

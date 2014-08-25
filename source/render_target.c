@@ -18,26 +18,30 @@
  */
 
 #include "kazmath/kazmath.h"
+#include <string.h>
 
-#include "sc_obj.h"
+#include "ngine.h"
+#include "render_target.h"
+#include "sc_node.h"
 #include "camera.h"
 
-#include "render_target.h"
+#include "cntr/array.h"
+#include "render/framebuffer.h"
 
 struct ngine_render_target* ngine_render_target_create(struct ngine_sc_node* _camera, uint32_t _w, uint32_t _h) {
-  struct ngine_render_target* new_target = calloc(1, sizeof(struct ngine_render_target));
+  struct ngine_render_target* new_rt = array_add(&ngine_intense()->render_targets, sizeof(struct ngine_render_target));
+  memset(new_rt, 0, sizeof(struct ngine_render_target));
   
   if(_camera) {
-    new_target->camera = _camera;
-    struct ngine_camera* cam = (struct ngine_camera*)(_camera->attached_obj);
-    kmMat4PerspectiveProjection(&new_target->proj_mat, cam->fov, (float)_w/(float)_h, cam->near, cam->far);
+    new_rt->camera = _camera;
+    new_rt->need_update = 1;
   }
   
-  return new_target;
+  return new_rt;
 }
 
 void ngine_render_target_delete(struct ngine_render_target* _self) {
-
+  free(_self);
 }
 
 inline void ngine_render_target_update(struct ngine_render_target* _self) {
@@ -52,4 +56,9 @@ inline void ngine_render_target_update(struct ngine_render_target* _self) {
   if(_self->camera->translated) {
     kmMat4Inverse(&_self->view_mat, &_self->camera->matrix);
   }
+}
+
+inline void ngine_render_target_attach_cam(struct ngine_render_target* _self, struct ngine_sc_node* _cam_node) {
+  _self->camera = _cam_node;
+  _self->need_update = 1;
 }
