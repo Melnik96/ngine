@@ -1,3 +1,0 @@
-https://github.com/eadle/AWOL/
-https://github.com/irscttrbrn/ObjLoader
-https://github.com/andrew-aladev/libobj

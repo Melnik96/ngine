@@ -1,1 +1,0 @@
-/home/melnik/projects/ngine/source/import/blender/CMakeFiles/blen_test.dir

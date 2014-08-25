@@ -2,61 +2,21 @@ cmake_minimum_required(VERSION 2.8)
 
 project(ngine)
 
-include_directories("source")
-include_directories("source/math/")
-include_directories("source/import/blender/")
-include_directories("/usr/include/bullet/")
+# include_directories("source")
 
 # add_definitions("-D__GNUC__")
 
 set(ARCH "x86")
 set(CMAKE_C_FLAGS "-std=c11")
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/neditor/bin CACHE INTERNAL "" FORCE)
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/lib/${ARCH}/ CACHE INTERNAL "" FORCE)
+# set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/neditor/bin CACHE INTERNAL "" FORCE)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${ARCH}/ CACHE INTERNAL "" FORCE)
 
-aux_source_directory("source/" engine_sources)
-aux_source_directory("source/cntr" engine_sources_cntr)
-aux_source_directory("source/math" engine_sources_math)
-aux_source_directory("source/render" engine_sources_render)
-aux_source_directory("source/iohand" engine_sources_iohand)
-set(engine_sources
-  ${engine_sources}
-  ${engine_sources_cntr} 
-  ${engine_sources_math}
-  ${engine_sources_render}
-  ${engine_sources_iohand}
-  source/gui/bltile.c
-  source/import/obj/obj.c
-  source/import/obj/awol/awol.c
-  source/import/asmp/asmp.c
-  source/import/targa/tga.c
-  source/physics/rigidbody/rb_bullet_api.cpp
-  source/render/techs/gl30_tech.c
-)
+# install(TARGETS ngine RUNTIME DESTINATION bin)
 
-add_library(ngine SHARED ${engine_sources})
-target_link_libraries(ngine
-  "GL"
-  "GLEW"
-  "glfw"
-  "fmodex"
-  "/usr/lib/libBulletCollision.so"
-  "/usr/lib/libBulletDynamics.so"
-  "assimp"
-  "kazmath.so"
-  "pthread"
-  "tcc"
-  "dl"
-)
-
-aux_source_directory("neditor/source/" neditor_sources)
-
-add_executable(neditor ${neditor_sources})
-target_link_libraries(neditor
-  ngine
-)
-
-add_executable(serialize examples/serialize/main.c)
-target_link_libraries(serialize ngine)
-
-# install(TARGETS ngine LIBRARY DESTINATION lib)
+add_subdirectory(render)
+add_subdirectory(scenegraph)
+add_subdirectory(iohand)
+add_subdirectory(math)
+add_subdirectory(physics)
+add_subdirectory(sound)
+add_subdirectory(core)

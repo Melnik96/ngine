@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../../lib/x86/libngine_core.a  CMakeFiles/ngine_core.dir/serialize.c.o CMakeFiles/ngine_core.dir/func_bind.c.o CMakeFiles/ngine_core.dir/array.c.o CMakeFiles/ngine_core.dir/tree.c.o CMakeFiles/ngine_core.dir/list.c.o
+/usr/bin/ranlib ../../lib/x86/libngine_core.a

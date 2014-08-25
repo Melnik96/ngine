@@ -1,0 +1,1 @@
+/home/melnik/projects/ngine/build/core/CMakeFiles/ngine_core.dir
