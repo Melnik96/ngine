@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/melnik/projects/ngine
+CMAKE_SOURCE_DIR = /home/melnik/projects/nutty/ngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/melnik/projects/ngine/build
+CMAKE_BINARY_DIR = /home/melnik/projects/nutty/ngine/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/neditor.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/melnik/projects/ngine/build
 CMakeFiles/neditor.dir/all: CMakeFiles/ngine.dir/all
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/depend
 	$(MAKE) -f CMakeFiles/neditor.dir/build.make CMakeFiles/neditor.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  1
 	@echo "Built target neditor"
 .PHONY : CMakeFiles/neditor.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/neditor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/neditor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 42
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 43
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/neditor.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/neditor.dir/rule
 
 # Convenience name for target.
@@ -94,7 +94,7 @@ clean: CMakeFiles/neditor.dir/clean
 CMakeFiles/ngine.dir/all:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/depend
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43
 	@echo "Built target ngine"
 .PHONY : CMakeFiles/ngine.dir/all
 
@@ -104,9 +104,9 @@ all: CMakeFiles/ngine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ngine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 41
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 42
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ngine.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/ngine.dir/rule
 
 # Convenience name for target.
@@ -129,7 +129,7 @@ clean: CMakeFiles/ngine.dir/clean
 CMakeFiles/serialize.dir/all: CMakeFiles/ngine.dir/all
 	$(MAKE) -f CMakeFiles/serialize.dir/build.make CMakeFiles/serialize.dir/depend
 	$(MAKE) -f CMakeFiles/serialize.dir/build.make CMakeFiles/serialize.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles  43
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  44
 	@echo "Built target serialize"
 .PHONY : CMakeFiles/serialize.dir/all
 
@@ -139,9 +139,9 @@ all: CMakeFiles/serialize.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/serialize.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 42
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 43
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/serialize.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/serialize.dir/rule
 
 # Convenience name for target.

@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/melnik/projects/ngine/neditor/source/main.c" "/home/melnik/projects/ngine/build/CMakeFiles/neditor.dir/neditor/source/main.c.o"
+  "/home/melnik/projects/nutty/ngine/neditor/source/main.c" "/home/melnik/projects/nutty/ngine/build/CMakeFiles/neditor.dir/neditor/source/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/melnik/projects/ngine/build/CMakeFiles/ngine.dir/DependInfo.cmake"
+  "/home/melnik/projects/nutty/ngine/build/CMakeFiles/ngine.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

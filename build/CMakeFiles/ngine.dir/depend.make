@@ -111,6 +111,11 @@ CMakeFiles/ngine.dir/source/mesh.c.o: ../source/mesh.h
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/physics/rigidbody/RBI_api.h
 CMakeFiles/ngine.dir/source/mesh.c.o: ../source/shader_prog.h
 
+CMakeFiles/ngine.dir/source/mesh_prims.c.o: ../source/math/vector.h
+CMakeFiles/ngine.dir/source/mesh_prims.c.o: ../source/mesh.h
+CMakeFiles/ngine.dir/source/mesh_prims.c.o: ../source/mesh_prims.c
+CMakeFiles/ngine.dir/source/mesh_prims.c.o: ../source/mesh_prims.h
+
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/camera.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/cntr/list.h
 CMakeFiles/ngine.dir/source/ngine.c.o: ../source/cntr/tree.h

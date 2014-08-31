@@ -36,8 +36,8 @@ struct ngine_camera {
 };
 
 struct ngine_camera* ngine_camera_create();
-struct ngine_camera* ngine_camera_persp(float _fov, float _near, float _far);
-struct ngine_camera* ngine_camera_orto(float _left, float _right, float _bottom, float _top);
+void ngine_camera_persp(struct ngine_camera* _self, float _fov, float _near, float _far);
+void ngine_camera_orto(struct ngine_camera* _self, float _left, float _right, float _bottom, float _top);
 
 // int camera_look_at(struct camera* _self, struct scene_object* _target);
 

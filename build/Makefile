@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/melnik/projects/ngine
+CMAKE_SOURCE_DIR = /home/melnik/projects/nutty/ngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/melnik/projects/ngine/build
+CMAKE_BINARY_DIR = /home/melnik/projects/nutty/ngine/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -73,9 +73,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles /home/melnik/projects/ngine/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles /home/melnik/projects/nutty/ngine/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/ngine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -765,6 +765,30 @@ source/mesh.c.s:
 	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh.c.s
 .PHONY : source/mesh.c.s
 
+source/mesh_prims.o: source/mesh_prims.c.o
+.PHONY : source/mesh_prims.o
+
+# target to build an object file
+source/mesh_prims.c.o:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh_prims.c.o
+.PHONY : source/mesh_prims.c.o
+
+source/mesh_prims.i: source/mesh_prims.c.i
+.PHONY : source/mesh_prims.i
+
+# target to preprocess a source file
+source/mesh_prims.c.i:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh_prims.c.i
+.PHONY : source/mesh_prims.c.i
+
+source/mesh_prims.s: source/mesh_prims.c.s
+.PHONY : source/mesh_prims.s
+
+# target to generate assembly for a file
+source/mesh_prims.c.s:
+	$(MAKE) -f CMakeFiles/ngine.dir/build.make CMakeFiles/ngine.dir/source/mesh_prims.c.s
+.PHONY : source/mesh_prims.c.s
+
 source/ngine.o: source/ngine.c.o
 .PHONY : source/ngine.o
 
@@ -1262,6 +1286,9 @@ help:
 	@echo "... source/mesh.o"
 	@echo "... source/mesh.i"
 	@echo "... source/mesh.s"
+	@echo "... source/mesh_prims.o"
+	@echo "... source/mesh_prims.i"
+	@echo "... source/mesh_prims.s"
 	@echo "... source/ngine.o"
 	@echo "... source/ngine.i"
 	@echo "... source/ngine.s"

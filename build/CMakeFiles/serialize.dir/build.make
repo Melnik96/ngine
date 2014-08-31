@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/melnik/projects/ngine
+CMAKE_SOURCE_DIR = /home/melnik/projects/nutty/ngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/melnik/projects/ngine/build
+CMAKE_BINARY_DIR = /home/melnik/projects/nutty/ngine/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/serialize.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/serialize.dir/flags.make
 
 CMakeFiles/serialize.dir/examples/serialize/main.c.o: CMakeFiles/serialize.dir/flags.make
 CMakeFiles/serialize.dir/examples/serialize/main.c.o: ../examples/serialize/main.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/serialize.dir/examples/serialize/main.c.o"
-	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/serialize.dir/examples/serialize/main.c.o   -c /home/melnik/projects/ngine/examples/serialize/main.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/serialize.dir/examples/serialize/main.c.o   -c /home/melnik/projects/nutty/ngine/examples/serialize/main.c
 
 CMakeFiles/serialize.dir/examples/serialize/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/serialize.dir/examples/serialize/main.c.i"
-	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/ngine/examples/serialize/main.c > CMakeFiles/serialize.dir/examples/serialize/main.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/examples/serialize/main.c > CMakeFiles/serialize.dir/examples/serialize/main.c.i
 
 CMakeFiles/serialize.dir/examples/serialize/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/serialize.dir/examples/serialize/main.c.s"
-	/usr/lib/colorgcc/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/ngine/examples/serialize/main.c -o CMakeFiles/serialize.dir/examples/serialize/main.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/examples/serialize/main.c -o CMakeFiles/serialize.dir/examples/serialize/main.c.s
 
 CMakeFiles/serialize.dir/examples/serialize/main.c.o.requires:
 .PHONY : CMakeFiles/serialize.dir/examples/serialize/main.c.o.requires
@@ -100,6 +100,6 @@ CMakeFiles/serialize.dir/clean:
 .PHONY : CMakeFiles/serialize.dir/clean
 
 CMakeFiles/serialize.dir/depend:
-	cd /home/melnik/projects/ngine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/melnik/projects/ngine /home/melnik/projects/ngine /home/melnik/projects/ngine/build /home/melnik/projects/ngine/build /home/melnik/projects/ngine/build/CMakeFiles/serialize.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/melnik/projects/nutty/ngine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/melnik/projects/nutty/ngine /home/melnik/projects/nutty/ngine /home/melnik/projects/nutty/ngine/build /home/melnik/projects/nutty/ngine/build /home/melnik/projects/nutty/ngine/build/CMakeFiles/serialize.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/serialize.dir/depend
 
