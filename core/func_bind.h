@@ -22,13 +22,23 @@
 
 #include <stdint.h>
 
+#define arg2_bind(a,b) \
+  &(args2){a,b}
+
+#define func_bind()
+  
+struct ngine_arg2 {
+  void*;
+  void*;
+};
+
 struct ngine_func_bind {
   void* 	func;
   uint8_t 	num_args;
   void* 	args;
 };
 
-struct ngine_func_bind* ngine_func_bind(void* _func, uint8_t _num_args, void* _args);
+struct ngine_func_bind* ngine_func_bind1(void* _func, uint8_t _num_args, void* _args);
 void* 			ngine_func_call(struct ngine_func_bind* _self);
 
 #endif // FUNC_BIND_H

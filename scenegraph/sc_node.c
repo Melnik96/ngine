@@ -24,16 +24,43 @@
 #include <kazmath/kazmath.h>
 
 #include "matrix.h"
-#include "physics/rigidbody/RBI_api.h"
 
 #include "ngine.h"
 #include "log.h"
 #include "scene.h"
 #include "entity.h"
 #include "light.h"
+#include "mesh.h"
 
 #include "sc_node.h"
-#include "mesh.h"
+
+struct ngine_sc_node {
+  struct tree 		link;
+  
+  char* 		name;
+  uint32_t 		type;
+  
+  struct ngine_scene* 	scene;
+  // translation
+  vec3 			pos;
+  quat 			orient;
+  float 		scale;
+  
+  mat4 			matrix;
+  
+  void* 		attached_obj;
+  struct rbRigidBody* 	rigid_body;
+  
+  // indicators
+  char 			translated;
+  char 			dynamic;
+  
+  struct ngine_sc_node_listener* listener;
+//   struct {
+//     void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
+//     void(*on_colide)();
+//   };
+};
 
 struct ngine_sc_node* ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type) {
   struct ngine_sc_node* new_obj = calloc(1, sizeof(struct ngine_sc_node));
@@ -45,6 +72,14 @@ struct ngine_sc_node* ngine_sc_node_create(struct ngine_scene* _scene, char* _na
   kmMat4Identity(&new_obj->matrix);
   
   return new_obj;
+}
+
+char* ngine_sc_node_name(struct ngine_sc_node* _self, const char* _name) {
+  if(_name) {
+    _self->name = _name;
+  } else {
+    return _self->name;
+  }
 }
 
 void ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative) {
@@ -94,24 +129,6 @@ void ngine_sc_node_set_lin_vel(struct ngine_sc_node* _self, vec3* _vel, int _rel
     error("sc_node trans type invalid");
   }
 //   _self->translated = 1;
-}
-
-void ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys) {
-  if(_self->type == NGINE_SC_OBJ_ENTITY) {
-//     _self->pos.z *= -1;
-//     _self->orient.y *= -1;
-//     _self->orient.w *= -1;
-    _self->rigid_body = RB_body_new(((struct ngine_entity*)_self->attached_obj)->mesh->coll_shape, &_self->pos, &_self->orient);
-    debug("create rigidbody for entity");
-  } else {
-    // TODO
-  }
-  
-  RB_dworld_add_body(_self->scene->dyn_world, _self->rigid_body, 1);
-  RB_body_activate(_self->rigid_body);
-  RB_body_set_mass(_self->rigid_body, _phys->mass);
-  
-  _self->dynamic = 1;
 }
 
 // intern
