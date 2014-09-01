@@ -105,10 +105,10 @@ struct ngine_render* ngine_render_create() {
   /*if(new_render->gl_ver >= 44) {
     debug("render: technique 'gl44'");
     new_render->tech = ngine_create_tech_gl44();;
-  } else */if(new_render->gl_ver >= 30) {
+  } else *//*if(new_render->gl_ver >= 30) {
     debug("render: technique 'gl30'");
     new_render->tech = ngine_create_tech_gl30();;
-  } else if(new_render->gl_ver >= 21) {
+  } else */if(new_render->gl_ver >= 21) {
     debug("render: technique 'gl21_low'");
     new_render->tech = ngine_create_tech_gl21_low();
   } else {
