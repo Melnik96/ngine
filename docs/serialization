@@ -1,0 +1,5 @@
+| name 				| size in bytes  |
+|-------------------------------|----------------|
+| offset ptr_offset array 	| 4 |
+| serialized data 		| size of data   |
+| ptr_offset array 		| 8 * array size |

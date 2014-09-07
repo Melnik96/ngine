@@ -26,3 +26,28 @@ struct ptr_offset* check_ptr_in_po(size_t _ptr_num, struct ptr_offset* _ptr_os, 
   }
   return 0;
 }
+
+
+#include "scenegraph/sc_node.h"
+
+struct sbuffer {};
+
+struct sbuffer* serial_begin();
+void 		serial_append( sbuf, size_t size); // add size
+void 		serial_add_ptroff(void*, uint32_t);
+inline void 	serial_write_char(struct sbuffer* sbuf, char _attr);
+inline void 	serial_write_int8(struct sbuffer* sbuf, int _attr);
+inline void 	serial_write_int16(struct sbuffer* sbuf, int _attr);
+inline void 	serial_write_int32(struct sbuffer* sbuf, int _attr);
+inline void 	serial_write_int64(struct sbuffer* sbuf, int _attr);
+inline void 	serial_write_ptr(struct sbuffer* sbuf, void _attr);
+void 		serial_write_ptroff(struct sbuffer* sbuf);
+struct buffer* 	serial_end();
+
+#define sattr(attr, type) serial_write_##type(sbuf, attr);
+
+void manual_serializer() {
+  struct ngine_sc_node sc_node;
+  sattr(sc_node.type, int32);
+  sattr(sc_node.translated, char);
+}

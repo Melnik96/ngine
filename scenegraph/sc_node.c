@@ -82,6 +82,10 @@ char* ngine_sc_node_name(struct ngine_sc_node* _self, const char* _name) {
   }
 }
 
+void ngine_sc_node_set_name(ngine_sc_node* _self, const char* _name) {
+  _self->name = _name;
+}
+
 void ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative) {
   if(_relative == NGINE_TRANS_LOCAL) {
     vec3 tvec;

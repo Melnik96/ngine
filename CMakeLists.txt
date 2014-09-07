@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(ngine)
 
-# include_directories("source")
+include_directories("scenegraph")
 
 # add_definitions("-D__GNUC__")
 

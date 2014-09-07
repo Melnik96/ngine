@@ -53,15 +53,42 @@ enum {
   NGINE_TRANS_WORLD
 };
 
-struct ngine_sc_node;
+extern uint32_t ngine_sc_node_size; // for dinamic struct allocetion
+
+struct ngine_sc_node {
+  struct tree 		link;
+  
+  char* 		name;
+  uint32_t 		type;
+  
+  struct ngine_scene* 	scene;
+  
+  void* 		attached_obj;
+#ifdef ENABLE_PHYSICS
+  struct rbRigidBody* 	rigid_body;
+  char 			dynamic;
+#endif
+  // indicators
+  char 			translated;
+  
+  struct ngine_sc_node_listener* listener;
+//   struct {
+//     void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
+//     void(*on_colide)();
+//   };
+};
+
+struct ngine_sc_node_phys {
+  unsigned i :sizeof(struct ngine_sc_node);
+};
 
 struct ngine_sc_node* 	ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type);
 void 			ngine_sc_node_delete(struct ngine_sc_node* _self);
 
 char* 			ngine_sc_node_name(struct ngine_sc_node* _self, const char* _name);
 
-void 			ngine_sc_node_set_name(struct ngine_sc_node* _self, quat* _orient, int _relative);
-void 			ngine_sc_node_set_pos(struct ngine_sc_node* _self, quat* _orient, int _relative);
+void 			ngine_sc_node_set_name(struct ngine_sc_node* _self, const char* _name);
+void 			ngine_sc_node_set_pos(struct ngine_sc_node* _self, vec3* _pos, int _relative);
 void 			ngine_sc_node_set_rot(struct ngine_sc_node* _self, quat* _orient, int _relative);
 
 void 			ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative);
