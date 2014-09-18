@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c11 -O3 -DNDEBUG    CMakeFiles/serialize.dir/main.c.o CMakeFiles/serialize.dir/a_serialize.c.o  -o ../../../bin/serialize -rdynamic ../../../lib/x86/libngine_core.a 

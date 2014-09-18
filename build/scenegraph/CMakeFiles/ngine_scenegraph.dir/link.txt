@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=c11 -O3 -DNDEBUG   -shared -Wl,-soname,libngine_scenegraph.so -o ../../lib/x86/libngine_scenegraph.so CMakeFiles/ngine_scenegraph.dir/sc_node.c.o 

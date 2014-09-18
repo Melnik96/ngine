@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/melnik/projects/nutty/ngine/core/serialize.c
+malloc.h
+-
+memory.h
+-
+serialize.h
+/home/melnik/projects/nutty/ngine/core/serialize.h
+
+/home/melnik/projects/nutty/ngine/core/serialize.h
+stdint.h
+-
+stddef.h
+-
+

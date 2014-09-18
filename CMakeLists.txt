@@ -2,13 +2,14 @@ cmake_minimum_required(VERSION 2.8)
 
 project(ngine)
 
+include_directories("./")
 include_directories("scenegraph")
 
 # add_definitions("-D__GNUC__")
 
 set(ARCH "x86")
 set(CMAKE_C_FLAGS "-std=c11")
-# set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/neditor/bin CACHE INTERNAL "" FORCE)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin CACHE INTERNAL "" FORCE)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${ARCH}/ CACHE INTERNAL "" FORCE)
 
 # install(TARGETS ngine RUNTIME DESTINATION bin)
@@ -20,3 +21,4 @@ add_subdirectory(math)
 add_subdirectory(physics)
 add_subdirectory(sound)
 add_subdirectory(core)
+add_subdirectory(tests)

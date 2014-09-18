@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c11 -O3 -DNDEBUG    CMakeFiles/test_client.dir/main.c.o  -o ../../../../bin/test_client -rdynamic 

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/melnik/projects/nutty/ngine/tests/network/client/main.c
+sys/socket.h
+-
+sys/types.h
+-
+netinet/in.h
+-
+netdb.h
+-
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+errno.h
+-
+arpa/inet.h
+-
+

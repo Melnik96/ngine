@@ -1,0 +1,5 @@
+/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir
+/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir
+/home/melnik/projects/nutty/ngine/build/tests/serialize/CMakeFiles/serialize.dir
+/home/melnik/projects/nutty/ngine/build/tests/network/client/CMakeFiles/test_client.dir
+/home/melnik/projects/nutty/ngine/build/tests/network/server/CMakeFiles/test_server.dir
