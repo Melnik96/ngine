@@ -23,44 +23,16 @@
 #include <unistd.h>
 #include <kazmath/kazmath.h>
 
-#include "matrix.h"
+#include "math/matrix.h"
 
-#include "ngine.h"
-#include "log.h"
+// #include "ngine.h"
+#include "core/log.h"
 #include "scene.h"
 #include "entity.h"
 #include "light.h"
-#include "mesh.h"
+#include "render/mesh.h"
 
 #include "sc_node.h"
-
-struct ngine_sc_node {
-  struct tree 		link;
-  
-  char* 		name;
-  uint32_t 		type;
-  
-  struct ngine_scene* 	scene;
-  // translation
-  vec3 			pos;
-  quat 			orient;
-  float 		scale;
-  
-  mat4 			matrix;
-  
-  void* 		attached_obj;
-  struct rbRigidBody* 	rigid_body;
-  
-  // indicators
-  char 			translated;
-  char 			dynamic;
-  
-  struct ngine_sc_node_listener* listener;
-//   struct {
-//     void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
-//     void(*on_colide)();
-//   };
-};
 
 struct ngine_sc_node* ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type) {
   struct ngine_sc_node* new_obj = calloc(1, sizeof(struct ngine_sc_node));
@@ -69,9 +41,12 @@ struct ngine_sc_node* ngine_sc_node_create(struct ngine_scene* _scene, char* _na
   new_obj->type = _type;
   new_obj->scene = _scene;
   
-  kmMat4Identity(&new_obj->matrix);
-  
   return new_obj;
+}
+
+void ngine_sc_node_delete(struct ngine_sc_node* _self)
+{
+
 }
 
 char* ngine_sc_node_name(struct ngine_sc_node* _self, const char* _name) {
@@ -82,7 +57,7 @@ char* ngine_sc_node_name(struct ngine_sc_node* _self, const char* _name) {
   }
 }
 
-void ngine_sc_node_set_name(ngine_sc_node* _self, const char* _name) {
+void ngine_sc_node_set_name(struct ngine_sc_node* _self, const char* _name) {
   _self->name = _name;
 }
 
@@ -115,49 +90,4 @@ void ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relat
 void ngine_sc_node_rotate(struct ngine_sc_node* _self, quat* _orient, int _relative) {
   kmQuaternionAdd(&_self->orient, _orient, &_self->orient);
   kmQuaternionNormalize(&_self->orient, &_self->orient);
-}
-
-void ngine_sc_node_set_lin_vel(struct ngine_sc_node* _self, vec3* _vel, int _relative) {
-  RB_body_activate(_self->rigid_body);
-  if(_relative == NGINE_TRANS_LOCAL) {
-    vec3 tvec;
-    kmQuaternionMultiplyVec3(&tvec, &_self->orient, _vel);
-    RB_body_set_linear_velocity(_self->rigid_body, tvec.val);
-  } else if(_relative == NGINE_TRANS_PARENT) {
-    vec3 tvec;
-    kmQuaternionMultiplyVec3(&tvec, &((struct ngine_sc_node*)_self->link.parent)->orient, _vel);
-    RB_body_set_linear_velocity(_self->rigid_body, tvec.val);
-  } else if(_relative == NGINE_TRANS_WORLD) {
-    RB_body_set_linear_velocity(_self->rigid_body, _vel->val);
-  } else {
-    error("sc_node trans type invalid");
-  }
-//   _self->translated = 1;
-}
-
-// intern
-struct ngine_sc_node* ngine_sc_node_upd_mat(struct ngine_sc_node* _self) {
-  kmMat4* tmp_mat = malloc(sizeof(kmMat4));
-
-//   kmMat4Identity(tmp_mat);
-  kmMat4Identity(&_self->matrix);
-
-  if(_self->type == NGINE_SC_OBJ_LIGHT) {
-    float radius = ((struct ngine_light*)_self->attached_obj)->radius;
-//     printf("radius = %f\n", radius);
-    kmMat4Scaling(tmp_mat, radius, radius, radius);
-    kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);
-  }
-//   kmMat4Scaling(tmp_mat, _self->scale, _self->scale, _self->scale);
-//   kmMat4Multiply(&_self->matrix, &_self->matrix, tmp_mat);
-  
-  kmMat4RotationQuaternion(tmp_mat, &_self->orient);
-  kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);
-  
-  kmMat4Translation(tmp_mat, _self->pos.x, _self->pos.y, _self->pos.z);
-  kmMat4Multiply(&_self->matrix, tmp_mat, &_self->matrix);
-// 
-  if(_self->link.parent != NULL) {
-    kmMat4Multiply(&_self->matrix, &((struct ngine_sc_node*)_self->link.parent)->matrix, &_self->matrix);
-  }// all parents must be updated already
 }

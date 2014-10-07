@@ -81,6 +81,7 @@ test_client_EXTERNAL_OBJECTS =
 
 ../bin/test_client: tests/network/client/CMakeFiles/test_client.dir/main.c.o
 ../bin/test_client: tests/network/client/CMakeFiles/test_client.dir/build.make
+../bin/test_client: ../lib/x86/libngine_network.so
 ../bin/test_client: tests/network/client/CMakeFiles/test_client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../../../../bin/test_client"
 	cd /home/melnik/projects/nutty/ngine/build/tests/network/client && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_client.dir/link.txt --verbose=$(VERBOSE)

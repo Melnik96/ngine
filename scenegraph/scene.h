@@ -22,15 +22,22 @@
 
 #include "math/vector.h"
 
+typedef void(*sc_node_update_handler_t)(struct ngine_sc_node*);
+
 struct ngine_scene {
   char* 			name;
   struct ngine_sc_node* 	root_object;
   struct rbDynamicsWorld* 	dyn_world;
   
-  void(*update_sc_node_handler)(struct ngine_sc_node*);
+  uint32_t 			num_sc_node_update_handlers;
+  sc_node_update_handler_t* 	sc_node_update_handlers;
 };
 
-struct ngine_scene* 	ngine_scene_create(char* _name, char _dynamics, char auto_create_root_obj);
+struct ngine_scene* 	ngine_scene_create(char* _name, char auto_create_root_obj);
+void 			ngine_scene_delete(struct ngine_scene* _self);
+void 			ngine_scene_update(struct ngine_scene* _self, float _elapsed);
+void 			ngine_scene_add_update_handler(struct ngine_scene* _self, sc_node_update_handler_t _handler);
+
 void 			ngine_scene_dynamics_create(struct ngine_scene* _self, vec3* _gravity);
 void 			ngine_scene_dynamics_enable(struct ngine_scene* _self);
 void 			ngine_scene_dynamics_disable(struct ngine_scene* _self);

@@ -21,8 +21,11 @@
 #ifndef SC_NODE_PHYS_H
 #define SC_NODE_PHYS_H
 
-struct ngine_phys_info {
-  float mass;
+#include "scenegraph/sc_node.h"
+
+struct ngine_sc_node_phys {
+  struct ngine_sc_node 	base_sc_node;
+  float 		mass;
 };
 
 void 			ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_info* _phys);

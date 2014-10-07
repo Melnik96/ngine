@@ -20,4 +20,6 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+struct ngine_window {};
+
 #endif // WINDOW_H

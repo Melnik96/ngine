@@ -61,6 +61,47 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -140,6 +181,30 @@ array.c.s:
 	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/array.c.s
 .PHONY : array.c.s
 
+iofile.o: iofile.c.o
+.PHONY : iofile.o
+
+# target to build an object file
+iofile.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/iofile.c.o
+.PHONY : iofile.c.o
+
+iofile.i: iofile.c.i
+.PHONY : iofile.i
+
+# target to preprocess a source file
+iofile.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/iofile.c.i
+.PHONY : iofile.c.i
+
+iofile.s: iofile.c.s
+.PHONY : iofile.s
+
+# target to generate assembly for a file
+iofile.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/iofile.c.s
+.PHONY : iofile.c.s
+
 list.o: list.c.o
 .PHONY : list.o
 
@@ -188,6 +253,30 @@ serialize.c.s:
 	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/serialize.c.s
 .PHONY : serialize.c.s
 
+timer.o: timer.c.o
+.PHONY : timer.o
+
+# target to build an object file
+timer.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/timer.c.o
+.PHONY : timer.c.o
+
+timer.i: timer.c.i
+.PHONY : timer.i
+
+# target to preprocess a source file
+timer.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/timer.c.i
+.PHONY : timer.c.i
+
+timer.s: timer.c.s
+.PHONY : timer.s
+
+# target to generate assembly for a file
+timer.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/timer.c.s
+.PHONY : timer.c.s
+
 tree.o: tree.c.o
 .PHONY : tree.o
 
@@ -219,17 +308,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... ngine_core"
 	@echo "... rebuild_cache"
 	@echo "... array.o"
 	@echo "... array.i"
 	@echo "... array.s"
+	@echo "... iofile.o"
+	@echo "... iofile.i"
+	@echo "... iofile.s"
 	@echo "... list.o"
 	@echo "... list.i"
 	@echo "... list.s"
 	@echo "... serialize.o"
 	@echo "... serialize.i"
 	@echo "... serialize.s"
+	@echo "... timer.o"
+	@echo "... timer.i"
+	@echo "... timer.s"
 	@echo "... tree.o"
 	@echo "... tree.i"
 	@echo "... tree.s"

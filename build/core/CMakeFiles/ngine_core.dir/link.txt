@@ -1,2 +1,1 @@
-/usr/bin/ar cr ../../lib/x86/libngine_core.a  CMakeFiles/ngine_core.dir/serialize.c.o CMakeFiles/ngine_core.dir/array.c.o CMakeFiles/ngine_core.dir/tree.c.o CMakeFiles/ngine_core.dir/list.c.o
-/usr/bin/ranlib ../../lib/x86/libngine_core.a
+/usr/bin/cc  -fPIC -std=c11 -g   -shared -Wl,-soname,libngine_core.so -o ../../lib/x86/libngine_core.so CMakeFiles/ngine_core.dir/serialize.c.o CMakeFiles/ngine_core.dir/array.c.o CMakeFiles/ngine_core.dir/timer.c.o CMakeFiles/ngine_core.dir/tree.c.o CMakeFiles/ngine_core.dir/list.c.o CMakeFiles/ngine_core.dir/iofile.c.o 

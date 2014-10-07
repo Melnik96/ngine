@@ -9,7 +9,7 @@ ProjectRootRelative=./
 
 [CMake][CMake Build Directory 0]
 Build Directory Path=file:///home/melnik/projects/nutty/ngine/build
-Build Type=Release
+Build Type=Debug
 CMake Binary=file:///usr/bin/cmake
 Environment Profile=
 Extra Arguments=
@@ -26,133 +26,29 @@ Path=gcc
 Type=GCC
 
 [Launch]
-Launch Configurations=Launch Configuration 0,Launch Configuration 1,Launch Configuration 2,Launch Configuration 3,Launch Configuration 4,Launch Configuration 5,Launch Configuration 7
+Launch Configurations=Launch Configuration 0
 
 [Launch][Launch Configuration 0]
 Configured Launch Modes=execute
 Configured Launchers=nativeAppLauncher
-Name=Новий інструмент запуску Програма (2)
+Name=test_server
 Type=Native Application
 
 [Launch][Launch Configuration 0][Data]
 Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
-Dependency Action=Nothing
-EnvironmentGroup=default
-Executable=
-External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=ngine,neditor
-Use External Terminal=false
-Working Directory=
-isExecutable=false
-
-[Launch][Launch Configuration 1]
-Configured Launch Modes=execute
-Configured Launchers=nativeAppLauncher
-Name=s_dynstr
-Type=Native Application
-
-[Launch][Launch Configuration 1][Data]
-Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
-Dependency Action=Nothing
-EnvironmentGroup=default
-Executable=file:///home/melnik/projects/ngine/editor/bin/s_dynstr
-External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=
-Use External Terminal=false
-Working Directory=
-isExecutable=true
-
-[Launch][Launch Configuration 2]
-Configured Launch Modes=execute
-Configured Launchers=nativeAppLauncher
-Name=s_list
-Type=Native Application
-
-[Launch][Launch Configuration 2][Data]
-Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
-Dependency Action=Nothing
-EnvironmentGroup=default
-Executable=
-External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=ngine,examples,s_list
-Use External Terminal=false
-Working Directory=
-isExecutable=false
-
-[Launch][Launch Configuration 3]
-Configured Launch Modes=execute
-Configured Launchers=nativeAppLauncher
-Name=s_np_struct
-Type=Native Application
-
-[Launch][Launch Configuration 3][Data]
-Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
-Dependency Action=Nothing
-EnvironmentGroup=default
-Executable=file:///home/melnik/projects/ngine/editor/bin/s_np_struct
-External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=
-Use External Terminal=false
-Working Directory=
-isExecutable=true
-
-[Launch][Launch Configuration 4]
-Configured Launch Modes=execute
-Configured Launchers=nativeAppLauncher
-Name=neditor
-Type=Native Application
-
-[Launch][Launch Configuration 4][Data]
-Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\n\x00n\x00g\x00i\x00n\x00e\x00\x00\x00\x0e\x00n\x00e\x00d\x00i\x00t\x00o\x00r)
-Dependency Action=Build
-EnvironmentGroup=default
-Executable=file:///home/melnik/projects/ngine/neditor/bin/neditor
-External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=ngine,neditor
-Use External Terminal=false
-Working Directory=
-isExecutable=true
-
-[Launch][Launch Configuration 5]
-Configured Launch Modes=execute
-Configured Launchers=nativeAppLauncher
-Name=neditor_soft
-Type=Native Application
-
-[Launch][Launch Configuration 5][Data]
-Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\n\x00n\x00g\x00i\x00n\x00e\x00\x00\x00\x0e\x00n\x00e\x00d\x00i\x00t\x00o\x00r)
-Dependency Action=Build
-EnvironmentGroup=default
-Executable=file:///home/melnik/projects/ngine/neditor/bin/neditor
-External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=ngine,neditor
-Use External Terminal=true
-Working Directory=
-isExecutable=true
-
-[Launch][Launch Configuration 7]
-Configured Launch Modes=execute
-Configured Launchers=nativeAppLauncher
-Name=serialize
-Type=Native Application
-
-[Launch][Launch Configuration 7][Data]
-Arguments=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x04\x00\x00\x00\n\x00n\x00g\x00i\x00n\x00e\x00\x00\x00\n\x00t\x00e\x00s\x00t\x00s\x00\x00\x00\x12\x00s\x00e\x00r\x00i\x00a\x00l\x00i\x00z\x00e\x00\x00\x00\x12\x00s\x00e\x00r\x00i\x00a\x00l\x00i\x00z\x00e)
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x05\x00\x00\x00\n\x00n\x00g\x00i\x00n\x00e\x00\x00\x00\n\x00t\x00e\x00s\x00t\x00s\x00\x00\x00\x0e\x00n\x00e\x00t\x00w\x00o\x00r\x00k\x00\x00\x00\x0c\x00s\x00e\x00r\x00v\x00e\x00r\x00\x00\x00\x16\x00t\x00e\x00s\x00t\x00_\x00s\x00e\x00r\x00v\x00e\x00r)
 Dependency Action=Build
 EnvironmentGroup=
-Executable=file:///home/melnik/projects/nutty/ngine/bin/serialize
+Executable=file:///home/melnik/projects/nutty/ngine/bin/test_server
 External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=ngine,tests,serialize,serialize
+Project Target=ngine,tests,network,server,test_server
 Use External Terminal=false
 Working Directory=
 isExecutable=true
+
+[MakeBuilder]
+Install As Root=true
+Su Command=2
 
 [Project]
 VersionControlSupport=kdevgit

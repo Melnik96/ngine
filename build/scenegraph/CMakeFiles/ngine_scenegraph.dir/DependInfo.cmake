@@ -4,7 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/melnik/projects/nutty/ngine/scenegraph/camera.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o"
+  "/home/melnik/projects/nutty/ngine/scenegraph/entity.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o"
+  "/home/melnik/projects/nutty/ngine/scenegraph/light.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o"
+  "/home/melnik/projects/nutty/ngine/scenegraph/material.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o"
+  "/home/melnik/projects/nutty/ngine/scenegraph/mesh_prims.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o"
   "/home/melnik/projects/nutty/ngine/scenegraph/sc_node.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o"
+  "/home/melnik/projects/nutty/ngine/scenegraph/scene.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o"
+  "/home/melnik/projects/nutty/ngine/scenegraph/texture.c" "/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

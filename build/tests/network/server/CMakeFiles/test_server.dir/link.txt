@@ -1,1 +1,1 @@
-/usr/bin/cc  -std=c11 -O3 -DNDEBUG    CMakeFiles/test_server.dir/main.c.o  -o ../../../../bin/test_server -rdynamic 
+/usr/bin/cc  -std=c11 -g    CMakeFiles/test_server.dir/main.c.o  -o ../../../../bin/test_server -rdynamic ../../../../lib/x86/libngine_network.so -lpthread -Wl,-rpath,/home/melnik/projects/nutty/ngine/lib/x86 

@@ -49,9 +49,170 @@ include scenegraph/CMakeFiles/ngine_scenegraph.dir/progress.make
 # Include the compile flags for this target's objects.
 include scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
 
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o: ../scenegraph/material.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/material.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/material.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/material.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/material.c > CMakeFiles/ngine_scenegraph.dir/material.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/material.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/material.c -o CMakeFiles/ngine_scenegraph.dir/material.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o: ../scenegraph/entity.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/entity.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/entity.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/entity.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/entity.c > CMakeFiles/ngine_scenegraph.dir/entity.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/entity.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/entity.c -o CMakeFiles/ngine_scenegraph.dir/entity.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o: ../scenegraph/mesh_prims.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/mesh_prims.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/mesh_prims.c > CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/mesh_prims.c -o CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o: ../scenegraph/camera.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/camera.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/camera.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/camera.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/camera.c > CMakeFiles/ngine_scenegraph.dir/camera.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/camera.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/camera.c -o CMakeFiles/ngine_scenegraph.dir/camera.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o: ../scenegraph/texture.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/texture.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/texture.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/texture.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/texture.c > CMakeFiles/ngine_scenegraph.dir/texture.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/texture.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/texture.c -o CMakeFiles/ngine_scenegraph.dir/texture.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o: ../scenegraph/light.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/light.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/light.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/light.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/light.c > CMakeFiles/ngine_scenegraph.dir/light.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/light.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/light.c -o CMakeFiles/ngine_scenegraph.dir/light.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: ../scenegraph/scene.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/scene.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/scene.c
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_scenegraph.dir/scene.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/scenegraph/scene.c > CMakeFiles/ngine_scenegraph.dir/scene.c.i
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_scenegraph.dir/scene.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/scenegraph/scene.c -o CMakeFiles/ngine_scenegraph.dir/scene.c.s
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.requires:
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.requires
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.provides: scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.requires
+	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.provides.build
+.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.provides
+
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.provides.build: scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o
+
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: scenegraph/CMakeFiles/ngine_scenegraph.dir/flags.make
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: ../scenegraph/sc_node.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o"
 	cd /home/melnik/projects/nutty/ngine/build/scenegraph && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_scenegraph.dir/sc_node.c.o   -c /home/melnik/projects/nutty/ngine/scenegraph/sc_node.c
 
@@ -74,11 +235,25 @@ scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o.provides.build: scenegrap
 
 # Object files for target ngine_scenegraph
 ngine_scenegraph_OBJECTS = \
+"CMakeFiles/ngine_scenegraph.dir/material.c.o" \
+"CMakeFiles/ngine_scenegraph.dir/entity.c.o" \
+"CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o" \
+"CMakeFiles/ngine_scenegraph.dir/camera.c.o" \
+"CMakeFiles/ngine_scenegraph.dir/texture.c.o" \
+"CMakeFiles/ngine_scenegraph.dir/light.c.o" \
+"CMakeFiles/ngine_scenegraph.dir/scene.c.o" \
 "CMakeFiles/ngine_scenegraph.dir/sc_node.c.o"
 
 # External object files for target ngine_scenegraph
 ngine_scenegraph_EXTERNAL_OBJECTS =
 
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o
+../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o
 ../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o
 ../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make
 ../lib/x86/libngine_scenegraph.so: scenegraph/CMakeFiles/ngine_scenegraph.dir/link.txt
@@ -89,6 +264,13 @@ ngine_scenegraph_EXTERNAL_OBJECTS =
 scenegraph/CMakeFiles/ngine_scenegraph.dir/build: ../lib/x86/libngine_scenegraph.so
 .PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/build
 
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o.requires
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o.requires
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o.requires
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o.requires
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o.requires
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o.requires
+scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o.requires
 scenegraph/CMakeFiles/ngine_scenegraph.dir/requires: scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o.requires
 .PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/requires
 

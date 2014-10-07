@@ -23,7 +23,7 @@
 
 #include "math/vector.h"
 #include "math/matrix.h"
-#include "cntr/tree.h"
+#include "core/tree.h"
 
 struct ngine_sc_node_listener {
   void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
@@ -62,25 +62,32 @@ struct ngine_sc_node {
   uint32_t 		type;
   
   struct ngine_scene* 	scene;
+  // translation
+  vec3 			pos;
+  quat 			orient;
+  float 		scale;
+  
+  mat4 			matrix;
   
   void* 		attached_obj;
-#ifdef ENABLE_PHYSICS
   struct rbRigidBody* 	rigid_body;
-  char 			dynamic;
-#endif
+  
   // indicators
   char 			translated;
+  char 			dynamic;
   
   struct ngine_sc_node_listener* listener;
 //   struct {
 //     void(*on_update)(struct ngine_sc_node* _sc_node, float _time_elapsed);
 //     void(*on_colide)();
 //   };
+  
+  void* plugins_stol[4];
 };
 
-struct ngine_sc_node_phys {
-  unsigned i :sizeof(struct ngine_sc_node);
-};
+// struct ngine_sc_node_phys {
+//   unsigned i :sizeof(struct ngine_sc_node);
+// };
 
 struct ngine_sc_node* 	ngine_sc_node_create(struct ngine_scene* _scene, char* _name, int _type);
 void 			ngine_sc_node_delete(struct ngine_sc_node* _self);
@@ -93,8 +100,5 @@ void 			ngine_sc_node_set_rot(struct ngine_sc_node* _self, quat* _orient, int _r
 
 void 			ngine_sc_node_translate(struct ngine_sc_node* _self, vec3* _vec, int _relative);
 void 			ngine_sc_node_rotate(struct ngine_sc_node* _self, quat* _orient, int _relative);
-
-//intern
-struct ngine_sc_node* 	ngine_sc_node_upd_mat(struct ngine_sc_node* _self);
 
 #endif /* __SCENE_OBJECT_H__ */

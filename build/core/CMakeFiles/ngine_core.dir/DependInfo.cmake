@@ -5,8 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/nutty/ngine/core/array.c" "/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir/array.c.o"
+  "/home/melnik/projects/nutty/ngine/core/iofile.c" "/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir/iofile.c.o"
   "/home/melnik/projects/nutty/ngine/core/list.c" "/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir/list.c.o"
   "/home/melnik/projects/nutty/ngine/core/serialize.c" "/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir/serialize.c.o"
+  "/home/melnik/projects/nutty/ngine/core/timer.c" "/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir/timer.c.o"
   "/home/melnik/projects/nutty/ngine/core/tree.c" "/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir/tree.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

@@ -61,6 +61,47 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -102,6 +143,164 @@ depend:
 	cd /home/melnik/projects/nutty/ngine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+render/CMakeFiles/ngine_render.dir/rule:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f CMakeFiles/Makefile2 render/CMakeFiles/ngine_render.dir/rule
+.PHONY : render/CMakeFiles/ngine_render.dir/rule
+
+# Convenience name for target.
+ngine_render: render/CMakeFiles/ngine_render.dir/rule
+.PHONY : ngine_render
+
+# fast build rule for target.
+ngine_render/fast:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/build
+.PHONY : ngine_render/fast
+
+mesh.o: mesh.c.o
+.PHONY : mesh.o
+
+# target to build an object file
+mesh.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/mesh.c.o
+.PHONY : mesh.c.o
+
+mesh.i: mesh.c.i
+.PHONY : mesh.i
+
+# target to preprocess a source file
+mesh.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/mesh.c.i
+.PHONY : mesh.c.i
+
+mesh.s: mesh.c.s
+.PHONY : mesh.s
+
+# target to generate assembly for a file
+mesh.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/mesh.c.s
+.PHONY : mesh.c.s
+
+render.o: render.c.o
+.PHONY : render.o
+
+# target to build an object file
+render.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/render.c.o
+.PHONY : render.c.o
+
+render.i: render.c.i
+.PHONY : render.i
+
+# target to preprocess a source file
+render.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/render.c.i
+.PHONY : render.c.i
+
+render.s: render.c.s
+.PHONY : render.s
+
+# target to generate assembly for a file
+render.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/render.c.s
+.PHONY : render.c.s
+
+render_target.o: render_target.c.o
+.PHONY : render_target.o
+
+# target to build an object file
+render_target.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/render_target.c.o
+.PHONY : render_target.c.o
+
+render_target.i: render_target.c.i
+.PHONY : render_target.i
+
+# target to preprocess a source file
+render_target.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/render_target.c.i
+.PHONY : render_target.c.i
+
+render_target.s: render_target.c.s
+.PHONY : render_target.s
+
+# target to generate assembly for a file
+render_target.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/render_target.c.s
+.PHONY : render_target.c.s
+
+shader_prog.o: shader_prog.c.o
+.PHONY : shader_prog.o
+
+# target to build an object file
+shader_prog.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/shader_prog.c.o
+.PHONY : shader_prog.c.o
+
+shader_prog.i: shader_prog.c.i
+.PHONY : shader_prog.i
+
+# target to preprocess a source file
+shader_prog.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/shader_prog.c.i
+.PHONY : shader_prog.c.i
+
+shader_prog.s: shader_prog.c.s
+.PHONY : shader_prog.s
+
+# target to generate assembly for a file
+shader_prog.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/shader_prog.c.s
+.PHONY : shader_prog.c.s
+
+technique.o: technique.c.o
+.PHONY : technique.o
+
+# target to build an object file
+technique.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/technique.c.o
+.PHONY : technique.c.o
+
+technique.i: technique.c.i
+.PHONY : technique.i
+
+# target to preprocess a source file
+technique.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/technique.c.i
+.PHONY : technique.c.i
+
+technique.s: technique.c.s
+.PHONY : technique.s
+
+# target to generate assembly for a file
+technique.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/technique.c.s
+.PHONY : technique.c.s
+
+techs/gl44_tech.o: techs/gl44_tech.c.o
+.PHONY : techs/gl44_tech.o
+
+# target to build an object file
+techs/gl44_tech.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/techs/gl44_tech.c.o
+.PHONY : techs/gl44_tech.c.o
+
+techs/gl44_tech.i: techs/gl44_tech.c.i
+.PHONY : techs/gl44_tech.i
+
+# target to preprocess a source file
+techs/gl44_tech.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/techs/gl44_tech.c.i
+.PHONY : techs/gl44_tech.c.i
+
+techs/gl44_tech.s: techs/gl44_tech.c.s
+.PHONY : techs/gl44_tech.s
+
+# target to generate assembly for a file
+techs/gl44_tech.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/techs/gl44_tech.c.s
+.PHONY : techs/gl44_tech.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -109,7 +308,30 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
+	@echo "... ngine_render"
 	@echo "... rebuild_cache"
+	@echo "... mesh.o"
+	@echo "... mesh.i"
+	@echo "... mesh.s"
+	@echo "... render.o"
+	@echo "... render.i"
+	@echo "... render.s"
+	@echo "... render_target.o"
+	@echo "... render_target.i"
+	@echo "... render_target.s"
+	@echo "... shader_prog.o"
+	@echo "... shader_prog.i"
+	@echo "... shader_prog.s"
+	@echo "... technique.o"
+	@echo "... technique.i"
+	@echo "... technique.s"
+	@echo "... techs/gl44_tech.o"
+	@echo "... techs/gl44_tech.i"
+	@echo "... techs/gl44_tech.s"
 .PHONY : help
 
 

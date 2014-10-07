@@ -14,6 +14,10 @@ stddef.h
 
 /home/melnik/projects/nutty/ngine/tests/serialize/a.h
 
+/home/melnik/projects/nutty/ngine/tests/serialize/a_serialize.c
+a_serialize.h
+/home/melnik/projects/nutty/ngine/tests/serialize/a_serialize.h
+
 /home/melnik/projects/nutty/ngine/tests/serialize/a_serialize.h
 core/serialize.h
 /home/melnik/projects/nutty/ngine/tests/serialize/core/serialize.h

@@ -10,6 +10,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/melnik/projects/nutty/ngine/build/network/CMakeFiles/ngine_network.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

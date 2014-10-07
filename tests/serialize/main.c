@@ -4,7 +4,7 @@
 #include "a_serialize.h"
 
 int main() {
-  for(uint32_t i = 0; i != 32000; ++i) {
+//   for(uint32_t i = 0; i != 10000; ++i) {
   struct b* obj_b = calloc(1, sizeof(struct b));
   obj_b->f = 72;
   obj_b->s = 86;
@@ -19,20 +19,20 @@ int main() {
   FILE* f = fopen("sdata", "w");
   if(f != 0) {
     fwrite(buf->data, buf->size, 1, f);
-//     printf("sdata writen %i\n", buf->size);
+    printf("sdata writen %i\n", buf->size);
   }
   fclose(f);
   
   struct a* des_a = deserialize(buf->data, a,);
   
-//   printf("des_a->f = %i\n"
-// 	 "des_a->s = %i\n"
-// 	 "des_a->t = %x\n\n"
-// 	 "des_a->f = %i\n"
-// 	 "des_a->s = %i\n", des_a->f, des_a->s, des_a->t,
-// 			    des_a->t->f, des_a->t->s);
+  printf("des_a->f = %i\n"
+	 "des_a->s = %i\n"
+	 "des_a->t = %x\n\n"
+	 "des_a->f = %i\n"
+	 "des_a->s = %i\n", des_a->f, des_a->s, des_a->t,
+			    des_a->t->f, des_a->t->s);
   
   free(buf->data);
   free(buf);
-  }
+//   }
 }

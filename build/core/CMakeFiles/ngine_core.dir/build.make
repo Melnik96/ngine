@@ -95,9 +95,32 @@ core/CMakeFiles/ngine_core.dir/array.c.o.provides: core/CMakeFiles/ngine_core.di
 
 core/CMakeFiles/ngine_core.dir/array.c.o.provides.build: core/CMakeFiles/ngine_core.dir/array.c.o
 
+core/CMakeFiles/ngine_core.dir/timer.c.o: core/CMakeFiles/ngine_core.dir/flags.make
+core/CMakeFiles/ngine_core.dir/timer.c.o: ../core/timer.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object core/CMakeFiles/ngine_core.dir/timer.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_core.dir/timer.c.o   -c /home/melnik/projects/nutty/ngine/core/timer.c
+
+core/CMakeFiles/ngine_core.dir/timer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_core.dir/timer.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/core/timer.c > CMakeFiles/ngine_core.dir/timer.c.i
+
+core/CMakeFiles/ngine_core.dir/timer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_core.dir/timer.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/core/timer.c -o CMakeFiles/ngine_core.dir/timer.c.s
+
+core/CMakeFiles/ngine_core.dir/timer.c.o.requires:
+.PHONY : core/CMakeFiles/ngine_core.dir/timer.c.o.requires
+
+core/CMakeFiles/ngine_core.dir/timer.c.o.provides: core/CMakeFiles/ngine_core.dir/timer.c.o.requires
+	$(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/timer.c.o.provides.build
+.PHONY : core/CMakeFiles/ngine_core.dir/timer.c.o.provides
+
+core/CMakeFiles/ngine_core.dir/timer.c.o.provides.build: core/CMakeFiles/ngine_core.dir/timer.c.o
+
 core/CMakeFiles/ngine_core.dir/tree.c.o: core/CMakeFiles/ngine_core.dir/flags.make
 core/CMakeFiles/ngine_core.dir/tree.c.o: ../core/tree.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object core/CMakeFiles/ngine_core.dir/tree.c.o"
 	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_core.dir/tree.c.o   -c /home/melnik/projects/nutty/ngine/core/tree.c
 
@@ -120,7 +143,7 @@ core/CMakeFiles/ngine_core.dir/tree.c.o.provides.build: core/CMakeFiles/ngine_co
 
 core/CMakeFiles/ngine_core.dir/list.c.o: core/CMakeFiles/ngine_core.dir/flags.make
 core/CMakeFiles/ngine_core.dir/list.c.o: ../core/list.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object core/CMakeFiles/ngine_core.dir/list.c.o"
 	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_core.dir/list.c.o   -c /home/melnik/projects/nutty/ngine/core/list.c
 
@@ -141,34 +164,62 @@ core/CMakeFiles/ngine_core.dir/list.c.o.provides: core/CMakeFiles/ngine_core.dir
 
 core/CMakeFiles/ngine_core.dir/list.c.o.provides.build: core/CMakeFiles/ngine_core.dir/list.c.o
 
+core/CMakeFiles/ngine_core.dir/iofile.c.o: core/CMakeFiles/ngine_core.dir/flags.make
+core/CMakeFiles/ngine_core.dir/iofile.c.o: ../core/iofile.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object core/CMakeFiles/ngine_core.dir/iofile.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_core.dir/iofile.c.o   -c /home/melnik/projects/nutty/ngine/core/iofile.c
+
+core/CMakeFiles/ngine_core.dir/iofile.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_core.dir/iofile.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/core/iofile.c > CMakeFiles/ngine_core.dir/iofile.c.i
+
+core/CMakeFiles/ngine_core.dir/iofile.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_core.dir/iofile.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/core && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/core/iofile.c -o CMakeFiles/ngine_core.dir/iofile.c.s
+
+core/CMakeFiles/ngine_core.dir/iofile.c.o.requires:
+.PHONY : core/CMakeFiles/ngine_core.dir/iofile.c.o.requires
+
+core/CMakeFiles/ngine_core.dir/iofile.c.o.provides: core/CMakeFiles/ngine_core.dir/iofile.c.o.requires
+	$(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/iofile.c.o.provides.build
+.PHONY : core/CMakeFiles/ngine_core.dir/iofile.c.o.provides
+
+core/CMakeFiles/ngine_core.dir/iofile.c.o.provides.build: core/CMakeFiles/ngine_core.dir/iofile.c.o
+
 # Object files for target ngine_core
 ngine_core_OBJECTS = \
 "CMakeFiles/ngine_core.dir/serialize.c.o" \
 "CMakeFiles/ngine_core.dir/array.c.o" \
+"CMakeFiles/ngine_core.dir/timer.c.o" \
 "CMakeFiles/ngine_core.dir/tree.c.o" \
-"CMakeFiles/ngine_core.dir/list.c.o"
+"CMakeFiles/ngine_core.dir/list.c.o" \
+"CMakeFiles/ngine_core.dir/iofile.c.o"
 
 # External object files for target ngine_core
 ngine_core_EXTERNAL_OBJECTS =
 
-../lib/x86/libngine_core.a: core/CMakeFiles/ngine_core.dir/serialize.c.o
-../lib/x86/libngine_core.a: core/CMakeFiles/ngine_core.dir/array.c.o
-../lib/x86/libngine_core.a: core/CMakeFiles/ngine_core.dir/tree.c.o
-../lib/x86/libngine_core.a: core/CMakeFiles/ngine_core.dir/list.c.o
-../lib/x86/libngine_core.a: core/CMakeFiles/ngine_core.dir/build.make
-../lib/x86/libngine_core.a: core/CMakeFiles/ngine_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C static library ../../lib/x86/libngine_core.a"
-	cd /home/melnik/projects/nutty/ngine/build/core && $(CMAKE_COMMAND) -P CMakeFiles/ngine_core.dir/cmake_clean_target.cmake
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/serialize.c.o
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/array.c.o
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/timer.c.o
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/tree.c.o
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/list.c.o
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/iofile.c.o
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/build.make
+../lib/x86/libngine_core.so: core/CMakeFiles/ngine_core.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../lib/x86/libngine_core.so"
 	cd /home/melnik/projects/nutty/ngine/build/core && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ngine_core.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-core/CMakeFiles/ngine_core.dir/build: ../lib/x86/libngine_core.a
+core/CMakeFiles/ngine_core.dir/build: ../lib/x86/libngine_core.so
 .PHONY : core/CMakeFiles/ngine_core.dir/build
 
 core/CMakeFiles/ngine_core.dir/requires: core/CMakeFiles/ngine_core.dir/serialize.c.o.requires
 core/CMakeFiles/ngine_core.dir/requires: core/CMakeFiles/ngine_core.dir/array.c.o.requires
+core/CMakeFiles/ngine_core.dir/requires: core/CMakeFiles/ngine_core.dir/timer.c.o.requires
 core/CMakeFiles/ngine_core.dir/requires: core/CMakeFiles/ngine_core.dir/tree.c.o.requires
 core/CMakeFiles/ngine_core.dir/requires: core/CMakeFiles/ngine_core.dir/list.c.o.requires
+core/CMakeFiles/ngine_core.dir/requires: core/CMakeFiles/ngine_core.dir/iofile.c.o.requires
 .PHONY : core/CMakeFiles/ngine_core.dir/requires
 
 core/CMakeFiles/ngine_core.dir/clean:

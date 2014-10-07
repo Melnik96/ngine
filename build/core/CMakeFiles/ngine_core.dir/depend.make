@@ -4,11 +4,17 @@
 core/CMakeFiles/ngine_core.dir/array.c.o: ../core/array.c
 core/CMakeFiles/ngine_core.dir/array.c.o: ../core/array.h
 
+core/CMakeFiles/ngine_core.dir/iofile.c.o: ../core/iofile.c
+core/CMakeFiles/ngine_core.dir/iofile.c.o: ../core/iofile.h
+
 core/CMakeFiles/ngine_core.dir/list.c.o: ../core/list.c
 core/CMakeFiles/ngine_core.dir/list.c.o: ../core/list.h
 
 core/CMakeFiles/ngine_core.dir/serialize.c.o: ../core/serialize.c
 core/CMakeFiles/ngine_core.dir/serialize.c.o: ../core/serialize.h
+
+core/CMakeFiles/ngine_core.dir/timer.c.o: ../core/timer.c
+core/CMakeFiles/ngine_core.dir/timer.c.o: ../core/timer.h
 
 core/CMakeFiles/ngine_core.dir/tree.c.o: ../core/tree.c
 core/CMakeFiles/ngine_core.dir/tree.c.o: ../core/tree.h

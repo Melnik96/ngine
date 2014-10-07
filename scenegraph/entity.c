@@ -22,10 +22,9 @@
 #include <malloc.h>
 #include <string.h>
 
-#include "mesh.h"
-#include "ngine.h"
+#include "render/mesh.h"
 #include "scene.h"
-#include "shader_prog.h"
+#include "render/shader_prog.h"
 
 #include "entity.h"
 

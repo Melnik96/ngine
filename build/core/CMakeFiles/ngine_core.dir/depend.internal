@@ -4,12 +4,18 @@
 core/CMakeFiles/ngine_core.dir/array.c.o
  /home/melnik/projects/nutty/ngine/core/array.c
  /home/melnik/projects/nutty/ngine/core/array.h
+core/CMakeFiles/ngine_core.dir/iofile.c.o
+ /home/melnik/projects/nutty/ngine/core/iofile.c
+ /home/melnik/projects/nutty/ngine/core/iofile.h
 core/CMakeFiles/ngine_core.dir/list.c.o
  /home/melnik/projects/nutty/ngine/core/list.c
  /home/melnik/projects/nutty/ngine/core/list.h
 core/CMakeFiles/ngine_core.dir/serialize.c.o
  /home/melnik/projects/nutty/ngine/core/serialize.c
  /home/melnik/projects/nutty/ngine/core/serialize.h
+core/CMakeFiles/ngine_core.dir/timer.c.o
+ /home/melnik/projects/nutty/ngine/core/timer.c
+ /home/melnik/projects/nutty/ngine/core/timer.h
 core/CMakeFiles/ngine_core.dir/tree.c.o
  /home/melnik/projects/nutty/ngine/core/tree.c
  /home/melnik/projects/nutty/ngine/core/tree.h

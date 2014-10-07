@@ -26,12 +26,14 @@
 #include "iohand.h"
 
 #define USE_GLFW
-/*
+
 struct ngine_iohand* ngine_iohand_create(ngine_platform _platform) {
   struct ngine_iohand* new_iohand = NULL;
   
-#ifdef !USE_GLFW
-  new_iohand = ngine_glfw_iohand_create(_platform);
+  new_iohand->platform = _platform;
+  
+#ifdef USE_GLFW
+  new_iohand = ngine_glfw_iohand_create();
 #else
   if(_platform == NGINE_PLATFORM_AUTO) {
     if(getenv("WAYLAND")) {
@@ -51,4 +53,6 @@ struct ngine_iohand* ngine_iohand_create(ngine_platform _platform) {
     new_iohand = ngine_win_iohand_create();
   }
 #endif
-}*/
+
+  return new_iohand;
+}

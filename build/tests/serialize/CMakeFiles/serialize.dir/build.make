@@ -106,7 +106,7 @@ serialize_EXTERNAL_OBJECTS =
 ../bin/serialize: tests/serialize/CMakeFiles/serialize.dir/main.c.o
 ../bin/serialize: tests/serialize/CMakeFiles/serialize.dir/a_serialize.c.o
 ../bin/serialize: tests/serialize/CMakeFiles/serialize.dir/build.make
-../bin/serialize: ../lib/x86/libngine_core.a
+../bin/serialize: ../lib/x86/libngine_core.so
 ../bin/serialize: tests/serialize/CMakeFiles/serialize.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../../../bin/serialize"
 	cd /home/melnik/projects/nutty/ngine/build/tests/serialize && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serialize.dir/link.txt --verbose=$(VERBOSE)

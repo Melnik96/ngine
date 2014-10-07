@@ -1,52 +1,34 @@
 #include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
-#include <string.h>
-#include <sys/types.h>
- 
-int main(void)
-{
-  int listenfd = 0,connfd = 0;
+
+#include "network/server.h"
+
+struct client_info {
+  uint32_t id;
+  uint32_t level;
+};
+
+int close_conn_cb(int _sock) {
+  return 1;
+}
+
+int allow_conn_cb(int _sock) {
+  struct client_info* cinf = malloc(sizeof(struct client_info));
   
-  struct sockaddr_in serv_addr;
- 
-  char sendBuff[1025];  
-  int numrv;  
- 
-  listenfd = socket(AF_INET, SOCK_STREAM, 0);
-  printf("socket retrieve success\n");
+  recv(_sock, cinf, sizeof(struct client_info), 0);
+  printf("client info\n  id: %i\n  level: %i\n", cinf->id, cinf->level);
   
-  memset(&serv_addr, '0', sizeof(serv_addr));
-  memset(sendBuff, '0', sizeof(sendBuff));
-      
-  serv_addr.sin_family = AF_INET;    
-  serv_addr.sin_addr.s_addr = htonl(INADDR_ANY); 
-  serv_addr.sin_port = htons(5000);    
- 
-  bind(listenfd, (struct sockaddr*)&serv_addr,sizeof(serv_addr));
+  char allow = 1;
+  send(_sock, &allow, sizeof(char), 0);
   
-  if(listen(listenfd, 10) == -1){
-      printf("Failed to listen\n");
-      return -1;
-  }
-     
+  return 1;
+}
+
+int main(void) {
+  struct ngine_server* serv = ngine_server_create(4041);
   
-  while(1)
-    {
-      
-      connfd = accept(listenfd, (struct sockaddr*)NULL ,NULL); // accept awaiting request
+  ngine_server_add_handler(serv, 'q', close_conn_cb);
+  ngine_server_add_handler(serv, 1, allow_conn_cb);
   
-      strcpy(sendBuff, "pong");
-      write(connfd, sendBuff, strlen(sendBuff));
- 
-      close(connfd);    
-      sleep(1);
-    }
- 
- 
-  return 0;
+  ngine_server_start(serv);
+  ngine_server_delete(serv);
 }

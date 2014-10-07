@@ -18,7 +18,7 @@
  */
 
 #include <GL/glew.h>
-
+/*
 #include "assets_mgr.h"
 #include "iofile.h"
 #include "import/targa/tga.h"
@@ -79,4 +79,4 @@ void ngine_texture_image(struct ngine_texture* _self, const char* _img_name) {
 //   // map texture into shader variable
 //   glUseProgram(shaderProgHandle);
 //   int texLocation = glGetUniformLocation(shaderProgHandle, "tex");
-}
+}*/

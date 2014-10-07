@@ -6,17 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/melnik/projects/nutty/ngine/core/serialize.c
+/home/melnik/projects/nutty/ngine/core/timer.c
+sys/time.h
+-
 malloc.h
 -
-memory.h
--
-serialize.h
-/home/melnik/projects/nutty/ngine/core/serialize.h
+timer.h
+/home/melnik/projects/nutty/ngine/core/timer.h
 
-/home/melnik/projects/nutty/ngine/core/serialize.h
-stdint.h
--
-stddef.h
--
+/home/melnik/projects/nutty/ngine/core/timer.h
 

@@ -39,3 +39,21 @@ void ngine_sc_node_make_dynamic(struct ngine_sc_node* _self, struct ngine_phys_i
   
   _self->dynamic = 1;
 }
+
+void ngine_sc_node_set_lin_vel(struct ngine_sc_node* _self, vec3* _vel, int _relative) {
+  RB_body_activate(_self->rigid_body);
+  if(_relative == NGINE_TRANS_LOCAL) {
+    vec3 tvec;
+    kmQuaternionMultiplyVec3(&tvec, &_self->orient, _vel);
+    RB_body_set_linear_velocity(_self->rigid_body, tvec.val);
+  } else if(_relative == NGINE_TRANS_PARENT) {
+    vec3 tvec;
+    kmQuaternionMultiplyVec3(&tvec, &((struct ngine_sc_node*)_self->link.parent)->orient, _vel);
+    RB_body_set_linear_velocity(_self->rigid_body, tvec.val);
+  } else if(_relative == NGINE_TRANS_WORLD) {
+    RB_body_set_linear_velocity(_self->rigid_body, _vel->val);
+  } else {
+    error("sc_node trans type invalid");
+  }
+//   _self->translated = 1;
+}

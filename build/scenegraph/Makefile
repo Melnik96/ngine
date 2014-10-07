@@ -61,6 +61,47 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -116,6 +157,126 @@ ngine_scenegraph/fast:
 	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/build
 .PHONY : ngine_scenegraph/fast
 
+camera.o: camera.c.o
+.PHONY : camera.o
+
+# target to build an object file
+camera.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.o
+.PHONY : camera.c.o
+
+camera.i: camera.c.i
+.PHONY : camera.i
+
+# target to preprocess a source file
+camera.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.i
+.PHONY : camera.c.i
+
+camera.s: camera.c.s
+.PHONY : camera.s
+
+# target to generate assembly for a file
+camera.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/camera.c.s
+.PHONY : camera.c.s
+
+entity.o: entity.c.o
+.PHONY : entity.o
+
+# target to build an object file
+entity.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.o
+.PHONY : entity.c.o
+
+entity.i: entity.c.i
+.PHONY : entity.i
+
+# target to preprocess a source file
+entity.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.i
+.PHONY : entity.c.i
+
+entity.s: entity.c.s
+.PHONY : entity.s
+
+# target to generate assembly for a file
+entity.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/entity.c.s
+.PHONY : entity.c.s
+
+light.o: light.c.o
+.PHONY : light.o
+
+# target to build an object file
+light.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.o
+.PHONY : light.c.o
+
+light.i: light.c.i
+.PHONY : light.i
+
+# target to preprocess a source file
+light.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.i
+.PHONY : light.c.i
+
+light.s: light.c.s
+.PHONY : light.s
+
+# target to generate assembly for a file
+light.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/light.c.s
+.PHONY : light.c.s
+
+material.o: material.c.o
+.PHONY : material.o
+
+# target to build an object file
+material.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o
+.PHONY : material.c.o
+
+material.i: material.c.i
+.PHONY : material.i
+
+# target to preprocess a source file
+material.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.i
+.PHONY : material.c.i
+
+material.s: material.c.s
+.PHONY : material.s
+
+# target to generate assembly for a file
+material.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.s
+.PHONY : material.c.s
+
+mesh_prims.o: mesh_prims.c.o
+.PHONY : mesh_prims.o
+
+# target to build an object file
+mesh_prims.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o
+.PHONY : mesh_prims.c.o
+
+mesh_prims.i: mesh_prims.c.i
+.PHONY : mesh_prims.i
+
+# target to preprocess a source file
+mesh_prims.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.i
+.PHONY : mesh_prims.c.i
+
+mesh_prims.s: mesh_prims.c.s
+.PHONY : mesh_prims.s
+
+# target to generate assembly for a file
+mesh_prims.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.s
+.PHONY : mesh_prims.c.s
+
 sc_node.o: sc_node.c.o
 .PHONY : sc_node.o
 
@@ -140,6 +301,54 @@ sc_node.c.s:
 	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.s
 .PHONY : sc_node.c.s
 
+scene.o: scene.c.o
+.PHONY : scene.o
+
+# target to build an object file
+scene.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o
+.PHONY : scene.c.o
+
+scene.i: scene.c.i
+.PHONY : scene.i
+
+# target to preprocess a source file
+scene.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.i
+.PHONY : scene.c.i
+
+scene.s: scene.c.s
+.PHONY : scene.s
+
+# target to generate assembly for a file
+scene.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.s
+.PHONY : scene.c.s
+
+texture.o: texture.c.o
+.PHONY : texture.o
+
+# target to build an object file
+texture.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.o
+.PHONY : texture.c.o
+
+texture.i: texture.c.i
+.PHONY : texture.i
+
+# target to preprocess a source file
+texture.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.i
+.PHONY : texture.c.i
+
+texture.s: texture.c.s
+.PHONY : texture.s
+
+# target to generate assembly for a file
+texture.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/texture.c.s
+.PHONY : texture.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -147,11 +356,36 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... ngine_scenegraph"
 	@echo "... rebuild_cache"
+	@echo "... camera.o"
+	@echo "... camera.i"
+	@echo "... camera.s"
+	@echo "... entity.o"
+	@echo "... entity.i"
+	@echo "... entity.s"
+	@echo "... light.o"
+	@echo "... light.i"
+	@echo "... light.s"
+	@echo "... material.o"
+	@echo "... material.i"
+	@echo "... material.s"
+	@echo "... mesh_prims.o"
+	@echo "... mesh_prims.i"
+	@echo "... mesh_prims.s"
 	@echo "... sc_node.o"
 	@echo "... sc_node.i"
 	@echo "... sc_node.s"
+	@echo "... scene.o"
+	@echo "... scene.i"
+	@echo "... scene.s"
+	@echo "... texture.o"
+	@echo "... texture.i"
+	@echo "... texture.s"
 .PHONY : help
 
 

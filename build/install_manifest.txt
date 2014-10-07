@@ -1,0 +1,5 @@
+/usr/local/lib/libngine_render.so
+/usr/local/lib/libngine_scenegraph.so
+/usr/local/lib/libngine_core.so
+/usr/local/lib/libngine_import.so
+/usr/local/lib/libngine_network.so
