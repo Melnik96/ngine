@@ -1,1 +1,1 @@
-/usr/bin/cc  -fPIC -std=c11 -g   -shared -Wl,-soname,libngine_network.so -o ../../lib/x86/libngine_network.so CMakeFiles/ngine_network.dir/server.c.o CMakeFiles/ngine_network.dir/client.c.o -lpthread 
+/usr/bin/cc  -fPIC -std=gnu11 -g   -shared -Wl,-soname,libngine_network.so -o ../../lib/x86/libngine_network.so CMakeFiles/ngine_network.dir/socket.c.o CMakeFiles/ngine_network.dir/server.c.o CMakeFiles/ngine_network.dir/client.c.o -lpthread 

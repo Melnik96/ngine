@@ -143,6 +143,140 @@ depend:
 	cd /home/melnik/projects/nutty/ngine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+iohand/CMakeFiles/ngine_iohand.dir/rule:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f CMakeFiles/Makefile2 iohand/CMakeFiles/ngine_iohand.dir/rule
+.PHONY : iohand/CMakeFiles/ngine_iohand.dir/rule
+
+# Convenience name for target.
+ngine_iohand: iohand/CMakeFiles/ngine_iohand.dir/rule
+.PHONY : ngine_iohand
+
+# fast build rule for target.
+ngine_iohand/fast:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/build
+.PHONY : ngine_iohand/fast
+
+display.o: display.c.o
+.PHONY : display.o
+
+# target to build an object file
+display.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/display.c.o
+.PHONY : display.c.o
+
+display.i: display.c.i
+.PHONY : display.i
+
+# target to preprocess a source file
+display.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/display.c.i
+.PHONY : display.c.i
+
+display.s: display.c.s
+.PHONY : display.s
+
+# target to generate assembly for a file
+display.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/display.c.s
+.PHONY : display.c.s
+
+input.o: input.c.o
+.PHONY : input.o
+
+# target to build an object file
+input.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/input.c.o
+.PHONY : input.c.o
+
+input.i: input.c.i
+.PHONY : input.i
+
+# target to preprocess a source file
+input.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/input.c.i
+.PHONY : input.c.i
+
+input.s: input.c.s
+.PHONY : input.s
+
+# target to generate assembly for a file
+input.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/input.c.s
+.PHONY : input.c.s
+
+intern/glfw/glfw_iohand.o: intern/glfw/glfw_iohand.c.o
+.PHONY : intern/glfw/glfw_iohand.o
+
+# target to build an object file
+intern/glfw/glfw_iohand.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/intern/glfw/glfw_iohand.c.o
+.PHONY : intern/glfw/glfw_iohand.c.o
+
+intern/glfw/glfw_iohand.i: intern/glfw/glfw_iohand.c.i
+.PHONY : intern/glfw/glfw_iohand.i
+
+# target to preprocess a source file
+intern/glfw/glfw_iohand.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/intern/glfw/glfw_iohand.c.i
+.PHONY : intern/glfw/glfw_iohand.c.i
+
+intern/glfw/glfw_iohand.s: intern/glfw/glfw_iohand.c.s
+.PHONY : intern/glfw/glfw_iohand.s
+
+# target to generate assembly for a file
+intern/glfw/glfw_iohand.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/intern/glfw/glfw_iohand.c.s
+.PHONY : intern/glfw/glfw_iohand.c.s
+
+iohand.o: iohand.c.o
+.PHONY : iohand.o
+
+# target to build an object file
+iohand.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/iohand.c.o
+.PHONY : iohand.c.o
+
+iohand.i: iohand.c.i
+.PHONY : iohand.i
+
+# target to preprocess a source file
+iohand.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/iohand.c.i
+.PHONY : iohand.c.i
+
+iohand.s: iohand.c.s
+.PHONY : iohand.s
+
+# target to generate assembly for a file
+iohand.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/iohand.c.s
+.PHONY : iohand.c.s
+
+window.o: window.c.o
+.PHONY : window.o
+
+# target to build an object file
+window.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/window.c.o
+.PHONY : window.c.o
+
+window.i: window.c.i
+.PHONY : window.i
+
+# target to preprocess a source file
+window.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/window.c.i
+.PHONY : window.c.i
+
+window.s: window.c.s
+.PHONY : window.s
+
+# target to generate assembly for a file
+window.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f iohand/CMakeFiles/ngine_iohand.dir/build.make iohand/CMakeFiles/ngine_iohand.dir/window.c.s
+.PHONY : window.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -154,7 +288,23 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... ngine_iohand"
 	@echo "... rebuild_cache"
+	@echo "... display.o"
+	@echo "... display.i"
+	@echo "... display.s"
+	@echo "... input.o"
+	@echo "... input.i"
+	@echo "... input.s"
+	@echo "... intern/glfw/glfw_iohand.o"
+	@echo "... intern/glfw/glfw_iohand.i"
+	@echo "... intern/glfw/glfw_iohand.s"
+	@echo "... iohand.o"
+	@echo "... iohand.i"
+	@echo "... iohand.s"
+	@echo "... window.o"
+	@echo "... window.i"
+	@echo "... window.s"
 .PHONY : help
 
 

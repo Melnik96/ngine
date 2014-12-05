@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././source/math/vector.h
+stdint.h
+-
+
+.././source/physics/RBI_api.h
+
+/home/melnik/projects/nutty/ngine/source/mesh/mesh.c
+malloc.h
+-
+GL/glew.h
+-
+GL/gl.h
+-
+shader_prog.h
+/home/melnik/projects/nutty/ngine/source/mesh/shader_prog.h
+mesh.h
+/home/melnik/projects/nutty/ngine/source/mesh/mesh.h
+physics/RBI_api.h
+/home/melnik/projects/nutty/ngine/source/mesh/physics/RBI_api.h
+
+/home/melnik/projects/nutty/ngine/source/mesh/mesh.h
+stdint.h
+-
+math/vector.h
+/home/melnik/projects/nutty/ngine/source/mesh/math/vector.h
+
+/home/melnik/projects/nutty/ngine/source/mesh/mesh_prims.c
+

@@ -1,1 +1,0 @@
-[render/techs/gl44_tech.c:51]: (error) Memory leak: new_tech

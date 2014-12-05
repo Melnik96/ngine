@@ -34,16 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/melnik/projects/nutty/ngine/build/render/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/scenegraph/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/iohand/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/math/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/physics/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/sound/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/core/cmake_install.cmake")
+  include("/home/melnik/projects/nutty/ngine/build/source/cmake_install.cmake")
   include("/home/melnik/projects/nutty/ngine/build/tests/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/import/cmake_install.cmake")
-  include("/home/melnik/projects/nutty/ngine/build/network/cmake_install.cmake")
 
 endif()
 

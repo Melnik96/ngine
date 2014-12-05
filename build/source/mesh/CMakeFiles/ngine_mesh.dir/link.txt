@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=gnu11 -g   -shared -Wl,-soname,libngine_mesh.so -o ../../../lib/x86/libngine_mesh.so CMakeFiles/ngine_mesh.dir/mesh.c.o CMakeFiles/ngine_mesh.dir/mesh_prims.c.o 

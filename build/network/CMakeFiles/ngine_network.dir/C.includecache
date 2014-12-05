@@ -10,21 +10,27 @@
 stdio.h
 -
 
-/home/melnik/projects/nutty/ngine/network/client.c
+/home/melnik/projects/nutty/ngine/network/socket.c
 sys/socket.h
 -
-netinet/in.h
+netdb.h
 -
 arpa/inet.h
 -
-malloc.h
+netinet/in.h
+-
+memory.h
+-
+stdlib.h
+-
+errno.h
 -
 core/log.h
 /home/melnik/projects/nutty/ngine/network/core/log.h
-client.h
-/home/melnik/projects/nutty/ngine/network/client.h
+socket.h
+/home/melnik/projects/nutty/ngine/network/socket.h
 
-/home/melnik/projects/nutty/ngine/network/client.h
+/home/melnik/projects/nutty/ngine/network/socket.h
 stdint.h
 -
 

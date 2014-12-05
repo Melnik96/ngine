@@ -49,9 +49,32 @@ include network/CMakeFiles/ngine_network.dir/progress.make
 # Include the compile flags for this target's objects.
 include network/CMakeFiles/ngine_network.dir/flags.make
 
+network/CMakeFiles/ngine_network.dir/socket.c.o: network/CMakeFiles/ngine_network.dir/flags.make
+network/CMakeFiles/ngine_network.dir/socket.c.o: ../network/socket.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object network/CMakeFiles/ngine_network.dir/socket.c.o"
+	cd /home/melnik/projects/nutty/ngine/build/network && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_network.dir/socket.c.o   -c /home/melnik/projects/nutty/ngine/network/socket.c
+
+network/CMakeFiles/ngine_network.dir/socket.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ngine_network.dir/socket.c.i"
+	cd /home/melnik/projects/nutty/ngine/build/network && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/melnik/projects/nutty/ngine/network/socket.c > CMakeFiles/ngine_network.dir/socket.c.i
+
+network/CMakeFiles/ngine_network.dir/socket.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ngine_network.dir/socket.c.s"
+	cd /home/melnik/projects/nutty/ngine/build/network && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/melnik/projects/nutty/ngine/network/socket.c -o CMakeFiles/ngine_network.dir/socket.c.s
+
+network/CMakeFiles/ngine_network.dir/socket.c.o.requires:
+.PHONY : network/CMakeFiles/ngine_network.dir/socket.c.o.requires
+
+network/CMakeFiles/ngine_network.dir/socket.c.o.provides: network/CMakeFiles/ngine_network.dir/socket.c.o.requires
+	$(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/socket.c.o.provides.build
+.PHONY : network/CMakeFiles/ngine_network.dir/socket.c.o.provides
+
+network/CMakeFiles/ngine_network.dir/socket.c.o.provides.build: network/CMakeFiles/ngine_network.dir/socket.c.o
+
 network/CMakeFiles/ngine_network.dir/server.c.o: network/CMakeFiles/ngine_network.dir/flags.make
 network/CMakeFiles/ngine_network.dir/server.c.o: ../network/server.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object network/CMakeFiles/ngine_network.dir/server.c.o"
 	cd /home/melnik/projects/nutty/ngine/build/network && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_network.dir/server.c.o   -c /home/melnik/projects/nutty/ngine/network/server.c
 
@@ -74,7 +97,7 @@ network/CMakeFiles/ngine_network.dir/server.c.o.provides.build: network/CMakeFil
 
 network/CMakeFiles/ngine_network.dir/client.c.o: network/CMakeFiles/ngine_network.dir/flags.make
 network/CMakeFiles/ngine_network.dir/client.c.o: ../network/client.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object network/CMakeFiles/ngine_network.dir/client.c.o"
 	cd /home/melnik/projects/nutty/ngine/build/network && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/ngine_network.dir/client.c.o   -c /home/melnik/projects/nutty/ngine/network/client.c
 
@@ -97,12 +120,14 @@ network/CMakeFiles/ngine_network.dir/client.c.o.provides.build: network/CMakeFil
 
 # Object files for target ngine_network
 ngine_network_OBJECTS = \
+"CMakeFiles/ngine_network.dir/socket.c.o" \
 "CMakeFiles/ngine_network.dir/server.c.o" \
 "CMakeFiles/ngine_network.dir/client.c.o"
 
 # External object files for target ngine_network
 ngine_network_EXTERNAL_OBJECTS =
 
+../lib/x86/libngine_network.so: network/CMakeFiles/ngine_network.dir/socket.c.o
 ../lib/x86/libngine_network.so: network/CMakeFiles/ngine_network.dir/server.c.o
 ../lib/x86/libngine_network.so: network/CMakeFiles/ngine_network.dir/client.c.o
 ../lib/x86/libngine_network.so: network/CMakeFiles/ngine_network.dir/build.make
@@ -114,6 +139,7 @@ ngine_network_EXTERNAL_OBJECTS =
 network/CMakeFiles/ngine_network.dir/build: ../lib/x86/libngine_network.so
 .PHONY : network/CMakeFiles/ngine_network.dir/build
 
+network/CMakeFiles/ngine_network.dir/requires: network/CMakeFiles/ngine_network.dir/socket.c.o.requires
 network/CMakeFiles/ngine_network.dir/requires: network/CMakeFiles/ngine_network.dir/server.c.o.requires
 network/CMakeFiles/ngine_network.dir/requires: network/CMakeFiles/ngine_network.dir/client.c.o.requires
 .PHONY : network/CMakeFiles/ngine_network.dir/requires

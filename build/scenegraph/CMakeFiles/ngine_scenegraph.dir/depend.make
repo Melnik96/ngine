@@ -23,6 +23,7 @@ scenegraph/CMakeFiles/ngine_scenegraph.dir/material.c.o: ../scenegraph/material.
 scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o: ../scenegraph/mesh_prims.c
 
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: .././core/log.h
+scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: .././core/struct_mod.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: .././core/tree.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: .././math/matrix.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: .././math/vector.h
@@ -33,6 +34,8 @@ scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: ../scenegraph/sc_node.c
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: ../scenegraph/sc_node.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o: ../scenegraph/scene.h
 
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: .././core/struct_mod.h
+scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: .././core/timer.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: .././core/tree.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: .././math/matrix.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o: .././math/vector.h

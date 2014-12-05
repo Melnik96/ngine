@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -g -DDEBUG   -shared -Wl,-soname,libngine_physics.so -o ../../../lib/x86/libngine_physics.so CMakeFiles/ngine_physics.dir/rb_bullet_api.cpp.o CMakeFiles/ngine_physics.dir/sc_node_phys.c.o CMakeFiles/ngine_physics.dir/scene_phys.c.o CMakeFiles/ngine_physics.dir/phys_rigidbody_mod.c.o -lBulletCollision -lBulletDynamics 

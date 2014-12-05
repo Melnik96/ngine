@@ -24,6 +24,7 @@ scenegraph/CMakeFiles/ngine_scenegraph.dir/mesh_prims.c.o
  /home/melnik/projects/nutty/ngine/scenegraph/mesh_prims.c
 scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o
  .././core/log.h
+ .././core/struct_mod.h
  .././core/tree.h
  .././math/matrix.h
  .././math/vector.h
@@ -34,6 +35,8 @@ scenegraph/CMakeFiles/ngine_scenegraph.dir/sc_node.c.o
  /home/melnik/projects/nutty/ngine/scenegraph/sc_node.h
  /home/melnik/projects/nutty/ngine/scenegraph/scene.h
 scenegraph/CMakeFiles/ngine_scenegraph.dir/scene.c.o
+ .././core/struct_mod.h
+ .././core/timer.h
  .././core/tree.h
  .././math/matrix.h
  .././math/vector.h

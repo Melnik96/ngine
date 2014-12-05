@@ -1,8 +1,9 @@
-/home/melnik/projects/nutty/ngine/build/core/CMakeFiles/ngine_core.dir
-/home/melnik/projects/nutty/ngine/build/import/CMakeFiles/ngine_import.dir
-/home/melnik/projects/nutty/ngine/build/network/CMakeFiles/ngine_network.dir
-/home/melnik/projects/nutty/ngine/build/render/CMakeFiles/ngine_render.dir
-/home/melnik/projects/nutty/ngine/build/scenegraph/CMakeFiles/ngine_scenegraph.dir
+/home/melnik/projects/nutty/ngine/build/source/core/CMakeFiles/ngine_core.dir
+/home/melnik/projects/nutty/ngine/build/source/import/CMakeFiles/ngine_import.dir
+/home/melnik/projects/nutty/ngine/build/source/iohand/CMakeFiles/ngine_iohand.dir
+/home/melnik/projects/nutty/ngine/build/source/mesh/CMakeFiles/ngine_mesh.dir
+/home/melnik/projects/nutty/ngine/build/source/network/CMakeFiles/ngine_network.dir
+/home/melnik/projects/nutty/ngine/build/source/physics/CMakeFiles/ngine_physics.dir
+/home/melnik/projects/nutty/ngine/build/source/render/CMakeFiles/ngine_render.dir
+/home/melnik/projects/nutty/ngine/build/source/scenegraph/CMakeFiles/ngine_scenegraph.dir
 /home/melnik/projects/nutty/ngine/build/tests/serialize/CMakeFiles/serialize.dir
-/home/melnik/projects/nutty/ngine/build/tests/network/client/CMakeFiles/test_client.dir
-/home/melnik/projects/nutty/ngine/build/tests/network/server/CMakeFiles/test_server.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=gnu11 -g   -shared -Wl,-soname,libngine_core.so -o ../../../lib/x86/libngine_core.so CMakeFiles/ngine_core.dir/serialize.c.o CMakeFiles/ngine_core.dir/array.c.o CMakeFiles/ngine_core.dir/timer.c.o CMakeFiles/ngine_core.dir/tree.c.o CMakeFiles/ngine_core.dir/list.c.o CMakeFiles/ngine_core.dir/iofile.c.o 

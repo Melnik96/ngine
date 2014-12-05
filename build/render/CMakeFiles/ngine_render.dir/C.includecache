@@ -10,6 +10,8 @@
 stdio.h
 -
 
+.././core/struct_mod.h
+
 .././core/timer.h
 
 .././core/tree.h
@@ -28,6 +30,20 @@ stdint.h
 stdint.h
 -
 
+.././scenegraph/sc_node.h
+math/vector.h
+.././scenegraph/math/vector.h
+math/matrix.h
+.././scenegraph/math/matrix.h
+core/tree.h
+.././scenegraph/core/tree.h
+core/struct_mod.h
+.././scenegraph/core/struct_mod.h
+
+../scenegraph/camera.h
+math/matrix.h
+../scenegraph/math/matrix.h
+
 ../scenegraph/entity.h
 
 ../scenegraph/sc_node.h
@@ -37,6 +53,8 @@ math/matrix.h
 ../scenegraph/math/matrix.h
 core/tree.h
 ../scenegraph/core/tree.h
+core/struct_mod.h
+../scenegraph/core/struct_mod.h
 
 ../scenegraph/scene.h
 math/vector.h
@@ -79,6 +97,16 @@ math/matrix.h
 /home/melnik/projects/nutty/ngine/render/math/matrix.h
 math/vector.h
 /home/melnik/projects/nutty/ngine/render/math/vector.h
+
+/home/melnik/projects/nutty/ngine/render/render_target.c
+kazmath/kazmath.h
+/home/melnik/projects/nutty/ngine/render/kazmath/kazmath.h
+scenegraph/sc_node.h
+/home/melnik/projects/nutty/ngine/render/scenegraph/sc_node.h
+camera.h
+/home/melnik/projects/nutty/ngine/render/camera.h
+render_target.h
+/home/melnik/projects/nutty/ngine/render/render_target.h
 
 /home/melnik/projects/nutty/ngine/render/render_target.h
 stdint.h

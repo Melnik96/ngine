@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=gnu11 -g   -shared -Wl,-soname,libngine_import.so -o ../../../lib/x86/libngine_import.so CMakeFiles/ngine_import.dir/obj/obj.c.o -lassimp 

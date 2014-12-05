@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././source/core/log.h
+stdio.h
+-
+
+.././source/network/socket.h
+stdint.h
+-
+
+/home/melnik/projects/nutty/ngine/source/network/server.c
+memory.h
+-
+malloc.h
+-
+pthread.h
+-
+core/log.h
+/home/melnik/projects/nutty/ngine/source/network/core/log.h
+network/socket.h
+/home/melnik/projects/nutty/ngine/source/network/network/socket.h
+server.h
+/home/melnik/projects/nutty/ngine/source/network/server.h
+
+/home/melnik/projects/nutty/ngine/source/network/server.h
+stdint.h
+-
+

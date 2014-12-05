@@ -8,6 +8,7 @@ render/CMakeFiles/ngine_render.dir/mesh.c.o
  /home/melnik/projects/nutty/ngine/render/shader_prog.h
 render/CMakeFiles/ngine_render.dir/render.c.o
  .././core/log.h
+ .././core/struct_mod.h
  .././core/timer.h
  .././core/tree.h
  .././math/matrix.h
@@ -22,6 +23,7 @@ render/CMakeFiles/ngine_render.dir/render.c.o
  /home/melnik/projects/nutty/ngine/render/technique.h
  /home/melnik/projects/nutty/ngine/render/techs/gl44_tech.h
 render/CMakeFiles/ngine_render.dir/render_target.c.o
+ .././core/struct_mod.h
  .././core/tree.h
  .././math/matrix.h
  .././math/vector.h

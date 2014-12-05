@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=gnu11 -g   -shared -Wl,-soname,libngine_iohand.so -o ../../lib/x86/libngine_iohand.so CMakeFiles/ngine_iohand.dir/window.c.o CMakeFiles/ngine_iohand.dir/iohand.c.o CMakeFiles/ngine_iohand.dir/display.c.o CMakeFiles/ngine_iohand.dir/input.c.o CMakeFiles/ngine_iohand.dir/intern/glfw/glfw_iohand.c.o -lglfw 

@@ -205,6 +205,30 @@ server.c.s:
 	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/server.c.s
 .PHONY : server.c.s
 
+socket.o: socket.c.o
+.PHONY : socket.o
+
+# target to build an object file
+socket.c.o:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/socket.c.o
+.PHONY : socket.c.o
+
+socket.i: socket.c.i
+.PHONY : socket.i
+
+# target to preprocess a source file
+socket.c.i:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/socket.c.i
+.PHONY : socket.c.i
+
+socket.s: socket.c.s
+.PHONY : socket.s
+
+# target to generate assembly for a file
+socket.c.s:
+	cd /home/melnik/projects/nutty/ngine/build && $(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/socket.c.s
+.PHONY : socket.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -224,6 +248,9 @@ help:
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
+	@echo "... socket.o"
+	@echo "... socket.i"
+	@echo "... socket.s"
 .PHONY : help
 
 

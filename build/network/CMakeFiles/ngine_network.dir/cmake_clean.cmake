@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ngine_network.dir/socket.c.o"
   "CMakeFiles/ngine_network.dir/server.c.o"
   "CMakeFiles/ngine_network.dir/client.c.o"
   "../../lib/x86/libngine_network.pdb"

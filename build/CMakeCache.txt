@@ -181,7 +181,16 @@ ngine_core_LIB_DEPENDS:STATIC=
 ngine_import_LIB_DEPENDS:STATIC=general;assimp;
 
 //Dependencies for the target
+ngine_iohand_LIB_DEPENDS:STATIC=general;glfw;
+
+//Dependencies for target
+ngine_mesh_LIB_DEPENDS:STATIC=
+
+//Dependencies for the target
 ngine_network_LIB_DEPENDS:STATIC=general;pthread;
+
+//Dependencies for the target
+ngine_physics_LIB_DEPENDS:STATIC=general;/usr/lib/libBulletCollision.so;general;/usr/lib/libBulletDynamics.so;
 
 //Dependencies for the target
 ngine_render_LIB_DEPENDS:STATIC=general;GLEW;general;kazmath.so;
@@ -278,7 +287,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=15
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=17
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -7,6 +7,7 @@ render/CMakeFiles/ngine_render.dir/mesh.c.o: ../render/mesh.h
 render/CMakeFiles/ngine_render.dir/mesh.c.o: ../render/shader_prog.h
 
 render/CMakeFiles/ngine_render.dir/render.c.o: .././core/log.h
+render/CMakeFiles/ngine_render.dir/render.c.o: .././core/struct_mod.h
 render/CMakeFiles/ngine_render.dir/render.c.o: .././core/timer.h
 render/CMakeFiles/ngine_render.dir/render.c.o: .././core/tree.h
 render/CMakeFiles/ngine_render.dir/render.c.o: .././math/matrix.h
@@ -21,6 +22,7 @@ render/CMakeFiles/ngine_render.dir/render.c.o: ../render/render_target.h
 render/CMakeFiles/ngine_render.dir/render.c.o: ../render/technique.h
 render/CMakeFiles/ngine_render.dir/render.c.o: ../render/techs/gl44_tech.h
 
+render/CMakeFiles/ngine_render.dir/render_target.c.o: .././core/struct_mod.h
 render/CMakeFiles/ngine_render.dir/render_target.c.o: .././core/tree.h
 render/CMakeFiles/ngine_render.dir/render_target.c.o: .././math/matrix.h
 render/CMakeFiles/ngine_render.dir/render_target.c.o: .././math/vector.h

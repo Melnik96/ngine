@@ -53,213 +53,510 @@ CMAKE_SOURCE_DIR = /home/melnik/projects/nutty/ngine
 CMAKE_BINARY_DIR = /home/melnik/projects/nutty/ngine/build
 
 #=============================================================================
-# Directory level rules for directory render
+# Directory level rules for directory source
 
 # Convenience name for "all" pass in the directory.
-render/all: render/CMakeFiles/ngine_render.dir/all
-.PHONY : render/all
+source/all: source/render/all
+source/all: source/scenegraph/all
+source/all: source/iohand/all
+source/all: source/math/all
+source/all: source/physics/all
+source/all: source/sound/all
+source/all: source/core/all
+source/all: source/import/all
+source/all: source/network/all
+source/all: source/gui/all
+source/all: source/mesh/all
+.PHONY : source/all
 
 # Convenience name for "clean" pass in the directory.
-render/clean: render/CMakeFiles/ngine_render.dir/clean
-.PHONY : render/clean
+source/clean: source/render/clean
+source/clean: source/scenegraph/clean
+source/clean: source/iohand/clean
+source/clean: source/math/clean
+source/clean: source/physics/clean
+source/clean: source/sound/clean
+source/clean: source/core/clean
+source/clean: source/import/clean
+source/clean: source/network/clean
+source/clean: source/gui/clean
+source/clean: source/mesh/clean
+.PHONY : source/clean
 
 # Convenience name for "preinstall" pass in the directory.
-render/preinstall:
-.PHONY : render/preinstall
+source/preinstall: source/render/preinstall
+source/preinstall: source/scenegraph/preinstall
+source/preinstall: source/iohand/preinstall
+source/preinstall: source/math/preinstall
+source/preinstall: source/physics/preinstall
+source/preinstall: source/sound/preinstall
+source/preinstall: source/core/preinstall
+source/preinstall: source/import/preinstall
+source/preinstall: source/network/preinstall
+source/preinstall: source/gui/preinstall
+source/preinstall: source/mesh/preinstall
+.PHONY : source/preinstall
 
 #=============================================================================
-# Target rules for target render/CMakeFiles/ngine_render.dir
+# Directory level rules for directory source/render
+
+# Convenience name for "all" pass in the directory.
+source/render/all: source/render/CMakeFiles/ngine_render.dir/all
+source/render/all: source/render/raytrace/all
+.PHONY : source/render/all
+
+# Convenience name for "clean" pass in the directory.
+source/render/clean: source/render/CMakeFiles/ngine_render.dir/clean
+source/render/clean: source/render/raytrace/clean
+.PHONY : source/render/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/render/preinstall: source/render/raytrace/preinstall
+.PHONY : source/render/preinstall
+
+#=============================================================================
+# Target rules for target source/render/CMakeFiles/ngine_render.dir
 
 # All Build rule for target.
-render/CMakeFiles/ngine_render.dir/all:
-	$(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/depend
-	$(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  10 11 12 13 14 15
+source/render/CMakeFiles/ngine_render.dir/all:
+	$(MAKE) -f source/render/CMakeFiles/ngine_render.dir/build.make source/render/CMakeFiles/ngine_render.dir/depend
+	$(MAKE) -f source/render/CMakeFiles/ngine_render.dir/build.make source/render/CMakeFiles/ngine_render.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  22 23 24 25 26
 	@echo "Built target ngine_render"
-.PHONY : render/CMakeFiles/ngine_render.dir/all
+.PHONY : source/render/CMakeFiles/ngine_render.dir/all
 
 # Include target in all.
-all: render/CMakeFiles/ngine_render.dir/all
+all: source/render/CMakeFiles/ngine_render.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-render/CMakeFiles/ngine_render.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 render/CMakeFiles/ngine_render.dir/all
+source/render/CMakeFiles/ngine_render.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 source/render/CMakeFiles/ngine_render.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : render/CMakeFiles/ngine_render.dir/rule
+.PHONY : source/render/CMakeFiles/ngine_render.dir/rule
 
 # Convenience name for target.
-ngine_render: render/CMakeFiles/ngine_render.dir/rule
+ngine_render: source/render/CMakeFiles/ngine_render.dir/rule
 .PHONY : ngine_render
 
 # clean rule for target.
-render/CMakeFiles/ngine_render.dir/clean:
-	$(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/clean
-.PHONY : render/CMakeFiles/ngine_render.dir/clean
+source/render/CMakeFiles/ngine_render.dir/clean:
+	$(MAKE) -f source/render/CMakeFiles/ngine_render.dir/build.make source/render/CMakeFiles/ngine_render.dir/clean
+.PHONY : source/render/CMakeFiles/ngine_render.dir/clean
 
 # clean rule for target.
-clean: render/CMakeFiles/ngine_render.dir/clean
+clean: source/render/CMakeFiles/ngine_render.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory scenegraph
+# Directory level rules for directory source/render/raytrace
 
 # Convenience name for "all" pass in the directory.
-scenegraph/all: scenegraph/CMakeFiles/ngine_scenegraph.dir/all
-.PHONY : scenegraph/all
+source/render/raytrace/all:
+.PHONY : source/render/raytrace/all
 
 # Convenience name for "clean" pass in the directory.
-scenegraph/clean: scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
-.PHONY : scenegraph/clean
+source/render/raytrace/clean:
+.PHONY : source/render/raytrace/clean
 
 # Convenience name for "preinstall" pass in the directory.
-scenegraph/preinstall:
-.PHONY : scenegraph/preinstall
+source/render/raytrace/preinstall:
+.PHONY : source/render/raytrace/preinstall
 
 #=============================================================================
-# Target rules for target scenegraph/CMakeFiles/ngine_scenegraph.dir
+# Directory level rules for directory source/scenegraph
+
+# Convenience name for "all" pass in the directory.
+source/scenegraph/all: source/scenegraph/CMakeFiles/ngine_scenegraph.dir/all
+.PHONY : source/scenegraph/all
+
+# Convenience name for "clean" pass in the directory.
+source/scenegraph/clean: source/scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
+.PHONY : source/scenegraph/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/scenegraph/preinstall:
+.PHONY : source/scenegraph/preinstall
+
+#=============================================================================
+# Target rules for target source/scenegraph/CMakeFiles/ngine_scenegraph.dir
 
 # All Build rule for target.
-scenegraph/CMakeFiles/ngine_scenegraph.dir/all:
-	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/depend
-	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  16 17 18 19 20 21 22 23
+source/scenegraph/CMakeFiles/ngine_scenegraph.dir/all:
+	$(MAKE) -f source/scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make source/scenegraph/CMakeFiles/ngine_scenegraph.dir/depend
+	$(MAKE) -f source/scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make source/scenegraph/CMakeFiles/ngine_scenegraph.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  27 28 29 30 31 32 33 34 35
 	@echo "Built target ngine_scenegraph"
-.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/all
+.PHONY : source/scenegraph/CMakeFiles/ngine_scenegraph.dir/all
 
 # Include target in all.
-all: scenegraph/CMakeFiles/ngine_scenegraph.dir/all
+all: source/scenegraph/CMakeFiles/ngine_scenegraph.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-scenegraph/CMakeFiles/ngine_scenegraph.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 scenegraph/CMakeFiles/ngine_scenegraph.dir/all
+source/scenegraph/CMakeFiles/ngine_scenegraph.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 source/scenegraph/CMakeFiles/ngine_scenegraph.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/rule
+.PHONY : source/scenegraph/CMakeFiles/ngine_scenegraph.dir/rule
 
 # Convenience name for target.
-ngine_scenegraph: scenegraph/CMakeFiles/ngine_scenegraph.dir/rule
+ngine_scenegraph: source/scenegraph/CMakeFiles/ngine_scenegraph.dir/rule
 .PHONY : ngine_scenegraph
 
 # clean rule for target.
-scenegraph/CMakeFiles/ngine_scenegraph.dir/clean:
-	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
-.PHONY : scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
+source/scenegraph/CMakeFiles/ngine_scenegraph.dir/clean:
+	$(MAKE) -f source/scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make source/scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
+.PHONY : source/scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
 
 # clean rule for target.
-clean: scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
+clean: source/scenegraph/CMakeFiles/ngine_scenegraph.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory iohand
+# Directory level rules for directory source/iohand
 
 # Convenience name for "all" pass in the directory.
-iohand/all:
-.PHONY : iohand/all
+source/iohand/all: source/iohand/CMakeFiles/ngine_iohand.dir/all
+.PHONY : source/iohand/all
 
 # Convenience name for "clean" pass in the directory.
-iohand/clean:
-.PHONY : iohand/clean
+source/iohand/clean: source/iohand/CMakeFiles/ngine_iohand.dir/clean
+.PHONY : source/iohand/clean
 
 # Convenience name for "preinstall" pass in the directory.
-iohand/preinstall:
-.PHONY : iohand/preinstall
+source/iohand/preinstall:
+.PHONY : source/iohand/preinstall
 
 #=============================================================================
-# Directory level rules for directory math
-
-# Convenience name for "all" pass in the directory.
-math/all:
-.PHONY : math/all
-
-# Convenience name for "clean" pass in the directory.
-math/clean:
-.PHONY : math/clean
-
-# Convenience name for "preinstall" pass in the directory.
-math/preinstall:
-.PHONY : math/preinstall
-
-#=============================================================================
-# Directory level rules for directory physics
-
-# Convenience name for "all" pass in the directory.
-physics/all:
-.PHONY : physics/all
-
-# Convenience name for "clean" pass in the directory.
-physics/clean:
-.PHONY : physics/clean
-
-# Convenience name for "preinstall" pass in the directory.
-physics/preinstall:
-.PHONY : physics/preinstall
-
-#=============================================================================
-# Directory level rules for directory sound
-
-# Convenience name for "all" pass in the directory.
-sound/all:
-.PHONY : sound/all
-
-# Convenience name for "clean" pass in the directory.
-sound/clean:
-.PHONY : sound/clean
-
-# Convenience name for "preinstall" pass in the directory.
-sound/preinstall:
-.PHONY : sound/preinstall
-
-#=============================================================================
-# Directory level rules for directory core
-
-# Convenience name for "all" pass in the directory.
-core/all: core/CMakeFiles/ngine_core.dir/all
-.PHONY : core/all
-
-# Convenience name for "clean" pass in the directory.
-core/clean: core/CMakeFiles/ngine_core.dir/clean
-.PHONY : core/clean
-
-# Convenience name for "preinstall" pass in the directory.
-core/preinstall:
-.PHONY : core/preinstall
-
-#=============================================================================
-# Target rules for target core/CMakeFiles/ngine_core.dir
+# Target rules for target source/iohand/CMakeFiles/ngine_iohand.dir
 
 # All Build rule for target.
-core/CMakeFiles/ngine_core.dir/all:
-	$(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/depend
-	$(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  1 2 3 4 5 6
-	@echo "Built target ngine_core"
-.PHONY : core/CMakeFiles/ngine_core.dir/all
+source/iohand/CMakeFiles/ngine_iohand.dir/all:
+	$(MAKE) -f source/iohand/CMakeFiles/ngine_iohand.dir/build.make source/iohand/CMakeFiles/ngine_iohand.dir/depend
+	$(MAKE) -f source/iohand/CMakeFiles/ngine_iohand.dir/build.make source/iohand/CMakeFiles/ngine_iohand.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  8 9 10 11 12
+	@echo "Built target ngine_iohand"
+.PHONY : source/iohand/CMakeFiles/ngine_iohand.dir/all
 
 # Include target in all.
-all: core/CMakeFiles/ngine_core.dir/all
+all: source/iohand/CMakeFiles/ngine_iohand.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-core/CMakeFiles/ngine_core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 core/CMakeFiles/ngine_core.dir/all
+source/iohand/CMakeFiles/ngine_iohand.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 source/iohand/CMakeFiles/ngine_iohand.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : core/CMakeFiles/ngine_core.dir/rule
+.PHONY : source/iohand/CMakeFiles/ngine_iohand.dir/rule
 
 # Convenience name for target.
-ngine_core: core/CMakeFiles/ngine_core.dir/rule
+ngine_iohand: source/iohand/CMakeFiles/ngine_iohand.dir/rule
+.PHONY : ngine_iohand
+
+# clean rule for target.
+source/iohand/CMakeFiles/ngine_iohand.dir/clean:
+	$(MAKE) -f source/iohand/CMakeFiles/ngine_iohand.dir/build.make source/iohand/CMakeFiles/ngine_iohand.dir/clean
+.PHONY : source/iohand/CMakeFiles/ngine_iohand.dir/clean
+
+# clean rule for target.
+clean: source/iohand/CMakeFiles/ngine_iohand.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory source/math
+
+# Convenience name for "all" pass in the directory.
+source/math/all:
+.PHONY : source/math/all
+
+# Convenience name for "clean" pass in the directory.
+source/math/clean:
+.PHONY : source/math/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/math/preinstall:
+.PHONY : source/math/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/physics
+
+# Convenience name for "all" pass in the directory.
+source/physics/all: source/physics/CMakeFiles/ngine_physics.dir/all
+.PHONY : source/physics/all
+
+# Convenience name for "clean" pass in the directory.
+source/physics/clean: source/physics/CMakeFiles/ngine_physics.dir/clean
+.PHONY : source/physics/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/physics/preinstall:
+.PHONY : source/physics/preinstall
+
+#=============================================================================
+# Target rules for target source/physics/CMakeFiles/ngine_physics.dir
+
+# All Build rule for target.
+source/physics/CMakeFiles/ngine_physics.dir/all:
+	$(MAKE) -f source/physics/CMakeFiles/ngine_physics.dir/build.make source/physics/CMakeFiles/ngine_physics.dir/depend
+	$(MAKE) -f source/physics/CMakeFiles/ngine_physics.dir/build.make source/physics/CMakeFiles/ngine_physics.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  18 19 20 21
+	@echo "Built target ngine_physics"
+.PHONY : source/physics/CMakeFiles/ngine_physics.dir/all
+
+# Include target in all.
+all: source/physics/CMakeFiles/ngine_physics.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/physics/CMakeFiles/ngine_physics.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 source/physics/CMakeFiles/ngine_physics.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
+.PHONY : source/physics/CMakeFiles/ngine_physics.dir/rule
+
+# Convenience name for target.
+ngine_physics: source/physics/CMakeFiles/ngine_physics.dir/rule
+.PHONY : ngine_physics
+
+# clean rule for target.
+source/physics/CMakeFiles/ngine_physics.dir/clean:
+	$(MAKE) -f source/physics/CMakeFiles/ngine_physics.dir/build.make source/physics/CMakeFiles/ngine_physics.dir/clean
+.PHONY : source/physics/CMakeFiles/ngine_physics.dir/clean
+
+# clean rule for target.
+clean: source/physics/CMakeFiles/ngine_physics.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory source/sound
+
+# Convenience name for "all" pass in the directory.
+source/sound/all:
+.PHONY : source/sound/all
+
+# Convenience name for "clean" pass in the directory.
+source/sound/clean:
+.PHONY : source/sound/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/sound/preinstall:
+.PHONY : source/sound/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/core
+
+# Convenience name for "all" pass in the directory.
+source/core/all: source/core/CMakeFiles/ngine_core.dir/all
+.PHONY : source/core/all
+
+# Convenience name for "clean" pass in the directory.
+source/core/clean: source/core/CMakeFiles/ngine_core.dir/clean
+.PHONY : source/core/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/core/preinstall:
+.PHONY : source/core/preinstall
+
+#=============================================================================
+# Target rules for target source/core/CMakeFiles/ngine_core.dir
+
+# All Build rule for target.
+source/core/CMakeFiles/ngine_core.dir/all:
+	$(MAKE) -f source/core/CMakeFiles/ngine_core.dir/build.make source/core/CMakeFiles/ngine_core.dir/depend
+	$(MAKE) -f source/core/CMakeFiles/ngine_core.dir/build.make source/core/CMakeFiles/ngine_core.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  1 2 3 4 5 6
+	@echo "Built target ngine_core"
+.PHONY : source/core/CMakeFiles/ngine_core.dir/all
+
+# Include target in all.
+all: source/core/CMakeFiles/ngine_core.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/core/CMakeFiles/ngine_core.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 source/core/CMakeFiles/ngine_core.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
+.PHONY : source/core/CMakeFiles/ngine_core.dir/rule
+
+# Convenience name for target.
+ngine_core: source/core/CMakeFiles/ngine_core.dir/rule
 .PHONY : ngine_core
 
 # clean rule for target.
-core/CMakeFiles/ngine_core.dir/clean:
-	$(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/clean
-.PHONY : core/CMakeFiles/ngine_core.dir/clean
+source/core/CMakeFiles/ngine_core.dir/clean:
+	$(MAKE) -f source/core/CMakeFiles/ngine_core.dir/build.make source/core/CMakeFiles/ngine_core.dir/clean
+.PHONY : source/core/CMakeFiles/ngine_core.dir/clean
 
 # clean rule for target.
-clean: core/CMakeFiles/ngine_core.dir/clean
+clean: source/core/CMakeFiles/ngine_core.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory source/import
+
+# Convenience name for "all" pass in the directory.
+source/import/all: source/import/CMakeFiles/ngine_import.dir/all
+.PHONY : source/import/all
+
+# Convenience name for "clean" pass in the directory.
+source/import/clean: source/import/CMakeFiles/ngine_import.dir/clean
+.PHONY : source/import/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/import/preinstall:
+.PHONY : source/import/preinstall
+
+#=============================================================================
+# Target rules for target source/import/CMakeFiles/ngine_import.dir
+
+# All Build rule for target.
+source/import/CMakeFiles/ngine_import.dir/all:
+	$(MAKE) -f source/import/CMakeFiles/ngine_import.dir/build.make source/import/CMakeFiles/ngine_import.dir/depend
+	$(MAKE) -f source/import/CMakeFiles/ngine_import.dir/build.make source/import/CMakeFiles/ngine_import.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  7
+	@echo "Built target ngine_import"
+.PHONY : source/import/CMakeFiles/ngine_import.dir/all
+
+# Include target in all.
+all: source/import/CMakeFiles/ngine_import.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/import/CMakeFiles/ngine_import.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 source/import/CMakeFiles/ngine_import.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
+.PHONY : source/import/CMakeFiles/ngine_import.dir/rule
+
+# Convenience name for target.
+ngine_import: source/import/CMakeFiles/ngine_import.dir/rule
+.PHONY : ngine_import
+
+# clean rule for target.
+source/import/CMakeFiles/ngine_import.dir/clean:
+	$(MAKE) -f source/import/CMakeFiles/ngine_import.dir/build.make source/import/CMakeFiles/ngine_import.dir/clean
+.PHONY : source/import/CMakeFiles/ngine_import.dir/clean
+
+# clean rule for target.
+clean: source/import/CMakeFiles/ngine_import.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory source/network
+
+# Convenience name for "all" pass in the directory.
+source/network/all: source/network/CMakeFiles/ngine_network.dir/all
+.PHONY : source/network/all
+
+# Convenience name for "clean" pass in the directory.
+source/network/clean: source/network/CMakeFiles/ngine_network.dir/clean
+.PHONY : source/network/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/network/preinstall:
+.PHONY : source/network/preinstall
+
+#=============================================================================
+# Target rules for target source/network/CMakeFiles/ngine_network.dir
+
+# All Build rule for target.
+source/network/CMakeFiles/ngine_network.dir/all:
+	$(MAKE) -f source/network/CMakeFiles/ngine_network.dir/build.make source/network/CMakeFiles/ngine_network.dir/depend
+	$(MAKE) -f source/network/CMakeFiles/ngine_network.dir/build.make source/network/CMakeFiles/ngine_network.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  15 16 17
+	@echo "Built target ngine_network"
+.PHONY : source/network/CMakeFiles/ngine_network.dir/all
+
+# Include target in all.
+all: source/network/CMakeFiles/ngine_network.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/network/CMakeFiles/ngine_network.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 source/network/CMakeFiles/ngine_network.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
+.PHONY : source/network/CMakeFiles/ngine_network.dir/rule
+
+# Convenience name for target.
+ngine_network: source/network/CMakeFiles/ngine_network.dir/rule
+.PHONY : ngine_network
+
+# clean rule for target.
+source/network/CMakeFiles/ngine_network.dir/clean:
+	$(MAKE) -f source/network/CMakeFiles/ngine_network.dir/build.make source/network/CMakeFiles/ngine_network.dir/clean
+.PHONY : source/network/CMakeFiles/ngine_network.dir/clean
+
+# clean rule for target.
+clean: source/network/CMakeFiles/ngine_network.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory source/gui
+
+# Convenience name for "all" pass in the directory.
+source/gui/all:
+.PHONY : source/gui/all
+
+# Convenience name for "clean" pass in the directory.
+source/gui/clean:
+.PHONY : source/gui/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/gui/preinstall:
+.PHONY : source/gui/preinstall
+
+#=============================================================================
+# Directory level rules for directory source/mesh
+
+# Convenience name for "all" pass in the directory.
+source/mesh/all: source/mesh/CMakeFiles/ngine_mesh.dir/all
+.PHONY : source/mesh/all
+
+# Convenience name for "clean" pass in the directory.
+source/mesh/clean: source/mesh/CMakeFiles/ngine_mesh.dir/clean
+.PHONY : source/mesh/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/mesh/preinstall:
+.PHONY : source/mesh/preinstall
+
+#=============================================================================
+# Target rules for target source/mesh/CMakeFiles/ngine_mesh.dir
+
+# All Build rule for target.
+source/mesh/CMakeFiles/ngine_mesh.dir/all:
+	$(MAKE) -f source/mesh/CMakeFiles/ngine_mesh.dir/build.make source/mesh/CMakeFiles/ngine_mesh.dir/depend
+	$(MAKE) -f source/mesh/CMakeFiles/ngine_mesh.dir/build.make source/mesh/CMakeFiles/ngine_mesh.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  13 14
+	@echo "Built target ngine_mesh"
+.PHONY : source/mesh/CMakeFiles/ngine_mesh.dir/all
+
+# Include target in all.
+all: source/mesh/CMakeFiles/ngine_mesh.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/mesh/CMakeFiles/ngine_mesh.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 source/mesh/CMakeFiles/ngine_mesh.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
+.PHONY : source/mesh/CMakeFiles/ngine_mesh.dir/rule
+
+# Convenience name for target.
+ngine_mesh: source/mesh/CMakeFiles/ngine_mesh.dir/rule
+.PHONY : ngine_mesh
+
+# clean rule for target.
+source/mesh/CMakeFiles/ngine_mesh.dir/clean:
+	$(MAKE) -f source/mesh/CMakeFiles/ngine_mesh.dir/build.make source/mesh/CMakeFiles/ngine_mesh.dir/clean
+.PHONY : source/mesh/CMakeFiles/ngine_mesh.dir/clean
+
+# clean rule for target.
+clean: source/mesh/CMakeFiles/ngine_mesh.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -299,10 +596,10 @@ tests/serialize/preinstall:
 # Target rules for target tests/serialize/CMakeFiles/serialize.dir
 
 # All Build rule for target.
-tests/serialize/CMakeFiles/serialize.dir/all: core/CMakeFiles/ngine_core.dir/all
+tests/serialize/CMakeFiles/serialize.dir/all: source/core/CMakeFiles/ngine_core.dir/all
 	$(MAKE) -f tests/serialize/CMakeFiles/serialize.dir/build.make tests/serialize/CMakeFiles/serialize.dir/depend
 	$(MAKE) -f tests/serialize/CMakeFiles/serialize.dir/build.make tests/serialize/CMakeFiles/serialize.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  24 25
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  36 37
 	@echo "Built target serialize"
 .PHONY : tests/serialize/CMakeFiles/serialize.dir/all
 
@@ -334,219 +631,16 @@ clean: tests/serialize/CMakeFiles/serialize.dir/clean
 # Directory level rules for directory tests/network
 
 # Convenience name for "all" pass in the directory.
-tests/network/all: tests/network/server/all
-tests/network/all: tests/network/client/all
+tests/network/all:
 .PHONY : tests/network/all
 
 # Convenience name for "clean" pass in the directory.
-tests/network/clean: tests/network/server/clean
-tests/network/clean: tests/network/client/clean
+tests/network/clean:
 .PHONY : tests/network/clean
 
 # Convenience name for "preinstall" pass in the directory.
-tests/network/preinstall: tests/network/server/preinstall
-tests/network/preinstall: tests/network/client/preinstall
+tests/network/preinstall:
 .PHONY : tests/network/preinstall
-
-#=============================================================================
-# Directory level rules for directory tests/network/server
-
-# Convenience name for "all" pass in the directory.
-tests/network/server/all: tests/network/server/CMakeFiles/test_server.dir/all
-.PHONY : tests/network/server/all
-
-# Convenience name for "clean" pass in the directory.
-tests/network/server/clean: tests/network/server/CMakeFiles/test_server.dir/clean
-.PHONY : tests/network/server/clean
-
-# Convenience name for "preinstall" pass in the directory.
-tests/network/server/preinstall:
-.PHONY : tests/network/server/preinstall
-
-#=============================================================================
-# Target rules for target tests/network/server/CMakeFiles/test_server.dir
-
-# All Build rule for target.
-tests/network/server/CMakeFiles/test_server.dir/all: network/CMakeFiles/ngine_network.dir/all
-	$(MAKE) -f tests/network/server/CMakeFiles/test_server.dir/build.make tests/network/server/CMakeFiles/test_server.dir/depend
-	$(MAKE) -f tests/network/server/CMakeFiles/test_server.dir/build.make tests/network/server/CMakeFiles/test_server.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  27
-	@echo "Built target test_server"
-.PHONY : tests/network/server/CMakeFiles/test_server.dir/all
-
-# Include target in all.
-all: tests/network/server/CMakeFiles/test_server.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-tests/network/server/CMakeFiles/test_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 tests/network/server/CMakeFiles/test_server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : tests/network/server/CMakeFiles/test_server.dir/rule
-
-# Convenience name for target.
-test_server: tests/network/server/CMakeFiles/test_server.dir/rule
-.PHONY : test_server
-
-# clean rule for target.
-tests/network/server/CMakeFiles/test_server.dir/clean:
-	$(MAKE) -f tests/network/server/CMakeFiles/test_server.dir/build.make tests/network/server/CMakeFiles/test_server.dir/clean
-.PHONY : tests/network/server/CMakeFiles/test_server.dir/clean
-
-# clean rule for target.
-clean: tests/network/server/CMakeFiles/test_server.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory tests/network/client
-
-# Convenience name for "all" pass in the directory.
-tests/network/client/all: tests/network/client/CMakeFiles/test_client.dir/all
-.PHONY : tests/network/client/all
-
-# Convenience name for "clean" pass in the directory.
-tests/network/client/clean: tests/network/client/CMakeFiles/test_client.dir/clean
-.PHONY : tests/network/client/clean
-
-# Convenience name for "preinstall" pass in the directory.
-tests/network/client/preinstall:
-.PHONY : tests/network/client/preinstall
-
-#=============================================================================
-# Target rules for target tests/network/client/CMakeFiles/test_client.dir
-
-# All Build rule for target.
-tests/network/client/CMakeFiles/test_client.dir/all: network/CMakeFiles/ngine_network.dir/all
-	$(MAKE) -f tests/network/client/CMakeFiles/test_client.dir/build.make tests/network/client/CMakeFiles/test_client.dir/depend
-	$(MAKE) -f tests/network/client/CMakeFiles/test_client.dir/build.make tests/network/client/CMakeFiles/test_client.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  26
-	@echo "Built target test_client"
-.PHONY : tests/network/client/CMakeFiles/test_client.dir/all
-
-# Include target in all.
-all: tests/network/client/CMakeFiles/test_client.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-tests/network/client/CMakeFiles/test_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 tests/network/client/CMakeFiles/test_client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : tests/network/client/CMakeFiles/test_client.dir/rule
-
-# Convenience name for target.
-test_client: tests/network/client/CMakeFiles/test_client.dir/rule
-.PHONY : test_client
-
-# clean rule for target.
-tests/network/client/CMakeFiles/test_client.dir/clean:
-	$(MAKE) -f tests/network/client/CMakeFiles/test_client.dir/build.make tests/network/client/CMakeFiles/test_client.dir/clean
-.PHONY : tests/network/client/CMakeFiles/test_client.dir/clean
-
-# clean rule for target.
-clean: tests/network/client/CMakeFiles/test_client.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory import
-
-# Convenience name for "all" pass in the directory.
-import/all: import/CMakeFiles/ngine_import.dir/all
-.PHONY : import/all
-
-# Convenience name for "clean" pass in the directory.
-import/clean: import/CMakeFiles/ngine_import.dir/clean
-.PHONY : import/clean
-
-# Convenience name for "preinstall" pass in the directory.
-import/preinstall:
-.PHONY : import/preinstall
-
-#=============================================================================
-# Target rules for target import/CMakeFiles/ngine_import.dir
-
-# All Build rule for target.
-import/CMakeFiles/ngine_import.dir/all:
-	$(MAKE) -f import/CMakeFiles/ngine_import.dir/build.make import/CMakeFiles/ngine_import.dir/depend
-	$(MAKE) -f import/CMakeFiles/ngine_import.dir/build.make import/CMakeFiles/ngine_import.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  7
-	@echo "Built target ngine_import"
-.PHONY : import/CMakeFiles/ngine_import.dir/all
-
-# Include target in all.
-all: import/CMakeFiles/ngine_import.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-import/CMakeFiles/ngine_import.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 import/CMakeFiles/ngine_import.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : import/CMakeFiles/ngine_import.dir/rule
-
-# Convenience name for target.
-ngine_import: import/CMakeFiles/ngine_import.dir/rule
-.PHONY : ngine_import
-
-# clean rule for target.
-import/CMakeFiles/ngine_import.dir/clean:
-	$(MAKE) -f import/CMakeFiles/ngine_import.dir/build.make import/CMakeFiles/ngine_import.dir/clean
-.PHONY : import/CMakeFiles/ngine_import.dir/clean
-
-# clean rule for target.
-clean: import/CMakeFiles/ngine_import.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory network
-
-# Convenience name for "all" pass in the directory.
-network/all: network/CMakeFiles/ngine_network.dir/all
-.PHONY : network/all
-
-# Convenience name for "clean" pass in the directory.
-network/clean: network/CMakeFiles/ngine_network.dir/clean
-.PHONY : network/clean
-
-# Convenience name for "preinstall" pass in the directory.
-network/preinstall:
-.PHONY : network/preinstall
-
-#=============================================================================
-# Target rules for target network/CMakeFiles/ngine_network.dir
-
-# All Build rule for target.
-network/CMakeFiles/ngine_network.dir/all:
-	$(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/depend
-	$(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/melnik/projects/nutty/ngine/build/CMakeFiles  8 9
-	@echo "Built target ngine_network"
-.PHONY : network/CMakeFiles/ngine_network.dir/all
-
-# Include target in all.
-all: network/CMakeFiles/ngine_network.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-network/CMakeFiles/ngine_network.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 network/CMakeFiles/ngine_network.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melnik/projects/nutty/ngine/build/CMakeFiles 0
-.PHONY : network/CMakeFiles/ngine_network.dir/rule
-
-# Convenience name for target.
-ngine_network: network/CMakeFiles/ngine_network.dir/rule
-.PHONY : ngine_network
-
-# clean rule for target.
-network/CMakeFiles/ngine_network.dir/clean:
-	$(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/clean
-.PHONY : network/CMakeFiles/ngine_network.dir/clean
-
-# clean rule for target.
-clean: network/CMakeFiles/ngine_network.dir/clean
-.PHONY : clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

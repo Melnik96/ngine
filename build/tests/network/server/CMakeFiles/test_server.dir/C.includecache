@@ -6,13 +6,5 @@
 
 #IncludeRegexTransform: 
 
-.././network/server.h
-stdint.h
--
-
 /home/melnik/projects/nutty/ngine/tests/network/server/main.c
-sys/socket.h
--
-network/server.h
-/home/melnik/projects/nutty/ngine/tests/network/server/network/server.h
 

@@ -3,9 +3,15 @@
 
 network/CMakeFiles/ngine_network.dir/client.c.o
  .././core/log.h
+ .././network/socket.h
  /home/melnik/projects/nutty/ngine/network/client.c
  /home/melnik/projects/nutty/ngine/network/client.h
 network/CMakeFiles/ngine_network.dir/server.c.o
  .././core/log.h
+ .././network/socket.h
  /home/melnik/projects/nutty/ngine/network/server.c
  /home/melnik/projects/nutty/ngine/network/server.h
+network/CMakeFiles/ngine_network.dir/socket.c.o
+ .././core/log.h
+ /home/melnik/projects/nutty/ngine/network/socket.c
+ /home/melnik/projects/nutty/ngine/network/socket.h

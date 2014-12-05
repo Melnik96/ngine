@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/melnik/projects/nutty/ngine/network/client.c" "/home/melnik/projects/nutty/ngine/build/network/CMakeFiles/ngine_network.dir/client.c.o"
   "/home/melnik/projects/nutty/ngine/network/server.c" "/home/melnik/projects/nutty/ngine/build/network/CMakeFiles/ngine_network.dir/server.c.o"
+  "/home/melnik/projects/nutty/ngine/network/socket.c" "/home/melnik/projects/nutty/ngine/build/network/CMakeFiles/ngine_network.dir/socket.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

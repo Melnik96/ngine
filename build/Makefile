@@ -153,7 +153,7 @@ ngine_render: cmake_check_build_system
 
 # fast build rule for target.
 ngine_render/fast:
-	$(MAKE) -f render/CMakeFiles/ngine_render.dir/build.make render/CMakeFiles/ngine_render.dir/build
+	$(MAKE) -f source/render/CMakeFiles/ngine_render.dir/build.make source/render/CMakeFiles/ngine_render.dir/build
 .PHONY : ngine_render/fast
 
 #=============================================================================
@@ -166,8 +166,34 @@ ngine_scenegraph: cmake_check_build_system
 
 # fast build rule for target.
 ngine_scenegraph/fast:
-	$(MAKE) -f scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make scenegraph/CMakeFiles/ngine_scenegraph.dir/build
+	$(MAKE) -f source/scenegraph/CMakeFiles/ngine_scenegraph.dir/build.make source/scenegraph/CMakeFiles/ngine_scenegraph.dir/build
 .PHONY : ngine_scenegraph/fast
+
+#=============================================================================
+# Target rules for targets named ngine_iohand
+
+# Build rule for target.
+ngine_iohand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ngine_iohand
+.PHONY : ngine_iohand
+
+# fast build rule for target.
+ngine_iohand/fast:
+	$(MAKE) -f source/iohand/CMakeFiles/ngine_iohand.dir/build.make source/iohand/CMakeFiles/ngine_iohand.dir/build
+.PHONY : ngine_iohand/fast
+
+#=============================================================================
+# Target rules for targets named ngine_physics
+
+# Build rule for target.
+ngine_physics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ngine_physics
+.PHONY : ngine_physics
+
+# fast build rule for target.
+ngine_physics/fast:
+	$(MAKE) -f source/physics/CMakeFiles/ngine_physics.dir/build.make source/physics/CMakeFiles/ngine_physics.dir/build
+.PHONY : ngine_physics/fast
 
 #=============================================================================
 # Target rules for targets named ngine_core
@@ -179,8 +205,47 @@ ngine_core: cmake_check_build_system
 
 # fast build rule for target.
 ngine_core/fast:
-	$(MAKE) -f core/CMakeFiles/ngine_core.dir/build.make core/CMakeFiles/ngine_core.dir/build
+	$(MAKE) -f source/core/CMakeFiles/ngine_core.dir/build.make source/core/CMakeFiles/ngine_core.dir/build
 .PHONY : ngine_core/fast
+
+#=============================================================================
+# Target rules for targets named ngine_import
+
+# Build rule for target.
+ngine_import: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ngine_import
+.PHONY : ngine_import
+
+# fast build rule for target.
+ngine_import/fast:
+	$(MAKE) -f source/import/CMakeFiles/ngine_import.dir/build.make source/import/CMakeFiles/ngine_import.dir/build
+.PHONY : ngine_import/fast
+
+#=============================================================================
+# Target rules for targets named ngine_network
+
+# Build rule for target.
+ngine_network: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ngine_network
+.PHONY : ngine_network
+
+# fast build rule for target.
+ngine_network/fast:
+	$(MAKE) -f source/network/CMakeFiles/ngine_network.dir/build.make source/network/CMakeFiles/ngine_network.dir/build
+.PHONY : ngine_network/fast
+
+#=============================================================================
+# Target rules for targets named ngine_mesh
+
+# Build rule for target.
+ngine_mesh: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ngine_mesh
+.PHONY : ngine_mesh
+
+# fast build rule for target.
+ngine_mesh/fast:
+	$(MAKE) -f source/mesh/CMakeFiles/ngine_mesh.dir/build.make source/mesh/CMakeFiles/ngine_mesh.dir/build
+.PHONY : ngine_mesh/fast
 
 #=============================================================================
 # Target rules for targets named serialize
@@ -194,58 +259,6 @@ serialize: cmake_check_build_system
 serialize/fast:
 	$(MAKE) -f tests/serialize/CMakeFiles/serialize.dir/build.make tests/serialize/CMakeFiles/serialize.dir/build
 .PHONY : serialize/fast
-
-#=============================================================================
-# Target rules for targets named test_server
-
-# Build rule for target.
-test_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_server
-.PHONY : test_server
-
-# fast build rule for target.
-test_server/fast:
-	$(MAKE) -f tests/network/server/CMakeFiles/test_server.dir/build.make tests/network/server/CMakeFiles/test_server.dir/build
-.PHONY : test_server/fast
-
-#=============================================================================
-# Target rules for targets named test_client
-
-# Build rule for target.
-test_client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_client
-.PHONY : test_client
-
-# fast build rule for target.
-test_client/fast:
-	$(MAKE) -f tests/network/client/CMakeFiles/test_client.dir/build.make tests/network/client/CMakeFiles/test_client.dir/build
-.PHONY : test_client/fast
-
-#=============================================================================
-# Target rules for targets named ngine_import
-
-# Build rule for target.
-ngine_import: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ngine_import
-.PHONY : ngine_import
-
-# fast build rule for target.
-ngine_import/fast:
-	$(MAKE) -f import/CMakeFiles/ngine_import.dir/build.make import/CMakeFiles/ngine_import.dir/build
-.PHONY : ngine_import/fast
-
-#=============================================================================
-# Target rules for targets named ngine_network
-
-# Build rule for target.
-ngine_network: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ngine_network
-.PHONY : ngine_network
-
-# fast build rule for target.
-ngine_network/fast:
-	$(MAKE) -f network/CMakeFiles/ngine_network.dir/build.make network/CMakeFiles/ngine_network.dir/build
-.PHONY : ngine_network/fast
 
 # Help Target
 help:
@@ -261,12 +274,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ngine_render"
 	@echo "... ngine_scenegraph"
+	@echo "... ngine_iohand"
+	@echo "... ngine_physics"
 	@echo "... ngine_core"
-	@echo "... serialize"
-	@echo "... test_server"
-	@echo "... test_client"
 	@echo "... ngine_import"
 	@echo "... ngine_network"
+	@echo "... ngine_mesh"
+	@echo "... serialize"
 .PHONY : help
 
 

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/melnik/projects/nutty/ngine/iohand/window.c
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+malloc.h
+-
+window.h
+/home/melnik/projects/nutty/ngine/iohand/window.h
+
+/home/melnik/projects/nutty/ngine/iohand/window.h
+
